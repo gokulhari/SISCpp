@@ -1,0 +1,4 @@
+TODO
+
+1. Need to change GeneralizedEigenSolver. compute(Linop). This has to overloaded from GeneralizedEigenSolver.compute(LinopMat).
+2. Need to make the concept of Chebfun completely internal, in all examples, solvers etc. must work only via valarray, makes programing easy.
