@@ -1,5 +1,5 @@
 /// \file sis.hpp
-/// \mainpage A solver for linear differential equations.
+/// \mainpage
 ///
 /// Written by Gokul Hariharan, harih020@umn.edu.
 ///
@@ -9934,8 +9934,9 @@ public:
   /// will all boundary conditions for left and right in it, in the orders left
   /// followed by right.
   ///
-  /// \todo It is possible to have incosistent equations and yet find an Adjoint
-  /// bc that compensates for the rank deficiency.
+
+  // \todo It is possible to have incosistent equations and yet find an Adjoint
+  // bc that compensates for the rank deficiency.
   BcMat<T> AdjointBc_analytical(const LinopMat<T> &Lmat_, const BcMat<T> &Lbc_,
                                 const BcMat<T> &Rbc_) {
     int bre;
@@ -11712,8 +11713,9 @@ public:
   /// will all boundary conditions for left and right in it, in the orders left
   /// followed by right.
   ///
-  /// \todo It is possible to have incosistent equations and yet find an Adjoint
-  /// bc that compensates for the rank deficiency.
+  
+  // \todo It is possible to have incosistent equations and yet find an Adjoint
+  // bc that compensates for the rank deficiency.
   BcMat<std::complex<T> >
   AdjointBc_analytical(const LinopMat<std::complex<T> > &Lmat_,
                        const BcMat<std::complex<T> > &Lbc_,
