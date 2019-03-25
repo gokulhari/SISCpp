@@ -8,8 +8,8 @@
 /// \f]
 /// with boundary conditions:
 /// \f{align}{
-/// u(-1)\;&=\; 2\\
-/// u(1) \;&=\; 3.
+/// u(-1) + 4\,u'(-1)\;&=\; 2\\
+/// u(1) - 5\,u'(1)\;&=\; 3.
 /// \f}
 /// Solving by entering the forcing in physical-space, so solution
 /// is returned in physical space.

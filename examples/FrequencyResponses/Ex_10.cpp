@@ -1,4 +1,5 @@
-/// Solving for frequency responses of diffusion operator
+/// \file Ex_10.cpp
+/// \brief Solving for frequency responses of diffusion operator
 
 
 #define SIS_USE_LAPACK

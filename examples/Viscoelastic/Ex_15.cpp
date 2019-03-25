@@ -1,3 +1,6 @@
+/// \file Ex_15.cpp
+/// \brief Example with discriptor approach.
+
 #define EIGEN_DONT_PARALLELIZE
 #define SIS_USE_LAPACK
 #define SIS_DONT_SORT

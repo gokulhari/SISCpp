@@ -6,21 +6,22 @@
 ///
 /// \section Introduction
 ///
-/// Spectral integral suite (SIS) is a generic header to solve
+/// Spectral integral suite in C++ (SISC++) is a generic header to solve
 /// two-point-boundary-value problems in the system
-/// representation. In essence, SIS can solve for linear differential equations,
-///  and compute eigenvalues and singular values of linear differential systems.
+/// representation. SISC++ can solve for linear differential equations,
+/// and compute eigenvalues, and frequency responses of linear differential systems.
 /// We started this in
-///  order to produce programs for direct numerical simulations of viscoelastic
-///  channel flows. But then we extended this as a generic solver, following in
+/// order to produce programs for direct numerical simulations of viscoelastic
+/// channel flows, then we extended this as a generic solver, following in
 /// the lines of Chebfun, see http://www.chebfun.org/. Chebfun is based on a
-/// commercial software, Matlab.
+/// Matlab for which you need to purchase a license.
 ///
-/// SIS aims to provide a Chebfun-like interface in C++. Just as Chebfun
+/// SISC++ aims to provide a Chebfun-like interface in C++. Just as Chebfun
 /// overloads functions and operations on linear matrices to differential
 /// operators,
-/// SIS overloads many of Eigen's classes to linear differential operators.
-/// For instance, one would input a normal matrix in Eigen in the following
+/// SISC++ uses <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> matrix representation in C++ to
+/// classes for linear differential operators.
+/// For instance, one would input a normal matrix using <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a> in the following
 /// manner,
 /// \code{.cpp}
 /// using namespace Eigen;
@@ -28,7 +29,7 @@
 /// A << 1, 2, //
 ///      3, 4;
 /// \endcode
-/// In SIS, you can overload  the linear block-matrix operator
+/// In SISC++, you can overload  the linear block-matrix operator
 /// \f{align}
 /// L =  \left[ \begin{array}{cc}
 /// \partial_y & y \\
@@ -47,35 +48,30 @@
 /// L << Dy, y,//
 ///      y*Dyy, Dyy/2.0;
 /// \endcode
-/// Following that, just as you can use the EigenSolver in Eigen for matrix
+/// Following that, just as you can use the EigenSolver in <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a> for matrix
 /// eigenvalues, you can use EigenSolver in SIS for linear block-matrix
 /// operators.
-/// \n \n There are many advantages to a code in C++: Firstly, C++ is
-/// completely free and accessible to all, even for those who haven't purchased
-/// a Matlab license. Secondly, a code in C++ can be optimized for speed by
-/// proprietary compilers, like the Intel compiler / Cray compiler. Thirdly,
-/// Matlab
-/// undergoes many updates corresponding to which Chebfun too has to be updated
-/// regularly. But this is not a problem with C++.
-/// SIS is based on
-/// C++98, which will likely be the all-time default "C++", and has been in use
-/// for over 20 years. \n \n
+/// \n \n An advantage with a code in C++ is
+/// you do not need a Matlab license to use it.
+/// You can also optimized a code in C++ for speed by
+/// using proprietary compilers, like the Intel compiler / Cray compiler.
 ///
 /// One major difference from Chebfun is that in SISC++, we do not provide for
 /// automatic collocation. Automatic collocation is an extremely useful utility
 /// in Chebfun that keeps increasing the number of basis functions until the
-/// solution reaches machine precision. We did not incorporate this on-purpose
+/// solution reaches machine precision. We did not incorporate this
 /// as automatic collocation adds heavily to the computational expense, which is
 /// a great liability for direct numerical simulations.
 ///
-/// SISC++ provides these conviences, nonetheless one is
-/// required to understand the basics of C++ to work with SIS. Most
-/// users familiar with Eigen's interface will find it easy to use SIS. \n \n
-///
-/// SISC++ is based on the recent spectral-integral method for non-constant by
+/// For most part classes and functions are quite intuitive, but you need to know
+/// at least a little bit about C++. A good place to learn C++
+/// is <a href="http://www.cplusplus.com/doc/tutorial/">here </a>.
+/// You'll find it amazing if you have used <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>.
+/// As far as the algorithm is concerned, SISC++ is based on the recent
+/// spectral-integral method for non-constant by
 /// Du,
 ///  \cite DuSI , which is a
-/// well-conditioned method, compared to the spectral-collocation method.
+/// well-conditioned method, compared to conventional spectral-collocation / Tau methods.
 /// Note that Chebfun too has a well-conditioned scheme, the ultraspherical
 /// discretization \cite UltraS. \n \n
 ///
@@ -100,7 +96,7 @@
 ///   2. Eigen (http://eigen.tuxfamily.org/index.php?title=Main_Page)
 ///
 /// We strogly recommend downloading these from the respective websites and
-/// installing them. For Eigen in specific, we ask that Mac users refrain from
+/// installing them. For <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> in specific, we ask that Mac users refrain from
 /// using brew to install either of these. Of course, if the user is familiar
 /// about linking these libraries correctly while using C++, then the method of
 /// installing these libraries should not matter.
@@ -118,8 +114,8 @@
 /// No part of SIS uses anything that is OS specific,
 /// nonetheless, However, I have tried this on Mac and Linux.
 ///
-/// Most routines in SIS use default Eigen's routines for solutions and
-/// eigenvalue solver. At the time of writing this program, Eigen does not have
+/// Most routines in SIS use default <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>'s routines for solutions and
+/// eigenvalue solver. At the time of writing this program, <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> does not have
 /// eigenvalue solver for complex generalized systems, of the form
 ///  \f$ L\,\phi= \lambda \, M \, \phi\f$. As SIS uses a
 /// well-conditioned discretization, in most cases both \f$L\f$ and \f$M\f$ are
@@ -128,11 +124,15 @@
 ///
 /// We provide an option to use the macro SIS_USE_LAPACK. This will use LAPACK's
 /// complex generalized eigenvalue solver and also replace all other places of
-/// the codes with LAPACK's counter-part. Of course, for this to work, you need
-/// to source the location of LAPACK headers, link LAPACK libraries and also
-/// have gfortran linked during compilation (this means
+/// the codes with LAPACK's counter-part. Intel MKL also has LAPACK in it,
+/// so if you have linked Intel MKL correctly, LAPACK must be available in the
+/// same path as Intel MKL (you will not have to do anything extra). However,
+/// as we use fortran code in C++, gfortran needs to be linked during compilation (implying that
 /// gfortran must be installed, in Mac say "brew install gfortran", and in
-/// linux "sudo apt-get install gfortran" in the terminal)
+/// linux "sudo apt-get install gfortran" in the terminal). In summary is you
+/// need to use SIS_USE_LAPACK, make sure that gfortran is installed.
+///
+///
 ///
 /// \section Installation
 ///
@@ -142,7 +142,7 @@
 ///
 /// \section secgets Getting Started
 ///
-/// If Eigen and Intel MKL are installed in their default locations, then you
+/// If <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> and Intel MKL are installed in their default locations, then you
 /// can begin by creating two folders, named bin and data. Then open a terminal
 /// in the current folder and say \code{.sh} make all \endcode This will compile
 /// all the examples in the directory examples, and the executables will be
@@ -11713,7 +11713,7 @@ public:
   /// will all boundary conditions for left and right in it, in the orders left
   /// followed by right.
   ///
-  
+
   // \todo It is possible to have incosistent equations and yet find an Adjoint
   // bc that compensates for the rank deficiency.
   BcMat<std::complex<T> >

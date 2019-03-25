@@ -1,4 +1,4 @@
-/// \file Visco_3D_pipe.cpp
+/// \file Ex_16.cpp
 /// \brief Finds Eigenvalues for 3D Cylindrical flow of Oldroyd-B fluid.
 ///
 /// The velocity vector is given by \f$ \mathbf{v} \;=\; u\,\mathbf{e}_r +

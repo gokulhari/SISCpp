@@ -1,4 +1,5 @@
-/// \brief example with discriptor approach.
+/// \file Ex_11.cpp
+/// \brief Example with discriptor approach.
 
 #define EIGEN_USE_BLAS
 #define SIS_USE_LAPACK

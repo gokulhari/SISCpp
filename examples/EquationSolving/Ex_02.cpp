@@ -3,7 +3,7 @@
 ///
 /// Solves a fourth order system:
 ///\f[
-/// \partial{yyyy}u(y) \,-\, 4\,\partial_{yy}u(y) \,+\, 8\,u(y)
+/// \partial_{yyyy}u(y) \,-\, 4\,\partial_{yy}u(y) \,+\, 8\,u(y)
 /// \;= \; 1 \,-\, y^2 \,+\, y^3,
 /// \f]
 /// with clamped boundary conditions:
