@@ -1,5 +1,5 @@
 /// \file Ex_01.cpp
-/// \brief This simulates a simple 2nd order TPBVP with Dirichlet boundary
+/// \brief This simulates a simple 2nd order ODE with mixed boundary
 /// conditions.
 ///
 /// Solves:
@@ -7,14 +7,14 @@
 /// \partial_{yy}u(y)\,-\,4\, u(y)\;=\; 1 \; - \; y^2,
 /// \f]
 /// with boundary conditions:
-/// \f{align}{
-/// u(-1) + 4\,u'(-1)\;&=\; 2\\
-/// u(1) - 5\,u'(1)\;&=\; 3.
+/// \f{align*}{
+/// u(-1)  \,+\,  4\,u'(-1)\;&=\; 2,\\
+/// u(1)  \,-\,  5\,u'(1)\;&=\; 3.
 /// \f}
 /// Solving by entering the forcing in physical-space, so solution
 /// is returned in physical space.
 ///
-/// \image html pics/Ex_01.svg "Comparing solutions from SIS and Chebfun" <!--
+/// \image html pics/Ex_01.svg <!--
 /// --> width=500cm height=500cm
 
 #include <fstream> // To output data to files

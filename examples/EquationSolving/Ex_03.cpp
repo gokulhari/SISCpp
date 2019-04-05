@@ -7,7 +7,7 @@
 /// solution is given by: \f[ u(y) = \exp\left(-\mathrm{tan}^{-1}(y)\,-\,
 /// \mathrm{tan}^{-1}(1) \right) \f]
 ///
-/// \image html pics/Ex_06.svg "Comparing analytical and solutions from SIS"
+/// \image html pics/Ex_03.svg "Comparing analytical and solutions from SIS"
 /// <!--
 /// --> width=500cm height=500cm
 #include <fstream>

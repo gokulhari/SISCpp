@@ -14,7 +14,7 @@
 /// \end{array}
 /// \f]
 ///
-/// \image html pics/Ex_03.svg "Comparing solutions from SIS and Chebfun" <!--
+/// \image html pics/Ex_02.svg <!--
 /// --> width=500cm height=500cm
 
 #include <fstream> // To output data to files
@@ -67,7 +67,7 @@ int main() {
 
   // Write to file to plot, need only the real part:
   ofstream outf;
-  outf.open("data/Ex_03.txt");
+  outf.open("data/Ex_02.txt");
   Eigen::MatrixXd temp(N + 1, 2);
   temp << yEigen, forc(0,0).evr();
   outf << temp;
