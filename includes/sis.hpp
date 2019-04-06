@@ -1768,6 +1768,26 @@ public:
       ChebfunVec[i].dct_flag = in.ChebfunVec[i].dct_flag;
     }
   }
+
+  /// \brief Assigning a ChebfunMat using a Eigen-matrix. Eigen-Matrix should be
+  /// of size (r*(N+1), c), else an error is thrown. This implies that
+  /// one must have called the resize(r,c) function before using this.
+  void operator=(const Eigen::Matrix<T, Eigen::Dynamic,
+                                     Eigen::Dynamic> &in) {
+
+    if (in.rows() != r * (N + 1) || in.cols() != c) {
+      std::cout
+          << "Error in assigning a ChebfunMat through an Eigen Matrix. In line "
+          << __LINE__ << ". Exiting ..." << '\n';
+      exit(1);
+    }
+    for (int i = 0; i < r; i++) {
+      for (int j = 0; j < c; j++) {
+        operator()(i, j) = in.block(i * (N + 1), j, N + 1, 1);
+      }
+    }
+  }
+
   /// \brief Use this to input multiple Chebfuns to the ChebfunMat using comma
   /// separators. Input type of constant.
   ChebfunMat<T> &operator<<(T b) {
@@ -7643,7 +7663,6 @@ public:
   void resize(int r_, int c_) {
     r = r_;
     c = c_;
-    LinopVec.clear();
     LinopVec.resize(r * c);
     count = 0;
   }
@@ -8291,6 +8310,15 @@ public:
     eval = in.eval;
     vals = in.vals;
   }
+
+  int rows() {
+      return m;
+    }
+
+    int cols() {
+      return n;
+    }
+
   /// \brief Calling BcMat(i,j, ord) will produce row vector representing
   /// [------][a0 a1 ... an C0 C1]^T, assuming ord = 2. i and j refers to an
   /// element in the LinopMat L. Suppose L(1,1) is Dyy, and eval(1,1) = -1, then
@@ -8381,6 +8409,14 @@ public:
     L = in.L;
     eval = in.eval;
     vals = in.vals;
+  }
+
+  int rows() {
+    return m;
+  }
+
+  int cols() {
+    return n;
   }
 
   /// \brief Calling BcMat(i,j, ord) will produce row vector representing
