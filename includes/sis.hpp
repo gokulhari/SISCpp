@@ -7415,9 +7415,12 @@ private:
   int n;
 
 public:
-  std::vector<Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic> > mats;
-  std::vector<Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic> > mats2;
-  std::vector<Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic> > con_mats;
+  std::vector<Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic> >
+      mats;
+  std::vector<Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic> >
+      mats2;
+  std::vector<Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic> >
+      con_mats;
 
   /// \brief Null Constructor
   MatGen() {}
@@ -7432,11 +7435,11 @@ public:
     mats.resize(n + 1);
     for (int i = 0; i < n + 1; i++) {
       mats[i].resize(N + 1 + 2 * n, N + 1 + 2 * n);
-      mats[i].setConstant(0.0);
+      mats[i].setConstant( 0.0);
     }
     mats[0].block(0, 0, N + 1, N + 1) =
-        Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>::Identity(N + 1,
-                                                                   N + 1);
+        Eigen::Matrix<T, Eigen::Dynamic,
+                      Eigen::Dynamic>::Identity(N + 1, N + 1);
     for (int i = 1; i < n + 1; i++) {
       mats[i].row(0) = 0.5 * mats[i - 1].row(1);
       for (int j = 1; j < N + 2 * n; j++) {
@@ -7444,25 +7447,22 @@ public:
             (mats[i - 1].row(j - 1) - mats[i - 1].row(j + 1)) / (2.0 * j);
       }
     }
-
-    if (n > 0) {
-      con_mats.resize(n);
-      for (int i = 0; i < n; i++) {
-        con_mats[i].resize(n, n);
-        con_mats[i].setConstant(0.0);
-      }
-      // Next we set the matrices for the constants
-      con_mats[n - 1].setIdentity(n, n);
-      for (int i = n - 2; i > -1; i--) {
-        for (int j = 0; j < n; j++) {
-          con_mats[i].col(j) = diff<T>(con_mats[i + 1].col(j));
-        }
+    con_mats.resize(n);
+    for (int i = 0; i < n; i++) {
+      con_mats[i].resize(n, n);
+      con_mats[i].setConstant(0.0);
+    }
+    // Next we set the matrices for the constants
+    con_mats[n - 1].setIdentity(n, n);
+    for (int i = n - 2; i > -1; i--) {
+      for (int j = 0; j < n; j++) {
+        con_mats[i].col(j) = diff<T>(con_mats[i + 1].col(j));
       }
     }
     mats2.resize(n + 1);
     for (int i = 0; i < n + 1; i++) {
       mats2[i].resize(N + 1, N + 1 + n);
-      mats2[i].setConstant(0.0);
+      mats2[i].setConstant( 0.0);
     }
     for (int i = 0; i < n + 1; i++) {
       mats2[i].block(0, 0, N + 1, N + 1) = mats[i].block(0, 0, N + 1, N + 1);
@@ -10014,6 +10014,109 @@ public:
     }
   };
 
+  /// \brief Computes power spectral density from the frequency response operator
+  /// of a system in the input-output
+  /// form,
+  /// \f{align}
+  /// [\mathcal{A}\,\psi(\cdot)](y)  \;&=\;
+  /// [\mathcal{B}\,\boldmath{d}(\cdot)](y)\\ \phi(y)  \;&=\;
+  /// \mathcal{C}\,\psi(y), \f}.
+  /// Power spectral density is the sum of squares of the singular values.
+  std::complex<T> PowerSpectralDensity(const LinopMat<std::complex<T> > &A_,
+               const LinopMat<std::complex<T> > &B_,
+               const LinopMat<std::complex<T> > &C_,
+               const BcMat<std::complex<T> > &Lbc_,
+               const BcMat<std::complex<T> > &Rbc_) {
+    int bre;
+    LinopMat<std::complex<T> > A = A_;
+    LinopMat<std::complex<T> > B = B_;
+    LinopMat<std::complex<T> > C = C_;
+    BcMat<std::complex<T> > Lbc = Lbc_;
+    BcMat<std::complex<T> > Rbc = Rbc_;
+    LinopMat<std::complex<T> > Astar = Adjoint(A);
+    LinopMat<std::complex<T> > Bstar = Adjoint(B);
+    LinopMat<std::complex<T> > Cstar = Adjoint(C);
+    BcMat<std::complex<T> > Astar_bc = AdjointBc_analytical(A, Lbc, Rbc);
+
+    // std::cout << "Astar_bc: \n" << '\n';
+    // for (int i = 0; i < Astar_bc.m; i++) {
+    // for (int j = 0; j < Astar_bc.n; j++) {
+    //   std::cout << "ij = (" << i << "," << j << ")" << '\n';
+    //   std::cout << Astar_bc.L(i, j).coef << '\n';
+    // }
+    // }
+    // std::cin >> bre;
+    // std::cout << "Astar_bc.eval: " << Astar_bc.eval << std::endl;
+    // std::cin >> bre;
+    // std::valarray<std::complex<T> > rr(N + 1);
+    // setChebPts(rr);
+    // for (int i = 0; i < Astar.r; i ++){
+    //   for (int j = 0; j < Astar.c;j ++){
+    //     if(Astar(i,j).NCC == 0){
+    //       std::cout << "ij = ("<< i <<"," << j << "):" << '\n';
+    //       std::cout << Astar(i,j).coef << '\n';
+    //       std::cin >> bre;
+    //     } else {
+    //       for (int k = 0; k < Astar(i,j).n + 1; k ++){
+    //         if (Astar(i,j).coefFun[k].dct_flag == SIS_PHYS_SPACE){
+    //           Astar(i,j).coefFun[k].v = Astar(i,j).coefFun[k].v / (rr);
+    //         } else {
+    //           Astar(i,j).coefFun[k].c2p();
+    //           Astar(i,j).coefFun[k].v = Astar(i,j).coefFun[k].v / (rr);
+    //           Astar(i,j).coefFun[k].p2c();
+    //         }
+    //         std::cout << "("<< i <<"," << j << "," << k << "):" << '\n';
+    //         std::cout << Astar(i,j).coefFun[k](-1) << '\n';
+    //         std::cin >> bre;
+    //       }
+    //     }
+    //   }
+    //}
+
+    BcMat<std::complex<T> > A_bc(Lbc.m + Rbc.m, Lbc.n);
+    Lbc.eval.setConstant(-1.0);
+    Rbc.eval.setConstant(1.0);
+
+    A_bc.L << Lbc.L, //
+        Rbc.L;
+
+    A_bc.eval << Lbc.eval, //
+        Rbc.eval;          //
+
+    LinopMat<std::complex<T> > BBstar, CstarC;
+    BBstar = B * Bstar;
+    CstarC = Cstar * C;
+
+
+      Discretize<std::complex<T> > ADis, AstarDis;
+      Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> A0, A0star,
+          B0B0star, C0starC0, L, M, invA0, invA0star;
+      A0 = ADis(A, A_bc);
+      A0star = AstarDis(Astar, Astar_bc);
+      B0B0star = AstarDis((BBstar));
+      C0starC0 = ADis((CstarC));
+      Eigen::ColPivHouseholderQR<
+          Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> >
+          qr(A0star);
+      if (!qr.isInvertible()) {
+        std::cout << "Cannot compute the right singular vectors alone."
+                  << "Change svd_flag to SIS_SVD. Exiting ... " << '\n';
+        exit(1);
+      }
+      invA0star = qr.inverse();
+      qr.compute(A0);
+      if (!qr.isInvertible()) {
+        std::cout << "Cannot compute the right singular vectors alone."
+                  << "Change svd_flag to SIS_SVD. Exiting ... " << '\n';
+        exit(1);
+      }
+
+      invA0 = qr.inverse();
+      L = invA0 * B0B0star * invA0star * C0starC0;
+      std::complex<T> tempc = L.trace();
+      return tempc;
+
+  };
   /// \brief Computes singular values of the frequency response operator
   /// of a system in the input-output
   /// form,

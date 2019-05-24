@@ -63,7 +63,8 @@ Ex_16:
 	g++ examples/Viscoelastic/Ex_16.cpp -o bin/Ex_16 -I includes -lfftw3 $(BLAS) -g
 Ex_17:
 	g++ examples/Viscoelastic/Ex_17.cpp -o bin/Ex_17 -I includes -lfftw3 $(BLAS)
-
+2DViscoSvd2:
+	g++ test/2DViscoSvd2.cpp -o bin/2DViscoSvd2 -I includes $(BLAS) -g
 format:
 	clang-format -i includes/*.hpp examples/*.cpp test/*.cpp paper/paper1/src/*.cpp -style='{BasedOnStyle: llvm, Standard: Cpp03}'
 
