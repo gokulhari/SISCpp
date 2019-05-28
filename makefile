@@ -3,7 +3,7 @@ BLAS =-lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core  -liomp5 -lpthread -lm -lir
 #BLAS = -L /opt/OpenBLAS/lib -lopenblas -lpthread -lm -I /opt/OpenBLAS/include -lgfortran
 
 # Detecting OS from Makefile, code taken from https://gist.github.com/sighingnow/deee806603ec9274fd47
-
+PYTHON = -I/Users/gokul/anaconda3/include/python3.7m -L/Users/gokul/anaconda3/lib -lpython3.7
 OSFLAG :=
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
@@ -65,6 +65,8 @@ Ex_17:
 	g++ examples/Viscoelastic/Ex_17.cpp -o bin/Ex_17 -I includes -lfftw3 $(BLAS)
 2DViscoSvd2:
 	g++ test/2DViscoSvd2.cpp -o bin/2DViscoSvd2 -I includes $(BLAS) -g
+2DViscoSvd_LikeMJ:
+	g++ test/2DViscoSvd_LikeMJ.cpp -o bin/2DViscoSvd_LikeMJ -I includes $(BLAS) -g
 format:
 	clang-format -i includes/*.hpp examples/*.cpp test/*.cpp paper/paper1/src/*.cpp -style='{BasedOnStyle: llvm, Standard: Cpp03}'
 
