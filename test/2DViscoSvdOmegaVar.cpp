@@ -1,6 +1,6 @@
 
 
-#define EIGEN_USE_MKL_ALL
+#define EIGEN_DONT_PARALLELIZE
 #define EIGEN_FAST_MATH 0
 
 #include <fstream>
@@ -52,6 +52,7 @@ int main() {
   }
 for (int j = 0; j < 3; j++){
   Cd_t We = Wes[j];
+  #pragma omp parallel for
   for (int i = 0; i < 50; i ++){
     Cd_t Re = 0.0;
     Cd_t kx = 1.0;
@@ -104,7 +105,7 @@ for (int j = 0; j < 3; j++){
     Linop<Cd_t> tau22Tov, tau12Tov, tau11Tov;
     tau22Tov =
         Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy + Vcd_t((2.0*pow(kx,2.0)*Uy*We)/c);
-    tau12Tov = Vcd_t(1.0/c)*Dyy + Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy +
+    tau12Tov = Vcd_t(Cd_t(1.0,0.0)/c)*Dyy + Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy +
       Vcd_t((kx*(Cd_t(0.0,1.0)*c*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,2.0));
 
     tau11Tov = Vcd_t((2.0*(1.0 + c)*Uy*We)/pow(c,2.0))*Dyy + Vcd_t((Cd_t(0.0,2.0)*pow(c,2.0)*kx + Cd_t(0.0,4.0)*(-1.0 + pow(c,2.0))*kx*pow(Uy,2.0)*pow(We,2.0))/pow(c,3.0))*Dy +
