@@ -10120,24 +10120,21 @@ public:
 
   std::valarray<std::complex<T> > PowerSpectralDensityIndividual(const LinopMat<std::complex<T> > &A_,
                const LinopMat<std::complex<T> > &B_,
-               const LinopMat<std::complex<T> > &C_,
+               const LinopMat<std::complex<T> > &C1_,
+               const LinopMat<std::complex<T> > &C2_,
+               const LinopMat<std::complex<T> > &C3_,
                const BcMat<std::complex<T> > &Lbc_,
                const BcMat<std::complex<T> > &Rbc_) {
     int bre;
     LinopMat<std::complex<T> > A = A_;
     LinopMat<std::complex<T> > B = B_;
-    LinopMat<std::complex<T> > C = C_;
-    LinopMat<std::complex<T> > C1(1,1);
-    C1 << C(0,0);
-    LinopMat<std::complex<T> > C2(1,1);
-    C2 << C(1,0);
-    LinopMat<std::complex<T> > C3(1,1);
-    C3 << C(2,0);
+    LinopMat<std::complex<T> > C1 = C1_;
+    LinopMat<std::complex<T> > C2 = C2_;
+    LinopMat<std::complex<T> > C3 = C3_;
     BcMat<std::complex<T> > Lbc = Lbc_;
     BcMat<std::complex<T> > Rbc = Rbc_;
     LinopMat<std::complex<T> > Astar = Adjoint(A);
     LinopMat<std::complex<T> > Bstar = Adjoint(B);
-    LinopMat<std::complex<T> > Cstar = Adjoint(C);
     LinopMat<std::complex<T> > Cstar1 = Adjoint(C1);
     LinopMat<std::complex<T> > Cstar2 = Adjoint(C2);
     LinopMat<std::complex<T> > Cstar3 = Adjoint(C3);
