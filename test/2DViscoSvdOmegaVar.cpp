@@ -1,6 +1,7 @@
 
 
-#define EIGEN_DONT_PARALLELIZE
+//#define EIGEN_DONT_PARALLELIZE
+#define EIGEN_USE_MKL_ALL
 #define EIGEN_FAST_MATH 0
 
 #include <fstream>
@@ -52,7 +53,7 @@ int main() {
   }
 for (int j = 0; j < 3; j++){
   Cd_t We = Wes[j];
-  #pragma omp parallel for
+  //#pragma omp parallel for
   for (int i = 0; i < 50; i ++){
     Cd_t Re = 0.0;
     Cd_t kx = 1.0;
@@ -125,14 +126,13 @@ for (int j = 0; j < 3; j++){
     Cphi << 1.0;
 
     SingularValueDecomposition<Cd_t> svd;
+    valarray<Cd_t> ans_v;
     Cd_t ans = svd.PowerSpectralDensity(Amat, B, Cphi, lbc, rbc);
     psd(i,j+1) = real(ans);
-    ans = svd.PowerSpectralDensity(Amat, B, Ctauxx, lbc, rbc);
-    psdxx(i,j+1) = real(ans);
-    ans = svd.PowerSpectralDensity(Amat, B, Ctauxy, lbc, rbc);
-    psdxy(i,j+1) = real(ans);
-    ans = svd.PowerSpectralDensity(Amat, B, Ctauyy, lbc, rbc);
-    psdyy(i,j+1) = real(ans);
+    ans_v = svd.PowerSpectralDensityIndividual(Amat, B, Ctau, lbc, rbc);
+    psdxx(i,j+1) = real(ans_v[0]);
+    psdxy(i,j+1) = real(ans_v[1]);
+    psdyy(i,j+1) = real(ans_v[2]);
     std::cout << "i: " << i << ", j = " << j << '\n';
   }
 }
