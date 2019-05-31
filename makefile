@@ -66,9 +66,9 @@ Ex_17:
 2DViscoSvd2:
 	g++ test/2DViscoSvd2.cpp -o bin/2DViscoSvd2 -I includes $(BLAS) -g
 2DViscoSvd_LikeMJ:
-	g++ test/2DViscoSvd_LikeMJ.cpp -o bin/2DViscoSvd_LikeMJ -I includes $(BLAS) -g
+	g++ test/2DViscoSvd_LikeMJ.cpp -o bin/2DViscoSvd_LikeMJ -I includes $(BLAS) $(OSFLAG) -g
 2DViscoSvdOmegaVar:
-	g++ test/2DViscoSvdOmegaVar.cpp -o bin/2DViscoSvdOmegaVar -I includes $(BLAS) $(OSFLAG) -g
+	g++ test/2DViscoSvdOmegaVar.cpp -o bin/2DViscoSvdOmegaVar -I includes  $(BLAS) $(OSFLAG) -g
 
 format:
 	clang-format -i includes/*.hpp examples/*.cpp test/*.cpp paper/paper1/src/*.cpp -style='{BasedOnStyle: llvm, Standard: Cpp03}'

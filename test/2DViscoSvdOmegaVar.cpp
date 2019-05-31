@@ -1,7 +1,7 @@
 
 
-#define EIGEN_DONT_PARALLELIZE
-/// #define EIGEN_USE_MKL_ALL
+/// #define EIGEN_DONT_PARALLELIZE
+#define EIGEN_USE_MKL_ALL
 #define EIGEN_FAST_MATH 0
 
 #include <fstream>
@@ -14,27 +14,30 @@
 using namespace std;
 typedef complex<double> Cd_t;
 typedef valarray<double> Vd_t;
-typedef valarray<complex<double> > Vcd_t;
+typedef valarray<Cd_t> Vcd_t;
 int main() {
+  //omp_set_num_threads(7);
+  //cout<< Eigen::nbThreads() << " is the number of threads" << flush;
   using namespace sis;
   int bre;
   valarray<double> Wes(3);
-  Eigen::VectorXd omegas(50);
-  omegas = Eigen::VectorXd::LinSpaced(50,1,5);
+  int samp = 30;
+  Eigen::VectorXd omegas(samp);
+  omegas = Eigen::VectorXd::LinSpaced(samp,-1.5,3);
   omegas = pow(10,omegas.array());
-  Eigen::MatrixXd psd(50,4);
-  Eigen::MatrixXd psdxx(50,4);
-  Eigen::MatrixXd psdxy(50,4);
-  Eigen::MatrixXd psdyy(50,4);
+  Eigen::MatrixXd psd(samp,4);
+  Eigen::MatrixXd psdxx(samp,4);
+  Eigen::MatrixXd psdxy(samp,4);
+  Eigen::MatrixXd psdyy(samp,4);
   psd.col(0) = omegas;
   psdxx.col(0) = omegas;
   psdxy.col(0) = omegas;
   psdyy.col(0) = omegas;
   // Number of Chebyshev polynomials
-  Wes[0] = 50;
-  Wes[1] = 100;
-  Wes[2] = 200;
-  N = 511;
+  Wes[0] = 10;
+  Wes[1] = 20;
+  Wes[2] = 40;
+  N = 1023;
   sis_setup();
   Vcd_t U(N + 1), Uy(N + 1), Uyy(N + 1);
   string flowType("Couette");
@@ -53,8 +56,8 @@ int main() {
   }
 for (int j = 0; j < 3; j++){
   Cd_t We = Wes[j];
-  #pragma omp parallel for
-  for (int i = 0; i < 50; i ++){
+  //#pragma omp parallel for
+  for (int i = 0; i < samp; i ++){
     Cd_t Re = 0.0;
     Cd_t kx = 1.0;
     Cd_t beta = 0.5;
@@ -94,6 +97,7 @@ for (int j = 0; j < 3; j++){
            Cd_t(0.0,1.0)*Uyy*We*(pow(cy,2.0) + Cd_t(0.0,6.0)*cy*kx*Uy*We + 6.0*pow(kx,2.0)*pow(Uy,2.0)*pow(We,2.0)))))/pow(c,4.0);
 
     LinopMat<Cd_t> Amat(1, 1), B(1, 2), C(2, 1), Ctau(3, 1), Cphi(1,1), Ctauxx(1,1),Ctauxy(1,1),Ctauyy(1,1);
+
     Amat << ((a4*Dyyyy) + (a3 * Dyyy) + (a2 * Dyy) + (a1 * Dy) + a0);
 
     BcMat<Cd_t> lbc(2, 1), rbc(2, 1);
@@ -105,7 +109,8 @@ for (int j = 0; j < 3; j++){
     rbc.eval.setConstant(1.0);
     Linop<Cd_t> tau22Tov, tau12Tov, tau11Tov;
     tau22Tov =
-        Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy + Vcd_t((2.0*pow(kx,2.0)*Uy*We)/c);
+        Vcd_t((Cd_t(0.0,-2.0)*kx)/c)*Dy + Vcd_t((2.0*pow(kx,2.0)*Uy*We)/c);
+
     tau12Tov = Vcd_t(Cd_t(1.0,0.0)/c)*Dyy + Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy +
       Vcd_t((kx*(Cd_t(0.0,1.0)*c*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,2.0));
 
@@ -127,8 +132,8 @@ for (int j = 0; j < 3; j++){
 
     SingularValueDecomposition<Cd_t> svd;
     valarray<Cd_t> ans_v;
-    Cd_t ans = svd.PowerSpectralDensity(Amat, B, Cphi, lbc, rbc);
-    psd(i,j+1) = real(ans);
+    //Cd_t ans = svd.powSpectralDensity(Amat, B, Cphi, lbc, rbc);
+    //psd(i,j+1) = real(ans);
     ans_v = svd.PowerSpectralDensityIndividual(Amat, B, Ctauxx, Ctauxy, Ctauyy, lbc, rbc);
     psdxx(i,j+1) = real(ans_v[0]);
     psdxy(i,j+1) = real(ans_v[1]);

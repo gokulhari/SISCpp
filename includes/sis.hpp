@@ -10097,21 +10097,21 @@ public:
       C0starC0 = ADis((CstarC));
       Eigen::ColPivHouseholderQR<
           Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> >
-          qr(A0star);
+          qr(A0);
       if (!qr.isInvertible()) {
         std::cout << "Cannot compute the right singular vectors alone."
-                  << "Change svd_flag to SIS_SVD. Exiting ... " << '\n';
+                  << "Change svd_flag to SIS_SVD. Exiting ... "<< __LINE__ << '\n';
         exit(1);
       }
-      invA0star = qr.inverse();
-      qr.compute(A0);
+      invA0 = qr.inverse();
+      qr.compute(A0star);
       if (!qr.isInvertible()) {
         std::cout << "Cannot compute the right singular vectors alone."
-                  << "Change svd_flag to SIS_SVD. Exiting ... " << '\n';
+                  << "Change svd_flag to SIS_SVD. Exiting ... " << __LINE__<< '\n';
         exit(1);
       }
 
-      invA0 = qr.inverse();
+      invA0star = qr.inverse();
       L = invA0 * B0B0star * invA0star * C0starC0;
       std::complex<T> tempc = L.trace();
       return tempc;

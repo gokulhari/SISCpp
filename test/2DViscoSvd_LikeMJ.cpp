@@ -1,6 +1,7 @@
 
 
 #define EIGEN_USE_MKL_ALL
+//#define EIGEN_DONT_PARALLELIZE
 #define EIGEN_FAST_MATH 0
 
 #include <fstream>
@@ -17,14 +18,14 @@ typedef valarray<complex<double> > Vcd_t;
 int main() {
   using namespace sis;
   int bre;
-  valarray<double> Wes(10);
-  Eigen::VectorXd psd(10);
+  valarray<double> Wes(20);
+  Eigen::VectorXd psd(20);
   // Number of Chebyshev polynomials
   for (int i = 0; i < 20; i++) {
     Wes[i] = double(i + 1);
   }
 
-  N = 511;
+  N = 479;
   sis_setup();
   Vcd_t U(N + 1), Uy(N + 1), Uyy(N + 1);
   string flowType("Couette");
@@ -45,7 +46,7 @@ std::cout << "I'm here" << std::flush << '\n';
   }
 
 //#pragma omp parallel for
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 20; i++) {
     Cd_t Re = 0.0;
     Cd_t We = Wes[i];
     Cd_t kx = 1.0;
@@ -85,7 +86,7 @@ std::cout << "I'm here" << std::flush << '\n';
         2.0*(-1.0 + beta)*c*(-2.0*cyy*kx*pow(Uy,2.0)*pow(We,2.0) + cy*kx*(cy - Cd_t(0.0,2.0)*kx*Uy*We)*(1.0 + 2.0*pow(Uy,2.0)*pow(We,2.0)) +
            Cd_t(0.0,1.0)*Uyy*We*(pow(cy,2.0) + Cd_t(0.0,6.0)*cy*kx*Uy*We + 6.0*pow(kx,2.0)*pow(Uy,2.0)*pow(We,2.0)))))/pow(c,4.0);
 
-    LinopMat<Cd_t> Amat(1, 1), B(1, 2), C(2, 1), Ctau(3, 1);
+    LinopMat<Cd_t> Amat(1, 1), B(1, 2), C(2, 1), Ctau(3, 1), Cpsi(1,1), Ctauxx(1,1), Ctauxy(1,1), Ctauyy(1,1);
     Amat << ((a4*Dyyyy) + (a3 * Dyyy) + (a2 * Dyy) + (a1 * Dy) + a0);
 
     BcMat<Cd_t> lbc(2, 1), rbc(2, 1);
@@ -96,13 +97,21 @@ std::cout << "I'm here" << std::flush << '\n';
     lbc.eval.setConstant(-1.0);
     rbc.eval.setConstant(1.0);
     Linop<Cd_t> tau22Tov, tau12Tov, tau11Tov;
-    tau22Tov =
-        Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy + Vcd_t((2.0*pow(kx,2.0)*Uy*We)/c);
-    tau12Tov = Vcd_t(1.0/c)*Dyy + Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy +
-      Vcd_t((kx*(Cd_t(0.0,1.0)*c*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,2.0));
+//    tau22Tov =
+//        Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy + Vcd_t((2.0*pow(kx,2.0)*Uy*We)/c);
+//    tau12Tov = Vcd_t(Cd_t(1.0,0.0)/c)*Dyy + Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy +
+//      Vcd_t((kx*(Cd_t(0.0,1.0)*c*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,2.0));
+//
+//    tau11Tov = Vcd_t((2.0*(1.0 + c)*Uy*We)/pow(c,2.0))*Dyy + Vcd_t((Cd_t(0.0,2.0)*pow(c,2.0)*kx + Cd_t(0.0,4.0)*(-1.0 + pow(c,2.0))*kx*pow(Uy,2.0)*pow(We,2.0))/pow(c,3.0))*Dy +
+//   Vcd_t((2.0*kx*Uy*We*(Cd_t(0.0,1.0)*c*(1.0 + 2.0*c)*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,3.0));
+tau22Tov =
+    Vcd_t((Cd_t(0.0,-2.0)*kx)/c)*Dy + Vcd_t((2.0*pow(kx,2.0)*Uy*We)/c);
 
-    tau11Tov = Vcd_t((2.0*(1.0 + c)*Uy*We)/pow(c,2.0))*Dyy + Vcd_t((Cd_t(0.0,2.0)*pow(c,2.0)*kx + Cd_t(0.0,4.0)*(-1.0 + pow(c,2.0))*kx*pow(Uy,2.0)*pow(We,2.0))/pow(c,3.0))*Dy +
-   Vcd_t((2.0*kx*Uy*We*(Cd_t(0.0,1.0)*c*(1.0 + 2.0*c)*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,3.0));
+tau12Tov = Vcd_t(Cd_t(1.0,0.0)/c)*Dyy + Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy +
+  Vcd_t((kx*(Cd_t(0.0,1.0)*c*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,2.0));
+
+tau11Tov = Vcd_t((2.0*(1.0 + c)*Uy*We)/pow(c,2.0))*Dyy + Vcd_t((Cd_t(0.0,2.0)*pow(c,2.0)*kx + Cd_t(0.0,4.0)*(-1.0 + pow(c,2.0))*kx*pow(Uy,2.0)*pow(We,2.0))/pow(c,3.0))*Dy +
+Vcd_t((2.0*kx*Uy*We*(Cd_t(0.0,1.0)*c*(1.0 + 2.0*c)*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,3.0));
 
 
     Ctau << tau11Tov, //
@@ -111,19 +120,23 @@ std::cout << "I'm here" << std::flush << '\n';
     C << Dy, //
         -ii*kx;
     B << Dy,-ii*kx;
-
+    Cpsi << 1.0;
+    Ctauxx << tau11Tov;
+    Ctauxy << tau12Tov;
+    Ctauyy << tau22Tov;
     SingularValueDecomposition<Cd_t> svd;
-    Cd_t ans = svd.PowerSpectralDensity(Amat, B, C, lbc, rbc);
-    psd(i) = real(ans);
+    svd.compute(Amat, B, C, lbc, rbc,10);
+    psd(i) = svd.eigenvalues(0).real();
+    std::cout << "i = " << i << '\n';
 
 
   }
   std::cout << "psd: \n" << psd << '\n';
-  Eigen::MatrixXd mat(10,2);
+  Eigen::MatrixXd mat(20,2);
 
-  mat << Eigen::VectorXd::LinSpaced(10,1,10), psd;
+  mat << Eigen::VectorXd::LinSpaced(20,1,20), psd;
   ofstream outfile;
-  outfile.open("data/psd2.txt");
+  outfile.open("data/spectralIntegration479.txt");
   outfile << mat;
   outfile.close();
   return 0;
