@@ -15,7 +15,7 @@ int main() {
   using namespace sis;
   int bre;
   // Number of Chebyshev polynomials
-  N = 255;
+  sis::N = 127 ;
   sis_setup();
   valarray<double> y, U(N + 1), Uy(N + 1), Uyy(N + 1);
   // Set in cheb-point
@@ -28,9 +28,9 @@ int main() {
   double kx = 1.31;
   */
   double Re = 0.0;
-  double We = 2.0;
+  double We = 2;
   double kx = 1.0;
-  double beta = 0.5;
+  double beta = 0.0;
   // string flowType("Poiseuille");
   string flowType("Couette");
 
@@ -131,12 +131,25 @@ int main() {
               1.0, 0.0, 0.0, 0.0,0.0,0.0,//
               0.0, 1.0, 0.0, 0.0, 0.0, 0.0,//
               0.0, 1.0, 0.0, 0.0, 0.0, 0.0;
+
   GeneralizedEigenSolver<complex<double> > eigs;
-  eigs.compute(Lmat,Mmat, 15*(N + 1), bcs);
+
+  eigs.compute(Lmat,Mmat, 14*(N + 1), bcs);
   eigs.removeInf();
   eigs.sortByLargestReal();
 
   cout << "Eigenvalues: \n" << eigs.eigenvalues << "\n";
+  ofstream outf;
+  outf.open(string("data/Ex_14_") + int2str(N) + string(".txt"));
+  Eigen::MatrixXd temp(eigs.eigenvalues.rows(),2);
+  temp << eigs.eigenvalues.real(),eigs.eigenvalues.imag();
+  outf << temp;
+  outf.close();
 
+  Eigen::MatrixXd evec(N+1,3);
+  evec << yEigen, eigs.eigenvectors(3,23).evr(), eigs.eigenvectors(3,23).evi();
+  outf.open("data/Ex_14_evec.txt");
+  outf << evec;
+  outf.close();
   return 0;
 }

@@ -4986,9 +4986,10 @@ public:
                const LinopMat<std::complex<T> > &Mmat_, int num_vals,
                const BcMat<std::complex<T> > &Lbc_) {
     LinopMat<std::complex<T> > Lmat = Lmat_;
+
     LinopMat<std::complex<T> > Mmat = Mmat_;
-    BcMat<std::complex<T> > Lbc = Lbc_;
     int bre;
+    BcMat<std::complex<T> > Lbc = Lbc_;
     int total_of_all_orders = 0;
     int total_boundary_conditions = 0;
     if (Lmat.r != Lmat.c) {
@@ -5080,10 +5081,9 @@ public:
 
     mat_temp.setConstant(0.0);
     int row_counter = 0, col_counter = 0;
-
     for (int i = 0; i < Lbc.m; i++) {
       for (int j = 0; j < Lbc.n; j++) {
-        Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> temp =
+        Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> temp=
             Lbc(i, j, highest_each_column[j]);
         constraints.block(i, col_counter, 1, temp.cols()) = temp;
         col_counter += temp.cols();
@@ -7447,6 +7447,7 @@ public:
             (mats[i - 1].row(j - 1) - mats[i - 1].row(j + 1)) / (2.0 * j);
       }
     }
+    if (n > 0) {
     con_mats.resize(n);
     for (int i = 0; i < n; i++) {
       con_mats[i].resize(n, n);
@@ -7459,6 +7460,7 @@ public:
         con_mats[i].col(j) = diff<T>(con_mats[i + 1].col(j));
       }
     }
+  }
     mats2.resize(n + 1);
     for (int i = 0; i < n + 1; i++) {
       mats2[i].resize(N + 1, N + 1 + n);
@@ -7518,6 +7520,8 @@ public:
             (mats[i - 1].row(j - 1) - mats[i - 1].row(j + 1)) / (2.0 * j);
       }
     }
+
+    if (n > 0) {
     con_mats.resize(n);
     for (int i = 0; i < n; i++) {
       con_mats[i].resize(n, n);
@@ -7530,6 +7534,7 @@ public:
         con_mats[i].col(j) = diff<std::complex<T> >(con_mats[i + 1].col(j));
       }
     }
+  }
     mats2.resize(n + 1);
     for (int i = 0; i < n + 1; i++) {
       mats2[i].resize(N + 1, N + 1 + n);

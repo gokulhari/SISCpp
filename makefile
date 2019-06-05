@@ -56,7 +56,7 @@ Ex_12:
 Ex_13:
 	g++ examples/FrequencyResponses/Ex_13.cpp -o bin/Ex_13 -I includes -lfftw3 $(BLAS)
 Ex_14:
-	g++ examples/Viscoelastic/Ex_14.cpp -o bin/Ex_14 -I includes -lfftw3 $(BLAS)
+	g++ examples/Viscoelastic/Ex_14.cpp -o bin/Ex_14 -I includes -lfftw3 $(BLAS) -g
 Ex_15:
 	g++ examples/Viscoelastic/Ex_15.cpp -o bin/Ex_15 -I includes -lfftw3 $(BLAS)
 Ex_16:
