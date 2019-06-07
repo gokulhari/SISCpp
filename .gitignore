@@ -1,3 +1,5 @@
 docs/
 Eigen/
 .DS_Store
+bin/
+data/
