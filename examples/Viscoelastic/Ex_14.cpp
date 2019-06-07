@@ -11,11 +11,13 @@ using namespace std;
 typedef complex<double> Cd_t;
 typedef valarray<double> Vd_t;
 typedef valarray<Cd_t> Vcd_t;
-int main() {
+int main(int argc, char** argv) {
   using namespace sis;
   int bre;
   // Number of Chebyshev polynomials
-  sis::N = 127 ;
+  sis::N = 127;
+  sscanf(argv[1], "%d", &N);
+  std::cout << "N = " << N << '\n';
   sis_setup();
   valarray<double> y, U(N + 1), Uy(N + 1), Uyy(N + 1);
   // Set in cheb-point
@@ -27,11 +29,11 @@ int main() {
   double We = 0.001 * Re;
   double kx = 1.31;
   */
-  double Re = 0.0;
-  double We = 2;
+  double Re = 1.0;
+  double We = 20;
   double kx = 1.0;
   double beta = 0.0;
-  // string flowType("Poiseuille");
+  //string flowType("Poiseuille");
   string flowType("Couette");
 
   if (flowType.compare("Poiseuille") == 0) {
@@ -140,7 +142,11 @@ int main() {
 
   cout << "Eigenvalues: \n" << eigs.eigenvalues << "\n";
   ofstream outf;
-  outf.open(string("data/Ex_14_") + int2str(N) + string(".txt"));
+  outf.open(string(string(string("data/Ex_14_Re") + int2str(int(Re)) +
+            string("_We") + int2str(int(We)) + string("_beta") +
+            int2str(int(beta * 100)) + string("_N") + int2str(N) + flowType +
+         //   string("_") + int2str(i) +
+            string(".txt"))).c_str());
   Eigen::MatrixXd temp(eigs.eigenvalues.rows(),2);
   temp << eigs.eigenvalues.real(),eigs.eigenvalues.imag();
   outf << temp;

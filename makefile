@@ -69,6 +69,10 @@ Ex_17:
 	g++ test/2DViscoSvd_LikeMJ.cpp -o bin/2DViscoSvd_LikeMJ -I includes $(BLAS) $(OSFLAG) -g
 2DViscoSvdOmegaVar:
 	g++ test/2DViscoSvdOmegaVar.cpp -o bin/2DViscoSvdOmegaVar -I includes  $(BLAS) $(OSFLAG) -g
+pipeFlow:
+	g++ test/pipeFlow.cpp -o bin/pipeFlow -I includes  $(BLAS) $(OSFLAG) -g
+pipeFlowVisco:
+	g++ test/pipeFlowVisco.cpp -o bin/pipeFlowVisco -I includes  $(BLAS) $(OSFLAG) -g
 
 format:
 	clang-format -i includes/*.hpp examples/*.cpp test/*.cpp paper/paper1/src/*.cpp -style='{BasedOnStyle: llvm, Standard: Cpp03}'
