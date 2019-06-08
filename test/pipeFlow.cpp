@@ -195,11 +195,13 @@ int j = 0;
     eigs.compute(Lmat, Mmat, 8*(N + 1), bc);
     //eigs.sortByLargestReal();
     cout.precision(9);
-    std::cout << "Evals:\n " << eigs.eigenvalues << '\n';
+
     eigs.keepConverged();
+    eigs.removeInf();
     eigs.sortByLargestReal();
+    std::cout << "Evals:\n " << eigs.eigenvalues << '\n';
     ofstream outf;
-    outf.open("data/file7_kth0_Re2000.txt");
+    outf.open("data/pipeFlowkth0Re2000.txt");
     Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> out_to_file(eigs.eigenvalues.rows(),2);
     out_to_file << eigs.eigenvalues.real(), eigs.eigenvalues.imag();
     outf << out_to_file;
