@@ -73,6 +73,8 @@ pipeFlow:
 	g++ test/pipeFlow.cpp -o bin/pipeFlow -I includes  $(BLAS) $(OSFLAG) -g
 pipeFlowVisco:
 	g++ test/pipeFlowVisco.cpp -o bin/pipeFlowVisco -I includes  $(BLAS) $(OSFLAG) -g
+3DOldroydB:
+	g++ test/3DOldroydB.cpp -o bin/3DOldroydB -I includes  $(BLAS) $(OSFLAG) -g
 
 format:
 	clang-format -i includes/*.hpp examples/*.cpp test/*.cpp paper/paper1/src/*.cpp -style='{BasedOnStyle: llvm, Standard: Cpp03}'
