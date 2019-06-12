@@ -220,8 +220,8 @@ int k = 0;
 
       GeneralizedEigenSolver<complex<double> > eigs;
       eigs.compute(Lmat, Mmat, (N + 1) * Lmat.r, bc);
-      eigs.removeInf();
-      eigs.sortByLargestReal();
+      //eigs.removeInf();
+      //eigs.sortByLargestReal();
       num_vals = eigs.eigenvalues.size();
       ofstream outf;
       outf.open(string("data/OldroydB_") + flowType + string("_beta_") +
@@ -231,9 +231,10 @@ int k = 0;
                 string(".txt"));
       Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> out_to_file(num_vals,
                                                                         3);
+      out_to_file.setConstant(0.0);
       out_to_file.col(0) = eigs.eigenvalues.real();
       out_to_file.col(1) = eigs.eigenvalues.imag();
-      out_to_file.col(2) = eigs.MPorNot.cast<double>();
+      //out_to_file.col(2) = eigs.MPorNot.cast<double>();
       outf << out_to_file;
       outf.close();
 

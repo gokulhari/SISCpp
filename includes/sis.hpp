@@ -5651,6 +5651,242 @@ public:
   eigenvectors.c2p();
   }
 
+
+  /// \brief Another main solver for LinopMat, a minimal solver for eigenvalues
+  /// only. LAPACK needs to be linked to use this, and SIS_USE_LAPACK
+  /// has to be defined.
+  ///
+  /// This appends constraints instead
+  /// of embedding them, useful for large matrix problems. Also this routine
+  /// does not compute eigenvectors (may be updated in the future).
+  ///
+  /// Read about class BcMat to see how
+  /// this works, also see examples
+  /// example/Ex_16.cpp and test/Visco_3D_pipe.cpp of how this is applied.
+  void computeAppend(const LinopMat<std::complex<T> > &Lmat_,
+               const LinopMat<std::complex<T> > &Mmat_, int num_vals,
+               const BcMat<std::complex<T> > &Lbc_) {
+    LinopMat<std::complex<T> > Lmat = Lmat_;
+
+    LinopMat<std::complex<T> > Mmat = Mmat_;
+    int bre;
+    BcMat<std::complex<T> > Lbc = Lbc_;
+    int total_of_all_orders = 0;
+    int total_boundary_conditions = 0;
+    if (Lmat.r != Lmat.c) {
+      std::cout << "Solution only possible with square LinopMats. Exiting ..."
+                << '\n';
+      exit(1);
+    }
+    if (Mmat.r != Mmat.c) {
+      std::cout << "Solution only possible with square LinopMats. Exiting ..."
+                << '\n';
+      exit(1);
+    }
+    if (Mmat.c != Lmat.c) {
+      std::cout << "Both matrices have to be of same size. Exiting ..." << '\n';
+      exit(1);
+    }
+    int r = Lmat.r, c = Lmat.c;
+    // Find the highest derivative in each column. To do this create a vector
+    // highest_each_column, and a temp_int_vec that will hold all values of a
+    // given column to and the maximum will be stored in highest_each_column
+    std::vector<int> highest_each_columnL, highest_each_columnM,
+        highest_each_column;
+    highest_each_columnL.resize(c);
+    highest_each_columnM.resize(c);
+    highest_each_column.resize(c);
+
+    std::vector<int> temp_vec_int;
+    temp_vec_int.resize(r);
+    for (int j = 0; j < c; j++) {
+      for (int i = 0; i < r; i++) {
+        temp_vec_int[i] = Lmat(i, j).n;
+      }
+      highest_each_columnL[j] =
+          *std::max_element(temp_vec_int.begin(), temp_vec_int.end());
+    }
+    for (int j = 0; j < c; j++) {
+      for (int i = 0; i < r; i++) {
+        temp_vec_int[i] = Mmat(i, j).n;
+      }
+      highest_each_columnM[j] =
+          *std::max_element(temp_vec_int.begin(), temp_vec_int.end());
+    }
+    for (int i = 0; i < c; i++) {
+      total_of_all_orders += (highest_each_columnL[i] > highest_each_columnM[i])
+                                 ? highest_each_columnL[i]
+                                 : highest_each_columnM[i];
+      highest_each_column[i] =
+          (highest_each_columnL[i] > highest_each_columnM[i])
+              ? highest_each_columnL[i]
+              : highest_each_columnM[i];
+      //  std::cout << "highest_each_column["<< i << "]: " <<
+      //  highest_each_column[i] << '\n';
+    }
+    total_boundary_conditions = Lbc.m;
+
+    // total_of_all_orders has to be equal to total number of boundary
+    // conditions, else the problem is ill-posed, if ill-posed, cout the same
+    // and exit.
+    if (total_of_all_orders != total_boundary_conditions) {
+      std::cout << "The problem is ill-posed, the total of the highest "
+                   "orders of all "
+                   "dependent variables has to be equal to the total number of "
+                   "boundary conditions specified."
+                   "\n "
+                   "Total no. of boundary conditions: "
+                << total_boundary_conditions
+                << "\n"
+                   "Total of all orders: "
+                << total_of_all_orders << "\n Exiting ...\n";
+      //  exit(1);
+    }
+    // Declare the master matrix L:
+    Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> masterL(
+        r * (N + 1), c * (N + 1) + total_boundary_conditions);
+    // Declare the master matrix M:
+    Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> masterM(
+        r * (N + 1), c * (N + 1) + total_boundary_conditions);
+
+    masterL.setConstant(0.0);
+    masterM.setConstant(0.0);
+    MatGen<T> Mat;
+    Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic>
+        constraints(total_boundary_conditions,
+                    c * (N + 1) + total_of_all_orders),
+        Zeros(total_boundary_conditions,
+                    c * (N + 1) + total_of_all_orders);
+
+    Zeros.setConstant(0.0);
+    int row_counter = 0, col_counter = 0;
+    for (int i = 0; i < Lbc.m; i++) {
+      for (int j = 0; j < Lbc.n; j++) {
+        Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> temp=
+            Lbc(i, j, highest_each_column[j]);
+        constraints.block(i, col_counter, 1, temp.cols()) = temp;
+        col_counter += temp.cols();
+      }
+      col_counter = 0;
+    }
+
+    row_counter = 0;
+    col_counter = 0;
+    int master_row_counter = 0;
+    int master_col_counter = 0;
+    for (int j = 0; j < c; j++) {
+      int n = (highest_each_columnL[j] >= highest_each_columnM[j])
+                  ? highest_each_columnL[j]
+                  : highest_each_columnM[j];
+      Mat.compute(n);
+      for (int i = 0; i < r; i++) {
+        int diffn = n - Lmat(i, j).n;
+        if (Lmat(i, j).NCC == 0) {
+          for (int k = 0; k < Lmat(i, j).n + 1; k++) {
+            masterL.block(master_row_counter, master_col_counter, N + 1,
+                          N + 1 + n) +=
+                Lmat(i, j).coef[k] *
+                (Mat.mats2[k + diffn].block(0, 0, N + 1, N + 1 + n));
+          }
+        } else {
+          for (int k = 0; k < Lmat(i, j).n + 1; k++) {
+            masterL.block(master_row_counter, master_col_counter, N + 1,
+                          N + 1 + n) +=
+                Lmat(i, j).coefFun[k].MultMat().block(0, 0, N + 1, N + 1) *
+                (Mat.mats2[k + diffn].block(0, 0, N + 1, N + 1 + n));
+          }
+        }
+        diffn = n - Mmat(i, j).n;
+        if (Mmat(i, j).NCC == 0) {
+          for (int k = 0; k < Mmat(i, j).n + 1; k++) {
+            masterM.block(master_row_counter, master_col_counter, N + 1,
+                          N + 1 + n) +=
+                Mmat(i, j).coef[k] *
+                (Mat.mats2[k + diffn].block(0, 0, N + 1, N + 1 + n));
+          }
+        } else {
+          for (int k = 0; k < Mmat(i, j).n + 1; k++) {
+            masterM.block(master_row_counter, master_col_counter, N + 1,
+                          N + 1 + n) +=
+                Mmat(i, j).coefFun[k].MultMat().block(0, 0, N + 1, N + 1) *
+                (Mat.mats2[k + diffn].block(0, 0, N + 1, N + 1 + n));
+          }
+        }
+        master_row_counter += N + 1;
+      }
+      master_row_counter = 0;
+      master_col_counter += N + 1 + n;
+    }
+    // Permute columns of M and L:
+    // masterL = masterL * P;
+    // masterM = masterM * P;
+
+    Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> masterL2(
+        r * (N + 1) + total_boundary_conditions,
+        c * (N + 1) + total_boundary_conditions),
+        masterM2(
+            r * (N + 1) + total_boundary_conditions,
+            c * (N + 1) + total_boundary_conditions);
+
+    masterL2 << masterL,constraints;
+
+
+    masterM2 << masterM, Zeros;
+
+#if defined SIS_USE_LAPACK
+    char jobvl = 'N';                 // Don't compute left evecs
+    char jobvr = 'V';                 // Compute right evecs
+    std::complex<double> wkopt;       // Eistimate optimum workspace
+    std::complex<double> *work;       // allocate optimum workspace
+    alpha.resize(masterL2.rows(), 1); // alpha for gen. eig. prob.
+    beta.resize(masterL2.rows(), 1);  // beta for gen. eig. prob.
+
+    Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> vl(
+        masterL2.rows(), masterL2.rows()),
+        vr(masterL2.rows(), masterL2.rows()),
+        eigenvalues_temp(masterL2.rows(), 1), alpha_temp(masterL2.rows(), 1),
+        beta_temp(masterL2.rows(), 1);
+    // vl : left evecs, vr: right evecs.
+    int ldL = masterL2.outerStride(); // ld for leading dimension
+    int ldM = masterM2.outerStride();
+    int ldvl = vl.outerStride();
+    int ldvr = vr.outerStride();
+    int sizeL = masterL2.rows();
+    int lwork = -1; // set lwork to -1 to estimate workspace.
+    double rwork[8 * sizeL];
+
+    // call this to estimate workspace
+    zggev_(&jobvl, &jobvr, &sizeL, masterL2.data(), &ldL, masterM2.data(), &ldM,
+           alpha_temp.data(), beta_temp.data(), vl.data(), &ldvl, vr.data(),
+           &ldvr, &wkopt, &lwork, rwork, &info);
+
+    // Now allocate workspace:
+    lwork = (int)real(wkopt);
+    work = (std::complex<double> *)malloc(lwork * sizeof(std::complex<double>));
+
+    // Solve eigenvalue problem:
+    zggev_(&jobvl, &jobvr, &sizeL, masterL2.data(), &ldL, masterM2.data(), &ldM,
+           alpha_temp.data(), beta_temp.data(), vl.data(), &ldvl, vr.data(),
+           &ldvr, work, &lwork, rwork, &info);
+
+    // Free workspace.
+    free((void *)work);
+
+    eigenvalues_temp = alpha_temp.array() / beta_temp.array();
+
+eigenvalues.resize(eigenvalues_temp.rows(),1);
+alpha.resize(alpha_temp.rows(),1);
+beta.resize(beta_temp.rows(),1);
+eigenvalues = eigenvalues_temp;
+alpha = alpha_temp;
+beta = beta_temp;
+#else
+std::cout << "This function needs SIS_USE_LAPACK to be defined, and LAPACK"
+          << " linking is essential. Exiting ..." << '\n';
+          exit(1);
+#endif
+  }
+
 #ifdef SIS_USE_FEAST
   void feast_compute(const LinopMat<std::complex<T> > &Lmat_,
                      const LinopMat<std::complex<T> > &Mmat_, int num_vals,

@@ -29,8 +29,8 @@ int main(int argc, char** argv) {
   double We = 0.001 * Re;
   double kx = 1.31;
   */
-  double Re = 1.0;
-  double We = 20;
+  double Re = 0.0;
+  double We = 2;
   double kx = 1.0;
   double beta = 0.0;
   //string flowType("Poiseuille");
@@ -115,30 +115,32 @@ int main(int argc, char** argv) {
       0.0, 0.0, 0.0, 1.0, 0.0, 0.0,    //
       0.0, 0.0, 0.0, 0.0, 1.0, 0.0,    //
       0.0, 0.0, 0.0, 0.0, 0.0, 1.0,    //
-      0.0, 0.0, 0.0, 0.0, 0.0, 0.0;
+      0.0, 0.0, 0.0*Dyy, 0.0, 0.0, 0.0;
 
-  BcMat<Cd_t> bcs(7,6);
+  BcMat<Cd_t> bcs(8,6);
   bcs.L << 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, //
       0.0, 1.0, 0.0, 0.0, 0.0, 0.0,      //
       0.0, Dy, 0.0, 0.0, 0.0, 0.0,       //
-      0.0, 0.0, 1.0, 0.0, 0.0, 0.0,     //
+      0.0, 0.0, 0.0, 0.0, 0.0, 1.0,     //
       1.0, 0.0, 0.0, 0.0, 0.0, 0.0, //
       0.0, 1.0, 0.0, 0.0, 0.0, 0.0,      //
-      0.0, Dy, 0.0, 0.0, 0.0, 0.0;       //
+      0.0, Dy, 0.0, 0.0, 0.0, 0.0,
+      0.0, 0.0, 0.0, 0.0, 0.0, 1.0;       //
 
   bcs.eval << -1.0, 0.0,0.0,0.0,0.0,0.0,//
               0.0, -1.0, 0.0, 0.0, 0.0, 0.0,//
               0.0, -1.0, 0.0, 0.0, 0.0, 0.0,//
-              0.0, 0.0, -1.0, 0.0, 0.0,0.0,//
+              0.0, 0.0, -1.0, 0.0, 0.0,1.0,//
               1.0, 0.0, 0.0, 0.0,0.0,0.0,//
               0.0, 1.0, 0.0, 0.0, 0.0, 0.0,//
-              0.0, 1.0, 0.0, 0.0, 0.0, 0.0;
+              0.0, 1.0, 0.0, 0.0, 0.0, 0.0,
+              0.0, 0.0, -1.0, 0.0, 0.0,-1.0;
 
   GeneralizedEigenSolver<complex<double> > eigs;
 
-  eigs.compute(Lmat,Mmat, 14*(N + 1), bcs);
-  eigs.removeInf();
-  eigs.sortByLargestReal();
+  eigs.computeAppend(Lmat,Mmat, 14*(N + 1), bcs);
+  //eigs.removeInf();
+  //eigs.sortByLargestReal();
 
   cout << "Eigenvalues: \n" << eigs.eigenvalues << "\n";
   ofstream outf;
@@ -152,10 +154,10 @@ int main(int argc, char** argv) {
   outf << temp;
   outf.close();
 
-  Eigen::MatrixXd evec(N+1,3);
-  evec << yEigen, eigs.eigenvectors(3,23).evr(), eigs.eigenvectors(3,23).evi();
-  outf.open("data/Ex_14_evec.txt");
-  outf << evec;
-  outf.close();
+  //Eigen::MatrixXd evec(N+1,3);
+  //evec << yEigen, eigs.eigenvectors(3,23).evr(), eigs.eigenvectors(3,23).evi();
+  //outf.open("data/Ex_14_evec.txt");
+  //outf << evec;
+  //outf.close();
   return 0;
 }
