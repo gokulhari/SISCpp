@@ -9,7 +9,10 @@
 /// Spectral integral suite in C++ (SISC++) is a generic header to solve
 /// two-point-boundary-value problems in the system
 /// representation. SISC++ can solve for linear differential equations,
-/// and compute eigenvalues, and frequency responses of linear differential systems.
+/// and compute eigenvalues, principle singular value of frequency responses,
+/// and the power spectral density (Hilbert-Schmidt norm) of
+/// linear differential systems.
+///
 /// We started this in
 /// order to produce programs for direct numerical simulations of viscoelastic
 /// channel flows, then we extended this as a generic solver, following in
@@ -56,15 +59,15 @@
 /// You can also optimized a code in C++ for speed by
 /// using proprietary compilers, like the Intel compiler / Cray compiler.
 ///
-/// One major difference from Chebfun is that in SISC++, we do not provide for
+/// One major difference from Chebfun is that we do not provide for
 /// automatic collocation. Automatic collocation is an extremely useful utility
 /// in Chebfun that keeps increasing the number of basis functions until the
 /// solution reaches machine precision. We did not incorporate this
-/// as automatic collocation adds heavily to the computational expense, which is
-/// a great liability for direct numerical simulations.
+/// as automatic collocation adds to the computational expense, which is
+/// a liability for direct numerical simulations.
 ///
 /// For most part classes and functions are quite intuitive, but you need to know
-/// at least a little bit about C++. A good place to learn C++
+/// at least a bit about C++. A good place to learn C++
 /// is <a href="http://www.cplusplus.com/doc/tutorial/">here </a>.
 /// You'll find it amazing if you have used <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>.
 /// As far as the algorithm is concerned, SISC++ is based on the recent
@@ -75,17 +78,18 @@
 /// Note that Chebfun too has a well-conditioned scheme, the ultraspherical
 /// discretization \cite UltraS. \n \n
 ///
-/// SISC++ is well-equiped to deal with incompressible hydrodynamic
+/// A major advantage of SISC++ compared to Chebfun is that it is well-equiped
+/// to deal with incompressible hydrodynamic
 /// eigenvalue and singular value problems for Newtonian and Viscoelastic
-/// fluids, both in primitive variables and the evolution form. To the best of
+/// fluids, both in primitive variables and in the evolution form. To the best of
 /// our knowledge, solving for eigenvalues of incompressible flow problems in
 /// Chebfun can currently be done only by using the evolution form of the
 /// governing equations, As a virtue of spectral integration, SISC++ can solve
 /// for incompressible flow eigenvalue problems directly in the discriptor form
-/// (in primitive variables). This can potentially save a lot of time,
+/// (in primitive variables). This can potentially save time,
 /// specifically for viscoelastic fluids whose algebraic manipulations for a
 /// transformation to the evolution form can become
-/// cumbersome. In addition we also provide tools to handle eigenvalue boundary
+/// cumbersome. We also provide tools to handle eigenvalue boundary
 /// constraints (problems where the eigenvalue appears in the boundary
 /// conditions), for eigenvalue problems involving fluid-fluid interfaces.
 ///
@@ -111,12 +115,12 @@
 /// <a
 /// href="https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2019-getting-started">here</a>
 ///
-/// No part of SIS uses anything that is OS specific,
-/// nonetheless, However, I have tried this on Mac and Linux.
+/// No part of SIS uses anything that is OS specific.
+/// However, I have tried not tested it on Windows. I use it regularly on Mac and Linux.
 ///
 /// Most routines in SIS use default <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>'s routines for solutions and
 /// eigenvalue solver. At the time of writing this program, <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> does not have
-/// eigenvalue solver for complex generalized systems, of the form
+/// an eigenvalue solver for complex generalized systems, of the form
 ///  \f$ L\,\phi= \lambda \, M \, \phi\f$. As SIS uses a
 /// well-conditioned discretization, in most cases both \f$L\f$ and \f$M\f$ are
 /// well conditioned, so either can be inverted while the other is
@@ -129,7 +133,7 @@
 /// same path as Intel MKL (you will not have to do anything extra). However,
 /// as we use fortran code in C++, gfortran needs to be linked during compilation (implying that
 /// gfortran must be installed, in Mac say "brew install gfortran", and in
-/// linux "sudo apt-get install gfortran" in the terminal). In summary is you
+/// linux "sudo apt-get install gfortran" in the terminal). In summary, if you
 /// need to use SIS_USE_LAPACK, make sure that gfortran is installed.
 ///
 ///
