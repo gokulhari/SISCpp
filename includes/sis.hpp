@@ -1179,53 +1179,36 @@ public:
   /// physical space
   void c2p() {
     if (dct_flag == SIS_CHEB_SPACE) {
-      std::valarray<T> vr(v.size()), vi(v.size());
       int n = v.size();
-      vr = std::real(v);
-      vi = std::imag(v);
       std::valarray<T> temp_u(n + 1);
       std::valarray<T> x(n), vd(n);
-      vd[0]= 0.0;
+      vd[0] = 0.0;
       temp_u = 0.0;
-      temp_u[std::slice(0, n, 1)] = vr;
+      temp_u[std::slice(0, n, 1)] = v;
       std::valarray<std::complex<T>> V(n);
-      for (int i = 0; i < n; i++) {
+      for (int i = 0; i < n; i++)
+      {
         V[i] =
-        std::complex<T>(temp_u[i], 0.0) - std::complex<T>(0.0, temp_u[n - i]);
+            std::complex<T>(temp_u[i], 0.0) - std::complex<T>(0.0, temp_u[n - i]);
       }
       V = std::complex<T>(0.5, 0.0) * rev_half_shift * V;
 
-      vd = ifft_cs(std::valarray<std::complex<T> >(V[std::slice(0, n / 2, 1)]));
-      std::valarray<std::complex<T> > in1(std::complex<T>(0.0, 0.0), n/2 + 1);
-      in1[std::slice(0, n/2, 1)] = V[std::slice(0, n / 2, 1)];
+      std::valarray<std::complex<T>> in1(std::complex<T>(0.0, 0.0), n / 2 + 1);
+      in1[std::slice(0, n / 2, 1)] = V[std::slice(0, n / 2, 1)];
 
-    ////
       DFTI_DESCRIPTOR_HANDLE descriptor;
       MKL_LONG status;
 
-      status = DftiCreateDescriptor(&descriptor, DFTI_DOUBLE, DFTI_REAL, 1,
-                                    n); // Specify size and precision
-      // std::cout<<status<<endl;
-      status = DftiSetValue(descriptor, DFTI_PLACEMENT,
-                            DFTI_NOT_INPLACE); // Out of place FFT
-      status = DftiSetValue(descriptor, DFTI_CONJUGATE_EVEN_STORAGE,
-                            DFTI_COMPLEX_COMPLEX);
-      // cout<<status<<endl;
-      status = DftiCommitDescriptor(descriptor); // Finalize the descriptor
-      // cout<<status<<endl;
-      status = DftiComputeBackward(descriptor, &in1[0],
-                                   &vd[0]); // Compute the Backward FFT
-      // cout<<status<<endl;
-      status = DftiFreeDescriptor(&descriptor); // Free the descriptor
-                                                // std::cout<<status<<endl;
-      vd = vd / T(n);                     // need to manually scale
+      status = DftiCreateDescriptor(&descriptor, DFTI_DOUBLE, DFTI_REAL, 1, n);
+      status = DftiSetValue(descriptor, DFTI_PLACEMENT, DFTI_NOT_INPLACE);
+      status = DftiSetValue(descriptor, DFTI_CONJUGATE_EVEN_STORAGE, DFTI_COMPLEX_COMPLEX);
+      status = DftiCommitDescriptor(descriptor);
+      status = DftiComputeBackward(descriptor, &in1[0], &vd[0]);
 
       for (int i = 0; i < (n + 1) / 2; i++)
-        x[2 * i] = vd[i];
+        v[2 * i] = vd[i];
       for (int i = (n + 1) / 2; i < n; i++)
-        x[2 * n - 2 * i - 1] = vd[i];
-      v = x * T(n);
-        
+        v[2 * n - 2 * i - 1] = vd[i];
     } else {
       std::cout << "In Physical-space. Can't move to Physical-space\n";
       exit(1);
