@@ -1475,15 +1475,20 @@ public:
 
   /// \brief Converts a Chebfun from values in physical-space to coefficients of
   /// Chebyshev polynomials
-  void p2c() {
-    if (dct_flag == SIS_PHYS_SPACE) {
+  void p2c()
+  {
+    if (dct_flag == SIS_PHYS_SPACE)
+    {
+      std::valarray<T> vr(v.size()), vi(v.size());
       int n = v.size();
+      vr = std::real(v);
+      vi = std::imag(v);
       std::valarray<T> y(2 * n), vd(n);
       std::valarray<std::complex<T>> V(n);
       for (int i = 0; i < n; i++)
-        y[i] = v[i];
+        y[i] = vr[i];
       for (int i = n; i < 2 * n; i++)
-        y[i] = v[2 * n - i - 1];
+        y[i] = vr[2 * n - i - 1];
 
       for (int i = 0; i < n; i++)
         vd[i] = y[2 * i];
@@ -1502,8 +1507,26 @@ public:
       //status = DftiFreeDescriptor(&descriptor);
       for (int j = 0; j < n / 2; j++)
         V[n / 2 + j] = std::conj(V[n / 2 - j]);
-      v = 2.0 * std::real(std::valarray<std::complex<T>>(half_shift * V)) / T(n);
-    } else {
+      vr = 2.0 * std::real(std::valarray<std::complex<T>>(half_shift * V)) / T(n);
+
+      for (int i = 0; i < n; i++)
+        y[i] = vi[i];
+      for (int i = n; i < 2 * n; i++)
+        y[i] = vi[2 * n - i - 1];
+
+      for (int i = 0; i < n; i++)
+        vd[i] = y[2 * i];
+      //V = fft(vd);
+
+      status = DftiComputeForward(descriptor, &vd[0], &V[0]);
+      status = DftiFreeDescriptor(&descriptor);
+      for (int j = 0; j < n / 2; j++)
+        V[n / 2 + j] = std::conj(V[n / 2 - j]);
+      vi = 2.0 * std::real(std::valarray<std::complex<T>>(half_shift * V)) / T(n);
+      v = dou2com(vr, vi);
+    }
+    else
+    {
       std::cout << "In Cheb-space. Can't move to Cheb-space\n";
       exit(1);
     }
@@ -1512,10 +1535,95 @@ public:
 
   /// \brief Converts a Chebfun from Chebyshev coefficients to values in
   /// physical space
-  void c2p() {
-    if (dct_flag == SIS_CHEB_SPACE) {
-      v = idct(v);
-    } else {
+  void c2p()
+  {
+    if (dct_flag == SIS_CHEB_SPACE)
+    {
+      std::valarray<T> vr(v.size()), vi(v.size());
+      int n = v.size();
+      vr = std::real(v);
+      vi = std::imag(v);
+      std::valarray<T> temp_u(n + 1);
+      std::valarray<T> x(n), vd(n);
+      vd[0] = 0.0;
+      temp_u = 0.0;
+      temp_u[std::slice(0, n, 1)] = vr;
+      std::valarray<std::complex<T>> V(n);
+      for (int i = 0; i < n; i++)
+      {
+        V[i] =
+            std::complex<T>(temp_u[i], 0.0) - std::complex<T>(0.0, temp_u[n - i]);
+      }
+      V = std::complex<T>(0.5, 0.0) * rev_half_shift * V;
+
+      //vd = ifft_cs(std::valarray<std::complex<T> >(V[std::slice(0, n / 2, 1)]));
+      std::valarray<std::complex<T>> in1(std::complex<T>(0.0, 0.0), n / 2 + 1);
+      in1[std::slice(0, n / 2, 1)] = V[std::slice(0, n / 2, 1)];
+
+      DFTI_DESCRIPTOR_HANDLE descriptor;
+      MKL_LONG status;
+
+      status = DftiCreateDescriptor(&descriptor, DFTI_DOUBLE, DFTI_REAL, 1,
+                                    n); // Specify size and precision
+      // std::cout<<status<<endl;
+      status = DftiSetValue(descriptor, DFTI_PLACEMENT,
+                            DFTI_NOT_INPLACE); // Out of place FFT
+      status = DftiSetValue(descriptor, DFTI_CONJUGATE_EVEN_STORAGE,
+                            DFTI_COMPLEX_COMPLEX);
+      // cout<<status<<endl;
+      status = DftiCommitDescriptor(descriptor); // Finalize the descriptor
+      // cout<<status<<endl;
+      status = DftiComputeBackward(descriptor, &in1[0],
+                                   &vd[0]); // Compute the Backward FFT
+      // cout<<status<<endl;
+      //status = DftiFreeDescriptor(&descriptor); // Free the descriptor
+      // std::cout<<status<<endl;
+
+      for (int i = 0; i < (n + 1) / 2; i++)
+        vr[2 * i] = vd[i];
+      for (int i = (n + 1) / 2; i < n; i++)
+        vr[2 * n - 2 * i - 1] = vd[i];
+
+      ////
+      vd[0] = 0.0;
+      temp_u = 0.0;
+      temp_u[std::slice(0, n, 1)] = vi;
+      for (int i = 0; i < n; i++)
+      {
+        V[i] =
+            std::complex<T>(temp_u[i], 0.0) - std::complex<T>(0.0, temp_u[n - i]);
+      }
+      V = std::complex<T>(0.5, 0.0) * rev_half_shift * V;
+
+      //vd = ifft_cs(std::valarray<std::complex<T> >(V[std::slice(0, n / 2, 1)]));
+      in1 = std::complex<T>(0.0, 0.0);
+      in1[std::slice(0, n / 2, 1)] = V[std::slice(0, n / 2, 1)];
+
+      //status = DftiCreateDescriptor(&descriptor, //DFTI_DOUBLE, DFTI_REAL, 1,
+      //                           n); // Specify size and precision
+      // std::cout<<status<<endl;
+      //status = DftiSetValue(descriptor, //DFTI_PLACEMENT,
+      //                      DFTI_NOT_INPLACE); // Out of place FFT
+      //status = DftiSetValue(descriptor, DFTI_CONJUGATE_EVEN_STORAGE,
+      //                    DFTI_COMPLEX_COMPLEX);
+      // cout<<status<<endl;
+      //status = DftiCommitDescriptor(descriptor); // Finalize the descriptor
+      // cout<<status<<endl;
+      status = DftiComputeBackward(descriptor, &in1[0],
+                                   &vd[0]); // Compute the Backward FFT
+      // cout<<status<<endl;
+      status = DftiFreeDescriptor(&descriptor); // Free the descriptor
+                                                // std::cout<<status<<endl;
+
+      for (int i = 0; i < (n + 1) / 2; i++)
+        vi[2 * i] = vd[i];
+      for (int i = (n + 1) / 2; i < n; i++)
+        vi[2 * n - 2 * i - 1] = vd[i];
+
+      v = dou2com(vr, vi);
+    }
+    else
+    {
       std::cout << "In Physical-space. Can't move to Physical-space\n";
       exit(1);
     }
