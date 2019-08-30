@@ -1464,7 +1464,32 @@ public:
   /// Chebyshev polynomials
   void p2c() {
     if (dct_flag == SIS_PHYS_SPACE) {
-      v = dct(v);
+      int n = v.size();
+      std::valarray<T> y(2 * n), vd(n);
+      std::valarray<std::complex<T>> V(n);
+      for (int i = 0; i < n; i++)
+        y[i] = v[i];
+      for (int i = n; i < 2 * n; i++)
+        y[i] = v[2 * n - i - 1];
+
+      for (int i = 0; i < n; i++)
+        vd[i] = y[2 * i];
+      V = fft(vd);
+      DFTI_DESCRIPTOR_HANDLE descriptor;
+      MKL_LONG status;
+
+      status = DftiCreateDescriptor(&descriptor, DFTI_DOUBLE, DFTI_REAL, 1, n);
+
+      status = DftiSetValue(descriptor, DFTI_PLACEMENT,
+                            DFTI_NOT_INPLACE);
+      status = DftiSetValue(descriptor, DFTI_CONJUGATE_EVEN_STORAGE, DFTI_COMPLEX_COMPLEX);
+
+      status = DftiCommitDescriptor(descriptor);
+      status = DftiComputeForward(descriptor, &vd[0], &V[0]);
+      //status = DftiFreeDescriptor(&descriptor);
+      for (int j = 0; j < n / 2; j++)
+        V[n / 2 + j] = std::conj(V[n / 2 - j]);
+      v = 2.0 * std::real(std::valarray<std::complex<T>>(half_shift * V)) / T(n);
     } else {
       std::cout << "In Cheb-space. Can't move to Cheb-space\n";
       exit(1);
