@@ -161,7 +161,7 @@ int k = 0;
       Rbc.eval.setConstant(1.0);
 
       A.resize(4, 4);
-      A = ((ii * omega * Mmat) - Lmat);
+      A = (- Lmat);
       svd.compute(A, B, C, Lbc, Rbc, Lbc, Rbc, 15 * (N + 1));
       std::cout << "eigenvalue: " << svd.eigenvalues[0] << "\n";
       std::cout << "eigenvalue: " << svd.eigenvalues[1] << "\n";
