@@ -1139,7 +1139,7 @@ public:
     if (dct_flag == SIS_PHYS_SPACE) {
       int n = v.size();
       std::valarray<T> y(2 * n), vd(n);
-      std::valarray<std::complex<T>> V(n);
+      std::valarray<std::complex<T> > V(n);
       for (int i = 0; i < n; i++)
         y[i] = v[i];
       for (int i = n; i < 2 * n; i++)
@@ -1162,16 +1162,13 @@ public:
       //status = DftiFreeDescriptor(&descriptor);
       for (int j = 0; j < n / 2; j++)
         V[n / 2 + j] = std::conj(V[n / 2 - j]);
-      v = 2.0 * std::real(std::valarray<std::complex<T>>(half_shift * V)) / T(n);
+      v = 2.0 * std::real(std::valarray<std::complex<T> >(half_shift * V)) / T(n);
     }
     else
     {
       std::cout << "In Cheb-space. Can't move to Cheb-space\n";
       exit(1);
-    } else {
-      std::cout << "In Cheb-space. Can't move to Cheb-space\n";
-      exit(1);
-    }
+    } 
     dct_flag = SIS_CHEB_SPACE;
   };
 
@@ -1185,7 +1182,7 @@ public:
       vd[0] = 0.0;
       temp_u = 0.0;
       temp_u[std::slice(0, n, 1)] = v;
-      std::valarray<std::complex<T>> V(n);
+      std::valarray<std::complex<T> > V(n);
       for (int i = 0; i < n; i++)
       {
         V[i] =
@@ -1193,7 +1190,7 @@ public:
       }
       V = std::complex<T>(0.5, 0.0) * rev_half_shift * V;
 
-      std::valarray<std::complex<T>> in1(std::complex<T>(0.0, 0.0), n / 2 + 1);
+      std::valarray<std::complex<T> > in1(std::complex<T>(0.0, 0.0), n / 2 + 1);
       in1[std::slice(0, n / 2, 1)] = V[std::slice(0, n / 2, 1)];
 
       DFTI_DESCRIPTOR_HANDLE descriptor;
@@ -1484,7 +1481,7 @@ public:
       vr = std::real(v);
       vi = std::imag(v);
       std::valarray<T> y(2 * n), vd(n);
-      std::valarray<std::complex<T>> V(n);
+      std::valarray<std::complex<T> > V(n);
       for (int i = 0; i < n; i++)
         y[i] = vr[i];
       for (int i = n; i < 2 * n; i++)
@@ -1507,7 +1504,7 @@ public:
       //status = DftiFreeDescriptor(&descriptor);
       for (int j = 0; j < n / 2; j++)
         V[n / 2 + j] = std::conj(V[n / 2 - j]);
-      vr = 2.0 * std::real(std::valarray<std::complex<T>>(half_shift * V)) / T(n);
+      vr = 2.0 * std::real(std::valarray<std::complex<T> >(half_shift * V)) / T(n);
 
       for (int i = 0; i < n; i++)
         y[i] = vi[i];
@@ -1522,7 +1519,7 @@ public:
       status = DftiFreeDescriptor(&descriptor);
       for (int j = 0; j < n / 2; j++)
         V[n / 2 + j] = std::conj(V[n / 2 - j]);
-      vi = 2.0 * std::real(std::valarray<std::complex<T>>(half_shift * V)) / T(n);
+      vi = 2.0 * std::real(std::valarray<std::complex<T> >(half_shift * V)) / T(n);
       v = dou2com(vr, vi);
     }
     else
@@ -1548,7 +1545,7 @@ public:
       vd[0] = 0.0;
       temp_u = 0.0;
       temp_u[std::slice(0, n, 1)] = vr;
-      std::valarray<std::complex<T>> V(n);
+      std::valarray<std::complex<T> > V(n);
       for (int i = 0; i < n; i++)
       {
         V[i] =
@@ -1557,7 +1554,7 @@ public:
       V = std::complex<T>(0.5, 0.0) * rev_half_shift * V;
 
       //vd = ifft_cs(std::valarray<std::complex<T> >(V[std::slice(0, n / 2, 1)]));
-      std::valarray<std::complex<T>> in1(std::complex<T>(0.0, 0.0), n / 2 + 1);
+      std::valarray<std::complex<T> > in1(std::complex<T>(0.0, 0.0), n / 2 + 1);
       in1[std::slice(0, n / 2, 1)] = V[std::slice(0, n / 2, 1)];
 
       DFTI_DESCRIPTOR_HANDLE descriptor;
