@@ -1,7 +1,6 @@
 /// \brief example with discriptor approach.
 #define EIGEN_USE_BLAS
 #define SIS_USE_LAPACK
-#define SIS_USE_FEAST
 #include <fstream>
 #include <iostream>
 #include <sis.hpp>
@@ -80,8 +79,6 @@ int main() {
   double beta = 0.5;
   Linop<double> Dy(1);
   Dy.coef << 1.0, 0.0;
-
-  SingularValueDecomposition<std::complex<double> > svd;
 
   ofstream outf;
 
@@ -228,7 +225,7 @@ int main() {
     Lmat(5, 8) = 0.0;
     Lmat(5, 9) = 0.0;
 
-    Lmat(6, 0) = ii * kx[k] / We;
+    Lmat(6, 0) = ii * kz[k] / We;
     Lmat(6, 1) = 0.0;
     Lmat(6, 2) = (ii * kx[k] / We) +
                  (Vcd_t(2.0 * ii * kx[k] * We * Uy * Uy) + (Vd_t(Uy) * Dy));
@@ -252,7 +249,7 @@ int main() {
     Lmat(7, 9) = 0.0;
 
     Lmat(8, 0) = 0.0;
-    Lmat(8, 1) = ii * kx[k] / We;
+    Lmat(8, 1) = ii * kz[k] / We;
     Lmat(8, 2) = ii * kx[k] * Uy + (Dy / We);
     Lmat(8, 3) = 0.0;
     Lmat(8, 4) = 0.0;
@@ -264,7 +261,7 @@ int main() {
 
     Lmat(9, 0) = 0.0;
     Lmat(9, 1) = 0.0;
-    Lmat(9, 2) = 2.0 * ii * kx[k] / We;
+    Lmat(9, 2) = 2.0 * ii * kz[k] / We;
     Lmat(9, 3) = 0.0;
     Lmat(9, 4) = 0.0;
     Lmat(9, 5) = 0.0;
@@ -315,10 +312,11 @@ int main() {
         0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
         0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0;
 
-    GeneralizedEigenSolver<complex<double> > eigs;
+    //GeneralizedEigenSolver<complex<double> > eigs;
     sis::SingularValueDecomposition<complex<double> > svd;
 
     LinopMat<complex<double> > A(10, 10), B(10, 3), C(3, 10), Ctau(6, 10);
+    iiomega = 0.0;
     A = ((iiomega * Mmat) - Lmat);
     B << 1.0, 0.0, 0.0, //
         0.0, 1.0, 0.0,  //
@@ -342,6 +340,7 @@ int main() {
         0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,     //
         0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0;
 #ifdef VALIDATE
+    cout << "I'm in validate ..." << endl;
     eigs.compute(Lmat, Mmat, (N + 1) * Lmat.r, bc);
     eigs.removeInf();
     eigs.sortByLargestReal();
@@ -361,60 +360,60 @@ int main() {
     outf.close();
 // exit(1);
 #endif
-
+    cout << "Began computing ... " << endl << flush;
     svd.compute(A, B, C, Lbc, Rbc, LbcAd, RbcAd, 2 * (N + 1) * A.r);
     std::cout << "eigenvalue: " << svd.eigenvalues[0] << "\n";
     num_vals = svd.eigenvalues.size();
     exit(1);
     // Store first two eigenvalues.
-    outf << kx[k] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
-         << svd.eigenvalues[1].real() << "\n";
-
-    cout << kx[k] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
-         << svd.eigenvalues[1].real() << "\n";
-
-    num_vals = svd.eigenvalues.size();
-    ofstream outf;
-    outf.open(string("data/data_for_file18/OldroydBkxkz1SingularVals_") +
-              flowType + string("_beta_") + int2str(int(beta * 1000)) +
-              string("_We_") + int2str(int(We)) + string("_Re_") +
-              int2str(int(Re)) + string("_N_") + int2str(N) + string("_") +
-              int2str(k) + string(".txt"));
-    Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> out_to_file(num_vals,
-                                                                      3);
-    out_to_file.col(0) = svd.eigenvalues.real();
-    out_to_file.col(1) = svd.eigenvalues.imag();
-    out_to_file.col(2) = svd.MPorNot.cast<double>();
-    outf << out_to_file;
-    outf.close();
-    uvec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][0].v;
-
-    vvec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][1].v;
-
-    wvec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][2].v;
-
-    pvec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][3].v;
-
-    t11vec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][4].v;
-
-    t12vec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][5].v;
-
-    t13vec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][6].v;
-
-    t22vec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][7].v;
-    t23vec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][8].v;
-
-    t33vec[slice(k, N + 1, Nz)] =
-        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][9].v;
+//    outf << kx[k] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
+//         << svd.eigenvalues[1].real() << "\n";
+//
+//    cout << kx[k] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
+//         << svd.eigenvalues[1].real() << "\n";
+//
+//    num_vals = svd.eigenvalues.size();
+//    ofstream outf;
+//    outf.open(string("data/data_for_file18/OldroydBkxkz1SingularVals_") +
+//              flowType + string("_beta_") + int2str(int(beta * 1000)) +
+//              string("_We_") + int2str(int(We)) + string("_Re_") +
+//              int2str(int(Re)) + string("_N_") + int2str(N) + string("_") +
+//              int2str(k) + string(".txt"));
+//    Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> out_to_file(num_vals,
+//                                                                      3);
+//    out_to_file.col(0) = svd.eigenvalues.real();
+//    out_to_file.col(1) = svd.eigenvalues.imag();
+//    out_to_file.col(2) = svd.MPorNot.cast<double>();
+//    outf << out_to_file;
+//    outf.close();
+//    uvec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][0].v;
+//
+//    vvec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][1].v;
+//
+//    wvec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][2].v;
+//
+//    pvec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][3].v;
+//
+//    t11vec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][4].v;
+//
+//    t12vec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][5].v;
+//
+//    t13vec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][6].v;
+//
+//    t22vec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][7].v;
+//    t23vec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][8].v;
+//
+//    t33vec[slice(k, N + 1, Nz)] =
+//        svd.eigenvalues[0].real() * svd.eigenvectorsMat[0][9].v;
   }
   Eigen::VectorXd xval, zval;
 
