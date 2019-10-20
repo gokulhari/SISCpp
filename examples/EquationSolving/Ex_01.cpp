@@ -36,20 +36,30 @@ int main() {
   D1.coef << 1.0, 0.0;
   D0.coef << 1.0;
 
+  //Chebfun<complex<double> > tempfun;
+  //tempfun.v = 0.0;
+  //tempfun.v[1] = complex<double>(1.0,1.0);
+  //tempfun.dct_flag = SIS_CHEB_SPACE;
+  //tempfun.c2p();
+  //cout << tempfun << endl;
+  //tempfun.p2c();
+  //cout << tempfun << endl;
+  //exit(1);
+
   // for operator D2v - 4 v
   Lmat << D2 - 4.0 * D0;
 
   // Specify boundary conditions via BcMat:
-  BcMat<complex<double> > bcs(
-      2, 1); // Two boundary conditions in total, on one variable
+  BcMat<complex<double> > bcs(2, 1); 
+      // Two boundary conditions in total, on one variable
 
   // Some mixed boundary condition:
   // bcs.L << D0 + 4.0*D1,
   //         D0 - 5.0*D1;
-  bcs.L << D0 + 4.0*D1,//
-          D0 - 5.0*D1;
-  bcs.eval << -1.0, // evaluate bcs.L right end
-              0.5;          // evaluate bcs.L at 0.5, must be a value in domain [-1, 1]
+  bcs.L << D0,//
+          D0;
+  bcs.eval << 1.0, // evaluate bcs.L right end
+              -1.0;          // evaluate bcs.L at 0.5, must be a value in domain [-1, 1]
   bcs.vals << 2.0,  // value at right
       3.0;          // value at left
 
@@ -70,7 +80,5 @@ int main() {
   outf << temp;
   // note that sis::yEigen is the same as y, but of type Eigen Matrix,
   outf.close();
-
-
   return 0;
 }

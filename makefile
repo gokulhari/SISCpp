@@ -50,19 +50,23 @@ Ex_09:
 Ex_10:
 	g++ examples/FrequencyResponses/Ex_10.cpp -o bin/Ex_10 -I includes -lfftw3 $(BLAS)
 Ex_11:
-	g++ examples/FrequencyResponses/Ex_11.cpp -o bin/Ex_11 -I includes -lfftw3 $(BLAS)
+	g++ examples/FrequencyResponses/Ex_11.cpp -o bin/Ex_11 -I includes -lfftw3 $(BLAS) -g
 Ex_12:
 	g++ examples/FrequencyResponses/Ex_12.cpp -o bin/Ex_12 -I includes -lfftw3 $(BLAS)
 Ex_13:
 	g++ examples/FrequencyResponses/Ex_13.cpp -o bin/Ex_13 -I includes -lfftw3 $(BLAS)
 Ex_14:
-	g++ examples/Viscoelastic/Ex_14.cpp -o bin/Ex_14 -I includes -lfftw3 $(BLAS) -g
+	g++ examples/FrequencyResponses/Ex_14.cpp -o bin/Ex_14 -I includes -lfftw3 $(BLAS) -g
 Ex_15:
-	g++ examples/Viscoelastic/Ex_15.cpp -o bin/Ex_15 -I includes -lfftw3 $(BLAS)
+	g++ examples/FrequencyResponses/Ex_15.cpp -o bin/Ex_15 -I includes -lfftw3 $(BLAS) -g
 Ex_16:
 	g++ examples/Viscoelastic/Ex_16.cpp -o bin/Ex_16 -I includes -lfftw3 $(BLAS) -g
 Ex_17:
 	g++ examples/Viscoelastic/Ex_17.cpp -o bin/Ex_17 -I includes -lfftw3 $(BLAS)
+Ex_18:
+	g++ examples/Viscoelastic/Ex_18.cpp -o bin/Ex_18 -I includes -lfftw3 $(BLAS)
+Ex_19:
+	g++ examples/Viscoelastic/Ex_19.cpp -o bin/Ex_19 -I includes -lfftw3 $(BLAS)
 2DViscoSvd2:
 	g++ test/2DViscoSvd2.cpp -o bin/2DViscoSvd2 -I includes $(BLAS) -g
 2DViscoSvd_LikeMJ:
@@ -77,6 +81,10 @@ pipeFlowVisco:
 	g++ test/3DOldroydB.cpp -o bin/3DOldroydB -I includes  $(BLAS) $(OSFLAG) -g
 3DOldroydBDesHalf:
 	g++ test/3DOldroydBDesHalf.cpp -o bin/3DOldroydBDesHalf -I includes  $(BLAS) $(OSFLAG) -g
+3DOldroydBDesHalfStress:
+	g++ test/3DOldroydBDesHalfStress.cpp -o bin/3DOldroydBDesHalfStress -I includes  $(BLAS) $(OSFLAG) -g
+3DOldroydBDescriptorFull:
+	g++ test/3DOldroydBDescriptorFull.cpp -o bin/3DOldroydBDescriptorFull -I includes  $(BLAS) $(OSFLAG) -g
 
 format:
 	clang-format -i includes/*.hpp examples/*.cpp test/*.cpp paper/paper1/src/*.cpp -style='{BasedOnStyle: llvm, Standard: Cpp03}'

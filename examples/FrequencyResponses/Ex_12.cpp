@@ -1,5 +1,5 @@
 /// \file Ex_12.cpp
-/// \brief Example with discriptor approach.
+/// \brief Example with evolution form LNS.
 
 #define EIGEN_USE_BLAS
 #define SIS_USE_LAPACK
@@ -200,11 +200,7 @@ int main() {
     wvec[slice(k,N+1,Nz)] =
         svd.eigenvalues[0].real() *
         output[2].v;
-
-        // Neglecting pressure, not computed
-    pvec[slice(k,N+1,Nz)] =
-        //svd.eigenvalues[0].real() *
-        Cd_t(0.0,0.0);
+        
   }
   Eigen::VectorXd xval, zval;
 

@@ -84,7 +84,7 @@ int main() {
   using namespace sis;
   int bre;
   // Number of Chebyshev polynomials
-  N = 193;
+  N = 91;
   sis_setup();
 
   // Number of Eigenvalues to compute:
@@ -98,9 +98,9 @@ int main() {
   U = 1.0 - pow(y, 2.0);
   Uy = -2.0 * y;
   Uyy = -2.0;
-  double Re = 5812.5;
-  double kx = 0;
-  double kz = 1.0;
+  double Re = 2000;
+  double kx = 1.0;
+  double kz = 0.0;
   double k2 = kx * kx + kz * kz;
   double k4 = k2 * k2;
   complex<double> ii(0.0, 1.0);
@@ -142,9 +142,10 @@ int main() {
       1.0, 1.0,          //
       1.0, 1.0,          //
       1.0, 1.0;
-
+  
+  
   GeneralizedEigenSolver<complex<double> > eigs;
-  eigs.compute(Lmat, Mmat, 5 * (N + 1), bc);
+  eigs.compute(Lmat, Mmat, num_vals, bc);
   eigs.keepConverged();
   eigs.sortByLargestReal();
   num_vals = eigs.eigenvalues.size();
@@ -178,6 +179,7 @@ int main() {
       0.0, (-ii * kx * U) + (Delta / Re), 0.0, -Dy,          //
       0.0, 0.0, (-ii * kx * U) + (Delta / Re), -ii * kz,     //
       ii * kx, Dy, ii * kz, 0.0;
+     // ii*kx, 2.0*ii * kx * Uy + Dy, ii*kz, Delta; //Mj's suggestion
   /*
   Old bcs:
     Lmat.BcVec[0] = bc_dir;
@@ -215,7 +217,7 @@ int main() {
   out_to_file.col(1) = eigs.eigenvalues.imag();
   outf << out_to_file;
   outf.close();
-
+return 0;
   // Lastly, solve with conventional boundary conditions.
   Mmat.resize(4, 4);
   Mmat << 1.0, 0.0, 0.0, 0.0, //
@@ -252,5 +254,5 @@ int main() {
   out_to_file.col(1) = eigs.eigenvalues.imag();
   outf << out_to_file;
   outf.close();
-  return 0;
+  //return 0;
 }

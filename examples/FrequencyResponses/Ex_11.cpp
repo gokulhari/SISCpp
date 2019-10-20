@@ -1,5 +1,5 @@
 /// \file Ex_11.cpp
-/// \brief Example with discriptor approach.
+/// \brief Example with discriptor approach for LNS.
 
 #define EIGEN_USE_BLAS
 #define SIS_USE_LAPACK
@@ -9,7 +9,7 @@
 #include <string>
 
 using namespace std;
-
+typedef complex<double> Cd_t;
 complex<double> ii(0.0, 1.0);
 
 int main() {
@@ -168,7 +168,7 @@ int main() {
           0.0, (-ii * kx[j] * U) + (Delta / Re), 0.0, -Dy,             //
           0.0, 0.0, (-ii * kx[j] * U) + (Delta / Re), -ii * kz[k],     //
           ii * kx[j], Dy, ii * kz[k], 0.0;
-
+         // 0.0, 2.0*ii*kx[j]*Uy, 0.0, Delta;
       A.resize(4, 4);
       A = ((iiomega * Mmat) - Lmat);
       svd.compute(A, B, C, Lbc, Rbc, Lbc, Rbc, 15 * (N + 1));
@@ -182,24 +182,26 @@ int main() {
       std::cout << "(" << j << "," << k << ")" << '\n';
       cout << kx[j] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
            << svd.eigenvalues[1].real() << "\n";
+
+      ChebfunMat<Cd_t> phi(4, 1), output(3, 1);
+      phi(0, 0) = svd.eigenvectors(0, 0); //
+      phi(1, 0) = svd.eigenvectors(1, 0); //
+      phi(2, 0) = svd.eigenvectors(2, 0); //
+      phi(3, 0) = svd.eigenvectors(3, 0); //
+      output = C(phi);
+
       u3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] =
-          // svd.eigenvalues[0].real() *
-          svd.eigenvectorsMat[0][0].v;
+          svd.eigenvalues[0].real() *
+          output[0].v;
 
-      v3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] =
-          // svd.eigenvalues[0].real() *
-          svd.eigenvectorsMat[0][1].v;
-
-      w3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] =
-          // svd.eigenvalues[0].real() *
-          svd.eigenvectorsMat[0][2].v;
-
-      p3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] =
-          // svd.eigenvalues[0].real() *
-          svd.eigenvectorsMat[0][3].v;
+      v3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] = svd.eigenvalues[0].real() * output[1].v;
+      //
+        w3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] = svd.eigenvalues[0].real() * output[2].v;
+      //
+       // p3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] = svd.eigenvalues[0].real() * output[3].v;
     }
   }
-
+cout << "in " << __LINE__ << endl<< flush; 
   // take inverse fourier transforms
   for (int i = 0; i < N + 1; i++) {
     u3d[slice(i * Nx * Nz, Nx * Nz, 1)] =
