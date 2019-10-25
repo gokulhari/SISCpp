@@ -7,9 +7,9 @@
 /// \section Introduction
 ///
 /// Spectral integral suite in C++ (SISC++) is a generic header to solve
-/// two-point-boundary-value problems in the system
+/// two-point boundary-value problems in the system
 /// representation. SISC++ can solve for linear differential equations,
-/// and compute eigenvalues, principle singular value of frequency responses,
+/// and compute eigenvalues, singular values of frequency responses,
 /// and the power spectral density (Hilbert-Schmidt norm) of
 /// linear differential systems.
 ///
@@ -67,7 +67,7 @@
 /// a liability for direct numerical simulations.
 ///
 /// For most part classes and functions are quite intuitive, but you need to know
-/// at least a bit about C++. A good place to learn C++
+/// a bit about C++. A good place to learn C++
 /// is <a href="http://www.cplusplus.com/doc/tutorial/">here </a>.
 /// You'll find it amazing if you have used <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>.
 /// As far as the algorithm is concerned, SISC++ is based on the recent
@@ -84,7 +84,7 @@
 /// fluids, both in primitive variables and in the evolution form. To the best of
 /// our knowledge, solving for eigenvalues of incompressible flow problems in
 /// Chebfun can currently be done only by using the evolution form of the
-/// governing equations, As a virtue of spectral integration, SISC++ can solve
+/// governing equations. As a virtue of spectral integration, SISC++ can solve
 /// for incompressible flow eigenvalue problems directly in the discriptor form
 /// (in primitive variables). This can potentially save time,
 /// specifically for viscoelastic fluids whose algebraic manipulations for a
@@ -152,7 +152,7 @@
 /// all the examples in the directory examples, and the executables will be
 /// placed in the directory bin. Then run the executables, by saying, say
 /// \code{.sh}
-/// ./bin/Ex1
+/// ./bin/Ex_01
 /// \endcode
 /// in the terminal.
 /// Data generated will be placed in the folder data.
@@ -255,14 +255,18 @@ namespace std {
 /// \brief Use this to make a complex valarray out of two real valarrays
 template <class T>
 std::valarray<std::complex<T> > dou2com(const std::valarray<T> &a,
-                                        const std::valarray<T> &b) {
+ const std::valarray<T> &b) {
   std::valarray<std::complex<T> > temp;
-
+int bre;
   temp.resize(a.size());
   for (int i = 0; i < a.size(); i++) {
     temp[i] = std::complex<T>(a[i], b[i]);
   }
+
+  std::cin >> bre;
+  std::cout << "showing in dou2com " << imag(temp).max() << endl;
   return temp;
+  
 };
 
 /// \brief real part of a complex valarray
@@ -768,7 +772,6 @@ std::valarray<T> ifft2_cs(std::valarray<std::complex<T> > in1, int Nx, int Nz) {
   //    std::cout << "\n" << '\n';
   //  }
   // std::cin >> bre;
-  DFTI_DESCRIPTOR_HANDLE descriptor;
 
   MKL_LONG status = 0;
   DFTI_DESCRIPTOR_HANDLE hand = 0;
@@ -1159,7 +1162,7 @@ public:
 
       status = DftiCommitDescriptor(descriptor);
       status = DftiComputeForward(descriptor, &vd[0], &V[0]);
-      //status = DftiFreeDescriptor(&descriptor);
+      status = DftiFreeDescriptor(&descriptor);
       for (int j = 0; j < n / 2; j++)
         V[n / 2 + j] = std::conj(V[n / 2 - j]);
       v = 2.0 * std::real(std::valarray<std::complex<T> >(half_shift * V)) / T(n);
@@ -1201,7 +1204,7 @@ public:
       status = DftiSetValue(descriptor, DFTI_CONJUGATE_EVEN_STORAGE, DFTI_COMPLEX_COMPLEX);
       status = DftiCommitDescriptor(descriptor);
       status = DftiComputeBackward(descriptor, &in1[0], &vd[0]);
-
+      status = DftiFreeDescriptor(&descriptor);
       for (int i = 0; i < (n + 1) / 2; i++)
         v[2 * i] = vd[i];
       for (int i = (n + 1) / 2; i < n; i++)
