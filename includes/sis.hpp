@@ -263,8 +263,8 @@ int bre;
     temp[i] = std::complex<T>(a[i], b[i]);
   }
 
-  std::cin >> bre;
-  std::cout << "showing in dou2com " << imag(temp).max() << endl;
+ // std::cin >> bre;
+ // std::cout << "showing in dou2com " << imag(temp).max() << endl;
   return temp;
   
 };
@@ -691,6 +691,8 @@ idct(const std::slice_array<std::complex<T> > &in) {
   return idct(std::valarray<std::complex<T> >(in));
 };
 
+
+
 /// \brief fft2 for a 2D matrix stored in the row-major format, Nx and Nz denote
 /// dimensions in x and z. The return value is of size Nx * Nz / 2 of
 /// complex type, which implicitly assumes conjugate symmetry and also that
@@ -814,6 +816,73 @@ template <class T>
 std::valarray<T> ifft2_cs(std::slice_array<std::complex<T> > in, int Nx,
                           int Nz) {
   return ifft2_cs(std::valarray<std::complex<T> >(in), Nx, Nz);
+}
+
+
+/// \brief dealias_prod_2D for a 2D matrix stored in the row-major format, Nx and Nz
+/// denote
+/// dimensions in x and z. Input valarrays of size (Nx x Nz / 2) of type complex
+/// double, which implicitly assumes conjugate symmetry and also that
+/// the values at the Nyquist frequency are zero.
+/// The return value again complex double returning the dealiased convolution according to 3/2 rule. For example:
+/// pad zeros:
+/// Example:
+/// For an 8 x 8 matrix :
+///  * * * * - * * *
+///  * * * * - * * * 
+///  * * * * - * * *
+///  * * * * - * * *	
+///  - - - - - - - -
+///  * * * * - * * *
+///  * * * * - * * *
+///  * * * * - * * *
+///  we pad as 
+///  * * * * 0 0 + 0 - * * *
+///  * * * * 0 0 + 0 - * * *
+///  * * * * 0 0 + 0 - * * *
+///  * * * * 0 0 + 0 - * * *
+///  0 0 0 0 0 0 + 0 0 0 0 0
+///  + + + + + + + + + + + +
+///  0 0 0 0 0 0 + 0 0 0 0 0
+///  0 0 0 0 0 0 + 0 0 0 0 0
+///  - - - - 0 0 + 0 - - - -
+///  * * * * 0 0 + 0 - * * *
+///  * * * * 0 0 + 0 - * * * 
+///  * * * * 0 0 + 0 - * * *
+// an 8 x 8 matrix is thus converted to a 12 x 12 matrix according to the 3/2 rule
+template <class T>
+std::valarray<std::complex<T> > dealias_prod_2D(std::valarray<std::complex<T> > a, std::valarray<std::complex<T> > b, int Nx, int Nz){
+	std::valarray<std::complex<T> > tempa(0.0,(3*Nx/2) * (3*(Nz/2)/2)), tempb(0.0,(3*Nx/2) * (3*(Nz/2)/2));
+	
+	// Now assign values to the new matrices:
+	for (int i = 0; i< Nx/2; i++) {
+		tempa[std::slice(i*3*Nz/4,Nz/2,1)] = a[std::slice(i*Nz/2,Nz/2,1)];
+		tempa[std::slice(i*3*Nz/4 + Nx*3*Nz/4 ,Nz/2,1)] = a[std::slice(i*Nz/2+Nx*Nz/4,Nz/2,1)];
+		tempb[std::slice(i*3*Nz/4,Nz/2,1)] = b[std::slice(i*Nz/2,Nz/2,1)];
+		tempb[std::slice(i*3*Nz/4 + Nx*3*Nz/4 ,Nz/2,1)] = b[std::slice(i*Nz/2+Nx*Nz/4,Nz/2,1)];
+}
+
+// take to real space:
+std::valarray<T> tempar((3*(Nx)/2) * (3*(Nz)/2));
+std::valarray<T> tempbr((3*(Nx)/2) * (3*(Nz)/2));
+
+tempar = sis::ifft2_cs(tempa,3*Nx/2,3*Nz/2);
+tempbr = sis::ifft2_cs(tempb,3*Nx/2,3*Nz/2);
+
+// Multiply them:
+tempar = tempar * tempbr;
+
+// Go back to Fourier space:
+tempa = sis::fft2(tempar,3*Nx/2,3*Nz/2);
+
+// Remove zero padding:
+for (int i = 0; i< Nx/2; i++){
+		a[std::slice(i*Nz/2,Nz/2,1)] = tempa[std::slice(i*3*Nz/4,Nz/2,1)];
+		 a[std::slice(i*Nz/2+Nx*Nz/4,Nz/2,1)] = tempa[std::slice(i*3*Nz/4 + Nx*3*Nz/4 ,Nz/2,1)];
+}
+// Rescaling needed due to zero padding:
+a = a*std::complex<T>(9.0/4.0,0.0);
+return a;
 }
 
 /// \brief This function is useful to see size of Eigen matrices. Returns a
@@ -1682,6 +1751,7 @@ public:
     Eigen::Matrix<std::complex<T>, Eigen::Dynamic, 1> vec(N + 1);
     vec.setConstant(0.0);
     vec.block(0, 0, N + 1, 1) = dou2com(vr_arr, vi_arr).matrix();
+    
     for (int i = 0; i < N + 1; i++) {
       toep.block(i, i, 1, N + 1 - i) =
           vec.block(0, 0, N + 1 - i, 1).transpose();
@@ -1694,10 +1764,16 @@ public:
     for (int i = 1; i < N + 1; i++) {
       hank.block(i, 0, 1, N - i) = vec.block(i, 0, N - i, 1).transpose();
     }
-
+//std::cout << "in " << __LINE__ << "\n";
+//    std::cout << hank << "\n";
+//    std::cin >> bre;
     Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> out;
     out = std::complex<double>(0.5, 0.0) * (toep + hank);
+    
+    //std::cout << "in " << "\n";
+    //std::cout << out << "\n"; 
     return out.transpose();
+
   }
 
   /// \brief assignment operator of Chebfun
@@ -5188,6 +5264,7 @@ public:
     BcMat<std::complex<T> > Lbc = Lbc_;
     int total_of_all_orders = 0;
     int total_boundary_conditions = 0;
+    
     if (Lmat.r != Lmat.c) {
       std::cout << "Solution only possible with square LinopMats. Exiting ..."
                 << '\n';
@@ -5281,6 +5358,8 @@ public:
       for (int j = 0; j < Lbc.n; j++) {
         Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> temp=
             Lbc(i, j, highest_each_column[j]);
+           // std::cout << temp << std::endl;
+           // std::cin >> bre;
         constraints.block(i, col_counter, 1, temp.cols()) = temp;
         col_counter += temp.cols();
       }
@@ -5331,6 +5410,13 @@ public:
                           N + 1 + n) +=
                 Lmat(i, j).coef[k] *
                 (Mat.mats2[k + diffn].block(0, 0, N + 1, N + 1 + n));
+         //   std::cout << "In, "
+           //           << "Lmat("<< i << "," << j << ").coef[" << k << "]"  << Lmat(i, j).coef[k]
+             //..          << __LINE__ << "\n";
+           // std::cout << masterL.block(master_row_counter, master_col_counter, N + 1,
+            //              N + 1 + n)  << "\n";
+               //           std::cout << Lmat(i, j).coefFun[k].MultMat() << "\n";
+            //std::cin >> bre;
           }
         } else {
           for (int k = 0; k < Lmat(i, j).n + 1; k++) {
@@ -5338,6 +5424,15 @@ public:
                           N + 1 + n) +=
                 Lmat(i, j).coefFun[k].MultMat().block(0, 0, N + 1, N + 1) *
                 (Mat.mats2[k + diffn].block(0, 0, N + 1, N + 1 + n));
+          //  std::cout << "In, "
+          //            << "Lmat(" << i << "," << j << ").coef[" << k << "]"
+          //            << __LINE__ << "\n";
+           // std::cout << masterL.block(master_row_counter, master_col_counter,// N + 1,
+                                      // N + 1 + n) << "\n";//*
+                                                  // (Mat.mats2[k + diffn].block(0, 0, N + 1, N + 1 + n))
+                                                  //        << "\n";
+          //  std::cout << Lmat(i, j).coefFun[k].MultMat() << "\n";
+          //  std::cin >> bre;
           }
         }
         diffn = n - Mmat(i, j).n;
@@ -7863,7 +7958,7 @@ public:
   void compute(int n_) {
     clear();
     n = n_;
-
+    int bre;
     mats.resize(n + 1);
     for (int i = 0; i < n + 1; i++) {
       mats[i].resize(N + 1 + 2 * n, N + 1 + 2 * n);
@@ -7904,6 +7999,9 @@ public:
     for (int i = 0; i < n; i++) {
       mats2[i + 1].block(0, N + 1, n, n) = con_mats[i];
     }
+  //  std::cout << "In " << __LINE__ << std::endl;
+  //  std::cout << mats[1] << std::endl;
+  //  std::cin >> bre;
   }
   void clear() {
     mats.clear();
@@ -7936,7 +8034,7 @@ public:
   void compute(int n_) {
     clear();
     n = n_;
-
+    int bre;
     mats.resize(n + 1);
     for (int i = 0; i < n + 1; i++) {
       mats[i].resize(N + 1 + 2 * n, N + 1 + 2 * n);
@@ -7978,6 +8076,9 @@ public:
     for (int i = 0; i < n; i++) {
       mats2[i + 1].block(0, N + 1, n, n) = con_mats[i];
     }
+    //std::cout << "In " << __LINE__ << std::endl;
+    //std::cout << mats[0] << std::endl;
+    //std::cin >> bre;
   }
   void clear() {
     mats.clear();
@@ -8877,6 +8978,10 @@ public:
     if (n > 0) {
       valcons[0] *= 0.5;
     }
+
+    //std::cout << "in " << __LINE__ << std::endl << vals;
+    //std::cout << "in " << __LINE__ << std::endl << valcons;
+    //exit(1);
     MatGen<T> Mat;
     Mat.compute(n);
     Eigen::Matrix<std::complex<T>, 1, Eigen::Dynamic> out(1, N + 1 + n);
@@ -8893,6 +8998,9 @@ public:
         //}
         out.block(0, 0, 1, N + 1) +=
             (L(i, j).coef[k] * vals * Mat.mats[k + diffn]).head(N + 1);
+            //std::cout << Mat.mats[k + diffn] << std::endl;
+            //std::cin >> bre;
+
         if (k + diffn - 1 > -1) {
           out.block(0, N + 1, 1, n) +=
               (L(i, j).coef[k] * valcons * Mat.con_mats[k + diffn - 1]);
