@@ -5,7 +5,7 @@
 /// \f{align}{
 /// \partial_{yy}u(y)\,-\,4\,u(y) \;=\; 0,
 /// \f}
-/// with Dirichlet boundary conditions.
+/// with homogenous Dirichlet boundary conditions , \f$u(\pm 1) = 0\f$.
 ///
 /// Analytical solution: \f$-4 - n^2\pi^2/4\f$
 

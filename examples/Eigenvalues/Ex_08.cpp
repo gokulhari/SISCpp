@@ -8,8 +8,6 @@
 /// \lambda
 /// \;
 /// (\partial_{yy} - 1) u \f]
-///
-/// \image html pics/Ex_14.svg " " width=500cm height=500cm
 
 #include <fstream>
 #include <iostream>

@@ -1,5 +1,5 @@
 /// \file Ex_06.cpp
-/// \brief This solves the generalized eigenvalue problem \f$ L \phi = \lambda M
+/// \brief An example for the solution of a generalized eigenvalue problem \f$ L \phi = \lambda M
 /// \phi \f$.
 ///
 /// Solves the generalized eigenvalue problem,

@@ -1,7 +1,6 @@
 /// \file Ex_09.cpp
-/// \brief Finds eigenvalues for streamwise-constant linearized Navier-Stokes
-/// equations, in two ways:
-///   1. By solving for the generalized eigenvalue problem:
+/// \brief Finds eigenvalues for streamwise-constant linearized Navier-Stokes equations, in two ways:
+/// 1. By solving for the generalized eigenvalue problem:
 /// \f[
 /// \left[
 /// \begin{array}{cc}
@@ -27,8 +26,7 @@
 /// \f]
 /// with boundary conditions \f$v(\pm 1) \;=\; v'(\pm 1) \;=\; \eta(\pm 1) \;=\;
 /// 0\f$
-///
-///   2. By solving the generalized eigenvalue problem:
+/// 2. By solving the generalized eigenvalue problem:
 /// \f[
 /// \left[
 /// \begin{array}{cccc}
@@ -61,17 +59,12 @@
 /// \right]
 /// \f]
 /// with boundary conditions \f$u(\pm 1) \;=\; v(\pm 1) \;=\; w(\pm 1) \;=\;
-/// p(-1) \;=\; 0\f$
-///
-/// Eigenvalues returned by both methods should have nature, (in terms of wave
-/// speed and stability.), but may differ in value.
-///
+/// v'(\pm 1) \;=\; 0\f$
 ///
 /// Note from the above form that the eigenvalues are simply the eigenvalues of
 /// \f$ \Delta^2/Re\f$ and \f$\Delta/Re\f$, both of whom are real. Method 2
 /// approximates the solution more accrately than method 1, as imaginary
-/// parts in method 2 are zero to machine precision. Moreover, eigenfunctions
-/// are directly related to velocities and pressure and not to the vorticity.
+/// parts in method 2 are zero to machine precision.
 
 #define SIS_USE_LAPACK
 #include <fstream>

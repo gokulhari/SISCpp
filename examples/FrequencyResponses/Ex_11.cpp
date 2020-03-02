@@ -1,5 +1,8 @@
 /// \file Ex_11.cpp
-/// \brief Example with discriptor approach for LNS.
+/// \brief Solving for the most amplified structures from the linearized equations governing plane Poiseuille flow of a Newtonian fluid.
+///
+/// We compute the principle singular values using an SVD and plot the most amplified structures.
+/// \htmlinclude figure_39.html
 
 #define EIGEN_USE_BLAS
 #define SIS_USE_LAPACK
@@ -10,55 +13,46 @@
 
 using namespace std;
 typedef complex<double> Cd_t;
+typedef valarray<complex<double> > Vcd_t;
 complex<double> ii(0.0, 1.0);
 
-int main() {
+int main()
+{
   using namespace sis;
   int bre;
   // Number of Chebyshev polynomials
-  N = 91;
+  N = 63;
   sis_setup();
   // Number of Eigenvalues to compute:
   int num_vals = 40;
 
-  // Nyquist frequency
-  double kz_Nyq = 2.0;
-  double kx_Nyq = 2.0;
   // Number of fourier modes in span-wise direction:
   int Nz = 4;
   int Nx = 4;
   // Length of domain:
-  double Lz = Nz * M_PI / (kz_Nyq);
-  double Lx = Nx * M_PI / (kx_Nyq);
   valarray<double> kz(Nz);
   valarray<double> kx(Nx);
   valarray<double> z(Nz);
   valarray<double> x(Nx);
-  for (int i = 0; i < Nz / 2; i++) {
-    kz[i] = i * 1.0;
-  }
-  for (int i = Nz / 2; i < Nz; i++) {
-    kz[i] = i - Nz;
-  }
-  kz = kz * (2.0 * M_PI) / Lz;
+  valarray<double> omval(Nx);
 
-  for (int i = 0; i < Nx / 2; i++) {
-    kx[i] = i * 1.0;
-  }
-  for (int i = Nx / 2; i < Nx; i++) {
-    kx[i] = i - Nx;
-  }
-  kx = kx * (2.0 * M_PI) / Lx;
+  kx[0] = 1.0;
+  kx[1] = 1.0;
+  kx[2] = -1.0;
+  kx[3] = -1.0;
 
-  double delz = Lz / Nz;
-  double delx = Lz / Nx;
+  kz[0] = 1.0;
+  kz[1] = -1.0;
+  kz[2] = 1.0;
+  kz[3] = -1.0;
 
-  for (int i = 0; i < Nz; i++) {
-    z[i] = double(i) * delz;
-  }
-  for (int i = 0; i < Nx; i++) {
-    x[i] = double(i) * delx;
-  }
+  omval[0] = -1.0;
+  omval[1] = -1.0;
+  omval[2] = 1.0;
+  omval[3] = 1.0;
+  double omega = 0.385;
+
+  omval = omega * omval;
 
   valarray<double> y, Uy, U, Uyy(N + 1);
   // Set in cheb-point
@@ -74,7 +68,7 @@ int main() {
   Dy.coef << 1.0, 0.0;
 
   LinopMat<std::complex<double> > A, B(2, 3), C(3, 2);
-  BcMat<std::complex<double> > Lbc(4, 4), Rbc(4, 4);
+  BcMat<std::complex<double> > Lbc(4, 4), Rbc(4, 4), bc(8, 4);
 
   Lbc.resize(4, 4);
   Rbc.resize(4, 4);
@@ -88,12 +82,14 @@ int main() {
       0.0, Dy, 0.0, 0.0;
   Lbc.eval.setConstant(-1.0);
   Rbc.eval.setConstant(1.0);
+  bc.L << Lbc.L, //
+      Rbc.L;
+  bc.eval << Lbc.eval, //
+      Rbc.eval;
 
   SingularValueDecomposition<std::complex<double> > svd;
 
   ofstream outf;
-
-  double omega = -0.385;
 
   B.resize(4, 3);
   C.resize(3, 4);
@@ -142,94 +138,121 @@ int main() {
   // Hence we store only the elements (:,1:Nz/2) in Matlab notation. There is
   // slight repetition, that is 30*, 20* and 10* not needed to be stored.
 
-  valarray<complex<double> > u3dc((N + 1) * Nx * Nz / 2),
-      v3dc((N + 1) * Nx * Nz / 2), w3dc((N + 1) * Nx * Nz / 2),
-      p3dc((N + 1) * Nx * Nz / 2);
+  valarray<complex<double> > uvec(Cd_t(0.0, 0.0), (N + 1) * 4),
+      vvec(Cd_t(0.0, 0.0), (N + 1) * 4), wvec(Cd_t(0.0, 0.0), (N + 1) * 4),
+      pvec(Cd_t(0.0, 0.0), (N + 1) * 4);
   valarray<double> u3d((N + 1) * Nx * Nz), v3d((N + 1) * Nx * Nz),
       w3d((N + 1) * Nx * Nz), p3d((N + 1) * Nx * Nz);
 
-  for (int j = 0; j < Nx; j++) {
-    for (int k = 0; k < Nz / 2; k++) {
-      complex<double> iiomega = ii * omega;
-      double k2 = kx[j] * kx[j] + kz[k] * kz[k];
-      double k4 = k2 * k2;
-      Linop<double> Delta(2), Delta2(4);
-      LinopMat<complex<double> > Lmat(4, 4), Mmat(4, 4);
+  for (int k = 0; k < 4; k++)
+  {
+    complex<double> iiomega = ii * omega;
+    double k2 = kx[k] * kx[k] + kz[k] * kz[k];
+    double k4 = k2 * k2;
+    Linop<double> Delta(2), Delta2(4);
+    LinopMat<complex<double> > Lmat(4, 4), Mmat(4, 4);
 
-      Delta.coef << 1.0, 0.0, -k2;
-      Delta2.coef << 1.0, 0.0, -2 * k2, 0.0, k4;
+    Delta.coef << 1.0, 0.0, -k2;
+    Delta2.coef << 1.0, 0.0, -2 * k2, 0.0, k4;
 
-      Mmat << 1.0, 0.0, 0.0, 0.0, //
-          0.0, 1.0, 0.0, 0.0,     //
-          0.0, 0.0, 1.0, 0.0,     //
-          0.0, 0.0, 0.0, 0.0 * Delta;
+    Mmat << 1.0, 0.0, 0.0, 0.0, //
+        0.0, 1.0, 0.0, 0.0,     //
+        0.0, 0.0, 1.0, 0.0,     //
+        0.0, 0.0, 0.0, 0.0 * Delta;
 
-      Lmat << (-ii * kx[j] * U) + (Delta / Re), -Uy, 0.0, -ii * kx[j], //
-          0.0, (-ii * kx[j] * U) + (Delta / Re), 0.0, -Dy,             //
-          0.0, 0.0, (-ii * kx[j] * U) + (Delta / Re), -ii * kz[k],     //
-          ii * kx[j], Dy, ii * kz[k], 0.0;
-         // 0.0, 2.0*ii*kx[j]*Uy, 0.0, Delta;
-      A.resize(4, 4);
-      A = ((iiomega * Mmat) - Lmat);
-      svd.compute(A, B, C, Lbc, Rbc, Lbc, Rbc, 15 * (N + 1));
-      std::cout << "eigenvalue: " << svd.eigenvalues[0] << "\n";
-      num_vals = svd.eigenvalues.size();
+    Lmat << (-ii * kx[k] * U) + (Delta / Re), -Uy, 0.0, -ii * kx[k], //
+        0.0, (-ii * kx[k] * U) + (Delta / Re), 0.0, -Dy,             //
+        0.0, 0.0, (-ii * kx[k] * U) + (Delta / Re), -ii * kz[k],     //
+        ii * kx[k], Dy, ii * kz[k], 0.0;
 
-      // Store first two eigenvalues.
-      outf << kx[j] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
-           << svd.eigenvalues[1].real() << "\n";
+    A.resize(4, 4);
+    A = ((iiomega * Mmat) - Lmat);
+    
+    svd.compute(A, B, C, Lbc, Rbc, Lbc, Rbc, 15 * (N + 1));
+    std::cout << "eigenvalue: " << svd.eigenvalues[0] << "\n";
+    num_vals = svd.eigenvalues.size();
 
-      std::cout << "(" << j << "," << k << ")" << '\n';
-      cout << kx[j] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
-           << svd.eigenvalues[1].real() << "\n";
+    // Store first two eigenvalues.
+    outf << kx[k] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
+         << svd.eigenvalues[1].real() << "\n";
 
-      ChebfunMat<Cd_t> phi(4, 1), output(3, 1);
-      phi(0, 0) = svd.eigenvectors(0, 0); //
-      phi(1, 0) = svd.eigenvectors(1, 0); //
-      phi(2, 0) = svd.eigenvectors(2, 0); //
-      phi(3, 0) = svd.eigenvectors(3, 0); //
-      output = C(phi);
+    uvec[slice(k,N+1,Nz)] =
+      //  svd.eigenvalues[0].real() *
+        svd.eigenvectors(0,0).v;
 
-      u3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] =
-          svd.eigenvalues[0].real() *
-          output[0].v;
+    vvec[slice(k,N+1,Nz)] =
+        //svd.eigenvalues[0].real() *
+        svd.eigenvectors(1,0).v;
 
-      v3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] = svd.eigenvalues[0].real() * output[1].v;
-      //
-        w3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] = svd.eigenvalues[0].real() * output[2].v;
-      //
-       // p3dc[slice(j * Nz / 2 + k, N + 1, Nx * Nz / 2)] = svd.eigenvalues[0].real() * output[3].v;
+    wvec[slice(k,N+1,Nz)] =
+       // svd.eigenvalues[0].real() *
+        svd.eigenvectors(2,0).v;
+
+    pvec[slice(k,N+1,Nz)] =
+       // svd.eigenvalues[0].real() *
+        svd.eigenvectors(3,0).v;
+        
+  }
+  Eigen::VectorXd xval, zval;
+
+  zval = Eigen::VectorXd::LinSpaced(100, -7.8, 7.8);
+  xval = Eigen::VectorXd::LinSpaced(100, 0, 12.7);
+  Nx = 100;
+  Nz = 100;
+  Vcd_t u3dc(Cd_t(0.0, 0.0), (N + 1) * Nx * Nz),
+      v3dc(Cd_t(0.0, 0.0), (N + 1) * Nx * Nz),
+      w3dc(Cd_t(0.0, 0.0), (N + 1) * Nx * Nz),
+      p3dc(Cd_t(0.0, 0.0), (N + 1) * Nx * Nz);
+
+  for (int j = 0; j < xval.size(); j++)
+  {
+    double x = xval[j];
+    for (int k = 0; k < zval.size(); k++)
+    {
+      double z = zval[k];
+      for (int i = 0; i < 4; i++)
+      {
+        double kx1 = kx[i];
+        double kz1 = kz[i];
+        u3dc[slice(j * Nz + k, N + 1, Nx * Nz)] +=
+            Vcd_t(uvec[slice(i, N + 1, 4)]) *
+            exp((ii * kx1 * x) + (ii * kz1 * z));
+        v3dc[slice(j * Nz + k, N + 1, Nx * Nz)] +=
+            Vcd_t(vvec[slice(i, N + 1, 4)]) *
+            exp((ii * kx1 * x) + (ii * kz1 * z));
+        w3dc[slice(j * Nz + k, N + 1, Nx * Nz)] +=
+            Vcd_t(wvec[slice(i, N + 1, 4)]) *
+            exp((ii * kx1 * x) + (ii * kz1 * z));
+        p3dc[slice(j * Nz + k, N + 1, Nx * Nz)] +=
+            Vcd_t(pvec[slice(i, N + 1, 4)]) *
+            exp((ii * kx1 * x) + (ii * kz1 * z));
+      }
     }
   }
-cout << "in " << __LINE__ << endl<< flush; 
-  // take inverse fourier transforms
-  for (int i = 0; i < N + 1; i++) {
-    u3d[slice(i * Nx * Nz, Nx * Nz, 1)] =
-        ifft2_cs(u3dc[slice(i * Nx * Nz / 2, Nx * Nz / 2, 1)], Nx, Nz);
-    v3d[slice(i * Nx * Nz, Nx * Nz, 1)] =
-        ifft2_cs(v3dc[slice(i * Nx * Nz / 2, Nx * Nz / 2, 1)], Nx, Nz);
-    w3d[slice(i * Nx * Nz, Nx * Nz, 1)] =
-        ifft2_cs(w3dc[slice(i * Nx * Nz / 2, Nx * Nz / 2, 1)], Nx, Nz);
-    p3d[slice(i * Nx * Nz, Nx * Nz, 1)] =
-        ifft2_cs(p3dc[slice(i * Nx * Nz / 2, Nx * Nz / 2, 1)], Nx, Nz);
-  }
+  u3d = real(u3dc);
+  v3d = real(v3dc);
+  w3d = real(w3dc);
+  p3d = real(p3dc);
 
-  // Convert from Cheb-space to physical space:
-  for (int j = 0; j < Nx; j++) {
-    for (int k = 0; k < Nz; k++) {
-      u3d[slice(j * Nz + k, N + 1, Nx * Nz)] =
-          idct(u3d[slice(j * Nz + k, N + 1, Nx * Nz)]);
-      v3d[slice(j * Nz + k, N + 1, Nx * Nz)] =
-          idct(v3d[slice(j * Nz + k, N + 1, Nx * Nz)]);
-      w3d[slice(j * Nz + k, N + 1, Nx * Nz)] =
-          idct(w3d[slice(j * Nz + k, N + 1, Nx * Nz)]);
-      p3d[slice(j * Nz + k, N + 1, Nx * Nz)] =
-          idct(p3d[slice(j * Nz + k, N + 1, Nx * Nz)]);
-    }
+  x.resize(xval.size());
+  z.resize(zval.size());
+  std::cout << "xval: \n"
+            << xval << '\n';
+  std::cout << "zval: \n"
+            << zval << '\n';
+  std::cout << "x.size(): " << xval.size() << '\n';
+  std::cout << "z.size(): " << zval.size() << '\n';
+  for (int i = 0; i < xval.size(); i++)
+  {
+    x[i] = xval[i];
+  }
+  for (int i = 0; i < zval.size(); i++)
+  {
+    z[i] = zval[i];
   }
 
   outf.close();
-  string filename("data/file2vec_noscale");
+  string filename("data/Ex11vec_noscale0385");
   std::cout << "z.size(): " << z.size() << '\n';
 
   // Export to a vtk file:

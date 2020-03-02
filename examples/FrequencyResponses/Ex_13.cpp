@@ -1,269 +1,146 @@
 /// \file Ex_13.cpp
-/// \brief Example with discriptor approach.
+/// \brief Solving for the principal singular values of an Oldroyd-B fluid. See Figure 8 in \cite liejovJCP13
 
-#define EIGEN_USE_BLAS
-#define SIS_USE_LAPACK
+#define EIGEN_USE_MKL_ALL
+// Use this if you want to use openmp in the main loop
+//#define EIGEN_DONT_PARALLELIZE
+#define EIGEN_FAST_MATH 0
+
 #include <fstream>
 #include <iostream>
+#include <omp.h>
 #include <sis.hpp>
 #include <string>
 
+
 using namespace std;
 typedef complex<double> Cd_t;
+typedef valarray<double> Vd_t;
 typedef valarray<complex<double> > Vcd_t;
-complex<double> ii(0.0, 1.0);
-
 int main() {
   using namespace sis;
   int bre;
+  valarray<double> Wes(20);
+  Eigen::VectorXd psd(20);
   // Number of Chebyshev polynomials
-  N = 63;
+  for (int i = 0; i < 20; i++) {
+    Wes[i] = double(i + 1);
+  }
+
+  N = 255;
   sis_setup();
-  // Number of Eigenvalues to compute:
-  int num_vals = 40;
+  Vcd_t U(N + 1), Uy(N + 1), Uyy(N + 1);
+  string flowType("Couette");
 
-  // Number of fourier modes in span-wise direction:
-  int Nz = 4;
-  int Nx = 4;
-  // Length of domain:
-  valarray<double> kz(Nz);
-  valarray<double> kx(Nx);
-  valarray<double> z(Nz);
-  valarray<double> x(Nx);
-  valarray<double> omval(Nx);
+  if (flowType.compare("Poiseuille") == 0) {
+    U = Cd_t(1.0, 0.0) - yc * yc;
+    Uy = Cd_t(-2.0, 0.0) * yc;
+    Uyy = Cd_t(-2.0, 0.0);
+  } else if (flowType.compare("Couette") == 0) {
+    U = yc;
+    Uy = Cd_t(1.0, 0.0);
+    Uyy = Cd_t(0.0, 0.0);
+  } else {
+    std::cout << "Unknown flow type, in line " << __LINE__ << '\n'
+              << "Exiting...\n";
+    exit(1);
+  }
+ 
+  Eigen::MatrixXd valsS(10, 2);
+  Eigen::MatrixXd valsV(10, 2);
+ 
+  //#pragma omp parallel for
+  for (int i = 0; i < 10; i++) {
+    Cd_t Re = 0.0;
+    Cd_t We = Wes[i];
+    Cd_t kx = 1.0;
+    Cd_t beta = 0.5;
+    Cd_t ii(0.0, 1.0);
 
-  kx[0] = 1.0;
-  kx[1] = 1.0;
-  kx[2] = -1.0;
-  kx[3] = -1.0;
+    Linop<Cd_t> Dyyyy(4), Dyyy(3), Dyy(2), Dy(1);
+    Vcd_t c(N + 1), cy(N + 1), cyy(N + 1), a0(N + 1), a1(N + 1), a2(N + 1),
+        a3(N + 1), a4(N + 1);
 
-  kz[0] = 1.0;
-  kz[1] = -1.0;
-  kz[2] = 1.0;
-  kz[3] = -1.0;
+    Dyyyy.coef << 1.0, 0.0, 0.0, 0.0, 0.0;
+    Dyyy.coef << 1.0, 0.0, 0.0, 0.0;
+    Dyy.coef << 1.0, 0.0, 0.0;
+    Dy.coef << 1.0, 0.0;
+    // Set in cheb-point
+    Cd_t omega = 0.0;
+    c = (ii * omega + 1.0 + (ii * kx * We * U));
+    cy = ii * kx * We * Uy;
+    cyy = ii * kx * We * Uyy;
 
-  omval[0] = -1.0;
-  omval[1] = -1.0;
-  omval[2] = 1.0;
-  omval[3] = 1.0;
-  double omega = -0.385;
+    a4 = -beta + (-1.0 + beta)/c;
 
-  omval = omega * omval;
+    a3 = (-2.0*(-1.0 + beta)*(cy - Cd_t(0.0,1.0)*c*kx*Uy*We))/pow(c,2.0);
 
-  valarray<double> y, Uy, U, Uyy(N + 1);
-  // Set in cheb-point
-  setChebPts(y);
+    a2 =  2.0*beta*pow(kx,2.0) - ((-1.0 + beta)*(-2.0*pow(cy,2.0) - 4.0*kx*Uy*We*(Cd_t(0.0,1.0)*cy + kx*Uy*We) +
+         pow(c,2.0)*kx*(2.0*kx - Cd_t(0.0,3.0)*Uyy*We + 2.0*kx*pow(Uy,2.0)*pow(We,2.0)) + c*(cyy + Cd_t(0.0,2.0)*kx*We*(Uyy + Uy*(cy + Cd_t(0.0,1.0)*kx*Uy*We)))))/
+     pow(c,3.0);
 
-  // Velocity and derivative for PP flow
-  U = 1.0 - pow(y, 2.0);
-  Uy = -2.0 * y;
-  Uyy = -2.0;
-  double Re = 2000.0;
+    a1 = (Cd_t(0.0,-2.0)*(-1.0 + beta)*kx*(6.0*cy*Uy*We*(cy - Cd_t(0.0,1.0)*kx*Uy*We) + pow(c,3.0)*kx*Uy*We*(kx - Cd_t(0.0,2.0)*Uyy*We) +
+        pow(c,2.0)*(Uyy*We*(cy + Cd_t(0.0,3.0)*kx*Uy*We) + kx*(Cd_t(0.0,1.0)*cy - 2.0*kx*pow(Uy,3.0)*pow(We,3.0))) -
+        2.0*c*We*(2.0*cy*(Uyy + Cd_t(0.0,1.0)*kx*pow(Uy,2.0)*We) + Uy*(cyy + kx*We*(Cd_t(0.0,-2.0)*Uyy + kx*pow(Uy,2.0)*We)))))/pow(c,4.0);
 
-  Linop<double> Dy(1);
-  Dy.coef << 1.0, 0.0;
+    a0 = (kx*(-(beta*pow(c,4.0)*pow(kx,3.0)) + 12.0*(-1.0 + beta)*cy*kx*pow(Uy,2.0)*pow(We,2.0)*(cy - Cd_t(0.0,1.0)*kx*Uy*We) +
+        (-1.0 + beta)*pow(c,3.0)*pow(kx,2.0)*(kx - Cd_t(0.0,1.0)*Uyy*We + 2.0*kx*pow(Uy,2.0)*pow(We,2.0)) +
+        (-1.0 + beta)*pow(c,2.0)*(-(cyy*kx) + Cd_t(0.0,1.0)*(-cyy + 2.0*pow(kx,2.0))*Uyy*We + 2.0*kx*pow(Uyy,2.0)*pow(We,2.0) +
+           Cd_t(0.0,2.0)*cy*kx*Uy*We*(kx + Cd_t(0.0,2.0)*Uyy*We) + 2.0*kx*pow(Uy,2.0)*pow(We,2.0)*(-cyy + pow(kx,2.0) + Cd_t(0.0,6.0)*kx*Uyy*We)) +
+        2.0*(-1.0 + beta)*c*(-2.0*cyy*kx*pow(Uy,2.0)*pow(We,2.0) + cy*kx*(cy - Cd_t(0.0,2.0)*kx*Uy*We)*(1.0 + 2.0*pow(Uy,2.0)*pow(We,2.0)) +
+           Cd_t(0.0,1.0)*Uyy*We*(pow(cy,2.0) + Cd_t(0.0,6.0)*cy*kx*Uy*We + 6.0*pow(kx,2.0)*pow(Uy,2.0)*pow(We,2.0)))))/pow(c,4.0);
 
-  LinopMat<std::complex<double> > A, B(2, 3), C(3, 2);
-  BcMat<std::complex<double> > Lbc(4, 4), Rbc(4, 4), bc(8, 4);
+    LinopMat<Cd_t> Amat(1, 1), B(1, 2), C(2, 1), Ctau(3, 1), Cpsi(1,1), Ctauxx(1,1), Ctauxy(1,1), Ctauyy(1,1);
+    Amat << ((a4*Dyyyy) + (a3 * Dyyy) + (a2 * Dyy) + (a1 * Dy) + a0);
 
-  Lbc.resize(4, 4);
-  Rbc.resize(4, 4);
-  Lbc.L << 1.0, 0.0, 0.0, 0.0, //
-      0.0, 1.0, 0.0, 0.0,      //
-      0.0, 0.0, 1.0, 0.0,      //
-      0.0, Dy, 0.0, 0.0;
-  Rbc.L << 1.0, 0.0, 0.0, 0.0, //
-      0.0, 1.0, 0.0, 0.0,      //
-      0.0, 0.0, 1.0, 0.0,      //
-      0.0, Dy, 0.0, 0.0;
-  Lbc.eval.setConstant(-1.0);
-  Rbc.eval.setConstant(1.0);
-  bc.L << Lbc.L, //
-      Rbc.L;
-  bc.eval << Lbc.eval, //
-      Rbc.eval;
+    BcMat<Cd_t> lbc(2, 1), rbc(2, 1);
+    lbc.L << 1.0, //
+        Dy;
+    rbc.L << 1.0, //
+        Dy;
+    lbc.eval.setConstant(-1.0);
+    rbc.eval.setConstant(1.0);
+    Linop<Cd_t> tau22Tov, tau12Tov, tau11Tov;
+tau22Tov =
+    Vcd_t((Cd_t(0.0,-2.0)*kx)/c)*Dy + Vcd_t((2.0*pow(kx,2.0)*Uy*We)/c);
 
-  SingularValueDecomposition<std::complex<double> > svd;
+tau12Tov = Vcd_t(Cd_t(1.0,0.0)/c)*Dyy + Vcd_t((Cd_t(0.0,-2.0)*kx*Uy*We)/pow(c,2.0))*Dy +
+  Vcd_t((kx*(Cd_t(0.0,1.0)*c*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,2.0));
 
-  ofstream outf;
+tau11Tov = Vcd_t((2.0*(1.0 + c)*Uy*We)/pow(c,2.0))*Dyy + Vcd_t((Cd_t(0.0,2.0)*pow(c,2.0)*kx + Cd_t(0.0,4.0)*(-1.0 + pow(c,2.0))*kx*pow(Uy,2.0)*pow(We,2.0))/pow(c,3.0))*Dy +
+Vcd_t((2.0*kx*Uy*We*(Cd_t(0.0,1.0)*c*(1.0 + 2.0*c)*Uyy*We + kx*(c + 2.0*(1.0 + c)*pow(Uy,2.0)*pow(We,2.0))))/pow(c,3.0));
 
-  B.resize(4, 3);
-  C.resize(3, 4);
-  B << 1.0, 0.0, 0.0, //
-      0.0, 1.0, 0.0,  //
-      0.0, 0.0, 1.0,  //
-      0.0, 0.0, 0.0;
-  C << 1.0, 0.0, 0.0, 0.0, //
-      0.0, 1.0, 0.0, 0.0,  //
-      0.0, 0.0, 1.0, 0.0;  //
-  outf.open("data/Ex_12.txt");
 
-  // Below are 3D matrices stored in row-major format in a 1D array in the order
-  // Ny x Nx x Nz. In the row-major format, the element (i,j,k) in the 3D matrix
-  // is indexed by (i * Nx * Nz + j * Nz + k) in a 1D array.
-  // These can be easily manipulated using valarray slices.
-  //
-  // slice notation : slice(start, size, stride);
-  //
-  // slice to access nl(:,j,k) in matlab notation:
-  // slice(j * Nz + k, N + 1, Nx * Nz)
-  //
-  // slice to access nl(i,:,:) in matlab notation: slice(i * Nx * Nz, Nx * Nz,
-  // 1);
-  //
-  // Replace Nz by Nz / 2 in above 3 lines for complex type due to
-  // conjugate symmetry as all values have to be real in
-  // physical space.
-  //
-  // Here, I sketch the symmetry of a 8 x 8 matrix. Note that the Nyquist
-  // frequency values have to be set to zero, here we denote zeros by blanks
-  // "-". Numbers refer to element indices for matrices, indices start from 0 to
-  // conform with C++.
-  //
-  // Note that we choose (x,z) - x for rows, z columns.
-  // IMP: 00 must be real.
-  // 00  01  02  03  -  03* 02* 01*
-  // 10  11  12  13  -  73* 72* 71*
-  // 20  21  22  23  -  63* 62* 61*
-  // 30  31  32  33  -  53* 52* 51*
-  // -   -   -   -  -   -   -   -
-  // 30* 51  52  53  -  33* 32* 31*
-  // 20* 61  62  63  -  23* 22* 21*
-  // 10* 71  72  73  -  13* 12* 11*
-  //
-  // Hence we store only the elements (:,1:Nz/2) in Matlab notation. There is
-  // slight repetition, that is 30*, 20* and 10* not needed to be stored.
+    Ctau << tau11Tov, //
+            tau12Tov, //
+            tau22Tov;
+    C << Dy, //
+        -ii*kx;
+    B << Dy,-ii*kx;
+    Cpsi << 1.0;
+    Ctauxx << tau11Tov;
+    Ctauxy << tau12Tov;
+    Ctauyy << tau22Tov;
+    SingularValueDecomposition<Cd_t> svd;
+    // Velocity-output singular values
+    svd.compute(Amat, B, C, lbc, rbc,10);
+    valsV(i, 0) = svd.eigenvalues[0].real();
+    valsV(i, 1) = svd.eigenvalues[0].imag();
 
-  valarray<complex<double> > uvec(Cd_t(0.0, 0.0), (N + 1) * 4),
-      vvec(Cd_t(0.0, 0.0), (N + 1) * 4), wvec(Cd_t(0.0, 0.0), (N + 1) * 4),
-      pvec(Cd_t(0.0, 0.0), (N + 1) * 4);
-  valarray<double> u3d((N + 1) * Nx * Nz), v3d((N + 1) * Nx * Nz),
-      w3d((N + 1) * Nx * Nz), p3d((N + 1) * Nx * Nz);
-
-  for (int k = 0; k < 4; k++) {
-    complex<double> iiomega = ii * omega;
-    double k2 = kx[k] * kx[k] + kz[k] * kz[k];
-    double k4 = k2 * k2;
-    Linop<double> Delta(2), Delta2(4);
-    LinopMat<complex<double> > Lmat(4, 4), Mmat(4, 4);
-
-    Delta.coef << 1.0, 0.0, -k2;
-    Delta2.coef << 1.0, 0.0, -2 * k2, 0.0, k4;
-
-    Mmat << 1.0, 0.0, 0.0, 0.0, //
-        0.0, 1.0, 0.0, 0.0,     //
-        0.0, 0.0, 1.0, 0.0,     //
-        0.0, 0.0, 0.0, 0.0 * Delta;
-
-    Lmat << (-ii * kx[k] * U) + (Delta / Re), -Uy, 0.0, -ii * kx[k], //
-        0.0, (-ii * kx[k] * U) + (Delta / Re), 0.0, -Dy,             //
-        0.0, 0.0, (-ii * kx[k] * U) + (Delta / Re), -ii * kz[k],     //
-        ii * kx[k], Dy, ii * kz[k], 0.0;
-
-    A.resize(4, 4);
-    A = ((iiomega * Mmat) - Lmat);
-
-    /*GeneralizedEigenSolver<complex<double> > eigs;
-
-    eigs.compute(Lmat, Mmat, (N + 1) * Lmat.r, bc);
-    eigs.removeInf();
-    eigs.sortByLargestReal();
-    ofstream outf;
-    outf.open(string("data/data_for_file15/Newt") + string("_Re_") +
-              int2str(int(Re)) + string("_N_") + int2str(N) + string("_") +
-              int2str(k) + string(".txt"));
-    Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> out_to_file(
-        eigs.eigenvalues.size(), 3);
-    out_to_file.col(0) = eigs.eigenvalues.real();
-    out_to_file.col(1) = eigs.eigenvalues.imag();
-    out_to_file.col(2) = eigs.MPorNot.cast<double>();
-    outf << out_to_file;
-    outf.close();*/
-
-    svd.compute(A, B, C, Lbc, Rbc, Lbc, Rbc, 15 * (N + 1));
-    std::cout << "eigenvalue: " << svd.eigenvalues[0] << "\n";
-    num_vals = svd.eigenvalues.size();
-
-    // Store first two eigenvalues.
-    outf << kx[k] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
-         << svd.eigenvalues[1].real() << "\n";
-
-    cout << kx[k] << " " << kz[k] << " " << svd.eigenvalues[0].real() << " "
-         << svd.eigenvalues[1].real() << "\n";
-    uvec[slice(k,N+1,Nz)] =
-        svd.eigenvalues[0].real() *
-        svd.eigenvectors(0,0).v;
-
-    vvec[slice(k,N+1,Nz)] =
-        svd.eigenvalues[0].real() *
-        svd.eigenvectors(1,0).v;
-
-    wvec[slice(k,N+1,Nz)] =
-        svd.eigenvalues[0].real() *
-        svd.eigenvectors(2,0).v;
-
-    pvec[slice(k,N+1,Nz)] =
-        svd.eigenvalues[0].real() *
-        svd.eigenvectors(3,0).v;
+    // Stress-output singular values
+    svd.compute(Amat, B, Ctauxx, lbc, rbc, 10);
+    valsS(i, 0) = svd.eigenvalues[0].real();
+    valsS(i, 1) = svd.eigenvalues[0].imag();
+    std::cout << "i = " << i << '\n';
 
   }
-  Eigen::VectorXd xval, zval;
-
-  zval = Eigen::VectorXd::LinSpaced(100, -7.8, 7.8);
-  xval = Eigen::VectorXd::LinSpaced(100, 0, 12.7);
-  Nx = 100;
-  Nz = 100;
-  Vcd_t u3dc(Cd_t(0.0, 0.0), (N + 1) * Nx * Nz),
-      v3dc(Cd_t(0.0, 0.0), (N + 1) * Nx * Nz),
-      w3dc(Cd_t(0.0, 0.0), (N + 1) * Nx * Nz),
-      p3dc(Cd_t(0.0, 0.0), (N + 1) * Nx * Nz);
-
-  for (int j = 0; j < xval.size(); j++) {
-    double x = xval[j];
-    for (int k = 0; k < zval.size(); k++) {
-      double z = zval[k];
-      for (int i = 0; i < 4; i++) {
-        double kx1 = kx[i];
-        double kz1 = kz[i];
-        u3dc[slice(j * Nz + k, N + 1, Nx * Nz)] +=
-            Vcd_t(uvec[slice(i, N + 1, 4)]) *
-            exp((ii * kx1 * x) + (ii * kz1 * z));
-        v3dc[slice(j * Nz + k, N + 1, Nx * Nz)] +=
-            Vcd_t(vvec[slice(i, N + 1, 4)]) *
-            exp((ii * kx1 * x) + (ii * kz1 * z));
-        w3dc[slice(j * Nz + k, N + 1, Nx * Nz)] +=
-            Vcd_t(wvec[slice(i, N + 1, 4)]) *
-            exp((ii * kx1 * x) + (ii * kz1 * z));
-        p3dc[slice(j * Nz + k, N + 1, Nx * Nz)] +=
-            Vcd_t(pvec[slice(i, N + 1, 4)]) *
-            exp((ii * kx1 * x) + (ii * kz1 * z));
-      }
-    }
-  }
-  u3d = real(u3dc);
-  v3d = real(v3dc);
-  w3d = real(w3dc);
-  p3d = real(p3dc);
-
-  x.resize(xval.size());
-  z.resize(zval.size());
-  //std::cout << "xval: \n" << xval << '\n';
-  //std::cout << "zval: \n" << zval << '\n';
-  //std::cout << "x.size(): " << xval.size() << '\n';
-  //std::cout << "z.size(): " << zval.size() << '\n';
-  for (int i = 0; i < xval.size(); i++) {
-    x[i] = xval[i];
-  }
-  for (int i = 0; i < zval.size(); i++) {
-    z[i] = zval[i];
-  }
-
-  outf.close();
-  string filename("data/Ex_13");
-  //std::cout << "z.size(): " << z.size() << '\n';
-
-  // Export to a vtk file:
-  vtkExportCartesian3D(filename, x, y, z, u3d, v3d, w3d, p3d);
-
-  return 0;
+  
+  ofstream outfile;
+  outfile.open("data/Ex_13_Vel.txt");
+  outfile << valsV;
+  outfile.close();
+  outfile.open("data/Ex_13_Stress.txt");
+  outfile << valsS;
+  outfile.close();
+   return 0;
 }

@@ -25,7 +25,7 @@ int main() {
     Wes[i] = double(i + 1);
   }
 
-  N = 479;
+  N = 191;
   sis_setup();
   Vcd_t U(N + 1), Uy(N + 1), Uyy(N + 1);
   string flowType("Couette");
@@ -44,9 +44,10 @@ std::cout << "I'm here" << std::flush << '\n';
               << "Exiting...\n";
     exit(1);
   }
-
-//#pragma omp parallel for
-  for (int i = 0; i < 20; i++) {
+  Eigen::MatrixXd valsS(10, 2);
+  Eigen::MatrixXd valsV(10, 2);
+  //#pragma omp parallel for
+  for (int i = 0; i < 10; i++) {
     Cd_t Re = 0.0;
     Cd_t We = Wes[i];
     Cd_t kx = 1.0;
@@ -126,18 +127,26 @@ Vcd_t((2.0*kx*Uy*We*(Cd_t(0.0,1.0)*c*(1.0 + 2.0*c)*Uyy*We + kx*(c + 2.0*(1.0 + c
     Ctauyy << tau22Tov;
     SingularValueDecomposition<Cd_t> svd;
     svd.compute(Amat, B, C, lbc, rbc,10);
-    psd(i) = svd.eigenvalues(0).real();
+    valsV(i, 0) = svd.eigenvalues[0].real();
+    valsV(i, 1) = svd.eigenvalues[0].imag();
+    svd.compute(Amat, B, Ctauxx, lbc, rbc, 10);
+    valsS(i, 0) = svd.eigenvalues[0].real();
+    valsS(i, 1) = svd.eigenvalues[0].imag();
+    //psd(i) = svd.eigenvalues(0).real();
     std::cout << "i = " << i << '\n';
 
 
   }
-  std::cout << "psd: \n" << psd << '\n';
-  Eigen::MatrixXd mat(20,2);
+  //std::cout << "psd: \n" << psd << '\n';
+  //Eigen::MatrixXd mat(20,2);
 
-  mat << Eigen::VectorXd::LinSpaced(20,1,20), psd;
+  //mat << Eigen::VectorXd::LinSpaced(20,1,20), psd;
   ofstream outfile;
-  outfile.open("data/spectralIntegration479.txt");
-  outfile << mat;
+  outfile.open("data/StressValsSamp10.txt");
+  outfile << valsS;
   outfile.close();
-  return 0;
+  outfile.open("data/VelValsSamp10.txt");
+  outfile << valsV;
+  outfile.close();
+   return 0;
 }

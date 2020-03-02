@@ -56,10 +56,15 @@ int main() {
               0.0,//
               0.0,//
               0.0;
+  
+ 
   // Set the forcing:
-  forc << 1.0 - (y * y) + (y * y * y);
+  forc << (Cd_t(1.0,0.0) - (yc * yc) + (yc * yc * yc));
+  
+
   // Solve and replace forcing with the boundary conditions:
   forc = linSolve(Lmat, bcs, forc);
+
 
   // Check boundaries
   cout << "lbc: " << forc(-1.0) << endl;

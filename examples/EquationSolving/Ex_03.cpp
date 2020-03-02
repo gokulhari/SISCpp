@@ -28,10 +28,12 @@ int main() {
   D0.coef << 1.0;
 
   valarray<double> anal_sol;
+  Eigen::VectorXd analSol(N+1);
   anal_sol = exp(-(atan(y) + atan(1.0)));
   cout << "Anal sol: \n";
   for (int i = 0; i < N + 1; i++) {
     cout << anal_sol[i] << "\n";
+    analSol[i] = anal_sol[i];
   }
 
   LinopMat<Cd_t> Lmat(1,1);
@@ -44,17 +46,25 @@ int main() {
   bcs.eval << -1.0;
   bcs.vals << 1.0;
 
-  forc << 0.0;
+  forc << Cd_t(0.0,0.0);
+ 
 
   // Replace forcing with the solution:
   forc = linSolve(Lmat,bcs,forc);
 
   // Check boundaries:
   std::cout << "lbc: \n" << forc(-1.0) << '\n';
-  std::cout << "lbc: \n" << forc(1.0) << '\n';
+  std::cout << "rbc: \n" << forc(1.0) << '\n';
   std::cout << "error from analytical solution ";
   double err = abs(real(forc(0,0).v) - anal_sol).sum();
   cout << err << endl;
 
+  // Print to file:
+  Eigen::MatrixXd outMat(N+1,3);
+  outMat << yEigen,forc(0,0).evr(), analSol; 
+ofstream outfile;
+outfile.open("data/Ex_03.txt");
+outfile << outMat;
+outfile.close();
   return 0;
 }

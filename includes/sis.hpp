@@ -6,24 +6,24 @@
 ///
 /// \section Introduction
 ///
-/// Spectral integral suite in C++ (SISC++) is a generic header to solve
+/// Spectral integration suite in C++ (SISC++) is a generic header to solve
 /// two-point boundary-value problems in the system
 /// representation. SISC++ can solve for linear differential equations,
 /// and compute eigenvalues, singular values of frequency responses,
 /// and the power spectral density (Hilbert-Schmidt norm) of
 /// linear differential systems.
 ///
-/// We started this in
-/// order to produce programs for direct numerical simulations of viscoelastic
+/// This project was intended to create programs for direct numerical simulations of viscoelastic
 /// channel flows, then we extended this as a generic solver, following in
 /// the lines of Chebfun, see http://www.chebfun.org/. Chebfun is based on a
 /// Matlab for which you need to purchase a license.
+/// Parts of this code will be used in an upcoming DNS solver in C++.
 ///
 /// SISC++ aims to provide a Chebfun-like interface in C++. Just as Chebfun
 /// overloads functions and operations on linear matrices to differential
 /// operators,
-/// SISC++ uses <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> matrix representation in C++ to
-/// classes for linear differential operators.
+/// SISC++ uses <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> matrix representation in C++
+/// for linear differential operators.
 /// For instance, one would input a normal matrix using <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a> in the following
 /// manner,
 /// \code{.cpp}
@@ -52,44 +52,40 @@
 ///      y*Dyy, Dyy/2.0;
 /// \endcode
 /// Following that, just as you can use the EigenSolver in <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a> for matrix
-/// eigenvalues, you can use EigenSolver in SIS for linear block-matrix
+/// eigenvalues, you can use EigenSolver in SISC++ for linear block-matrix
 /// operators.
 /// \n \n An advantage with a code in C++ is
 /// you do not need a Matlab license to use it.
-/// You can also optimized a code in C++ for speed by
-/// using proprietary compilers, like the Intel compiler / Cray compiler.
+/// You can also optimize a code in C++ for speed by
+/// using proprietary compilers like the Intel / Cray compilers.
 ///
 /// One major difference from Chebfun is that we do not provide for
-/// automatic collocation. Automatic collocation is an extremely useful utility
+/// automatic collocation. Automatic collocation is a useful utility
 /// in Chebfun that keeps increasing the number of basis functions until the
 /// solution reaches machine precision. We did not incorporate this
 /// as automatic collocation adds to the computational expense, which is
 /// a liability for direct numerical simulations.
 ///
-/// For most part classes and functions are quite intuitive, but you need to know
+/// For most part, classes and functions are quite intuitive, but you need to know
 /// a bit about C++. A good place to learn C++
 /// is <a href="http://www.cplusplus.com/doc/tutorial/">here </a>.
-/// You'll find it amazing if you have used <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>.
+/// You should feel comfortable using SISC++ if you have already used <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>.
 /// As far as the algorithm is concerned, SISC++ is based on the recent
-/// spectral-integral method for non-constant by
+/// spectral integration method by
 /// Du,
 ///  \cite DuSI , which is a
 /// well-conditioned method, compared to conventional spectral-collocation / Tau methods.
-/// Note that Chebfun too has a well-conditioned scheme, the ultraspherical
+/// Chebfun too has a well-conditioned scheme, the ultraspherical
 /// discretization \cite UltraS. \n \n
 ///
-/// A major advantage of SISC++ compared to Chebfun is that it is well-equiped
-/// to deal with incompressible hydrodynamic
+/// An advantage of SISC++ compared to Chebfun is that incompressible hydrodynamic
 /// eigenvalue and singular value problems for Newtonian and Viscoelastic
-/// fluids, both in primitive variables and in the evolution form. To the best of
-/// our knowledge, solving for eigenvalues of incompressible flow problems in
-/// Chebfun can currently be done only by using the evolution form of the
-/// governing equations. As a virtue of spectral integration, SISC++ can solve
+/// fluids can be solved for in both, primitive variables and in the evolution form. To the best of
+/// our knowledge, Chebfun can only be used after converting recasting hydrodynamic problems to the evolution form. As a virtue of spectral integration, SISC++ can solve
 /// for incompressible flow eigenvalue problems directly in the discriptor form
-/// (in primitive variables). This can potentially save time,
-/// specifically for viscoelastic fluids whose algebraic manipulations for a
-/// transformation to the evolution form can become
-/// cumbersome. We also provide tools to handle eigenvalue boundary
+/// (in primitive variables). Using the primitive variable formulation can potentially save time involving algebraic transformations, particularly in complex fluids. 
+///
+/// In addition, we also provide tools to handle eigenvalue boundary
 /// constraints (problems where the eigenvalue appears in the boundary
 /// conditions), for eigenvalue problems involving fluid-fluid interfaces.
 ///
@@ -113,13 +109,13 @@
 /// **in every new terminal**. Else, you can add this to you ~/.bashrc file.
 /// For other platforms, take a look at setting environment variables
 /// <a
-/// href="https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2019-getting-started">here</a>
+/// href="https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2019-getting-started">here.</a>
 ///
 /// No part of SIS uses anything that is OS specific.
-/// However, I have tried not tested it on Windows. I use it regularly on Mac and Linux.
+/// However, I have not tried using it on Windows platforms. I use it regularly on Mac and Linux.
 ///
-/// Most routines in SIS use default <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>'s routines for solutions and
-/// eigenvalue solver. At the time of writing this program, <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> does not have
+/// Most routines in SIS use default <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>routines for
+/// eigenvalue problems. At the time of writing this program, <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a> does not have
 /// an eigenvalue solver for complex generalized systems, of the form
 ///  \f$ L\,\phi= \lambda \, M \, \phi\f$. As SIS uses a
 /// well-conditioned discretization, in most cases both \f$L\f$ and \f$M\f$ are
@@ -146,7 +142,7 @@
 ///
 /// \section secgets Getting Started
 ///
-/// If <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> and Intel MKL are installed in their default locations, then you
+/// If <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a> and Intel MKL are installed in their default locations, then you
 /// can begin by creating two folders, named bin and data. Then open a terminal
 /// in the current folder and say \code{.sh} make all \endcode This will compile
 /// all the examples in the directory examples, and the executables will be
@@ -2263,6 +2259,7 @@ public:
   ChebfunMat(int r_, int c_) {
     r = r_;
     c = c_;
+    count = 0;
     ChebfunVec.resize(r * c);
   };
 
@@ -2301,7 +2298,11 @@ public:
   /// separators. Input type of complex constant.
   ChebfunMat<std::complex<T> > &operator<<(std::complex<T> b) {
     int bre;
+  //  std::cout << "I am here " << __LINE__ << std::endl;
+   // std::cout << "Value : " << b << std::endl;
+   // std::cout << "Count : " << count << std::endl;
     ChebfunVec[count].v = b;
+
     count++;
     return *this;
   };
@@ -10230,16 +10231,13 @@ public:
             masterL.block(master_row_counter, master_col_counter, N + 1,
                           N + 1 + n) +=
                 Lmat(i, j).coef[k] *
-                (MatGen<std::complex<T> >::mats2[k + diffn].block(0, 0, N + 1,
-                                                                  N + 1 + n));
+                (MatGen<std::complex<T> >::mats2[k + diffn].block(0, 0, N + 1, N + 1 + n));
           }
         } else {
           for (int k = 0; k < Lmat(i, j).n + 1; k++) {
-            masterL.block(master_row_counter, master_col_counter, N + 1,
-                          N + 1 + n) +=
+            masterL.block(master_row_counter, master_col_counter, N + 1, N + 1 + n) +=
                 Lmat(i, j).coefFun[k].MultMat().block(0, 0, N + 1, N + 1) *
-                (MatGen<std::complex<T> >::mats2[k + diffn].block(0, 0, N + 1,
-                                                                  N + 1 + n));
+                (MatGen<std::complex<T> >::mats2[k + diffn].block(0, 0, N + 1, N + 1 + n));
           }
         }
         master_row_counter += N + 1;
@@ -10627,6 +10625,111 @@ public:
 
     A_bc.eval << Lbc.eval, //
         Rbc.eval;          //
+
+    LinopMat<std::complex<T> > BBstar, CstarC;
+    BBstar = B * Bstar;
+    CstarC = Cstar * C;
+
+
+      Discretize<std::complex<T> > ADis, AstarDis;
+      Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> A0, A0star,
+          B0B0star, C0starC0, L, M, invA0, invA0star;
+      A0 = ADis(A, A_bc);
+      A0star = AstarDis(Astar, Astar_bc);
+      B0B0star = AstarDis((BBstar));
+      C0starC0 = ADis((CstarC));
+      Eigen::ColPivHouseholderQR<
+          Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> >
+          qr(A0);
+      if (!qr.isInvertible()) {
+        std::cout << "Cannot compute the right singular vectors alone."
+                  << "Change svd_flag to SIS_SVD. Exiting ... "<< __LINE__ << '\n';
+        exit(1);
+      }
+      invA0 = qr.inverse();
+      qr.compute(A0star);
+      if (!qr.isInvertible()) {
+        std::cout << "Cannot compute the right singular vectors alone."
+                  << "Change svd_flag to SIS_SVD. Exiting ... " << __LINE__<< '\n';
+        exit(1);
+      }
+
+      invA0star = qr.inverse();
+      L = invA0 * B0B0star * invA0star * C0starC0;
+      std::complex<T> tempc = L.trace();
+      return tempc;
+  };
+
+
+  std::complex<T> PowerSpectralDensity(const LinopMat<std::complex<T> > &A_,
+               const LinopMat<std::complex<T> > &B_,
+               const LinopMat<std::complex<T> > &C_,
+               const BcMat<std::complex<T> > &Lbc_,
+               const BcMat<std::complex<T> > &Rbc_,
+               const BcMat<std::complex<T> > &Lbc_adjoint_,
+               const BcMat<std::complex<T> > &Rbc_adjoint_) {
+    int bre;
+    LinopMat<std::complex<T> > A = A_;
+    LinopMat<std::complex<T> > B = B_;
+    LinopMat<std::complex<T> > C = C_;
+    BcMat<std::complex<T> > Lbc = Lbc_;
+    BcMat<std::complex<T> > Rbc = Rbc_;
+    BcMat<std::complex<T> > Lbc_adjoint = Lbc_adjoint_;
+    BcMat<std::complex<T> > Rbc_adjoint = Rbc_adjoint_;
+    LinopMat<std::complex<T> > Astar = Adjoint(A);
+    LinopMat<std::complex<T> > Bstar = Adjoint(B);
+    LinopMat<std::complex<T> > Cstar = Adjoint(C);
+    // BcMat<std::complex<T> > Astar_bc = AdjointBc_analytical(A, Lbc, Rbc);
+
+    // std::cout << "Astar_bc: \n" << '\n';
+    // for (int i = 0; i < Astar_bc.m; i++) {
+    // for (int j = 0; j < Astar_bc.n; j++) {
+    //   std::cout << "ij = (" << i << "," << j << ")" << '\n';
+    //   std::cout << Astar_bc.L(i, j).coef << '\n';
+    // }
+    // }
+    // std::cin >> bre;
+    // std::cout << "Astar_bc.eval: " << Astar_bc.eval << std::endl;
+    // std::cin >> bre;
+    // std::valarray<std::complex<T> > rr(N + 1);
+    // setChebPts(rr);
+    // for (int i = 0; i < Astar.r; i ++){
+    //   for (int j = 0; j < Astar.c;j ++){
+    //     if(Astar(i,j).NCC == 0){
+    //       std::cout << "ij = ("<< i <<"," << j << "):" << '\n';
+    //       std::cout << Astar(i,j).coef << '\n';
+    //       std::cin >> bre;
+    //     } else {
+    //       for (int k = 0; k < Astar(i,j).n + 1; k ++){
+    //         if (Astar(i,j).coefFun[k].dct_flag == SIS_PHYS_SPACE){
+    //           Astar(i,j).coefFun[k].v = Astar(i,j).coefFun[k].v / (rr);
+    //         } else {
+    //           Astar(i,j).coefFun[k].c2p();
+    //           Astar(i,j).coefFun[k].v = Astar(i,j).coefFun[k].v / (rr);
+    //           Astar(i,j).coefFun[k].p2c();
+    //         }
+    //         std::cout << "("<< i <<"," << j << "," << k << "):" << '\n';
+    //         std::cout << Astar(i,j).coefFun[k](-1) << '\n';
+    //         std::cin >> bre;
+    //       }
+    //     }
+    //   }
+    //}
+
+    BcMat<std::complex<T> > A_bc(Lbc.m + Rbc.m, Lbc.n), Astar_bc(Lbc_adjoint.m + Rbc_adjoint.m, Lbc_adjoint.n);
+    Lbc.eval.setConstant(-1.0);
+    Rbc.eval.setConstant(1.0);
+
+    A_bc.L << Lbc.L, //
+        Rbc.L;
+
+    A_bc.eval << Lbc.eval, //
+        Rbc.eval;          //
+
+    Astar_bc.L << Lbc_adjoint.L,//
+                          Rbc_adjoint.L;
+    Astar_bc.eval << Lbc_adjoint.eval,//
+                                Rbc_adjoint.eval;
 
     LinopMat<std::complex<T> > BBstar, CstarC;
     BBstar = B * Bstar;
@@ -13170,7 +13273,7 @@ linSolve(const LinopMat<std::complex<T> > &Lmat_,
   LinopMat<std::complex<T> > Lmat = Lmat_;
   ChebfunMat<std::complex<T> > forc = forc_;
   BcMat<std::complex<T> > bcmat = bcmat_;
-
+  
   Discretize<std::complex<T> > Dis;
   Eigen::Matrix<std::complex<T>, Eigen::Dynamic, Eigen::Dynamic> A0 =
       Dis.MatAppend(Lmat, bcmat);
@@ -13184,14 +13287,22 @@ linSolve(const LinopMat<std::complex<T> > &Lmat_,
   }
   Eigen::Matrix<std::complex<double>, Eigen::Dynamic, Eigen::Dynamic> force =
       forc.ChebfunMat2EigenMat();
+
+  //int bre;
+//std::cout << "In " << __LINE__ << std::endl; 
+ // std::cout << force << std::endl;
+  //std::cin >> bre;
   Eigen::Matrix<std::complex<double>, Eigen::Dynamic, Eigen::Dynamic> force2(
       A0.rows(), force.cols());
-  std::cout << "force: " << size(force2) << '\n' << std::flush;
+ // std::cout << "force: " << size(force2) << '\n' << std::flush;
   for (int i = 0; i < force2.cols(); i++) {
     force2.block(0, i, force.rows(), 1) = force.col(i);
     force2.block(force.rows(), i, bcmat.vals.rows(), 1) = bcmat.vals;
   }
-  std::cout << "A0: " << size(A0) << '\n' << std::flush;
+
+  
+  
+ // std::cout << "A0: " << size(A0) << '\n' << std::flush;
 
   // Solve:
   force2 = qr.inverse() * force2;
@@ -13210,7 +13321,7 @@ linSolve(const LinopMat<std::complex<T> > &Lmat_,
   }
 
 
-  std::cout << "force.size: " << size(force) << '\n';
+  //std::cout << "force.size: " << size(force) << '\n';
   ChebfunMat<std::complex<T> > out(forc.r, forc.c);
   // Assignment automatically assings Eigen matrix to a ChebfunMat.
   out = force;

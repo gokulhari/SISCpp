@@ -1,7 +1,17 @@
 /// \file Ex_10.cpp
-/// \brief Solving for frequency responses of diffusion operator
-
-
+/// \brief Solving for frequency responses of the reaction-diffusion operator,
+/// \f[
+/// \partial_t u(y,t) \;=\; \partial_{yy}u(y,t) -  \epsilon^2 u(y,t) + d(y) \mathrm{e},^{\! j\omega t}
+///\f]
+/// with homogeneous Neumann boundary conditions, \f$[\partial_y u (\cdot,t)](y = \pm 1) = 0\f$
+///
+/// As this system is a linear differential equation, its solution is of the form \f$u(y,t) = u(y)\,\mathrm{e},^{\! j\omega t}\f$ using this on the governing equation we arrive at
+/// \f[
+///  ( j\omega - \mathrm{D}^2  + \epsilon^2 \mathrm{I})\, u(y) \;=\; d(y),
+/// \f]
+/// where \f$\mathrm{D} = \mathrm d/\mathrm dy\f$ and \f$\mathrm{I}\f$ is the identity operator. The singular value decomposition (SVD) of the operator \f$ ( j\omega - \mathrm{D}^2  + \epsilon^2 \mathrm{I})^{ -1}\f$ finds the body force of unit \f$L^2[-1~\, 1]\f$ norm that induces the largest amplification of \f$u(y)\f$, which is the principal singular value of \f$ ( j\omega - \mathrm{D}^2  + \epsilon^2 \mathrm{I}).^{\!\! -1}\f$
+/// 
+/// Singular value decomposition of operators are computed using the class SingularValueDecomposition as illustrated in this example. This class supports calculation of the singular values, power spectral density (a.k.a sum of the squares of singular values of finite-trace operators), and the H-infinity norm. See our related paper for more information.
 #define SIS_USE_LAPACK
 #include <fstream> // To output data to files
 #include <iostream>
@@ -49,7 +59,8 @@ int main() {
   // Compute first 12 singular values
   svds.compute(A, B, C, lbcs, rbcs, 12);
 
-  std::cout << "Singular Values: \n" << svds.eigenvalues << '\n';
-
+  cout << "Singular Values: \n" << svds.eigenvalues << '\n';
+  cout << "Power Spectral Density: \n" << svds.PowerSpectralDensity(A,B,C,lbcs,rbcs) << '\n';
+  // cout << "H infinity norm: \n" << svds.HinfNorm() << "\n";
   return 0;
 }
