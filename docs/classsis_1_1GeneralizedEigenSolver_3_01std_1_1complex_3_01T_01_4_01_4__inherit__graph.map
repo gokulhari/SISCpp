@@ -1,0 +1,4 @@
+<map id="sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;" name="sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;">
+<area shape="rect" id="node2" href="$classsis_1_1EigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html" title="This class computes the eigenvalues and eigenvectors (functions) of a Linear operator Linop..." alt="" coords="277,5,423,44"/>
+<area shape="rect" id="node3" href="$classsis_1_1SingularValueDecomposition_3_01std_1_1complex_3_01T_01_4_01_4.html" title="This class computes various SingularValues of a differential block matrix operator using using it&#39;s a..." alt="" coords="242,68,457,107"/>
+</map>

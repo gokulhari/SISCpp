@@ -1,0 +1,21 @@
+<map id="includes/sis.hpp" name="includes/sis.hpp">
+<area shape="rect" id="node2" href="$Ex__05_8cpp.html" title="Eigenvalues of the diffusion operator. " alt="" coords="5,79,160,117"/>
+<area shape="rect" id="node3" href="$Ex__06_8cpp.html" title="An example for the solution of a generalized eigenvalue problem . " alt="" coords="184,79,339,117"/>
+<area shape="rect" id="node4" href="$Ex__07_8cpp.html" title="This solves the generalized eigenvalue problem for a block matrix operator system. " alt="" coords="363,79,517,117"/>
+<area shape="rect" id="node5" href="$Ex__08_8cpp.html" title="Finds eigenvalues for the Orr&#45;Sommerfeld operator. " alt="" coords="541,79,696,117"/>
+<area shape="rect" id="node6" href="$Ex__09_8cpp.html" title="Finds eigenvalues for streamwise&#45;constant linearized Navier&#45;Stokes equations, in two ways: ..." alt="" coords="720,79,875,117"/>
+<area shape="rect" id="node7" href="$Ex__01_8cpp.html" title="This simulates a simple 2nd order ODE with mixed boundary conditions. " alt="" coords="899,79,1077,117"/>
+<area shape="rect" id="node8" href="$Ex__02_8cpp.html" title="An example with a fourth order system. " alt="" coords="1101,79,1280,117"/>
+<area shape="rect" id="node9" href="$Ex__03_8cpp.html" title="An example with nonconstant coefficients and comparissons with analytical solution. " alt="" coords="1304,79,1483,117"/>
+<area shape="rect" id="node10" href="$Ex__04_8cpp.html" title="This solves the problem for a block matrix operator system. " alt="" coords="1507,79,1685,117"/>
+<area shape="rect" id="node11" href="$Ex__10_8cpp.html" title="Solving for frequency responses of the reaction&#45;diffusion operator, &#160;with homogeneous Neumann boundar..." alt="" coords="1709,79,1921,117"/>
+<area shape="rect" id="node12" href="$Ex__11_8cpp.html" title="Solving for the most amplified structures from the linearized equations governing plane Poiseuille fl..." alt="" coords="1945,79,2157,117"/>
+<area shape="rect" id="node13" href="$Ex__12_8cpp.html" title="Solving for the singular values, power spectral density and the &#160;norm of the linearized Navier stokes..." alt="" coords="2181,79,2393,117"/>
+<area shape="rect" id="node14" href="$Ex__13_8cpp.html" title="Solving for the principal singular values of an Oldroyd&#45;B fluid. See Figure 8 in . " alt="" coords="2417,79,2629,117"/>
+<area shape="rect" id="node15" href="$2DViscoSvd__LikeMJ_8cpp.html" title="test/2DViscoSvd_LikeMJ.cpp" alt="" coords="2652,85,2846,111"/>
+<area shape="rect" id="node16" href="$3DLNS_8cpp.html" title="test/3DLNS.cpp" alt="" coords="2871,85,2985,111"/>
+<area shape="rect" id="node17" href="$3DOldroydB_8cpp.html" title="test/3DOldroydB.cpp" alt="" coords="3009,85,3154,111"/>
+<area shape="rect" id="node18" href="$3DOldroydBDescriptorFull_8cpp.html" title="test/3DOldroydBDescriptor\lFull.cpp" alt="" coords="3178,79,3358,117"/>
+<area shape="rect" id="node19" href="$3DOldroydBDesHalf_8cpp.html" title="test/3DOldroydBDesHalf.cpp" alt="" coords="3381,85,3573,111"/>
+<area shape="rect" id="node20" href="$3DOldroydBDesHalfStress_8cpp.html" title="test/3DOldroydBDesHalfStress.cpp" alt="" coords="3597,85,3827,111"/>
+</map>

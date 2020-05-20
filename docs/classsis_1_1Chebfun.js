@@ -1,0 +1,25 @@
+var classsis_1_1Chebfun =
+[
+    [ "Chebfun", "classsis_1_1Chebfun.html#a3b060dbd3eaf2555dec29e4f3c7ef025", null ],
+    [ "Chebfun", "classsis_1_1Chebfun.html#a761d4d0425f1bbddf830d576b220ceea", null ],
+    [ "Chebfun", "classsis_1_1Chebfun.html#a0a0ade22b8dfae30bc60a69bd7c5a37f", null ],
+    [ "Chebfun", "classsis_1_1Chebfun.html#a4774ab41e7bd4adf376d32f30a68273a", null ],
+    [ "c2p", "classsis_1_1Chebfun.html#adb6e0ddafa553a928dda66c0ad063cbe", null ],
+    [ "cumsum", "classsis_1_1Chebfun.html#abb7bfb1940e5d3c3636ba676310320b5", null ],
+    [ "ev", "classsis_1_1Chebfun.html#afeba4d023f9a433cc822e67db99499bf", null ],
+    [ "isMachinePrecision", "classsis_1_1Chebfun.html#a4699b4c4e01794c1017def229a2d2c2b", null ],
+    [ "isMachinePrecisionHalf", "classsis_1_1Chebfun.html#a117792e0e2e311436fd3fcddf5156f69", null ],
+    [ "L2norm", "classsis_1_1Chebfun.html#a47a9362a03907b615ad1f4029f8f5d64", null ],
+    [ "MultMat", "classsis_1_1Chebfun.html#a480348b76f2284b5b37d1e64c0e405c4", null ],
+    [ "operator()", "classsis_1_1Chebfun.html#a6b718b8a9362b77c3003d1fbedd59df2", null ],
+    [ "operator+=", "classsis_1_1Chebfun.html#a72c8c266c8eb8d8425e63ab59fc9bd28", null ],
+    [ "operator+=", "classsis_1_1Chebfun.html#ae944ec53ea275fb03991529a53d4f04a", null ],
+    [ "operator=", "classsis_1_1Chebfun.html#ac580d738eb27ac8d0e1b69aa550ed6e6", null ],
+    [ "operator=", "classsis_1_1Chebfun.html#a8dd34f19def79abd4a34d7f3667d04de", null ],
+    [ "operator=", "classsis_1_1Chebfun.html#ab52c8ee6c590a89656e0dec3f92632f5", null ],
+    [ "operator=", "classsis_1_1Chebfun.html#aede45676b1896173c93ffcfa4f56ff4f", null ],
+    [ "p2c", "classsis_1_1Chebfun.html#a824dda59fc78ce162abfe117b93d29cf", null ],
+    [ "trunc", "classsis_1_1Chebfun.html#a142e8e9dcc8c61ad3d9f289f2d1cab94", null ],
+    [ "dct_flag", "classsis_1_1Chebfun.html#ad7531b86fc11f00d40471c4b54b99158", null ],
+    [ "v", "classsis_1_1Chebfun.html#a1b4d63e278847d24c896f47e6146fdeb", null ]
+];

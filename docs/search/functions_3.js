@@ -1,0 +1,9 @@
+var searchData=
+[
+  ['dct',['dct',['../namespacesis.html#ab37c32b6a50ed4f954fa2d0f06d65183',1,'sis::dct(const std::valarray&lt; T &gt; &amp;x)'],['../namespacesis.html#acb818524d9f070a2cdde8634e52cd42b',1,'sis::dct(const std::slice_array&lt; T &gt; &amp;x)'],['../namespacesis.html#a59d9342dd58f313d6c200e0ca3dcd549',1,'sis::dct(const std::valarray&lt; std::complex&lt; T &gt; &gt; &amp;in)'],['../namespacesis.html#abe0d88779f0ce8182e52255227df9b2e',1,'sis::dct(const std::slice_array&lt; std::complex&lt; T &gt; &gt; &amp;in)']]],
+  ['dealias_5fprod_5f2d',['dealias_prod_2D',['../namespacesis.html#af8ddaf593c0fa0d5b86c30ff5905ce80',1,'sis']]],
+  ['diff',['diff',['../namespacesis.html#ad5c51460388afbaa40c3b1da5d014838',1,'sis::diff(const Eigen::Matrix&lt; T, Eigen::Dynamic, 1 &gt; &amp;u)'],['../namespacesis.html#a59d740d74c0f09eaf9654abb7505af23',1,'sis::diff(const std::valarray&lt; T &gt; &amp;u)'],['../namespacesis.html#aceb4d1feed0dbaed50a717595f1a9dee',1,'sis::diff(Chebfun&lt; T &gt; in, int n)'],['../namespacesis.html#ac90e913621ec3e6f9a8994cdd35261ae',1,'sis::diff(ChebfunMat&lt; T &gt; in, int n)'],['../namespacesis.html#afd6bd8502cab4d45d465e4683d3a65b7',1,'sis::diff(Linop&lt; T &gt; in, int n)']]],
+  ['discretize',['Discretize',['../classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html#a60c6aec721a27a55ae4bcb5c271cd1e3',1,'sis::Discretize&lt; std::complex&lt; T &gt; &gt;']]],
+  ['disp',['disp',['../namespacesis.html#a994b266db567f92fb380cc28d86537e9',1,'sis']]],
+  ['dou2com',['dou2com',['../namespacestd.html#a1dc10d81bbb68ffc08e4ffbb8bb7b8ae',1,'std::dou2com()'],['../namespacesis.html#a39361d0da006197af0809c036cc497b0',1,'sis::dou2com(const Eigen::Array&lt; T, Eigen::Dynamic, 1 &gt; &amp;a, const Eigen::Array&lt; T, Eigen::Dynamic, 1 &gt; &amp;b)'],['../namespacesis.html#a667d4a90e380ec52bf76a5331cb536b4',1,'sis::dou2com(Linop&lt; T &gt; real, Linop&lt; T &gt; imag)']]]
+];

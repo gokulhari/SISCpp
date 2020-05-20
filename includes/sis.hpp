@@ -15,9 +15,8 @@
 ///
 /// This project was intended to create programs for direct numerical simulations of viscoelastic
 /// channel flows, then we extended this as a generic solver, following in
-/// the lines of Chebfun, see http://www.chebfun.org/. Chebfun is based on a
+/// the lines of Chebfun, see http://www.chebfun.org/. Chebfun is based on
 /// Matlab for which you need to purchase a license.
-/// Parts of this code will be used in an upcoming DNS solver in C++.
 ///
 /// SISC++ aims to provide a Chebfun-like interface in C++. Just as Chebfun
 /// overloads functions and operations on linear matrices to differential
@@ -81,7 +80,7 @@
 /// An advantage of SISC++ compared to Chebfun is that incompressible hydrodynamic
 /// eigenvalue and singular value problems for Newtonian and Viscoelastic
 /// fluids can be solved for in both, primitive variables and in the evolution form. To the best of
-/// our knowledge, Chebfun can only be used after converting recasting hydrodynamic problems to the evolution form. As a virtue of spectral integration, SISC++ can solve
+/// our knowledge, Chebfun can only be used after recasting hydrodynamic problems to the evolution form. As a virtue of spectral integration, SISC++ can solve
 /// for incompressible flow eigenvalue problems directly in the discriptor form
 /// (in primitive variables). Using the primitive variable formulation can potentially save time involving algebraic transformations, particularly in complex fluids. 
 ///
@@ -91,12 +90,12 @@
 ///
 /// \section Prerequisites
 ///
-/// SIS requires two free libraries to be pre-installed,
+/// SISC++ requires two free libraries to be pre-installed,
 ///   1. Intel MKL (https://software.intel.com/en-us/mkl/choose-download) and
 ///   2. Eigen (http://eigen.tuxfamily.org/index.php?title=Main_Page)
 ///
 /// We strogly recommend downloading these from the respective websites and
-/// installing them. For <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a> in specific, we ask that Mac users refrain from
+/// installing them. For <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a> in specific, we ask that Mac users refrain from
 /// using brew to install either of these. Of course, if the user is familiar
 /// about linking these libraries correctly while using C++, then the method of
 /// installing these libraries should not matter.
@@ -111,13 +110,13 @@
 /// <a
 /// href="https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2019-getting-started">here.</a>
 ///
-/// No part of SIS uses anything that is OS specific.
-/// However, I have not tried using it on Windows platforms. I use it regularly on Mac and Linux.
+/// No part of SISC++ uses anything that is OS specific.
+/// However, I have not tried using it on Windows. I use it regularly on Mac and Linux.
 ///
-/// Most routines in SIS use default <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>routines for
+/// Most routines in SISC++ use default <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>routines for
 /// eigenvalue problems. At the time of writing this program, <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a> does not have
 /// an eigenvalue solver for complex generalized systems, of the form
-///  \f$ L\,\phi= \lambda \, M \, \phi\f$. As SIS uses a
+///  \f$ L\,\phi= \lambda \, M \, \phi\f$. As SISC++ uses a
 /// well-conditioned discretization, in most cases both \f$L\f$ and \f$M\f$ are
 /// well conditioned, so either can be inverted while the other is
 /// singular to compute the eigenvalues.
@@ -136,7 +135,7 @@
 ///
 /// \section Installation
 ///
-/// SIS does not need any installation and can be directly used as a header. You
+/// SISC++ does not need any installation and can be directly used as a header. You
 /// can copy sis.hpp file into /usr/local/includes/ in either Mac or Linux,
 /// as this is a default search path for most C++ compilers.
 ///
@@ -154,7 +153,18 @@
 /// Data generated will be placed in the folder data.
 /// To solve your own problems, go through the examples and modify them.
 /// \section citeus Cite Us
-/// If you use this work, please cite us:
+/// If you use this work in your research or teaching, please cite us:
+/// \code{bib}
+/// @article{harkumjovJCP20,
+/// author  = {G. Hariharan and S. Kumar and M. R. Jovanovi\'c},
+/// title   = {Well-conditioned ultraspherical and spectral integration methods for
+/// resolvent analysis of channel flows of {N}ewtonian and viscoelastic fluids},
+/// journal = {J. Comput. Phys.},
+/// year    = {2020},
+/// note    = {submitted; also arXiv:2005.04493},
+/// pdf     = {https://arxiv.org/abs/2005.04493}
+/// }
+/// \endcode
 ///
 #define lapack_complex_double std::complex<double>
 #define lapack_complex_float std::complex<float>

@@ -1,0 +1,26 @@
+var namespacesis =
+[
+    [ "BcMat", "classsis_1_1BcMat.html", "classsis_1_1BcMat" ],
+    [ "BcMat< std::complex< T > >", "classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4" ],
+    [ "Chebfun", "classsis_1_1Chebfun.html", "classsis_1_1Chebfun" ],
+    [ "Chebfun< std::complex< T > >", "classsis_1_1Chebfun_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1Chebfun_3_01std_1_1complex_3_01T_01_4_01_4" ],
+    [ "ChebfunMat", "classsis_1_1ChebfunMat.html", "classsis_1_1ChebfunMat" ],
+    [ "ChebfunMat< std::complex< T > >", "classsis_1_1ChebfunMat_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1ChebfunMat_3_01std_1_1complex_3_01T_01_4_01_4" ],
+    [ "Discretize", "classsis_1_1Discretize.html", "classsis_1_1Discretize" ],
+    [ "Discretize< std::complex< T > >", "classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4" ],
+    [ "EigenSolver", "classsis_1_1EigenSolver.html", null ],
+    [ "EigenSolver< std::complex< T > >", "classsis_1_1EigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html", null ],
+    [ "EigenSorter", "classsis_1_1EigenSorter.html", "classsis_1_1EigenSorter" ],
+    [ "GeneralizedEigenSolver", "classsis_1_1GeneralizedEigenSolver.html", "classsis_1_1GeneralizedEigenSolver" ],
+    [ "GeneralizedEigenSolver< std::complex< T > >", "classsis_1_1GeneralizedEigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1GeneralizedEigenSolver_3_01std_1_1complex_3_01T_01_4_01_4" ],
+    [ "Linop", "classsis_1_1Linop.html", "classsis_1_1Linop" ],
+    [ "Linop< std::complex< T > >", "classsis_1_1Linop_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1Linop_3_01std_1_1complex_3_01T_01_4_01_4" ],
+    [ "LinopMat", "classsis_1_1LinopMat.html", "classsis_1_1LinopMat" ],
+    [ "LinopMat< std::complex< T > >", "classsis_1_1LinopMat_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1LinopMat_3_01std_1_1complex_3_01T_01_4_01_4" ],
+    [ "MatGen", "classsis_1_1MatGen.html", "classsis_1_1MatGen" ],
+    [ "MatGen< std::complex< T > >", "classsis_1_1MatGen_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1MatGen_3_01std_1_1complex_3_01T_01_4_01_4" ],
+    [ "nChoosek", "classsis_1_1nChoosek.html", "classsis_1_1nChoosek" ],
+    [ "nChoosek< std::complex< T > >", "classsis_1_1nChoosek_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1nChoosek_3_01std_1_1complex_3_01T_01_4_01_4" ],
+    [ "SingularValueDecomposition", "classsis_1_1SingularValueDecomposition.html", "classsis_1_1SingularValueDecomposition" ],
+    [ "SingularValueDecomposition< std::complex< T > >", "classsis_1_1SingularValueDecomposition_3_01std_1_1complex_3_01T_01_4_01_4.html", "classsis_1_1SingularValueDecomposition_3_01std_1_1complex_3_01T_01_4_01_4" ]
+];
