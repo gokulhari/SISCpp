@@ -2,6 +2,7 @@
 /// \mainpage
 ///
 /// Written by Gokul Hariharan, harih020@umn.edu.
+/// Download from https://github.com/gokulhari/SISCpp.
 ///
 ///
 /// \section Introduction
