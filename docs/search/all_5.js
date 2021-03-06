@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['dct',['dct',['../namespacesis.html#ab37c32b6a50ed4f954fa2d0f06d65183',1,'sis::dct(const std::valarray&lt; T &gt; &amp;x)'],['../namespacesis.html#acb818524d9f070a2cdde8634e52cd42b',1,'sis::dct(const std::slice_array&lt; T &gt; &amp;x)'],['../namespacesis.html#a59d9342dd58f313d6c200e0ca3dcd549',1,'sis::dct(const std::valarray&lt; std::complex&lt; T &gt; &gt; &amp;in)'],['../namespacesis.html#abe0d88779f0ce8182e52255227df9b2e',1,'sis::dct(const std::slice_array&lt; std::complex&lt; T &gt; &gt; &amp;in)']]],
-  ['dct_5fflag',['dct_flag',['../classsis_1_1Chebfun.html#ad7531b86fc11f00d40471c4b54b99158',1,'sis::Chebfun::dct_flag()'],['../classsis_1_1Chebfun_3_01std_1_1complex_3_01T_01_4_01_4.html#aaf9ccaeb6884c70a54157b7eb7db2bc5',1,'sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::dct_flag()']]],
-  ['dealias_5fprod_5f2d',['dealias_prod_2D',['../namespacesis.html#af8ddaf593c0fa0d5b86c30ff5905ce80',1,'sis']]],
-  ['default',['default',['../namespaceplotlyPlots.html#a3d329e2d6433f5ee5391af81e7076d08',1,'plotlyPlots']]],
-  ['diff',['diff',['../namespacesis.html#ad5c51460388afbaa40c3b1da5d014838',1,'sis::diff(const Eigen::Matrix&lt; T, Eigen::Dynamic, 1 &gt; &amp;u)'],['../namespacesis.html#a59d740d74c0f09eaf9654abb7505af23',1,'sis::diff(const std::valarray&lt; T &gt; &amp;u)'],['../namespacesis.html#aceb4d1feed0dbaed50a717595f1a9dee',1,'sis::diff(Chebfun&lt; T &gt; in, int n)'],['../namespacesis.html#ac90e913621ec3e6f9a8994cdd35261ae',1,'sis::diff(ChebfunMat&lt; T &gt; in, int n)'],['../namespacesis.html#afd6bd8502cab4d45d465e4683d3a65b7',1,'sis::diff(Linop&lt; T &gt; in, int n)']]],
-  ['discretize',['Discretize',['../classsis_1_1Discretize.html',1,'sis::Discretize&lt; T &gt;'],['../classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html#a60c6aec721a27a55ae4bcb5c271cd1e3',1,'sis::Discretize&lt; std::complex&lt; T &gt; &gt;::Discretize()']]],
-  ['discretize_3c_20std_3a_3acomplex_3c_20t_20_3e_20_3e',['Discretize&lt; std::complex&lt; T &gt; &gt;',['../classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html',1,'sis']]],
-  ['disp',['disp',['../namespacesis.html#a994b266db567f92fb380cc28d86537e9',1,'sis']]],
-  ['dou2com',['dou2com',['../namespacestd.html#a1dc10d81bbb68ffc08e4ffbb8bb7b8ae',1,'std::dou2com()'],['../namespacesis.html#a39361d0da006197af0809c036cc497b0',1,'sis::dou2com(const Eigen::Array&lt; T, Eigen::Dynamic, 1 &gt; &amp;a, const Eigen::Array&lt; T, Eigen::Dynamic, 1 &gt; &amp;b)'],['../namespacesis.html#a667d4a90e380ec52bf76a5331cb536b4',1,'sis::dou2com(Linop&lt; T &gt; real, Linop&lt; T &gt; imag)']]]
+  ['feval2d',['feval2D',['../namespacesis.html#a401c0d6f217b6c07ea45bf9d9fad978b',1,'sis::feval2D(std::valarray&lt; ChebfunMat&lt; T &gt; &gt; Amat, int r, int c, T a)'],['../namespacesis.html#a28f80b9b3c880f51412d9195267af412',1,'sis::feval2D(std::valarray&lt; ChebfunMat&lt; std::complex&lt; T &gt; &gt; &gt; Amat, int r, int c, T a)']]],
+  ['fft',['fft',['../namespacesis.html#aa1a68e11297032c6b6a068a24c2454d6',1,'sis::fft(std::valarray&lt; T &gt; in1)'],['../namespacesis.html#a181ced14e82c25569c41ab6404101808',1,'sis::fft(std::slice_array&lt; T &gt; in1)']]],
+  ['fft2',['fft2',['../namespacesis.html#a5809953f954966bde971cc737155ca0c',1,'sis::fft2(std::valarray&lt; T &gt; in1, int Nx, int Nz)'],['../namespacesis.html#a89532beba7817a66360dc6d53c5a73d5',1,'sis::fft2(std::slice_array&lt; T &gt; in1, int Nx, int Nz)']]],
+  ['fig',['fig',['../namespaceplotlyPlots.html#a035bec059d749fa6c31541ffd50c36cb',1,'plotlyPlots']]],
+  ['fillstyle',['fillstyle',['../namespaceplotter.html#a323e049e04aaf534c4f0e33f9727043d',1,'plotter']]],
+  ['font',['font',['../namespaceplotter.html#aee3f38b643f235087e08712493df19e1',1,'plotter']]],
+  ['fontproperties',['FontProperties',['../namespaceplotter.html#a8d77a73ed17acc74c5e898e40eca6eef',1,'plotter']]],
+  ['fontsize',['fontsize',['../namespaceplotter.html#aebea464adaa6964426a3350a5a5479e8',1,'plotter']]],
+  ['forzgees',['forZgees',['../lyap_8h.html#a7b7a01b15e15f22bf9c85e677011d67f',1,'lyap.h']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['m',['M',['../classOrdQz.html#ac6ce5b8eedd15d0f0b3c8a0b08cd7e99',1,'OrdQz']]],
   ['mat0',['mat0',['../namespaceplotter.html#a0f213243b425f34b798e8e260ec442d1',1,'plotter']]],
   ['mat1',['mat1',['../namespaceplotter.html#aa937fb0dd46f77edf1224c9576e7b2ae',1,'plotter']]],
   ['mat_5ftemp',['mat_temp',['../classsis_1_1Discretize.html#a67b7ff5b0efdc46a69d7c56ff93db9ce',1,'sis::Discretize']]],

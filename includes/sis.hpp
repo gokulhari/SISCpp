@@ -160,8 +160,8 @@
 /// title   = {Well-conditioned ultraspherical and spectral integration methods for
 /// resolvent analysis of channel flows of {N}ewtonian and viscoelastic fluids},
 /// journal = {J. Comput. Phys.},
-/// year    = {2020},
-/// note    = {submitted; also arXiv:2005.04493},
+/// year    = {2021},
+/// note    = {accepted; also arXiv:2005.04493},
 /// pdf     = {https://arxiv.org/abs/2005.04493}
 /// }
 /// \endcode
@@ -1138,6 +1138,7 @@ dou2com(const Eigen::Array<T, Eigen::Dynamic, 1> &a,
   }
   return temp;
 };
+
 
 /// \brief This is a chebfun analogue.
 /// Chebfun will represent both values in physical space or an
@@ -10115,7 +10116,7 @@ public:
     temp = fun.evc();
 
     for (int i = 1; i < n + 1; i++) {
-      diffMats[i] = Dmat * diffMats[i - 1];
+      diffMats[i] = 2.0 * Dmat * diffMats[i - 1];
     }
     // temp = diffMats[1] * temp;
     // std::cout << "temp = \n" << temp << '\n';

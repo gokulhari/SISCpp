@@ -46,10 +46,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"2DViscoSvd__LikeMJ_8cpp.html",
-"classsis_1_1Chebfun_3_01std_1_1complex_3_01T_01_4_01_4.html#a81ecfea687177245b8753f9230cff356",
-"files.html",
-"sis_8hpp_source.html"
+"Ex__01_8cpp.html",
+"classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html#adf56ae808de8c08cc51555e56520bc88",
+"functions_t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

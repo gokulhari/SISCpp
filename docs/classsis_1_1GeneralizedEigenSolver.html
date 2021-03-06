@@ -25,7 +25,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="customdoxygen0.css" rel="stylesheet" type="text/css"/>
 <link href="tabs_mine.css" rel="stylesheet" type="text/css"/>
@@ -149,7 +149,7 @@ class sis::GeneralizedEigenSolver&lt; T &gt;</h3>
 </p>
 <p>. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03251">3251</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03252">3252</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a18ff3d27f0ff3f1aa832ad4052836c77"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a18ff3d27f0ff3f1aa832ad4052836c77">&#9670;&nbsp;</a></span>GeneralizedEigenSolver()</h2>
@@ -178,7 +178,7 @@ template&lt;class T&gt; </div>
 
 <p>Null constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03257">3257</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03258">3258</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
@@ -227,9 +227,9 @@ template&lt;class T&gt; </div>
 
 <p>Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen values/vectors is num_vals, num_vals has to be less than N. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03265">3265</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03266">3266</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l05246">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l09137">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, and <a class="el" href="Ex__05_8cpp_source.html#l00019">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l05247">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l09138">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, and <a class="el" href="Ex__05_8cpp_source.html#l00019">main()</a>.</p>
 
 </div>
 </div>
@@ -283,9 +283,9 @@ template&lt;class T&gt; </div>
 
 <p>This will use do the same work as <a class="el" href="classsis_1_1GeneralizedEigenSolver.html#ada0de2621ddccf738bcb3498caf21e80" title="Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen val...">compute()</a>, but will overide all boundary conditions specified through BcVec and use the input <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> instead. Read about class <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> to see how this works, also see examples example/Ex_16.cpp and test/Visco_3D_pipe.cpp of how this is applied. This function is useful when boundary conditions are mixed between variables. Also, if you have boundary conditions that have an associated eigenvalue, see compute_with_constraints. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03274">3274</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03275">3275</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="sis_8hpp_source.html#l07969">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03255">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l03254">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="sis_8hpp_source.html#l00471">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l08114">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="sis_8hpp_source.html#l00279">std::real()</a>, and <a class="el" href="sis_8hpp_source.html#l00470">SIS_CHEB_SPACE</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08117">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="sis_8hpp_source.html#l07970">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l03255">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="sis_8hpp_source.html#l07960">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="sis_8hpp_source.html#l00471">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l08115">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="sis_8hpp_source.html#l00279">std::real()</a>, and <a class="el" href="sis_8hpp_source.html#l00470">SIS_CHEB_SPACE</a>.</p>
 
 </div>
 </div>
@@ -344,9 +344,9 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 <p>Use this to solve eigenvalue problems where eigenvalues appears in the boundary condition, example, in eigenvalue problems with fluid-fluid interfaces. Again solvability must hold. That total of all the highest orders of every independent variable has to be equal to the total number of boundary conditions specified + the number of constraints. Further, please ensure that the boundary conditions and constraints are linearly independent, else this will throw an error. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03825">3825</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03826">3826</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="sis_8hpp_source.html#l07969">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="sis_8hpp_source.html#l03255">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l03254">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="sis_8hpp_source.html#l07957">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="sis_8hpp_source.html#l00471">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l08114">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="sis_8hpp_source.html#l00279">std::real()</a>, <a class="el" href="sis_8hpp_source.html#l08212">sis::LinopMat&lt; T &gt;::resize()</a>, <a class="el" href="sis_8hpp_source.html#l08335">sis::LinopMat&lt; T &gt;::setConstant()</a>, and <a class="el" href="sis_8hpp_source.html#l00470">SIS_CHEB_SPACE</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08117">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="sis_8hpp_source.html#l07970">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l07962">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l03255">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="sis_8hpp_source.html#l07958">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="sis_8hpp_source.html#l07960">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="sis_8hpp_source.html#l00471">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l08115">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="sis_8hpp_source.html#l00279">std::real()</a>, <a class="el" href="sis_8hpp_source.html#l08213">sis::LinopMat&lt; T &gt;::resize()</a>, <a class="el" href="sis_8hpp_source.html#l08336">sis::LinopMat&lt; T &gt;::setConstant()</a>, and <a class="el" href="sis_8hpp_source.html#l00470">SIS_CHEB_SPACE</a>.</p>
 
 </div>
 </div>
@@ -411,9 +411,9 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 <p>This is the most generic form of the eigenvalue solver, in which boundary conditions that don't have an associated eigenvalue are to be embedded ( using Lbc_embed_), and boundary conditions that have an associated eigevalue associated are to be appended. This means that you can go about solving problems where you would append boundary conditions anyway, instead of embedding them, see the example in our paper, and example/Ex_19.cpp. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l04601">4601</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l04602">4602</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="sis_8hpp_source.html#l07969">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03255">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l03254">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="sis_8hpp_source.html#l00471">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l08114">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="sis_8hpp_source.html#l00279">std::real()</a>, and <a class="el" href="sis_8hpp_source.html#l00470">SIS_CHEB_SPACE</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08117">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="sis_8hpp_source.html#l07970">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l03255">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="sis_8hpp_source.html#l07960">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="sis_8hpp_source.html#l00471">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l08115">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="sis_8hpp_source.html#l00279">std::real()</a>, and <a class="el" href="sis_8hpp_source.html#l00470">SIS_CHEB_SPACE</a>.</p>
 
 </div>
 </div>
@@ -432,9 +432,9 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03255">3255</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03256">3256</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l03274">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l05268">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03825">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="sis_8hpp_source.html#l05968">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::computeAppend()</a>, <a class="el" href="sis_8hpp_source.html#l07466">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::keep()</a>, <a class="el" href="sis_8hpp_source.html#l07429">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::keepConverged()</a>, <a class="el" href="Ex__05_8cpp_source.html#l00019">main()</a>, <a class="el" href="sis_8hpp_source.html#l07499">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::removeInf()</a>, and <a class="el" href="sis_8hpp_source.html#l07385">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::sortByLargestReal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l03275">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l05269">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03826">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="sis_8hpp_source.html#l05969">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::computeAppend()</a>, <a class="el" href="sis_8hpp_source.html#l07467">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::keep()</a>, <a class="el" href="sis_8hpp_source.html#l07430">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::keepConverged()</a>, <a class="el" href="Ex__05_8cpp_source.html#l00019">main()</a>, <a class="el" href="sis_8hpp_source.html#l07500">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::removeInf()</a>, and <a class="el" href="sis_8hpp_source.html#l07386">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::sortByLargestReal()</a>.</p>
 
 </div>
 </div>
@@ -452,9 +452,9 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03254">3254</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03255">3255</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l03274">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, and <a class="el" href="sis_8hpp_source.html#l03825">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l03275">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, and <a class="el" href="sis_8hpp_source.html#l03826">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>.</p>
 
 </div>
 </div>

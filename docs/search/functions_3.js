@@ -5,5 +5,6 @@ var searchData=
   ['diff',['diff',['../namespacesis.html#ad5c51460388afbaa40c3b1da5d014838',1,'sis::diff(const Eigen::Matrix&lt; T, Eigen::Dynamic, 1 &gt; &amp;u)'],['../namespacesis.html#a59d740d74c0f09eaf9654abb7505af23',1,'sis::diff(const std::valarray&lt; T &gt; &amp;u)'],['../namespacesis.html#aceb4d1feed0dbaed50a717595f1a9dee',1,'sis::diff(Chebfun&lt; T &gt; in, int n)'],['../namespacesis.html#ac90e913621ec3e6f9a8994cdd35261ae',1,'sis::diff(ChebfunMat&lt; T &gt; in, int n)'],['../namespacesis.html#afd6bd8502cab4d45d465e4683d3a65b7',1,'sis::diff(Linop&lt; T &gt; in, int n)']]],
   ['discretize',['Discretize',['../classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html#a60c6aec721a27a55ae4bcb5c271cd1e3',1,'sis::Discretize&lt; std::complex&lt; T &gt; &gt;']]],
   ['disp',['disp',['../namespacesis.html#a994b266db567f92fb380cc28d86537e9',1,'sis']]],
+  ['dlyap',['dlyap',['../lyap_8h.html#a027d230cdc92d2cac38f549b8fe7bf33',1,'lyap.h']]],
   ['dou2com',['dou2com',['../namespacestd.html#a1dc10d81bbb68ffc08e4ffbb8bb7b8ae',1,'std::dou2com()'],['../namespacesis.html#a39361d0da006197af0809c036cc497b0',1,'sis::dou2com(const Eigen::Array&lt; T, Eigen::Dynamic, 1 &gt; &amp;a, const Eigen::Array&lt; T, Eigen::Dynamic, 1 &gt; &amp;b)'],['../namespacesis.html#a667d4a90e380ec52bf76a5331cb536b4',1,'sis::dou2com(Linop&lt; T &gt; real, Linop&lt; T &gt; imag)']]]
 ];

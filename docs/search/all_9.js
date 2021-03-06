@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['half_5fshift',['half_shift',['../namespacesis.html#a06185483ba2178a2719d4f9674d57329',1,'sis']]],
-  ['highest_5feach_5fcolumn',['highest_each_column',['../classsis_1_1Discretize.html#a6af35b1d1d4139d5d69bd3c6e80e5fef',1,'sis::Discretize::highest_each_column()'],['../classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html#a1ef6072783e161591f4137d6e92ccdc7',1,'sis::Discretize&lt; std::complex&lt; T &gt; &gt;::highest_each_column()']]],
-  ['hinfnorm',['HinfNorm',['../classsis_1_1SingularValueDecomposition_3_01std_1_1complex_3_01T_01_4_01_4.html#a762fd57b1904da00023ef88851a20405',1,'sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;']]]
+  ['keep',['keep',['../classsis_1_1GeneralizedEigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html#a2667d52a813d081c912f0cf4188f5d50',1,'sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;']]],
+  ['keepconverged',['keepConverged',['../classsis_1_1GeneralizedEigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html#a08dd032fa2c5e7069dcfa8712dfc891b',1,'sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;']]]
 ];

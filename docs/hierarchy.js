@@ -26,5 +26,6 @@ var hierarchy =
       [ "sis::Discretize< std::complex< T > >", "classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html", null ]
     ] ],
     [ "sis::nChoosek< T >", "classsis_1_1nChoosek.html", null ],
-    [ "sis::nChoosek< std::complex< T > >", "classsis_1_1nChoosek_3_01std_1_1complex_3_01T_01_4_01_4.html", null ]
+    [ "sis::nChoosek< std::complex< T > >", "classsis_1_1nChoosek_3_01std_1_1complex_3_01T_01_4_01_4.html", null ],
+    [ "OrdQz", "classOrdQz.html", null ]
 ];
