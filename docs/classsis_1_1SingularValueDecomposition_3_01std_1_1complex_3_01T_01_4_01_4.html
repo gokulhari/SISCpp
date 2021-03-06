@@ -228,7 +228,7 @@ class sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;</h3>
 
 <p>This class computes various SingularValues of a differential block matrix operator using using it's adjoint. Class has various utilities, like computing the adjoint, adjoint boundary conditions, and also computing singular values of the frequency response operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10277">10277</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10278">10278</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a33cf81fbad1b75d243a90a2a18fa93fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33cf81fbad1b75d243a90a2a18fa93fd">&#9670;&nbsp;</a></span>SingularValueDecomposition()</h2>
@@ -255,7 +255,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10291">10291</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10292">10292</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
@@ -288,9 +288,9 @@ template&lt;class T &gt; </div>
 
 <p>Computes the formal adjoint of a Linear operator. This is a differential adjoint, and not the conjugate transpose of the operators in the <a class="el" href="classsis_1_1LinopMat.html" title="This class represents a block matrix operator. It is a matrix of operators. ">LinopMat</a>. To get the latter, use cTranspose(); Adjoints are for generic discriptor systems, like \(M\partial_{t}\phi(y) = L\phi(y)\). </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l11326">11326</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l11327">11327</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00986">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l13051">sis::pow()</a>, and <a class="el" href="sis_8hpp_source.html#l08213">sis::LinopMat&lt; T &gt;::resize()</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00987">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l13052">sis::pow()</a>, and <a class="el" href="sis_8hpp_source.html#l08214">sis::LinopMat&lt; T &gt;::resize()</a>.</p>
 
 </div>
 </div>
@@ -338,9 +338,9 @@ template&lt;class T &gt; </div>
 
 <p>Computes adjoint boundary conditions analytically, needs boundary conditions all right boundary conditions in rbc, and all left boundary conditions in lbc. All dependent variables need not have boundary conditions specified, but it is essential that the number of boundary conditions be equal to the sum of derivatives of all independent variables, and all the boundary conditions be linearly independent. The adjoint boundary conditions will be returned in the output, as <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a>, will all boundary conditions for left and right in it, in the orders left followed by right. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l11504">11504</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l11505">11505</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00986">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l09075">sis::feval2D()</a>, <a class="el" href="sis_8hpp_source.html#l00471">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l13051">sis::pow()</a>, <a class="el" href="sis_8hpp_source.html#l00919">sis::setChebPts()</a>, and <a class="el" href="sis_8hpp_source.html#l00469">SIS_PHYS_SPACE</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00987">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l09076">sis::feval2D()</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l13052">sis::pow()</a>, <a class="el" href="sis_8hpp_source.html#l00920">sis::setChebPts()</a>, and <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>.</p>
 
 </div>
 </div>
@@ -394,9 +394,9 @@ template&lt;class T &gt; </div>
 
 <p>Computes the singular values/functions of a Linear block matrix operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10294">10294</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10295">10295</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09268">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, <a class="el" href="sis_8hpp_source.html#l09407">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>, and <a class="el" href="sis_8hpp_source.html#l09138">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09269">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, <a class="el" href="sis_8hpp_source.html#l09408">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>, and <a class="el" href="sis_8hpp_source.html#l09139">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>.</p>
 
 </div>
 </div>
@@ -465,9 +465,9 @@ template&lt;class T &gt; </div>
 </p>
 <p>. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10403">10403</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10404">10404</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09268">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, <a class="el" href="sis_8hpp_source.html#l09407">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>, <a class="el" href="sis_8hpp_source.html#l09138">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l00471">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l00466">SIS_SVD</a>, <a class="el" href="sis_8hpp_source.html#l00467">SIS_SVD_LEFT</a>, and <a class="el" href="sis_8hpp_source.html#l00468">SIS_SVD_RIGHT</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09269">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, <a class="el" href="sis_8hpp_source.html#l09408">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>, <a class="el" href="sis_8hpp_source.html#l09139">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l00467">SIS_SVD</a>, <a class="el" href="sis_8hpp_source.html#l00468">SIS_SVD_LEFT</a>, and <a class="el" href="sis_8hpp_source.html#l00469">SIS_SVD_RIGHT</a>.</p>
 
 </div>
 </div>
@@ -548,9 +548,9 @@ template&lt;class T &gt; </div>
 </p>
 <p>. When using this, you need to explicitly specify the adjoint boundary conditions. This is useful in certain discriptor systems. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10900">10900</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10901">10901</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09268">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, <a class="el" href="sis_8hpp_source.html#l09138">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l00471">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l00466">SIS_SVD</a>, <a class="el" href="sis_8hpp_source.html#l00467">SIS_SVD_LEFT</a>, and <a class="el" href="sis_8hpp_source.html#l00468">SIS_SVD_RIGHT</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09269">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, <a class="el" href="sis_8hpp_source.html#l09139">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l00467">SIS_SVD</a>, <a class="el" href="sis_8hpp_source.html#l00468">SIS_SVD_LEFT</a>, and <a class="el" href="sis_8hpp_source.html#l00469">SIS_SVD_RIGHT</a>.</p>
 
 </div>
 </div>
@@ -631,7 +631,7 @@ template&lt;class T &gt; </div>
 </p>
 <p>. Still needs validation and improvement. Works only for the evolution form. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l11166">11166</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l11167">11167</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
@@ -694,9 +694,9 @@ template&lt;class T &gt; </div>
 </p>
 <p>. Power spectral density is the sum of squares of the singular values. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10579">10579</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10580">10580</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09268">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, and <a class="el" href="sis_8hpp_source.html#l09407">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09269">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, and <a class="el" href="sis_8hpp_source.html#l09408">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>.</p>
 
 </div>
 </div>
@@ -766,9 +766,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10675">10675</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10676">10676</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09268">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09269">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>.</p>
 
 </div>
 </div>
@@ -838,9 +838,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10780">10780</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10781">10781</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09268">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, and <a class="el" href="sis_8hpp_source.html#l09407">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09269">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, and <a class="el" href="sis_8hpp_source.html#l09408">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>.</p>
 
 </div>
 </div>
@@ -861,7 +861,7 @@ template&lt;class T &gt; </div>
 
 <p>This is the H-infinity norm. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10288">10288</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10289">10289</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
@@ -879,7 +879,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10285">10285</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10286">10286</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
@@ -899,7 +899,7 @@ template&lt;class T &gt; </div>
 
 <p>This is the value of \(\omega\) at which H-infinity norm occurs. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10290">10290</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10291">10291</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
@@ -917,7 +917,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10284">10284</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l10285">10285</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
