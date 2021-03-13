@@ -1,0 +1,184 @@
+# jemdoc: menu{MENU}{index.html},addpackage{amsmath},addpackage{amssymb}
+# jemdoc: addcss{jemdoc.css}
+# jemdoc: addcss{bibover.css}
+#include{masterFile_2.jeminc}
+#include{mj-complete-bib_3.jeminc}
+= Spectral Integration in C\+\+
+
+~~~
+
+ *{{<a href="https://gokulhari.github.io/webpage/" target="_blank">Gokul Hariharan</a>}}*, *{{<a href="https://kumar.cems.umn.edu/people/satish-kumar" target="_blank">Satish Kumar</a>}}*, and *{{<a href="http://www-bcf.usc.edu/~mihailo/" target="_blank">Mihailo R. Jovanovic</a>}}*
+
+
+
+
+Updated in March 6, 2021
+
+*Source Codes*
+	\n
+	+[/SISCpp.zip Download all Matlab files]+
+~~~
+
+
+== Introduction
+
+ Spectral integration suite in C\+\+ (SISC\+\+) is a generic header to solve
+ two-point boundary-value problems in the system
+ representation. SISC\+\+ can solve for linear differential equations,
+ and compute eigenvalues, singular values of frequency responses,
+ and the power spectral density (Hilbert-Schmidt norm) of
+ linear differential systems.
+
+ This project was intended to create programs for direct numerical simulations of viscoelastic
+ channel flows, then we extended this as a generic solver, following in
+ the lines of Chebfun, see [http://www.chebfun.org/.] Chebfun is based on
+ Matlab for which you need to purchase a license.
+
+ SISC\+\+ aims to provide a Chebfun-like interface in C\+\+. Just as Chebfun
+ overloads functions and operations on linear matrices to differential
+ operators,
+ SISC\+\+ uses {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>}} matrix representation in C\+\+
+ for linear differential operators.
+ For instance, one would input a normal matrix using {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} in the following
+ manner,
+~~~ 
+{}{cpp}
+ using namespace Eigen;
+ MatrixXd A(2,2);
+ A << 1, 2, //
+      3, 4;
+~~~
+
+In SISC\+\+, you can overload  the linear block-matrix operator
+\( 
+\begin{align}
+L =  \left[ \begin{array}{cc}
+\partial_y & y \\
+y\,\partial_{yy} & \partial_{yy}/2
+\end{array} \right],\nonumber
+\end{align}
+\)
+as
+
+~~~
+{}{cpp} 
+using namespace sis;
+valarray<double> y;
+setChebPts(y);
+Linop <double> Dy(1), Dyy(2);
+Dy.coef << 1.0, 0.0;
+Dyy.coef << 1.0, 0.0, 0.0;
+LinopMat<double> L(2,2);
+L << Dy, y,//
+     y*Dyy, Dyy/2.0;
+~~~
+
+Following that, just as you can use the EigenSolver in {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} for matrix
+eigenvalues, you can use EigenSolver in SISC\+\+ for linear block-matrix
+operators.
+
+An advantage with a code in C\+\+ is
+you do not need a Matlab license to use it.
+You can also optimize a code in C\+\+ for speed by
+using proprietary compilers like the Intel or Cray compilers.
+One major difference from Chebfun is that we do not provide for
+automatic collocation. Automatic collocation is a useful utility
+in Chebfun that keeps increasing the number of basis functions until the
+solution reaches machine precision. We did not incorporate this
+as automatic collocation adds to the computational expense, which is
+a liability for direct numerical simulations.
+For most part, classes and functions are quite intuitive, but you need to know
+a bit about C\+\+. A good place to learn C\+\+
+is {{<a href="http://www.cplusplus.com/doc/tutorial/">here </a>.}}
+You should feel comfortable using SISC\+\+ if you have already used {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}}.
+As far as the algorithm is concerned, SISC\+\+ is based on the recent
+spectral integration method by [/javascript:cite('DuSIAM2016') Du], which is a
+well-conditioned method, compared to conventional spectral-collocation / Tau methods.
+Chebfun too has a well-conditioned scheme, the  [/javascript:cite('OlvTowSIAM2013') ultraspherical
+discretization]. 
+
+
+An advantage of SISC\+\+ compared to Chebfun is that incompressible hydrodynamic
+eigenvalue and singular value problems for Newtonian and Viscoelastic
+fluids can be solved for in both, primitive variables and in the evolution form. To the best of
+our knowledge, Chebfun can only be used after recasting hydrodynamic problems to the evolution form. As a virtue of spectral integration, SISC\+\+ can solve
+for incompressible flow eigenvalue problems directly in the discriptor form
+(in primitive variables). Using the primitive variable formulation can potentially save time involving algebraic transformations, particularly in complex fluids. 
+In addition, we also provide tools to handle eigenvalue boundary
+constraints (problems where the eigenvalue appears in the boundary
+conditions), for eigenvalue problems involving fluid-fluid interfaces.
+
+
+
+== Prerequisites
+SISC\+\+ requires two free libraries to be pre-installed,
+.  Intel MKL [https://software.intel.com/en-us/mkl/choose-download] and
+. Eigen [http://eigen.tuxfamily.org/index.php?title=Main_Page]
+
+ We strogly recommend downloading these from the respective websites and
+ installing them. For {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} in specific, we ask that Mac users refrain from
+ using brew to install either of these. Of course, if the user is familiar
+ about linking these libraries correctly while using C\+\+, then the method of
+ installing these libraries should not matter.
+
+You must also set the path for Intel MKL. For linux, you can do this by saying
+~~~
+{}{sh}
+source  /opt/intelcompilers_and_libraries_2019/linux/mklbin/mklvars.sh
+intel64 
+~~~
++in every new terminal+. Else, you can add this to you \~/.bashrc file.
+For other platforms, take a look at setting environment variables {{<a
+href="https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2019-getting-started">here.</a>}}
+
+No part of SISC\+\+ uses anything that is OS specific. However, I have not tried using it on Windows. I use it regularly on Mac and Linux.
+
+Most routines in SISC\+\+ use default {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>}}routines for
+eigenvalue problems. At the time of writing this program, {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} does not have
+an eigenvalue solver for complex generalized systems, of the form
+ $ L\,\phi= \lambda \, M \, \phi$. As SISC\+\+ uses a
+well-conditioned discretization, in most cases both $L$ and $M$ are
+well conditioned, so either can be inverted while the other is
+singular to compute the eigenvalues.
+We provide an option to use the macro SIS\_USE\_LAPACK. This will use LAPACK's
+complex generalized eigenvalue solver and also replace all other places of
+the codes with LAPACK's counter-part. Intel MKL also has LAPACK in it,
+so if you have linked Intel MKL correctly, LAPACK must be available in the
+same path as Intel MKL (you will not have to do anything extra). However,
+as we use fortran code in C\+\+, gfortran needs to be linked during compilation (implying that
+gfortran must be installed, in Mac say "brew install gfortran", and in
+linux "sudo apt-get install gfortran" in the terminal). In summary, if you
+need to use SIS\_USE\_LAPACK, make sure that gfortran is installed.
+== Installation
+
+SISC\+\+ does not need any installation and can be directly used as a header. You
+can copy sis.hpp file into \/usr\/local\/includes\/ in either Mac or Linux,
+as this is a default search path for most C\+\+ compilers.
+== Getting Started
+If {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} and Intel MKL are installed in their default locations, then you
+can begin by creating two folders, named bin and data. Then open a terminal
+in the current folder and say ~~~ make all ~~~ This will compile
+all the examples in the directory examples, and the executables will be
+placed in the directory bin. Then run the executables, by saying, say
+~~~
+{}{sh}
+./bin/Ex_01
+~~~
+in the terminal.
+Data generated will be placed in the folder data.
+To solve your own problems, go through the examples and modify them.
+== Cite Us
+If you use this work in your research or teaching, please cite us:
+~~~
+{}{}
+@article{harkumjovJCP20,
+author  = {G. Hariharan and S. Kumar and M. R. Jovanovi\'c},
+title   = {Well-conditioned ultraspherical and spectral integration methods for
+resolvent analysis of channel flows of {N}ewtonian and viscoelastic fluids},
+journal = {J. Comput. Phys.},
+year    = {2021},
+note    = {accepted; also arXiv:2005.04493},
+pdf     = {https://arxiv.org/abs/2005.04493}
+}
+~~~
+

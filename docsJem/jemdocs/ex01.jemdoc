@@ -1,0 +1,105 @@
+# jemdoc: menu{MENU}{ex01.html},addpackage{amsmath},addpackage{amssymb}
+# jemdoc: addcss{jemdoc.css}
+# jemdoc: addcss{bibover.css}
+#include{masterFile_2.jeminc}
+#include{mj-complete-bib_3.jeminc}
+= Reaction-diffusion equation
+
+=== Problem
+Solve
+\(
+\begin{equation}
+\partial_{yy}u(y)\,-\,4\, u(y)\;=\; 1 \; - \; y^2,\label{eq:1}
+\end{equation}
+\)
+with boundary conditions
+\(
+\begin{align}
+    \begin{split}
+u(-1)  \,+\,  4\,u'(-1)\;&=\; 2,\\
+u(1)  \,-\,  5\,u'(1)\;&=\; 3.
+    \end{split}\label{eq:2}
+\end{align}
+\)
+
+=== Solution
+We hope you are all set up with using SISC\+\+ as delineated in the [/index.html home page]. You need to have installed the [https://gokulhari.github.io/SISCpp/index.html\#Prerequisites prerequisites], Eigen, and Intel MKL.
+
+As with any C\+\+ program, you need to include the essential libraries, for all of our cases we will need the following
+~~~
+{}{cpp}
+#include <fstream> // To output data to files
+#include <iostream>
+#include <sis.hpp>
+using namespace std;
+~~~
+The last line specifies that by default we use the namespace std, read about namespaces in C\+\+ [http://www.cplusplus.com/doc/tutorial/namespaces/ here].
+
+We will now get to the main program. First we will set the number of basis functions and call sis_setup();
+~~~
+{}{cpp}
+int main() {
+  using namespace sis;
+  N = 63; // sis::N, Defined in sis.hpp. This specifies no. of Chebyshev
+          // coefficients
+  sis_setup();
+~~~
+all classes and functions in sis.hpp is placed in the namespace sis. If you choose to omit "using namespace std;" then you should add sis:: to every function or class that you call from sis.hpp. Note that N = 63, can be more explicitly written out as "sis::N = 63;". The qualifier "using namespace sis;" helps us omit "sis::" for all variables, functions and classes defined in sis.hpp. 
+
+In SISC\+\+ linear systems of differential equations, including single equation cases as in Eq.~$\eqref{eq:1}$, are treated as block-matrix operators (single equations can be expressed as a $1\times 1$ block-matrix operator). The idea is that simple linear operators (Linops) can be expressed as in terms of constant or non-constant coefficients, and a block-matrix operator (LinopMat) is a set of linops (aka a map) that takes a vector of functions from one space to the another, depending on the dimension of the LinopMat.   
+
+First let's define the Linops, the second derivative, first derivative and the zeroth derivative operators
+~~~
+{}{cpp}
+  Linop<double> D2(2), D1(1), D0(0); // Linops with highest order 2, 1 and 0.
+
+  D2.coef << 1.0, 0.0, 0.0; // for (1.0 * D2 + 0.0 * D1 + (0.0) )v
+  D1.coef << 1.0, 0.0;
+  D0.coef << 1.0;
+
+~~~
+Next we define a $1\times 1$ LinopMat to specify the reaction-diffusion equation, Eq.~$\eqref{eq:1}$. 
+~~~
+{}{cpp}
+  LinopMat<complex<double> > Lmat(1, 1);
+  // for operator D2v - 4 v
+  Lmat << D2 - 4.0 * D0;
+~~~
+Once in the LinopMat form, there are many operations that can be performed on this, like transpose, differential adjoint, conjugate transpose and so on. A complete listing can be found in the [https://gokulhari.github.io/SISCpp/classsis_1_1LinopMat_3_01std_1_1complex_3_01T_01_4_01_4.html documentation of LinopMat.]
+
+We now move to specifying boundary conditions. Boundary conditions are specified using a boundary conditions matrix, the BcMat class. This matrix is initialized by two parameters: the number of equations, and the number of unknowns. There are two boundary conditions in Eq.~$\eqref{eq:2}$ on one unknown, $u(y)$, so this is initialized as
+~~~
+{}{cpp}
+  // Specify boundary conditions via BcMat:
+  BcMat<complex<double> > bcs(2, 1); 
+      // Two boundary conditions in total, on one variable
+~~~
+
+~~~
+{}{cpp}
+// Some mixed boundary condition:
+
+bcs.L << D0,//
+        D0;
+bcs.eval << 1.0, // evaluate bcs.L right end
+            -1.0;          // evaluate bcs.L at 0.5, must be a value in domain [-1, 1]
+bcs.vals << 2.0,  // value at right
+    3.0;          // value at left
+// Construct forcing, forc = 1 - y^2
+ChebfunMat<complex<double> > forc(1, 1); // 1 by 1 ChebfunMat
+forc << 1.0 - y * y;                     // y is defined in sis::y
+// Solve, by replacing the forcing as the solution.
+forc = linSolve(Lmat, bcs, forc);
+cout << "lbc: " << forc(1.0) << endl;
+cout << "rbc: " << forc(-1.0) << endl;
+// Write to file to plot, need only the real part:
+ofstream outf;
+outf.open("data/Ex_01.txt");
+Eigen::MatrixXd temp(N + 1, 2);
+temp << yEigen, forc(0,0).evr();
+outf << temp;
+// note that sis::yEigen is the same as y, but of type Eigen Matrix,
+outf.close();
+return 0;
+}
+~~~

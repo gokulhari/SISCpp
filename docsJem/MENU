@@ -1,0 +1,25 @@
+Chebfun +SVDFR+
+	Home            [index.html]
+	Download	[download.html]
+    Feedback	[feedback.html]
+	Detailed doxygen documentation [\https://gokulhari.github.io/SISCpp/]
+
+Equation Solving
+	Reaction-diffusion equation	 [ex01.html]
+	Fourth-order system [ex02.html]
+	Nonconsant coefficients [ex03.html]
+	Eigenvalue example [ex04.html]
+
+Eigenvalue problems
+	Reaction-diffusion equation	 [ex05.html]
+	Generalized eigenvalue problem 1 [ex06.html]
+	Generalized eigenvalue problem 2 [ex07.html]
+	Orr-Sommerfeld operator [ex08.html]
+	Linearized Navier-Stokes equations [ex09.html]
+
+Frequency responses
+	Reaction-diffusion equation	 [ex10.html]
+	Linearized Navier-Stokes equations [ex11.html]
+	Power spectral density [ex12.html]
+	Oldroyd-B fluid [ex13.html]
+
