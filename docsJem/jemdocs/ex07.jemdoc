@@ -1,0 +1,102 @@
+# jemdoc: menu{MENU}{ex07.html},addpackage{amsmath},addpackage{amssymb}
+# jemdoc: addcss{jemdoc.css}
+# jemdoc: addcss{bibover.css}
+#include{masterFile_2.jeminc}
+#include{mj-complete-bib_3.jeminc}
+= Generalized eigenvalue problem 2
+
+=== Problem
+Find the eigenvalues of
+\(
+\begin{equation}
+\left[
+\begin{array}{cc}
+\tfrac{1}{16}\mathrm D^4 + 2y & 1.0 \\
+\sin (2y) & \tfrac{1}{4}\mathrm D^2
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+u \\
+v
+\end{array}
+\right] \;=\;
+\lambda
+\left[
+\begin{array}{cc}
+\tfrac{1}{4}\mathrm D^2 & 0\\
+0 & 1
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+u \\
+v
+\end{array}
+\right],\label{eq:1}
+\end{equation}
+\)
+with boundary conditions
+\(
+\begin{align}
+    u(\pm 1) \;=\; [\mathrm D^2 u(\cdot)](\pm 1) \;=\; 0.\label{eq:2}
+\end{align}
+\)
+
+=== Solution
+Specifying the differential equation and boundary condition is very similar the to [/ex01.html reaction-diffusion system]. The last part of the solution will involve calling the class GeneralizedEigenSolver to solve the eigenvalue problem.
+
+The program is relatively intuitive and is listed here.
+~~~
+{}{cpp}
+#include <fstream> // To output data to files
+#include <iostream>
+#include <sis.hpp>
+
+using namespace std;
+
+typedef complex<double> Cd_t;
+typedef valarray<double> Vd_t;
+
+int main() {
+  using namespace sis;
+  N = 63; // sis::N, Defined in sis.hpp. This specifies no. of Chebyshev
+          // coefficients
+  sis_setup();
+  ChebfunMat<complex<double> > forc(1,1);
+
+  Linop<double> D0(0), D1(1), D2(2), D3(3), D4(4);
+  D4.coef << 1.0, 0.0, 0.0, 0.0, 0.0;
+  D3.coef << 1.0, 0.0, 0.0, 0.0;
+  D2.coef << 1.0, 0.0, 0.0; // for (1.0 * D2 + 0.0 * D1 + (0.0) )v
+  D1.coef << 1.0, 0.0;
+  D0.coef << 1.0;
+
+  LinopMat<Cd_t> Lmat(2,2), Mmat(2,2);
+  Lmat << D4/16.0 + Vd_t(2.0*y), 1.0,//
+              sin(2.0*y), D2/4.0;
+
+  Mmat << D2/4.0 , 0.0,//
+          0.0, 1.0;
+  BcMat<Cd_t> bcs(6,2);
+  bcs.L << D0, 0.0,//
+          D1, 0.0, //
+          D0, 0.0,//
+          D1, 0.0,//
+          0.0, D0,//
+          0.0, D0;
+  bcs.eval << -1.0, 0.0,//
+              -1.0, 0.0,//
+              1.0, 0.0,//
+              1.0, 0.0,//
+              0.0, 1.0,//
+              0.0, -1.0;
+
+  GeneralizedEigenSolver<Cd_t> eigs;
+
+  eigs.compute(Lmat, Mmat, 6, bcs);
+  std::cout << "Eigenvalues: \n" << '\n';
+  std::cout << eigs.eigenvalues << '\n';
+  return 0;
+}
+~~~

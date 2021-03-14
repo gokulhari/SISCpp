@@ -1,0 +1,71 @@
+# jemdoc: menu{MENU}{ex06.html},addpackage{amsmath},addpackage{amssymb}
+# jemdoc: addcss{jemdoc.css}
+# jemdoc: addcss{bibover.css}
+#include{masterFile_2.jeminc}
+#include{mj-complete-bib_3.jeminc}
+= Eigenvalue example
+
+=== Problem
+Find the eigenvalues of
+\(
+\begin{equation}
+(\mathrm D^4 - 8\mathrm D^2 + 16)\,u(y) \;=\; \lambda\, (\mathrm D^2 - 4)\, u(y),\label{eq:1}
+\end{equation}
+\)
+with boundary conditions
+\(
+\begin{align}
+    u(\pm 1) \;=\; [\mathrm D^2 u(\cdot)](\pm 1) \;=\; 0.\label{eq:2}
+\end{align}
+\)
+
+=== Solution
+Specifying the differential equation and boundary condition is very similar the to [/ex01.html reaction-diffusion system]. The last part of the solution will involve calling the class GeneralizedEigenSolver to solve the eigenvalue problem.
+
+The program is relatively intuitive and is listed here.
+~~~
+{}{cpp}
+#include <fstream> // To output data to files
+#include <iostream>
+#include <sis.hpp>
+
+using namespace std;
+
+typedef complex<double> Cd_t;
+typedef valarray<double> Vd_t;
+
+int main() {
+  using namespace sis;
+  N = 63; // sis::N, Defined in sis.hpp. This specifies no. of Chebyshev
+          // coefficients
+  sis_setup();
+  ChebfunMat<complex<double> > forc(1,1);
+
+  Linop<double> D0(0), D1(1), D2(2), D3(3), D4(4);
+  D4.coef << 1.0, 0.0, 0.0, 0.0, 0.0;
+  D3.coef << 1.0, 0.0, 0.0, 0.0;
+  D2.coef << 1.0, 0.0, 0.0; // for (1.0 * D2 + 0.0 * D1 + (0.0) )v
+  D1.coef << 1.0, 0.0;
+  D0.coef << 1.0;
+
+  LinopMat<Cd_t> Lmat(1,1), Mmat(1,1);
+  Lmat << D4 - (8.0 * D2) + (16.0 * D0);
+  Mmat << D2 - (4.0 * D0);
+  BcMat<Cd_t> bcs(4,1);
+  bcs.L << D0,//
+          D2,//
+          D0,//
+          D2;
+  bcs.eval << -1.0,//
+              -1.0,//
+              1.0,//
+              1.0;
+
+  GeneralizedEigenSolver<Cd_t> eigs;
+
+  eigs.compute(Lmat, Mmat, 6, bcs);
+  std::cout << "Eigenvalues: \n" << '\n';
+  std::cout << eigs.eigenvalues << '\n';
+  return 0;
+}
+~~~

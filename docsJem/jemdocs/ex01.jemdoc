@@ -9,15 +9,15 @@
 Solve
 \(
 \begin{equation}
-\partial_{yy}u(y)\,-\,4\, u(y)\;=\; 1 \; - \; y^2,\label{eq:1}
+\mathrm D^2u(y)\,-\,4\, u(y)\;=\; 1 \; - \; y^2,\label{eq:1}
 \end{equation}
 \)
-with boundary conditions
+where $D = \mathrm d / \mathrm dy$, with boundary conditions
 \(
 \begin{align}
     \begin{split}
-u(-1)  \,+\,  4\,u'(-1)\;&=\; 2,\\
-u(1)  \,-\,  5\,u'(1)\;&=\; 3.
+u(-1)  \,+\,  4\,[\mathrm D\, u(\cdot)](-1)\;&=\; 2,\\
+u(+1)  \,-\,  5\,[\mathrm D\,u(\cdot)](+1)\;&=\; 3.
     \end{split}\label{eq:2}
 \end{align}
 \)
@@ -44,7 +44,7 @@ int main() {
           // coefficients
   sis_setup();
 ~~~
-all classes and functions in sis.hpp is placed in the namespace sis. If you choose to omit "using namespace std;" then you should add sis:: to every function or class that you call from sis.hpp. Note that N = 63, can be more explicitly written out as "sis::N = 63;". The qualifier "using namespace sis;" helps us omit "sis::" for all variables, functions and classes defined in sis.hpp. 
+all classes and functions in sis.hpp are placed in the namespace sis. If you choose to omit "using namespace std;" then you should add sis:: to every function or class that you call from sis.hpp. Note that N = 63, can be more explicitly written out as "sis::N = 63;". The qualifier "using namespace sis;" helps us omit "sis::" for all variables, functions and classes defined in sis.hpp. 
 
 In SISC\+\+ linear systems of differential equations, including single equation cases as in Eq.~$\eqref{eq:1}$, are treated as block-matrix operators (single equations can be expressed as a $1\times 1$ block-matrix operator). The idea is that simple linear operators (Linops) can be expressed as in terms of constant or non-constant coefficients, and a block-matrix operator (LinopMat) is a set of linops (aka a map) that takes a vector of functions from one space to the another, depending on the dimension of the LinopMat.   
 
@@ -62,7 +62,6 @@ Next we define a $1\times 1$ LinopMat to specify the reaction-diffusion equation
 ~~~
 {}{cpp}
   LinopMat<complex<double> > Lmat(1, 1);
-  // for operator D2v - 4 v
   Lmat << D2 - 4.0 * D0;
 ~~~
 Once in the LinopMat form, there are many operations that can be performed on this, like transpose, differential adjoint, conjugate transpose and so on. A complete listing can be found in the [https://gokulhari.github.io/SISCpp/classsis_1_1LinopMat_3_01std_1_1complex_3_01T_01_4_01_4.html documentation of LinopMat.]
@@ -72,26 +71,63 @@ We now move to specifying boundary conditions. Boundary conditions are specified
 {}{cpp}
   // Specify boundary conditions via BcMat:
   BcMat<complex<double> > bcs(2, 1); 
-      // Two boundary conditions in total, on one variable
+  // Two boundary conditions in total, on one variable
 ~~~
-
+Notice that there are three parts to the boundary conditions in Eq.~$\eqref{eq:2}$, the operator,
+\(
+\begin{align}
+  \left[\begin{array}{cc}
+    \mathrm I (\cdot) + 4\mathrm D (\cdot)\\
+    \mathrm I (\cdot) - 5\mathrm D (\cdot)\\
+  \end{array}\right], \label{eq:3}
+\end{align}  
+\)
+the evaluation points of the operator,
+\(
+\begin{align}
+\left[  \begin{array}{c}
+    -1\\
+    1
+  \end{array}\right],\label{eq:4}  
+\end{align}
+\)
+and the values at the end points,
+\(
+\begin{align}
+\left[  \begin{array}{c}
+    2\\
+    3
+  \end{array}\right].\label{eq:5}
+\end{align}  
+\)
+The boundary condition consisting of the operator (Eq.~$\eqref{eq:3}$), evaluation points (Eq.~$\eqref{eq:4}$), and values at the end points (Eq.~$\eqref{eq:5}$) are specified using the L, eval and val attributes of the BcMat class.
 ~~~
 {}{cpp}
 // Some mixed boundary condition:
 
-bcs.L << D0,//
-        D0;
-bcs.eval << 1.0, // evaluate bcs.L right end
-            -1.0;          // evaluate bcs.L at 0.5, must be a value in domain [-1, 1]
-bcs.vals << 2.0,  // value at right
-    3.0;          // value at left
+bcs.L << D0 + 4*D1, // Operator 
+        D0 - 5*D1;
+bcs.eval <<  1.0,   // Evaluation points
+            -1.0; 
+bcs.vals << 2.0,    // End point values
+            3.0; 
+~~~
+Lastly, we need to specify the input (forcing) on the right hand side of Eq.~$\eqref{eq:1}$.
+~~~
+{}{cpp}
 // Construct forcing, forc = 1 - y^2
 ChebfunMat<complex<double> > forc(1, 1); // 1 by 1 ChebfunMat
 forc << 1.0 - y * y;                     // y is defined in sis::y
+~~~
+The last step is to solve the system, we also print the left and right end points values of the solution to make sure that the boundary conditions are right.
+~~~
+{}{cpp}
 // Solve, by replacing the forcing as the solution.
 forc = linSolve(Lmat, bcs, forc);
-cout << "lbc: " << forc(1.0) << endl;
-cout << "rbc: " << forc(-1.0) << endl;
+~~~
+We also write the result to a text file to plot in Python. The attribute evr (Eigen-vector-real-part) translates the solution as an vector as per the Eigen package (Eigen::Vector1D). And yEigen is a vector of points from $[-1,1]$ to plot. 
+~~~
+{}{cpp}
 // Write to file to plot, need only the real part:
 ofstream outf;
 outf.open("data/Ex_01.txt");
@@ -102,4 +138,24 @@ outf << temp;
 outf.close();
 return 0;
 }
+~~~
+You can plot using Python (see the file plot/plotter.py)
+~~~
+{}{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from pylab import genfromtxt;
+
+mat0 = genfromtxt("../data/Ex_01.txt");
+plt.plot(mat0[:,0], mat0[:,1],"-k",fillstyle="none")
+plt.savefig('../pics/Ex_01.svg', bbox_inches='tight')
+~~~
+
+~~~
+{}{raw}
+<figure>
+  <img src="../pics/Ex_01.svg" alt="3dflow" style="width:60%">
+  <figcaption>Fig.\(1\) Plot of the solution to Eq. \eqref{eq:1} with boundary conditions in Eq. \eqref{eq:2} 
+</figcaption>
+</figure>
 ~~~

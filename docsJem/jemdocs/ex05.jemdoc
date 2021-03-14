@@ -1,0 +1,73 @@
+# jemdoc: menu{MENU}{ex05.html},addpackage{amsmath},addpackage{amssymb}
+# jemdoc: addcss{jemdoc.css}
+# jemdoc: addcss{bibover.css}
+#include{masterFile_2.jeminc}
+#include{mj-complete-bib_3.jeminc}
+= Eigenvalue example
+
+=== Problem
+Find the eigenvalues of
+\(
+\begin{equation}
+\partial_{yy}u(y)\,-\,4\,u(y) \;=\; 0,,\label{eq:1}
+\end{equation}
+\)
+with the boundary condition
+\(
+\begin{align}
+    u(\pm 1) = 0.\label{eq:2}
+\end{align}
+\)
+The analytical solution is given by
+\(
+\begin{align}
+    -4 - n^2\pi^2/4, \;\;\; n> 0.
+\end{align}    
+\)
+=== Solution
+Specifying the differential equation and boundary condition is very similar the to [/ex01.html reaction-diffusion system]. The last part of the solution will involve calling the class GeneralizedEigenSolver to solve the eigenvalue problem.
+
+The program is relatively intuitive and is listed here.
+~~~
+{}{cpp}
+#include <fstream> // To output data to files
+#include <iostream>
+#include <sis.hpp>
+
+using namespace std;
+typedef complex<double> Cd_t;
+
+int main() {
+  using namespace sis;
+  N = 63; // sis::N, Defined in sis.hpp. This specifies no. of Chebyshev
+          // coefficients
+  sis_setup();
+
+  LinopMat<complex<double> > Lmat(1, 1);
+  Linop<double> D2(2), D1(1), D0(0); // Linops with highest order 2, 1 and 0.
+
+  D2.coef << 1.0, 0.0, 0.0; // for (1.0 * D2 + 0.0 * D1 + (0.0) )v
+  D1.coef << 1.0, 0.0;
+  D0.coef << 1.0;
+
+  // Specify operator D2v - 4 v
+  Lmat << D2 - 4.0 * D0;
+
+  // Specify boundary conditions via BcMat:
+  BcMat<complex<double> > bcs(2, 1); // Two boundary conditions, on one variable
+
+  bcs.L << D0,//
+          D0;
+  bcs.eval << -1.0, 
+               1.0;          
+
+  GeneralizedEigenSolver<Cd_t> eigs;
+
+  // Compute first 6 eigenvalues
+  eigs.compute(Lmat, 6, bcs);
+
+  std::cout << "Eigenvalues: \n" << eigs.eigenvalues << '\n';
+
+  return 0;
+}
+~~~
