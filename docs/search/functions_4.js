@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['dashlist',['dashlist',['../namespacejemdoc.html#a6d7cd8d2de6e3bf5f9d41be60b276efd',1,'jemdoc']]],
-  ['dct',['dct',['../namespacesis.html#ad86075a27f0c0f7c6ab3168604a0047e',1,'sis::dct(const std::valarray&lt; T &gt; &amp;x)'],['../namespacesis.html#a71528daa9f869545b89f6012098a6b32',1,'sis::dct(const std::slice_array&lt; T &gt; &amp;x)'],['../namespacesis.html#a1bc0f61acd8e96d3b0779183a76def12',1,'sis::dct(const std::valarray&lt; std::complex&lt; T &gt; &gt; &amp;in)'],['../namespacesis.html#acab3cece37b076ccf3b63bc411cd7ade',1,'sis::dct(const std::slice_array&lt; std::complex&lt; T &gt; &gt; &amp;in)']]],
-  ['dealias_5fprod_5f2d',['dealias_prod_2D',['../namespacesis.html#a6bc1f9feec0f2068befc4027dded7790',1,'sis']]],
-  ['diff',['diff',['../namespacesis.html#a861e4f3356f8e876a27c83f8ef24d805',1,'sis::diff(const Eigen::Matrix&lt; T, Eigen::Dynamic, 1 &gt; &amp;u)'],['../namespacesis.html#a18a3645639ee214f48dae137b9f2b9c9',1,'sis::diff(const std::valarray&lt; T &gt; &amp;u)'],['../namespacesis.html#aba97f11740c85bfd4d726ba1a4146766',1,'sis::diff(Chebfun&lt; T &gt; in, int n)'],['../namespacesis.html#aa2d17aa459746c16f52d025adc96557c',1,'sis::diff(ChebfunMat&lt; T &gt; in, int n)'],['../namespacesis.html#ab48052b0952d2abb4ac1e96e944b21d4',1,'sis::diff(Linop&lt; T &gt; in, int n)']]],
-  ['discretize',['Discretize',['../classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html#a60c6aec721a27a55ae4bcb5c271cd1e3',1,'sis::Discretize&lt; std::complex&lt; T &gt; &gt;::Discretize()'],['../classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html#a60c6aec721a27a55ae4bcb5c271cd1e3',1,'sis::Discretize&lt; std::complex&lt; T &gt; &gt;::Discretize()']]],
-  ['disp',['disp',['../namespacesis.html#a994b266db567f92fb380cc28d86537e9',1,'sis']]],
-  ['dlyap',['dlyap',['../includes_2lyap_8h.html#a027d230cdc92d2cac38f549b8fe7bf33',1,'dlyap(Eigen::MatrixXcd A, Eigen::MatrixXcd B, Eigen::MatrixXcd Q):&#160;lyap.h'],['../SISCpp_2includes_2lyap_8h.html#a027d230cdc92d2cac38f549b8fe7bf33',1,'dlyap(Eigen::MatrixXcd A, Eigen::MatrixXcd B, Eigen::MatrixXcd Q):&#160;lyap.h']]],
-  ['doincludes',['doincludes',['../namespacejemdoc.html#a55a0b477fc0d67e5a0c3b98310c018ff',1,'jemdoc']]],
-  ['dou2com',['dou2com',['../namespacestd.html#a841693ef774c108465fcda5d39b872c0',1,'std::dou2com()'],['../namespacesis.html#adb070b3cbddf5560327342b46af46312',1,'sis::dou2com(const Eigen::Array&lt; T, Eigen::Dynamic, 1 &gt; &amp;a, const Eigen::Array&lt; T, Eigen::Dynamic, 1 &gt; &amp;b)'],['../namespacesis.html#afa526fce9940b699092ca371361eaeb3',1,'sis::dou2com(Linop&lt; T &gt; real, Linop&lt; T &gt; imag)']]]
+  ['eigensorter',['EigenSorter',['../classsis_1_1EigenSorter.html#a754015eee662678042f4145c9374e434',1,'sis::EigenSorter']]],
+  ['ev',['ev',['../classsis_1_1Chebfun.html#afeba4d023f9a433cc822e67db99499bf',1,'sis::Chebfun']]],
+  ['evc',['evc',['../classsis_1_1Chebfun_3_01std_1_1complex_3_01T_01_4_01_4.html#a4bb05c9da90d2f0646a68faad03fffab',1,'sis::Chebfun&lt; std::complex&lt; T &gt; &gt;']]],
+  ['evi',['evi',['../classsis_1_1Chebfun_3_01std_1_1complex_3_01T_01_4_01_4.html#a30fbd431a0eb3f4879b862b7f9a25743',1,'sis::Chebfun&lt; std::complex&lt; T &gt; &gt;']]],
+  ['evr',['evr',['../classsis_1_1Chebfun_3_01std_1_1complex_3_01T_01_4_01_4.html#ae30e0c50ccbd1470a7bc0e922e0b23f4',1,'sis::Chebfun&lt; std::complex&lt; T &gt; &gt;']]]
 ];

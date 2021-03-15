@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classsis_1_1LinopMat.html" title="This class represents a block matrix operator. It is a matrix of operators. " alt="" coords="5,5,136,31"/>
+<area shape="rect" id="node1" href="$classsis_1_1MatGen.html" title="This class sets up integration Matrices. This class must be intiated by the highest order of based on..." alt="" coords="5,5,128,31"/>
+<area shape="rect" id="node2" href="$classsis_1_1Discretize.html" title="Given a linear block matrix operator and appropriate boundary conditions, this class will produce an ..." alt="" coords="176,5,311,31"/>
 </map>

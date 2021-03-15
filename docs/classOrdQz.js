@@ -2,9 +2,6 @@ var classOrdQz =
 [
     [ "OrdQz", "classOrdQz.html#a41cf34ea51136c4d61171e996078d0c4", null ],
     [ "OrdQz", "classOrdQz.html#a461e5818e6c9e6b34964e230b885876f", null ],
-    [ "OrdQz", "classOrdQz.html#a41cf34ea51136c4d61171e996078d0c4", null ],
-    [ "OrdQz", "classOrdQz.html#a461e5818e6c9e6b34964e230b885876f", null ],
-    [ "compute", "classOrdQz.html#a4aaf1503f625d8273b18a673e21d286c", null ],
     [ "compute", "classOrdQz.html#a4aaf1503f625d8273b18a673e21d286c", null ],
     [ "alpha", "classOrdQz.html#a49a9d9a9638f778ede1aff310d4d51d8", null ],
     [ "beta", "classOrdQz.html#ab585020e6a3560ccaf268db230fd3c73", null ],

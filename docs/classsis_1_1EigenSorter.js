@@ -1,10 +1,7 @@
 var classsis_1_1EigenSorter =
 [
     [ "EigenSorter", "classsis_1_1EigenSorter.html#a754015eee662678042f4145c9374e434", null ],
-    [ "EigenSorter", "classsis_1_1EigenSorter.html#a754015eee662678042f4145c9374e434", null ],
     [ "compute", "classsis_1_1EigenSorter.html#a039382c40dff1660839afcf68be59d8c", null ],
-    [ "compute", "classsis_1_1EigenSorter.html#a039382c40dff1660839afcf68be59d8c", null ],
-    [ "compute", "classsis_1_1EigenSorter.html#adedeac4f045c5443c4d79c0c81ee6812", null ],
     [ "compute", "classsis_1_1EigenSorter.html#adedeac4f045c5443c4d79c0c81ee6812", null ],
     [ "epsilon", "classsis_1_1EigenSorter.html#a118ba23e42ff5bdc3bb7c209d31d3727", null ],
     [ "isInf", "classsis_1_1EigenSorter.html#a6ae6b86c298f453ba60c317f0341129a", null ],

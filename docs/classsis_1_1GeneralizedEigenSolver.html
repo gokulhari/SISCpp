@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('classsis_1_1GeneralizedEigenSolver.htm
 <p>This class will solve the generalized eigenvalue problem for two linear operators. One of them can be singular.  
  <a href="classsis_1_1GeneralizedEigenSolver.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for sis::GeneralizedEigenSolver&lt; T &gt;:</div>
 <div class="dyncontent">
@@ -131,26 +131,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae8b31909c2aeecf0b87a1589236f1d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca1c7c56b5c06b1c4f1d3775d461d407"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#aca1c7c56b5c06b1c4f1d3775d461d407">compute_with_constraints</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Mmat_, int num_vals, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_embed_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_append_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Mbc_append_)</td></tr>
 <tr class="separator:aca1c7c56b5c06b1c4f1d3775d461d407"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ff3d27f0ff3f1aa832ad4052836c77"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a18ff3d27f0ff3f1aa832ad4052836c77">GeneralizedEigenSolver</a> ()</td></tr>
-<tr class="memdesc:a18ff3d27f0ff3f1aa832ad4052836c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null constructor.  <a href="#a18ff3d27f0ff3f1aa832ad4052836c77">More...</a><br /></td></tr>
-<tr class="separator:a18ff3d27f0ff3f1aa832ad4052836c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada0de2621ddccf738bcb3498caf21e80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#ada0de2621ddccf738bcb3498caf21e80">compute</a> (<a class="el" href="classsis_1_1Linop.html">Linop</a>&lt; T &gt; L, <a class="el" href="classsis_1_1Linop.html">Linop</a>&lt; T &gt; M, int num_vals)</td></tr>
-<tr class="memdesc:ada0de2621ddccf738bcb3498caf21e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen values/vectors is num_vals, num_vals has to be less than N.  <a href="#ada0de2621ddccf738bcb3498caf21e80">More...</a><br /></td></tr>
-<tr class="separator:ada0de2621ddccf738bcb3498caf21e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d6b37f39a3a4d2de873524a4d177f3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a2d6b37f39a3a4d2de873524a4d177f3a">compute</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Mmat_, int num_vals, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_)</td></tr>
-<tr class="memdesc:a2d6b37f39a3a4d2de873524a4d177f3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This will use do the same work as <a class="el" href="classsis_1_1GeneralizedEigenSolver.html#ada0de2621ddccf738bcb3498caf21e80" title="Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen val...">compute()</a>, but will overide all boundary conditions specified through BcVec and use the input <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> instead. Read about class <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> to see how this works, also see examples example/Ex_16.cpp and test/Visco_3D_pipe.cpp of how this is applied. This function is useful when boundary conditions are mixed between variables. Also, if you have boundary conditions that have an associated eigenvalue, see compute_with_constraints.  <a href="#a2d6b37f39a3a4d2de873524a4d177f3a">More...</a><br /></td></tr>
-<tr class="separator:a2d6b37f39a3a4d2de873524a4d177f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8b31909c2aeecf0b87a1589236f1d59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#ae8b31909c2aeecf0b87a1589236f1d59">compute_with_constraints</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Mmat_, int num_vals, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Mbc_)</td></tr>
-<tr class="separator:ae8b31909c2aeecf0b87a1589236f1d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca1c7c56b5c06b1c4f1d3775d461d407"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#aca1c7c56b5c06b1c4f1d3775d461d407">compute_with_constraints</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Mmat_, int num_vals, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_embed_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_append_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Mbc_append_)</td></tr>
-<tr class="separator:aca1c7c56b5c06b1c4f1d3775d461d407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aff772037e76153ff257ad440601ed89b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsis_1_1ChebfunMat.html">ChebfunMat</a>&lt; std::complex&lt; T &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#aff772037e76153ff257ad440601ed89b">eigenvectorsMat</a></td></tr>
-<tr class="separator:aff772037e76153ff257ad440601ed89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50110f41d45339fc8386af689d32e0b0"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a50110f41d45339fc8386af689d32e0b0">eigenvalues</a></td></tr>
-<tr class="separator:a50110f41d45339fc8386af689d32e0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25ae795bca412e76544c6142fff8f826"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsis_1_1ChebfunMat.html">ChebfunMat</a>&lt; std::complex&lt; T &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a25ae795bca412e76544c6142fff8f826">eigenvectorsMat</a></td></tr>
+<tr class="separator:a25ae795bca412e76544c6142fff8f826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e086f867356932852436fcc7d9c201"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a25e086f867356932852436fcc7d9c201">eigenvalues</a></td></tr>
+<tr class="separator:a25e086f867356932852436fcc7d9c201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
@@ -162,10 +149,10 @@ class sis::GeneralizedEigenSolver&lt; T &gt;</h3>
 </p>
 <p>. </p>
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l03253">3253</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03253">3253</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a18ff3d27f0ff3f1aa832ad4052836c77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18ff3d27f0ff3f1aa832ad4052836c77">&#9670;&nbsp;</a></span>GeneralizedEigenSolver() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a18ff3d27f0ff3f1aa832ad4052836c77">&#9670;&nbsp;</a></span>GeneralizedEigenSolver()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,44 +178,13 @@ template&lt;class T&gt; </div>
 
 <p>Null constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l03259">3259</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a18ff3d27f0ff3f1aa832ad4052836c77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18ff3d27f0ff3f1aa832ad4052836c77">&#9670;&nbsp;</a></span>GeneralizedEigenSolver() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver</a>&lt; T &gt;::<a class="el" href="classsis_1_1GeneralizedEigenSolver.html">GeneralizedEigenSolver</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Null constructor. </p>
-
-<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l03259">3259</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03259">3259</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ada0de2621ddccf738bcb3498caf21e80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada0de2621ddccf738bcb3498caf21e80">&#9670;&nbsp;</a></span>compute() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ada0de2621ddccf738bcb3498caf21e80">&#9670;&nbsp;</a></span>compute() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,62 +227,14 @@ template&lt;class T&gt; </div>
 
 <p>Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen values/vectors is num_vals, num_vals has to be less than N. </p>
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l03267">3267</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03267">3267</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l05248">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l09139">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, and <a class="el" href="examples_2Eigenvalues_2Ex__05_8cpp_source.html#l00019">main()</a>.</p>
-
-</div>
-</div>
-<a id="ada0de2621ddccf738bcb3498caf21e80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada0de2621ddccf738bcb3498caf21e80">&#9670;&nbsp;</a></span>compute() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver</a>&lt; T &gt;::compute </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classsis_1_1Linop.html">Linop</a>&lt; T &gt;&#160;</td>
-          <td class="paramname"><em>L</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classsis_1_1Linop.html">Linop</a>&lt; T &gt;&#160;</td>
-          <td class="paramname"><em>M</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_vals</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen values/vectors is num_vals, num_vals has to be less than N. </p>
-
-<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l03267">3267</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l05248">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l09139">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, and <a class="el" href="Ex__05_8cpp_source.html#l00019">main()</a>.</p>
 
 </div>
 </div>
 <a id="a2d6b37f39a3a4d2de873524a4d177f3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d6b37f39a3a4d2de873524a4d177f3a">&#9670;&nbsp;</a></span>compute() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d6b37f39a3a4d2de873524a4d177f3a">&#9670;&nbsp;</a></span>compute() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -375,70 +283,14 @@ template&lt;class T&gt; </div>
 
 <p>This will use do the same work as <a class="el" href="classsis_1_1GeneralizedEigenSolver.html#ada0de2621ddccf738bcb3498caf21e80" title="Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen val...">compute()</a>, but will overide all boundary conditions specified through BcVec and use the input <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> instead. Read about class <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> to see how this works, also see examples example/Ex_16.cpp and test/Visco_3D_pipe.cpp of how this is applied. This function is useful when boundary conditions are mixed between variables. Also, if you have boundary conditions that have an associated eigenvalue, see compute_with_constraints. </p>
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l03276">3276</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03276">3276</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08118">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="jemdoc_8py_source.html#l00035">jemdoc::info()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00280">std::real()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>.</p>
-
-</div>
-</div>
-<a id="a2d6b37f39a3a4d2de873524a4d177f3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d6b37f39a3a4d2de873524a4d177f3a">&#9670;&nbsp;</a></span>compute() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver</a>&lt; T &gt;::compute </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Lmat_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Mmat_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Lbc_</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This will use do the same work as <a class="el" href="classsis_1_1GeneralizedEigenSolver.html#ada0de2621ddccf738bcb3498caf21e80" title="Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen val...">compute()</a>, but will overide all boundary conditions specified through BcVec and use the input <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> instead. Read about class <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> to see how this works, also see examples example/Ex_16.cpp and test/Visco_3D_pipe.cpp of how this is applied. This function is useful when boundary conditions are mixed between variables. Also, if you have boundary conditions that have an associated eigenvalue, see compute_with_constraints. </p>
-
-<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l03276">3276</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08118">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="jemdoc_8py_source.html#l00035">jemdoc::info()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00280">std::real()</a>, and <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08118">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="sis_8hpp_source.html#l00280">std::real()</a>, and <a class="el" href="sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>.</p>
 
 </div>
 </div>
 <a id="ae8b31909c2aeecf0b87a1589236f1d59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8b31909c2aeecf0b87a1589236f1d59">&#9670;&nbsp;</a></span>compute_with_constraints() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8b31909c2aeecf0b87a1589236f1d59">&#9670;&nbsp;</a></span>compute_with_constraints() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -492,75 +344,14 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 <p>Use this to solve eigenvalue problems where eigenvalues appears in the boundary condition, example, in eigenvalue problems with fluid-fluid interfaces. Again solvability must hold. That total of all the highest orders of every independent variable has to be equal to the total number of boundary conditions specified + the number of constraints. Further, please ensure that the boundary conditions and constraints are linearly independent, else this will throw an error. </p>
 
-<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l03827">3827</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03827">3827</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08118">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="jemdoc_8py_source.html#l00035">jemdoc::info()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00280">std::real()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08214">sis::LinopMat&lt; T &gt;::resize()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08337">sis::LinopMat&lt; T &gt;::setConstant()</a>, and <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>.</p>
-
-</div>
-</div>
-<a id="ae8b31909c2aeecf0b87a1589236f1d59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8b31909c2aeecf0b87a1589236f1d59">&#9670;&nbsp;</a></span>compute_with_constraints() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver</a>&lt; T &gt;::compute_with_constraints </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Lmat_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Mmat_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Lbc_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Mbc_</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Use this to solve eigenvalue problems where eigenvalues appears in the boundary condition, example, in eigenvalue problems with fluid-fluid interfaces. Again solvability must hold. That total of all the highest orders of every independent variable has to be equal to the total number of boundary conditions specified + the number of constraints. Further, please ensure that the boundary conditions and constraints are linearly independent, else this will throw an error. </p>
-
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l03827">3827</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08118">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="jemdoc_8py_source.html#l00035">jemdoc::info()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00280">std::real()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08214">sis::LinopMat&lt; T &gt;::resize()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08337">sis::LinopMat&lt; T &gt;::setConstant()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08118">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="sis_8hpp_source.html#l00280">std::real()</a>, <a class="el" href="sis_8hpp_source.html#l08214">sis::LinopMat&lt; T &gt;::resize()</a>, <a class="el" href="sis_8hpp_source.html#l08337">sis::LinopMat&lt; T &gt;::setConstant()</a>, and <a class="el" href="sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>.</p>
 
 </div>
 </div>
 <a id="aca1c7c56b5c06b1c4f1d3775d461d407"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca1c7c56b5c06b1c4f1d3775d461d407">&#9670;&nbsp;</a></span>compute_with_constraints() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aca1c7c56b5c06b1c4f1d3775d461d407">&#9670;&nbsp;</a></span>compute_with_constraints() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -620,82 +411,15 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 <p>This is the most generic form of the eigenvalue solver, in which boundary conditions that don't have an associated eigenvalue are to be embedded ( using Lbc_embed_), and boundary conditions that have an associated eigevalue associated are to be appended. This means that you can go about solving problems where you would append boundary conditions anyway, instead of embedding them, see the example in our paper, and example/Ex_19.cpp. </p>
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l04603">4603</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l04603">4603</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08118">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="jemdoc_8py_source.html#l00035">jemdoc::info()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00280">std::real()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>.</p>
-
-</div>
-</div>
-<a id="aca1c7c56b5c06b1c4f1d3775d461d407"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca1c7c56b5c06b1c4f1d3775d461d407">&#9670;&nbsp;</a></span>compute_with_constraints() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver</a>&lt; T &gt;::compute_with_constraints </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Lmat_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Mmat_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Lbc_embed_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Lbc_append_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Mbc_append_</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This is the most generic form of the eigenvalue solver, in which boundary conditions that don't have an associated eigenvalue are to be embedded ( using Lbc_embed_), and boundary conditions that have an associated eigevalue associated are to be appended. This means that you can go about solving problems where you would append boundary conditions anyway, instead of embedding them, see the example in our paper, and example/Ex_19.cpp. </p>
-
-<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l04603">4603</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08118">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="jemdoc_8py_source.html#l00035">jemdoc::info()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00280">std::real()</a>, and <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08118">sis::LinopMat&lt; T &gt;::c</a>, <a class="el" href="sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l03256">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvectorsMat</a>, <a class="el" href="sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l08116">sis::LinopMat&lt; T &gt;::r</a>, <a class="el" href="sis_8hpp_source.html#l00280">std::real()</a>, and <a class="el" href="sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a50110f41d45339fc8386af689d32e0b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50110f41d45339fc8386af689d32e0b0">&#9670;&nbsp;</a></span>eigenvalues</h2>
+<a id="a25e086f867356932852436fcc7d9c201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25e086f867356932852436fcc7d9c201">&#9670;&nbsp;</a></span>eigenvalues</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -703,19 +427,19 @@ template&lt;class T&gt; </div>
 template&lt;class T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, 1 &gt; <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver</a>&lt; T &gt;::eigenvalues</td>
+          <td class="memname">Eigen::Matrix&lt;std::complex&lt;T&gt;, Eigen::Dynamic, 1&gt; <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver</a>&lt; T &gt;::eigenvalues</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l03257">3257</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03257">3257</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l03276">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l05270">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l05970">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::computeAppend()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07468">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::keep()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07431">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::keepConverged()</a>, <a class="el" href="examples_2Eigenvalues_2Ex__05_8cpp_source.html#l00019">main()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07501">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::removeInf()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l07387">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::sortByLargestReal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l03276">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l05270">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="sis_8hpp_source.html#l05970">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::computeAppend()</a>, <a class="el" href="sis_8hpp_source.html#l07468">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::keep()</a>, <a class="el" href="sis_8hpp_source.html#l07431">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::keepConverged()</a>, <a class="el" href="Ex__05_8cpp_source.html#l00019">main()</a>, <a class="el" href="sis_8hpp_source.html#l07501">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::removeInf()</a>, and <a class="el" href="sis_8hpp_source.html#l07387">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::sortByLargestReal()</a>.</p>
 
 </div>
 </div>
-<a id="aff772037e76153ff257ad440601ed89b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff772037e76153ff257ad440601ed89b">&#9670;&nbsp;</a></span>eigenvectorsMat</h2>
+<a id="a25ae795bca412e76544c6142fff8f826"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25ae795bca412e76544c6142fff8f826">&#9670;&nbsp;</a></span>eigenvectorsMat</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -723,19 +447,19 @@ template&lt;class T&gt; </div>
 template&lt;class T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="classsis_1_1ChebfunMat.html">ChebfunMat</a>&lt; std::complex&lt; T &gt; &gt; &gt; <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver</a>&lt; T &gt;::eigenvectorsMat</td>
+          <td class="memname">std::vector&lt;<a class="el" href="classsis_1_1ChebfunMat.html">ChebfunMat</a>&lt;std::complex&lt;T&gt; &gt; &gt; <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver</a>&lt; T &gt;::eigenvectorsMat</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l03256">3256</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l03256">3256</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l03276">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l03276">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, and <a class="el" href="sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>includes/<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a></li>
+<li>includes/<a class="el" href="sis_8hpp_source.html">sis.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

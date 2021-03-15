@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['gamma_5fopt',['gamma_opt',['../classsis_1_1SingularValueDecomposition_3_01std_1_1complex_3_01T_01_4_01_4.html#a59aba182f95ad83c1b8c525ad05e8ed7',1,'sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;']]],
-  ['geneq',['geneq',['../namespacejemdoc.html#aaa61fcda36380f05bb30d2fe33010c7d',1,'jemdoc']]],
-  ['generalizedeigensolver',['GeneralizedEigenSolver',['../classsis_1_1GeneralizedEigenSolver.html',1,'sis::GeneralizedEigenSolver&lt; T &gt;'],['../classsis_1_1GeneralizedEigenSolver.html#a18ff3d27f0ff3f1aa832ad4052836c77',1,'sis::GeneralizedEigenSolver::GeneralizedEigenSolver()'],['../classsis_1_1GeneralizedEigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html#a12479183a193ff8d5fb0ff13f4ac7d09',1,'sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::GeneralizedEigenSolver()'],['../classsis_1_1GeneralizedEigenSolver.html#a18ff3d27f0ff3f1aa832ad4052836c77',1,'sis::GeneralizedEigenSolver::GeneralizedEigenSolver()'],['../classsis_1_1GeneralizedEigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html#a12479183a193ff8d5fb0ff13f4ac7d09',1,'sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::GeneralizedEigenSolver()']]],
-  ['generalizedeigensolver_3c_20std_3a_3acomplex_3c_20t_20_3e_20_3e',['GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;',['../classsis_1_1GeneralizedEigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html',1,'sis']]],
-  ['gethl',['gethl',['../namespacejemdoc.html#ad168226cf84774e31a13f5cd941b97d6',1,'jemdoc']]],
-  ['go_5fto_5fnext_5frow',['go_to_next_row',['../classsis_1_1LinopMat.html#af9d4ff853df2b691ad0990bffc077bec',1,'sis::LinopMat::go_to_next_row()'],['../classsis_1_1LinopMat_3_01std_1_1complex_3_01T_01_4_01_4.html#af68cebd484636f57e1607503c73ed265',1,'sis::LinopMat&lt; std::complex&lt; T &gt; &gt;::go_to_next_row()']]]
+  ['half_5fshift',['half_shift',['../namespacesis.html#a06185483ba2178a2719d4f9674d57329',1,'sis']]],
+  ['highest_5feach_5fcolumn',['highest_each_column',['../classsis_1_1Discretize.html#a6af35b1d1d4139d5d69bd3c6e80e5fef',1,'sis::Discretize::highest_each_column()'],['../classsis_1_1Discretize_3_01std_1_1complex_3_01T_01_4_01_4.html#a1ef6072783e161591f4137d6e92ccdc7',1,'sis::Discretize&lt; std::complex&lt; T &gt; &gt;::highest_each_column()']]],
+  ['hinfnorm',['HinfNorm',['../classsis_1_1SingularValueDecomposition_3_01std_1_1complex_3_01T_01_4_01_4.html#a762fd57b1904da00023ef88851a20405',1,'sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;']]]
 ];

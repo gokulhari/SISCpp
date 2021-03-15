@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('classsis_1_1MatGen.html','');});
 <p>This class sets up integration Matrices. This class must be intiated by the highest order of based on which integration matrices will be made.  
  <a href="classsis_1_1MatGen.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for sis::MatGen&lt; T &gt;:</div>
 <div class="dyncontent">
@@ -128,26 +128,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a08d54e30a4e43f6941485419736c7fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ceb3d5ce4c95f978a6080991f27740a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#a5ceb3d5ce4c95f978a6080991f27740a">clear</a> ()</td></tr>
 <tr class="separator:a5ceb3d5ce4c95f978a6080991f27740a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4374ee745c5f54df1d2ca800cdf06fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#aa4374ee745c5f54df1d2ca800cdf06fc">MatGen</a> ()</td></tr>
-<tr class="memdesc:aa4374ee745c5f54df1d2ca800cdf06fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null Constructor.  <a href="#aa4374ee745c5f54df1d2ca800cdf06fc">More...</a><br /></td></tr>
-<tr class="separator:aa4374ee745c5f54df1d2ca800cdf06fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8db818dd3219ebcee1ef30951715247"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#ad8db818dd3219ebcee1ef30951715247">MatGen</a> (int n_)</td></tr>
-<tr class="memdesc:ad8db818dd3219ebcee1ef30951715247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ad8db818dd3219ebcee1ef30951715247">More...</a><br /></td></tr>
-<tr class="separator:ad8db818dd3219ebcee1ef30951715247"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08d54e30a4e43f6941485419736c7fde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#a08d54e30a4e43f6941485419736c7fde">compute</a> (int n_)</td></tr>
-<tr class="memdesc:a08d54e30a4e43f6941485419736c7fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this to generate integration matrices for highest order n.  <a href="#a08d54e30a4e43f6941485419736c7fde">More...</a><br /></td></tr>
-<tr class="separator:a08d54e30a4e43f6941485419736c7fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ceb3d5ce4c95f978a6080991f27740a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#a5ceb3d5ce4c95f978a6080991f27740a">clear</a> ()</td></tr>
-<tr class="separator:a5ceb3d5ce4c95f978a6080991f27740a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ab440ae5e32f2443ee8f1ae58102e2e94"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#ab440ae5e32f2443ee8f1ae58102e2e94">mats</a></td></tr>
-<tr class="separator:ab440ae5e32f2443ee8f1ae58102e2e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0868a441fd48819bf02dd9e8560a2f37"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#a0868a441fd48819bf02dd9e8560a2f37">mats2</a></td></tr>
-<tr class="separator:a0868a441fd48819bf02dd9e8560a2f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedc24b140e3ea925791847daa6498a3c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#aedc24b140e3ea925791847daa6498a3c">con_mats</a></td></tr>
-<tr class="separator:aedc24b140e3ea925791847daa6498a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6020dd5fbc3929239e626e669b922471"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#a6020dd5fbc3929239e626e669b922471">mats</a></td></tr>
+<tr class="separator:a6020dd5fbc3929239e626e669b922471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0c45e648431459ede41521fd56114c8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#af0c45e648431459ede41521fd56114c8">mats2</a></td></tr>
+<tr class="separator:af0c45e648431459ede41521fd56114c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad41e0615e371150d7790eb8e6a9994a4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1MatGen.html#ad41e0615e371150d7790eb8e6a9994a4">con_mats</a></td></tr>
+<tr class="separator:ad41e0615e371150d7790eb8e6a9994a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
@@ -155,10 +144,10 @@ class sis::MatGen&lt; T &gt;</h3>
 
 <p>This class sets up integration Matrices. This class must be intiated by the highest order of based on which integration matrices will be made. </p>
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l00530">530</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l00530">530</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa4374ee745c5f54df1d2ca800cdf06fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4374ee745c5f54df1d2ca800cdf06fc">&#9670;&nbsp;</a></span>MatGen() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4374ee745c5f54df1d2ca800cdf06fc">&#9670;&nbsp;</a></span>MatGen() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,12 +173,12 @@ template&lt;class T&gt; </div>
 
 <p>Null Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l07966">7966</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l07966">7966</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
 <a id="ad8db818dd3219ebcee1ef30951715247"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8db818dd3219ebcee1ef30951715247">&#9670;&nbsp;</a></span>MatGen() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8db818dd3219ebcee1ef30951715247">&#9670;&nbsp;</a></span>MatGen() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,80 +205,15 @@ template&lt;class T&gt; </div>
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l07968">7968</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l07968">7968</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>.</p>
-
-</div>
-</div>
-<a id="aa4374ee745c5f54df1d2ca800cdf06fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4374ee745c5f54df1d2ca800cdf06fc">&#9670;&nbsp;</a></span>MatGen() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::<a class="el" href="classsis_1_1MatGen.html">MatGen</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Null Constructor. </p>
-
-<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l07966">7966</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad8db818dd3219ebcee1ef30951715247"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8db818dd3219ebcee1ef30951715247">&#9670;&nbsp;</a></span>MatGen() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::<a class="el" href="classsis_1_1MatGen.html">MatGen</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n_</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
-
-<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l07968">7968</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5ceb3d5ce4c95f978a6080991f27740a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ceb3d5ce4c95f978a6080991f27740a">&#9670;&nbsp;</a></span>clear() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ceb3d5ce4c95f978a6080991f27740a">&#9670;&nbsp;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,47 +237,16 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08019">8019</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08019">8019</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, and <a class="el" href="sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08047">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::compute()</a>.</p>
-
-</div>
-</div>
-<a id="a5ceb3d5ce4c95f978a6080991f27740a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ceb3d5ce4c95f978a6080991f27740a">&#9670;&nbsp;</a></span>clear() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l08019">8019</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, and <a class="el" href="sis_8hpp_source.html#l08047">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::compute()</a>.</p>
 
 </div>
 </div>
 <a id="a08d54e30a4e43f6941485419736c7fde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08d54e30a4e43f6941485419736c7fde">&#9670;&nbsp;</a></span>compute() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a08d54e30a4e43f6941485419736c7fde">&#9670;&nbsp;</a></span>compute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,51 +273,17 @@ template&lt;class T&gt; </div>
 
 <p>Call this to generate integration matrices for highest order n. </p>
 
-<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l07971">7971</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l07971">7971</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08019">sis::MatGen&lt; T &gt;::clear()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>.</p>
+<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08019">sis::MatGen&lt; T &gt;::clear()</a>, <a class="el" href="sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, and <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>.</p>
 
-</div>
-</div>
-<a id="a08d54e30a4e43f6941485419736c7fde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08d54e30a4e43f6941485419736c7fde">&#9670;&nbsp;</a></span>compute() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::compute </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n_</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Call this to generate integration matrices for highest order n. </p>
-
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l07971">7971</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
-
-<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08019">sis::MatGen&lt; T &gt;::clear()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07961">sis::MatGen&lt; T &gt;::mats2</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l03276">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l05270">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l05970">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::computeAppend()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l13282">sis::linSolve()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l10160">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::MatAppend()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07968">sis::MatGen&lt; T &gt;::MatGen()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08044">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::MatGen()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08878">sis::BcMat&lt; T &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08979">sis::BcMat&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l09665">sis::Discretize&lt; T &gt;::operator()()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l09872">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::operator()()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l03276">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l05270">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="sis_8hpp_source.html#l05970">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::computeAppend()</a>, <a class="el" href="sis_8hpp_source.html#l13282">sis::linSolve()</a>, <a class="el" href="sis_8hpp_source.html#l10160">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::MatAppend()</a>, <a class="el" href="sis_8hpp_source.html#l07968">sis::MatGen&lt; T &gt;::MatGen()</a>, <a class="el" href="sis_8hpp_source.html#l08044">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::MatGen()</a>, <a class="el" href="sis_8hpp_source.html#l08878">sis::BcMat&lt; T &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l08979">sis::BcMat&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l09665">sis::Discretize&lt; T &gt;::operator()()</a>, and <a class="el" href="sis_8hpp_source.html#l09872">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::operator()()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aedc24b140e3ea925791847daa6498a3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedc24b140e3ea925791847daa6498a3c">&#9670;&nbsp;</a></span>con_mats</h2>
+<a id="ad41e0615e371150d7790eb8e6a9994a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad41e0615e371150d7790eb8e6a9994a4">&#9670;&nbsp;</a></span>con_mats</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -432,19 +291,19 @@ template&lt;class T&gt; </div>
 template&lt;class T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &gt; <a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::con_mats</td>
+          <td class="memname">std::vector&lt;Eigen::Matrix&lt;T, Eigen::Dynamic, Eigen::Dynamic&gt; &gt; <a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::con_mats</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l07963">7963</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l07963">7963</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l08019">sis::MatGen&lt; T &gt;::clear()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08096">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::clear()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08047">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08878">sis::BcMat&lt; T &gt;::operator()()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08979">sis::BcMat&lt; std::complex&lt; T &gt; &gt;::operator()()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l08019">sis::MatGen&lt; T &gt;::clear()</a>, <a class="el" href="sis_8hpp_source.html#l08096">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::clear()</a>, <a class="el" href="sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l08047">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="sis_8hpp_source.html#l08878">sis::BcMat&lt; T &gt;::operator()()</a>, and <a class="el" href="sis_8hpp_source.html#l08979">sis::BcMat&lt; std::complex&lt; T &gt; &gt;::operator()()</a>.</p>
 
 </div>
 </div>
-<a id="ab440ae5e32f2443ee8f1ae58102e2e94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab440ae5e32f2443ee8f1ae58102e2e94">&#9670;&nbsp;</a></span>mats</h2>
+<a id="a6020dd5fbc3929239e626e669b922471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6020dd5fbc3929239e626e669b922471">&#9670;&nbsp;</a></span>mats</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -452,19 +311,19 @@ template&lt;class T&gt; </div>
 template&lt;class T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &gt; <a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::mats</td>
+          <td class="memname">std::vector&lt;Eigen::Matrix&lt;T, Eigen::Dynamic, Eigen::Dynamic&gt; &gt; <a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::mats</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l07959">7959</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l07959">7959</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l08019">sis::MatGen&lt; T &gt;::clear()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08096">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::clear()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08047">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08878">sis::BcMat&lt; T &gt;::operator()()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08979">sis::BcMat&lt; std::complex&lt; T &gt; &gt;::operator()()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l08019">sis::MatGen&lt; T &gt;::clear()</a>, <a class="el" href="sis_8hpp_source.html#l08096">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::clear()</a>, <a class="el" href="sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l08047">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="sis_8hpp_source.html#l08878">sis::BcMat&lt; T &gt;::operator()()</a>, and <a class="el" href="sis_8hpp_source.html#l08979">sis::BcMat&lt; std::complex&lt; T &gt; &gt;::operator()()</a>.</p>
 
 </div>
 </div>
-<a id="a0868a441fd48819bf02dd9e8560a2f37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0868a441fd48819bf02dd9e8560a2f37">&#9670;&nbsp;</a></span>mats2</h2>
+<a id="af0c45e648431459ede41521fd56114c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0c45e648431459ede41521fd56114c8">&#9670;&nbsp;</a></span>mats2</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -472,19 +331,19 @@ template&lt;class T&gt; </div>
 template&lt;class T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &gt; <a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::mats2</td>
+          <td class="memname">std::vector&lt;Eigen::Matrix&lt;T, Eigen::Dynamic, Eigen::Dynamic&gt; &gt; <a class="el" href="classsis_1_1MatGen.html">sis::MatGen</a>&lt; T &gt;::mats2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l07961">7961</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l07961">7961</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l08019">sis::MatGen&lt; T &gt;::clear()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08096">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::clear()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03276">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l05270">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08047">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l05970">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::computeAppend()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l13282">sis::linSolve()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l10160">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::MatAppend()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l09872">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::operator()()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l08019">sis::MatGen&lt; T &gt;::clear()</a>, <a class="el" href="sis_8hpp_source.html#l08096">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::clear()</a>, <a class="el" href="sis_8hpp_source.html#l03276">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l05270">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l08047">sis::MatGen&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03827">sis::GeneralizedEigenSolver&lt; T &gt;::compute_with_constraints()</a>, <a class="el" href="sis_8hpp_source.html#l05970">sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::computeAppend()</a>, <a class="el" href="sis_8hpp_source.html#l13282">sis::linSolve()</a>, <a class="el" href="sis_8hpp_source.html#l10160">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::MatAppend()</a>, and <a class="el" href="sis_8hpp_source.html#l09872">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::operator()()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>includes/<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a></li>
+<li>includes/<a class="el" href="sis_8hpp_source.html">sis.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

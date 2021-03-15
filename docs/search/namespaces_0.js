@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['jemdoc',['jemdoc',['../namespacejemdoc.html',1,'']]]
+  ['plotlyplots',['plotlyPlots',['../namespaceplotlyPlots.html',1,'']]],
+  ['plotter',['plotter',['../namespaceplotter.html',1,'']]]
 ];
