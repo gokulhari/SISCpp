@@ -1,229 +1,120 @@
-# jemdoc: menu{MENU}{ex09.html},addpackage{amsmath},addpackage{amssymb}
+# jemdoc: menu{MENU}{ex10.html},addpackage{amsmath},addpackage{amssymb}
 # jemdoc: addcss{jemdoc.css}
 # jemdoc: addcss{bibover.css}
 #include{masterFile_2.jeminc}
 #include{mj-complete-bib_3.jeminc}
-= Linearized Navier-Stokes equations
+= Reaction-diffusion equation
 
 === Problem
-Find the eigenvalues of
-\(
-\begin{equation}
-\left[
-\begin{array}{cc}
-\frac{1}{Re}\Delta^2 & 0\\
--i\,k_z\,U' & \frac{1}{Re}\Delta
-\end{array}
-\right]\left[
-\begin{array}{c}
-v \\
-\eta
-\end{array}
-\right] \;=\;\lambda 
-\left[
-\begin{array}{cc}
-\Delta & 0\\
-0 & I
-\end{array}
-\right] \left[
-\begin{array}{c}
-v\\
-\eta
-\end{array}
-\right]\, ,\label{eq:1}
-\end{equation}
-\)
-where $\Delta = \mathrm D^2 - k_z^2$, and with boundary conditions
+Consider the frequency responses of the reaction-diffusion equation with
+homogeneous Neumann boundary conditions, with a
+spatially distributed, temporally harmonic body force, $d(y,t) = d(y)\,\mathrm{e}^{\mathrm i\,\omega\,t}$,
+
 \(
 \begin{align}
-    u(\pm 1) \;=\; [\mathrm D u(\cdot)](\pm 1) \;=\; 0.\label{eq:2}
+\phi_{t}(y,t) \;&=\;  \phi_{yy}(y,t)  \,-\, \epsilon^2\,\phi (y,t) \, + \, d(y,t),\label{eq:0}  \\
 \end{align}
 \)
-
-Also resolve the problem using the descriptor form
+\n
+with homogeneous Neumann boundary conditions,
 \(
-\begin{equation}
- \left[
-\begin{array}{cccc}
-\frac{1}{Re}\Delta & -U' & 0 & 0 \\
-0 & \frac{1}{Re}\Delta & 0 & -\partial_y \\
-0 & 0 & \frac{1}{Re}\Delta & -ik_z \\
-0 & \partial_y & ik_z & 0 \\
-\end{array}
-\right]\left[
-\begin{array}{c}
-u \\
-v \\
-w \\
-p
-\end{array}
-\right] \;=\; \lambda \, \left[
-\begin{array}{cccc}
-1 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 \\
-\end{array}
-\right]\left[
-\begin{array}{c}
-u \\
-v \\
-w \\
-p
-\end{array}
-\right],
-\end{equation}    
-\) 
-with boundary conditions
-\(
-\begin{equation}
-u(\pm 1) \;=\; v(\pm 1) \;=\; w(\pm 1) \;=\; v'(\pm 1) \;=\; 0.    
-\end{equation}
+\begin{align}
+[\partial_y \phi (\cdot, t)](\pm 1) \;& =\; 0, \label{eq:0bc}
+\end{align}
 \)
+where $t$ is time, $y \in \left[ -1, 1 \right]$ is a spatial variable, and $ \epsilon \in \mathbb{R}$. 
+
+
+The temporal Fourier transform can be used to represent the frequency response operator associated with Eqs.~$\eqref{eq:0}$-$\eqref{eq:0bc}$ as a TPBVP,
+\(
+\begin{align}
+    \left[\mathcal A(\omega)\,\phi(\cdot)\right] (y) 
+    \;&=\; 
+    \left[\mathcal B(\omega)\, d(\cdot)\right](y),\notag\\
+    \xi (y)
+    \;&=\; 
+    \left[\mathcal C(\omega)\,\phi(\cdot)\right](y),\label{eq:mot1c}\\
+    [\mathcal{L}_a \, \phi(\cdot)](a)  \;&=\; [\mathcal{L}_b \, \phi(\cdot)](b) \;=\;  0,\notag
+  \end{align}  
+\)
+where,
+\(
+	\mathcal A (\omega)
+	\;=\;  
+	({\mathrm i} \omega \, +  \, \epsilon^2) I
+	\; - \;
+	\mathrm D^2,
+	\quad
+	\mathcal B 
+	\;=\; 
+	\mathcal C 
+	\;=\; 
+	I,
+	\quad
+	\mathcal {L}_{\pm 1} 
+	\; = \; 
+	\mathrm D,
+\)
+where $\mathrm D = \mathrm d /\mathrm dy$.
+
+Specify the operators $\mathcal A (\omega)$, $\mathcal B(\omega) $, and $\mathcal C(\omega) $ in Eq.~$\eqref{eq:mot1c}$, in SISC\+\+ and solve for the singular values of Eq.~$\eqref{eq:mot1c}$.
+
 === Solution
-Specifying the differential equation and boundary condition is very similar the to [/ex01.html reaction-diffusion system]. The last part of the solution will involve calling the class GeneralizedEigenSolver to solve the eigenvalue problem.
+Specifying the differential equation and boundary condition is very similar the to [/ex01.html reaction-diffusion system]. The last part of the solution will involve calling the class SingularValueDecomposition to solve for frequency responses.
 
 The program is relatively intuitive and is listed here.
 ~~~
 {}{cpp}
 #define SIS_USE_LAPACK
-#include <fstream>
+#include <fstream> // To output data to files
 #include <iostream>
 #include <sis.hpp>
 
 using namespace std;
+typedef complex<double> Cd_t;
 
 int main() {
   using namespace sis;
-  int bre;
-  // Number of Chebyshev polynomials
-  N = 91;
+  N = 63; // sis::N, Defined in sis.hpp. This specifies no. of Chebyshev
+          // coefficients
   sis_setup();
 
-  // Number of Eigenvalues to compute:
-  int num_vals = 40;
+  LinopMat<Cd_t> Lmat(1, 1), Mmat(1,1);
+  Linop<double> D2(2), D1(1), D0(0); // Linops with highest order 2, 1 and 0.
+  Cd_t ii(0.0,1.0);
 
-  valarray<double> y, Uy, U, Uyy(N + 1);
-  // Set in cheb-point
-  setChebPts(y);
+  D2.coef << 1.0, 0.0, 0.0; // for (1.0 * D2 + 0.0 * D1 + (0.0) )v
+  D1.coef << 1.0, 0.0;
+  D0.coef << 1.0;
 
-  // Velocity and derivative of PP flow
-  U = 1.0 - pow(y, 2.0);
-  Uy = -2.0 * y;
-  Uyy = -2.0;
-  double Re = 2000;
-  double kx = 1.0;
-  double kz = 0.0;
-  double k2 = kx * kx + kz * kz;
-  double k4 = k2 * k2;
-  complex<double> ii(0.0, 1.0);
-  Linop<double> Delta, Delta2, Dy;
-  LinopMat<complex<double> > Lmat(2, 2), Mmat(2, 2);
 
-  Delta.n = 2;
-  Delta.set();
-  Delta.coef << 1.0, 0.0, -k2;
 
-  Delta2.n = 4;
-  Delta2.set();
-  Delta2.coef << 1.0, 0.0, -2 * k2, 0.0, k4;
 
-  Dy.n = 1;
-  Dy.set();
-  Dy.coef << 1.0, 0.0;
+  // Operator D2v - 4 v
+  Lmat << D2 - 0.0001 * D0;
+  Mmat << 1.0;
 
-  // For first type:
-  Lmat << (-ii * kx * U * Delta) + (ii * kx * Uyy) + (Delta2 / Re), 0.0, //
-      (-ii * kz * Uy), (-ii * kx * U) + (Delta / Re);
+  double omega = 0.0;
+  // Specify boundary conditions via BcMat, lbc and rbc separately:
+  BcMat<Cd_t> lbcs(1, 1), rbcs(1,1);
 
-  Mmat << Delta, 0.0, //
-      0.0, 1.0;
-  BcMat<std::complex<double> > bc(6, 2);
-  bc.L << 1.0, 0.0, //
-      0.0, 1.0,     //
-      Dy, 0.0,      //
-      1.0, 0.0,     //
-      0.0, 1.0,     //
-      Dy, 0.0;
-  bc.eval << -1.0, -1.0, //
-      -1.0, -1.0,        //
-      -1.0, -1.0,        //
-      1.0, 1.0,          //
-      1.0, 1.0,          //
-      1.0, 1.0;
+  lbcs.L << D1;
+  rbcs.L << D1;
+  lbcs.eval << -1.0, // evaluate bcs.L right end
+  rbcs.eval <<  1.0;          // evaluate bcs.L at 0.5, must be a value in domain [-1, 1]
+
+  SingularValueDecomposition<Cd_t> svds;
+
+  LinopMat<Cd_t> A(1,1), B(1,1), C(1,1);
+  A = (ii*omega*Mmat) - Lmat;
+  B(0,0) = 1.0;
+  C(0,0) = 1.0;
+  // Compute first 12 singular values
+  svds.compute(A, B, C, lbcs, rbcs, 12);
+
+  cout << "Singular Values: \n" << svds.eigenvalues << '\n';
+  cout << "Power Spectral Density: \n" << svds.PowerSpectralDensity(A,B,C,lbcs,rbcs) << '\n';
   
-  
-  GeneralizedEigenSolver<complex<double> > eigs;
-  eigs.compute(Lmat, Mmat, num_vals, bc);
-  eigs.keepConverged();
-  eigs.sortByLargestReal();
-  num_vals = eigs.eigenvalues.size();
-  cout << "Eigenvalues in method 1: \n" << eigs.eigenvalues << "\n";
-  ofstream outf;
-  outf.open("data/Ex_15_1.txt");
-  Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> out_to_file(num_vals,
-                                                                    2);
-  out_to_file.col(0) = eigs.eigenvalues.real();
-  out_to_file.col(1) = eigs.eigenvalues.imag();
-  outf << out_to_file;
-  outf.close();
-  std::cout << "Done 1 :::::::" << '\n';
-
-// ********************************************
-// ********************************************
-// ********************************************
-
-  // For second type:
-  Lmat.resize(4, 4);
-  Mmat.resize(4, 4);
-  /*
-  Old Mmat:
-  Mmat << 1.0, 0.0, 0.0, 0.0, //
-      0.0, 1.0, 0.0, 0.0,     //
-      0.0, 0.0, 1.0, 0.0,     //
-      0.0, 0.0, 0.0, 0.0;
-*/
-  Mmat << 1.0, 0.0, 0.0, 0.0, //
-      0.0, 1.0, 0.0, 0.0,     //
-      0.0, 0.0, 1.0, 0.0,     //
-      0.0, 0.0, 0.0, 0.0 * Delta;
-
-  //
-  Lmat << (-ii * kx * U) + (Delta / Re), -Uy, 0.0, -ii * kx, //
-      0.0, (-ii * kx * U) + (Delta / Re), 0.0, -Dy,          //
-      0.0, 0.0, (-ii * kx * U) + (Delta / Re), -ii * kz,     //
-      ii * kx, Dy, ii * kz, 0.0;
-
-  BcMat<std::complex<double> > Lbc(8, 4);
-  Lbc.L << 1.0, 0.0, 0.0, 0.0, //
-      1.0, 0.0, 0.0, 0.0,      //
-      0.0, 1.0, 0.0, 0.0,      //
-      0.0, 1.0, 0.0, 0.0,      //
-      0.0, Dy, 0.0, 0.0,       //
-      0.0, Dy, 0.0, 0.0,       //
-      0.0, 0.0, 1.0, 0.0,      //
-      0.0, 0.0, 1.0, 0.0;
-  Lbc.eval << 1.0, 0.0, 0.0, 0.0, //
-      -1.0, 0.0, 0.0, 0.0,        //
-      0.0, 1.0, 0.0, 0.0,         //
-      0.0, -1.0, 0.0, 0.0,        //
-      0.0, 1.0, 0.0, 0.0,         //
-      0.0, -1.0, 0.0, 0.0,        //
-      0.0, 0.0, 1.0, 0.0,         //
-      0.0, 0.0, -1.0, 0.0;
-  
-  num_vals = 4 * (N + 1);
-  eigs.compute(Lmat, Mmat, num_vals, Lbc);
-  eigs.keepConverged();
-  eigs.sortByLargestReal();
-  cout << "Eigenvalues in method 2: \n" << eigs.eigenvalues << "\n" << flush;
-  num_vals = eigs.eigenvalues.size();
-  outf.open("data/Ex_15_2.txt");
-  out_to_file.resize(num_vals, 2);
-  out_to_file.col(0) = eigs.eigenvalues.real();
-  out_to_file.col(1) = eigs.eigenvalues.imag();
-  outf << out_to_file;
-  outf.close();
-return 0;
+  return 0;
 }
 ~~~

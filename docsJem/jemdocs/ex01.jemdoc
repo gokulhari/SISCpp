@@ -119,7 +119,7 @@ Lastly, we need to specify the input (forcing) on the right hand side of Eq.~$\e
 ChebfunMat<complex<double> > forc(1, 1); // 1 by 1 ChebfunMat
 forc << 1.0 - y * y;                     // y is defined in sis::y
 ~~~
-The last step is to solve the system, we also print the left and right end points values of the solution to make sure that the boundary conditions are right.
+The last step is to solve the system.
 ~~~
 {}{cpp}
 // Solve, by replacing the forcing as the solution.

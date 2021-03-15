@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['gamma_5fopt',['gamma_opt',['../classsis_1_1SingularValueDecomposition_3_01std_1_1complex_3_01T_01_4_01_4.html#a59aba182f95ad83c1b8c525ad05e8ed7',1,'sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;']]],
-  ['generalizedeigensolver',['GeneralizedEigenSolver',['../classsis_1_1GeneralizedEigenSolver.html',1,'sis::GeneralizedEigenSolver&lt; T &gt;'],['../classsis_1_1GeneralizedEigenSolver.html#a18ff3d27f0ff3f1aa832ad4052836c77',1,'sis::GeneralizedEigenSolver::GeneralizedEigenSolver()'],['../classsis_1_1GeneralizedEigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html#a12479183a193ff8d5fb0ff13f4ac7d09',1,'sis::GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;::GeneralizedEigenSolver()']]],
-  ['generalizedeigensolver_3c_20std_3a_3acomplex_3c_20t_20_3e_20_3e',['GeneralizedEigenSolver&lt; std::complex&lt; T &gt; &gt;',['../classsis_1_1GeneralizedEigenSolver_3_01std_1_1complex_3_01T_01_4_01_4.html',1,'sis']]],
-  ['go_5fto_5fnext_5frow',['go_to_next_row',['../classsis_1_1LinopMat.html#af9d4ff853df2b691ad0990bffc077bec',1,'sis::LinopMat::go_to_next_row()'],['../classsis_1_1LinopMat_3_01std_1_1complex_3_01T_01_4_01_4.html#af68cebd484636f57e1607503c73ed265',1,'sis::LinopMat&lt; std::complex&lt; T &gt; &gt;::go_to_next_row()']]]
+  ['feval2d',['feval2D',['../namespacesis.html#aac98a493560acc695d18e4b88d38485b',1,'sis::feval2D(std::valarray&lt; ChebfunMat&lt; T &gt; &gt; Amat, int r, int c, T a)'],['../namespacesis.html#a7687952585c540dd0518dbdddce7ac94',1,'sis::feval2D(std::valarray&lt; ChebfunMat&lt; std::complex&lt; T &gt; &gt; &gt; Amat, int r, int c, T a)']]],
+  ['fft',['fft',['../namespacesis.html#ab5f94d15576fbe030918d08109b141c9',1,'sis::fft(std::valarray&lt; T &gt; in1)'],['../namespacesis.html#abb78ba2d0cd2cac42e33fa585b219e3c',1,'sis::fft(std::slice_array&lt; T &gt; in1)']]],
+  ['fft2',['fft2',['../namespacesis.html#a3509248c274a7017ec44bf4efdb2edf3',1,'sis::fft2(std::valarray&lt; T &gt; in1, int Nx, int Nz)'],['../namespacesis.html#a5a177976c22ef76ca3b4ad7c157a2ae3',1,'sis::fft2(std::slice_array&lt; T &gt; in1, int Nx, int Nz)']]],
+  ['fig',['fig',['../namespaceplotlyPlots.html#a035bec059d749fa6c31541ffd50c36cb',1,'plotlyPlots']]],
+  ['fillstyle',['fillstyle',['../namespaceplotter.html#a323e049e04aaf534c4f0e33f9727043d',1,'plotter']]],
+  ['font',['font',['../namespaceplotter.html#aee3f38b643f235087e08712493df19e1',1,'plotter']]],
+  ['fontproperties',['FontProperties',['../namespaceplotter.html#a8d77a73ed17acc74c5e898e40eca6eef',1,'plotter']]],
+  ['fontsize',['fontsize',['../namespaceplotter.html#aebea464adaa6964426a3350a5a5479e8',1,'plotter']]],
+  ['forzgees',['forZgees',['../includes_2lyap_8h.html#a7b7a01b15e15f22bf9c85e677011d67f',1,'forZgees(Cd_t a):&#160;lyap.h'],['../SISCpp_2includes_2lyap_8h.html#a7b7a01b15e15f22bf9c85e677011d67f',1,'forZgees(Cd_t a):&#160;lyap.h']]]
 ];

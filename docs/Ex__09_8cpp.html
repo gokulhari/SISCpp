@@ -113,9 +113,9 @@ $(document).ready(function(){initNavTree('Ex__09_8cpp.html','');});
 <li>By solving the generalized eigenvalue problem: <p class="formulaDsp">
 \[ \left[ \begin{array}{cccc} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ \end{array} \right]\partial_t \left[ \begin{array}{c} u \\ v \\ w \\ p \end{array} \right] \;= \; \left[ \begin{array}{cccc} \frac{1}{Re}\Delta &amp; -U&#39; &amp; 0 &amp; 0 \\ 0 &amp; \frac{1}{Re}\Delta &amp; 0 &amp; -\partial_y \\ 0 &amp; 0 &amp; \frac{1}{Re}\Delta &amp; -ik_z \\ 0 &amp; \partial_y &amp; ik_z &amp; 0 \\ \end{array} \right]\left[ \begin{array}{c} u \\ v \\ w \\ p \end{array} \right] \]
 </p>
- with boundary conditions \(u(\pm 1) \;=\; v(\pm 1) \;=\; w(\pm 1) \;=\; v&#39;(\pm 1) \;=\; 0\)</li>
+ with boundary conditions \(u(\pm 1,t) \;=\; v(\pm 1,t) \;=\; w(\pm 1,t) \;=\; [\mathrm Dv(\cdot,t)](\pm 1) \;=\; 0\)</li>
 </ol>
-<p>Note from the above form that the eigenvalues are simply the eigenvalues of \( \Delta^2/Re\) and \(\Delta/Re\), both of whom are real. Method 2 approximates the solution more accrately than method 1, as imaginary parts in method 2 are zero to machine precision. </p>
+<p>Note from the above form that the eigenvalues are simply the eigenvalues of \( \Delta^2/Re\) and \(\Delta/Re\), both of whom are real. Method 2 approximates the solution more accrately than method 1, as imaginary parts in method 2 are zero to machine precision. Here, \( \mathrm D = \mathrm d/\mathrm d y \). </p>
 
 <p class="definition">Definition in file <a class="el" href="Ex__09_8cpp_source.html">Ex_09.cpp</a>.</p>
 </div><div class="textblock"><div class="dynheader">
@@ -152,7 +152,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Ex__09_8cpp_source.html#l00069">69</a> of file <a class="el" href="Ex__09_8cpp_source.html">Ex_09.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Ex__09_8cpp_source.html#l00070">70</a> of file <a class="el" href="Ex__09_8cpp_source.html">Ex_09.cpp</a>.</p>
 
 </div>
 </div>
@@ -172,7 +172,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Ex__09_8cpp_source.html#l00076">76</a> of file <a class="el" href="Ex__09_8cpp_source.html">Ex_09.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Ex__09_8cpp_source.html#l00077">77</a> of file <a class="el" href="Ex__09_8cpp_source.html">Ex_09.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="sis_8hpp_source.html#l02569">sis::Linop&lt; T &gt;::coef</a>, <a class="el" href="sis_8hpp_source.html#l03267">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l03257">sis::GeneralizedEigenSolver&lt; T &gt;::eigenvalues</a>, <a class="el" href="sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="Ex__11_8cpp.html#a936d6f075a61f914bd71c1c7a919b0fe">ii()</a>, <a class="el" href="sis_8hpp_source.html#l00256">ind</a>, <a class="el" href="sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l02566">sis::Linop&lt; T &gt;::n</a>, <a class="el" href="sis_8hpp_source.html#l00453">std::pow()</a>, <a class="el" href="sis_8hpp_source.html#l08214">sis::LinopMat&lt; T &gt;::resize()</a>, <a class="el" href="sis_8hpp_source.html#l08848">sis::BcMat&lt; T &gt;::resize()</a>, <a class="el" href="sis_8hpp_source.html#l02733">sis::Linop&lt; T &gt;::set()</a>, <a class="el" href="sis_8hpp_source.html#l00920">sis::setChebPts()</a>, <a class="el" href="sis_8hpp_source.html#l00954">sis::sis_setup()</a>, and <a class="el" href="namespacesis.html#a55b489afa593b0e9c014a92c5bfeabce">sis::y()</a>.</p>
 

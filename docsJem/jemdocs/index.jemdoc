@@ -12,11 +12,11 @@
 
 
 
-Updated in March 6, 2021
+Updated in March 14, 2021
 
 *Source Codes*
 	\n
-	+[/SISCpp.zip Download all Matlab files]+
+	+[/SISCpp.zip Download all files]+
 ~~~
 
 
@@ -37,9 +37,9 @@ Updated in March 6, 2021
  SISC\+\+ aims to provide a Chebfun-like interface in C\+\+. Just as Chebfun
  overloads functions and operations on linear matrices to differential
  operators,
- SISC\+\+ uses {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>}} matrix representation in C\+\+
+ SISC\+\+ uses {{<a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>}} matrix representation in C\+\+
  for linear differential operators.
- For instance, one would input a normal matrix using {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} in the following
+ For instance, one would input a normal matrix using {{<a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} in the following
  manner,
 ~~~ 
 {}{cpp}
@@ -73,7 +73,7 @@ L << Dy, y,//
      y*Dyy, Dyy/2.0;
 ~~~
 
-Following that, just as you can use the EigenSolver in {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} for matrix
+Following that, just as you can use the EigenSolver in {{<a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} for matrix
 eigenvalues, you can use EigenSolver in SISC\+\+ for linear block-matrix
 operators.
 
@@ -90,7 +90,7 @@ a liability for direct numerical simulations.
 For most part, classes and functions are quite intuitive, but you need to know
 a bit about C\+\+. A good place to learn C\+\+
 is {{<a href="http://www.cplusplus.com/doc/tutorial/">here </a>.}}
-You should feel comfortable using SISC\+\+ if you have already used {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}}.
+You should feel comfortable using SISC\+\+ if you have already used {{<a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}}.
 As far as the algorithm is concerned, SISC\+\+ is based on the recent
 spectral integration method by [/javascript:cite('DuSIAM2016') Du], which is a
 well-conditioned method, compared to conventional spectral-collocation / Tau methods.
@@ -113,10 +113,10 @@ conditions), for eigenvalue problems involving fluid-fluid interfaces.
 == Prerequisites
 SISC\+\+ requires two free libraries to be pre-installed,
 .  Intel MKL [https://software.intel.com/en-us/mkl/choose-download] and
-. Eigen [http://eigen.tuxfamily.org/index.php?title=Main_Page]
+. Eigen [https://eigen.tuxfamily.org/index.php?title=Main_Page]
 
  We strogly recommend downloading these from the respective websites and
- installing them. For {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} in specific, we ask that Mac users refrain from
+ installing them. For {{<a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} in specific, we ask that Mac users refrain from
  using brew to install either of these. Of course, if the user is familiar
  about linking these libraries correctly while using C\+\+, then the method of
  installing these libraries should not matter.
@@ -133,8 +133,8 @@ href="https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-
 
 No part of SISC\+\+ uses anything that is OS specific. However, I have not tried using it on Windows. I use it regularly on Mac and Linux.
 
-Most routines in SISC\+\+ use default {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>}}routines for
-eigenvalue problems. At the time of writing this program, {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} does not have
+Most routines in SISC\+\+ use default {{<a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen's </a>}}routines for
+eigenvalue problems. At the time of writing this program, {{<a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} does not have
 an eigenvalue solver for complex generalized systems, of the form
  $ L\,\phi= \lambda \, M \, \phi$. As SISC\+\+ uses a
 well-conditioned discretization, in most cases both $L$ and $M$ are
@@ -155,7 +155,7 @@ SISC\+\+ does not need any installation and can be directly used as a header. Yo
 can copy sis.hpp file into \/usr\/local\/includes\/ in either Mac or Linux,
 as this is a default search path for most C\+\+ compilers.
 == Getting Started
-If {{<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} and Intel MKL are installed in their default locations, then you
+If {{<a href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen </a>}} and Intel MKL are installed in their default locations, then you
 can begin by creating two folders, named bin and data. Then open a terminal
 in the current folder and say ~~~ make all ~~~ This will compile
 all the examples in the directory examples, and the executables will be
@@ -171,7 +171,7 @@ To solve your own problems, go through the examples and modify them.
 If you use this work in your research or teaching, please cite us:
 ~~~
 {}{}
-@article{harkumjovJCP20,
+@article{harkumjovJCP21,
 author  = {G. Hariharan and S. Kumar and M. R. Jovanovi\'c},
 title   = {Well-conditioned ultraspherical and spectral integration methods for
 resolvent analysis of channel flows of {N}ewtonian and viscoelastic fluids},

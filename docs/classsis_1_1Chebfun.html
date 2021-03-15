@@ -105,10 +105,68 @@ $(document).ready(function(){initNavTree('classsis_1_1Chebfun.html','');});
 <p>This is a chebfun analogue. <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> will represent both values in physical space or an array of Chebyshev-coefficients. Values can be in either space for calculations. To convert between physical values or Chebyshev coefficients, one can call <a class="el" href="classsis_1_1Chebfun.html#adb6e0ddafa553a928dda66c0ad063cbe" title="Converts a Chebfun from Chebyshev coefficients to values in physical space. ">Chebfun.c2p()</a> and <a class="el" href="classsis_1_1Chebfun.html#a824dda59fc78ce162abfe117b93d29cf" title="Converts a Chebfun from values in physical-space to coefficients of Chebyshev polynomials. ">Chebfun.p2c()</a>.  
  <a href="classsis_1_1Chebfun.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a3b060dbd3eaf2555dec29e4f3c7ef025"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a3b060dbd3eaf2555dec29e4f3c7ef025">Chebfun</a> ()</td></tr>
+<tr class="memdesc:a3b060dbd3eaf2555dec29e4f3c7ef025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null constructor.  <a href="#a3b060dbd3eaf2555dec29e4f3c7ef025">More...</a><br /></td></tr>
+<tr class="separator:a3b060dbd3eaf2555dec29e4f3c7ef025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a761d4d0425f1bbddf830d576b220ceea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a761d4d0425f1bbddf830d576b220ceea">Chebfun</a> (const std::valarray&lt; T &gt; &amp;in)</td></tr>
+<tr class="memdesc:a761d4d0425f1bbddf830d576b220ceea"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor by an input valarray  <a href="#a761d4d0425f1bbddf830d576b220ceea">More...</a><br /></td></tr>
+<tr class="separator:a761d4d0425f1bbddf830d576b220ceea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a0ade22b8dfae30bc60a69bd7c5a37f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a0a0ade22b8dfae30bc60a69bd7c5a37f">Chebfun</a> (const Eigen::Array&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;in)</td></tr>
+<tr class="memdesc:a0a0ade22b8dfae30bc60a69bd7c5a37f"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor by an input Eigen::Array&lt;T,Eigen::Dynamic,1&gt;  <a href="#a0a0ade22b8dfae30bc60a69bd7c5a37f">More...</a><br /></td></tr>
+<tr class="separator:a0a0ade22b8dfae30bc60a69bd7c5a37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4774ab41e7bd4adf376d32f30a68273a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a4774ab41e7bd4adf376d32f30a68273a">Chebfun</a> (const <a class="el" href="classsis_1_1Chebfun.html">Chebfun</a> &amp;in)</td></tr>
+<tr class="memdesc:a4774ab41e7bd4adf376d32f30a68273a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy conststructor.  <a href="#a4774ab41e7bd4adf376d32f30a68273a">More...</a><br /></td></tr>
+<tr class="separator:a4774ab41e7bd4adf376d32f30a68273a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a824dda59fc78ce162abfe117b93d29cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a824dda59fc78ce162abfe117b93d29cf">p2c</a> ()</td></tr>
+<tr class="memdesc:a824dda59fc78ce162abfe117b93d29cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> from values in physical-space to coefficients of Chebyshev polynomials.  <a href="#a824dda59fc78ce162abfe117b93d29cf">More...</a><br /></td></tr>
+<tr class="separator:a824dda59fc78ce162abfe117b93d29cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb6e0ddafa553a928dda66c0ad063cbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#adb6e0ddafa553a928dda66c0ad063cbe">c2p</a> ()</td></tr>
+<tr class="memdesc:adb6e0ddafa553a928dda66c0ad063cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> from Chebyshev coefficients to values in physical space.  <a href="#adb6e0ddafa553a928dda66c0ad063cbe">More...</a><br /></td></tr>
+<tr class="separator:adb6e0ddafa553a928dda66c0ad063cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeba4d023f9a433cc822e67db99499bf"><td class="memItemLeft" align="right" valign="top">Eigen::Array&lt; T, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#afeba4d023f9a433cc822e67db99499bf">ev</a> ()</td></tr>
+<tr class="memdesc:afeba4d023f9a433cc822e67db99499bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns property v in terms of Eigen::Array.  <a href="#afeba4d023f9a433cc822e67db99499bf">More...</a><br /></td></tr>
+<tr class="separator:afeba4d023f9a433cc822e67db99499bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a480348b76f2284b5b37d1e64c0e405c4"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a480348b76f2284b5b37d1e64c0e405c4">MultMat</a> ()</td></tr>
+<tr class="memdesc:a480348b76f2284b5b37d1e64c0e405c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the Toeplitz + almost Hankel matrix needed to express multiplication of two Chebyshev series. This is used in solving for nonconstant coefficients.  <a href="#a480348b76f2284b5b37d1e64c0e405c4">More...</a><br /></td></tr>
+<tr class="separator:a480348b76f2284b5b37d1e64c0e405c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac580d738eb27ac8d0e1b69aa550ed6e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#ac580d738eb27ac8d0e1b69aa550ed6e6">operator=</a> (T right)</td></tr>
+<tr class="memdesc:ac580d738eb27ac8d0e1b69aa550ed6e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equating the <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> to a constant.  <a href="#ac580d738eb27ac8d0e1b69aa550ed6e6">More...</a><br /></td></tr>
+<tr class="separator:ac580d738eb27ac8d0e1b69aa550ed6e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dd34f19def79abd4a34d7f3667d04de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a8dd34f19def79abd4a34d7f3667d04de">operator=</a> (const <a class="el" href="classsis_1_1Chebfun.html">Chebfun</a> &amp;right)</td></tr>
+<tr class="memdesc:a8dd34f19def79abd4a34d7f3667d04de"><td class="mdescLeft">&#160;</td><td class="mdescRight">To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through another <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a>.  <a href="#a8dd34f19def79abd4a34d7f3667d04de">More...</a><br /></td></tr>
+<tr class="separator:a8dd34f19def79abd4a34d7f3667d04de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab52c8ee6c590a89656e0dec3f92632f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#ab52c8ee6c590a89656e0dec3f92632f5">operator=</a> (const Eigen::Matrix&lt; T, Eigen::Dynamic, 1 &gt; &amp;right)</td></tr>
+<tr class="memdesc:ab52c8ee6c590a89656e0dec3f92632f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through a vector.  <a href="#ab52c8ee6c590a89656e0dec3f92632f5">More...</a><br /></td></tr>
+<tr class="separator:ab52c8ee6c590a89656e0dec3f92632f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aede45676b1896173c93ffcfa4f56ff4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#aede45676b1896173c93ffcfa4f56ff4f">operator=</a> (const std::valarray&lt; T &gt; &amp;right)</td></tr>
+<tr class="memdesc:aede45676b1896173c93ffcfa4f56ff4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through a valarray.  <a href="#aede45676b1896173c93ffcfa4f56ff4f">More...</a><br /></td></tr>
+<tr class="separator:aede45676b1896173c93ffcfa4f56ff4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72c8c266c8eb8d8425e63ab59fc9bd28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a72c8c266c8eb8d8425e63ab59fc9bd28">operator+=</a> (const T &amp;right)</td></tr>
+<tr class="memdesc:a72c8c266c8eb8d8425e63ab59fc9bd28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adding constant to itself.  <a href="#a72c8c266c8eb8d8425e63ab59fc9bd28">More...</a><br /></td></tr>
+<tr class="separator:a72c8c266c8eb8d8425e63ab59fc9bd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae944ec53ea275fb03991529a53d4f04a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#ae944ec53ea275fb03991529a53d4f04a">operator+=</a> (<a class="el" href="classsis_1_1Chebfun.html">Chebfun</a> right)</td></tr>
+<tr class="memdesc:ae944ec53ea275fb03991529a53d4f04a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> to itself. If both are in same space, return will be in same space, else the lhs will retain space.  <a href="#ae944ec53ea275fb03991529a53d4f04a">More...</a><br /></td></tr>
+<tr class="separator:ae944ec53ea275fb03991529a53d4f04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b718b8a9362b77c3003d1fbedd59df2"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a6b718b8a9362b77c3003d1fbedd59df2">operator()</a> (const T &amp;a)</td></tr>
+<tr class="memdesc:a6b718b8a9362b77c3003d1fbedd59df2"><td class="mdescLeft">&#160;</td><td class="mdescRight">To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through a Array.  <a href="#a6b718b8a9362b77c3003d1fbedd59df2">More...</a><br /></td></tr>
+<tr class="separator:a6b718b8a9362b77c3003d1fbedd59df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7bfb1940e5d3c3636ba676310320b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsis_1_1Chebfun.html">Chebfun</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#abb7bfb1940e5d3c3636ba676310320b5">cumsum</a> ()</td></tr>
+<tr class="memdesc:abb7bfb1940e5d3c3636ba676310320b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> that represents the indefinite integral of the <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a>.  <a href="#abb7bfb1940e5d3c3636ba676310320b5">More...</a><br /></td></tr>
+<tr class="separator:abb7bfb1940e5d3c3636ba676310320b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47a9362a03907b615ad1f4029f8f5d64"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a47a9362a03907b615ad1f4029f8f5d64">L2norm</a> ()</td></tr>
+<tr class="memdesc:a47a9362a03907b615ad1f4029f8f5d64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L2norm of the function.  <a href="#a47a9362a03907b615ad1f4029f8f5d64">More...</a><br /></td></tr>
+<tr class="separator:a47a9362a03907b615ad1f4029f8f5d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4699b4c4e01794c1017def229a2d2c2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a4699b4c4e01794c1017def229a2d2c2b">isMachinePrecision</a> ()</td></tr>
+<tr class="separator:a4699b4c4e01794c1017def229a2d2c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117792e0e2e311436fd3fcddf5156f69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a117792e0e2e311436fd3fcddf5156f69">isMachinePrecisionHalf</a> ()</td></tr>
+<tr class="separator:a117792e0e2e311436fd3fcddf5156f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a142e8e9dcc8c61ad3d9f289f2d1cab94"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a142e8e9dcc8c61ad3d9f289f2d1cab94">trunc</a> ()</td></tr>
+<tr class="memdesc:a142e8e9dcc8c61ad3d9f289f2d1cab94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the truncation defined in terms of the abs(last + last_but_one)/2.0.  <a href="#a142e8e9dcc8c61ad3d9f289f2d1cab94">More...</a><br /></td></tr>
+<tr class="separator:a142e8e9dcc8c61ad3d9f289f2d1cab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b060dbd3eaf2555dec29e4f3c7ef025"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a3b060dbd3eaf2555dec29e4f3c7ef025">Chebfun</a> ()</td></tr>
 <tr class="memdesc:a3b060dbd3eaf2555dec29e4f3c7ef025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null constructor.  <a href="#a3b060dbd3eaf2555dec29e4f3c7ef025">More...</a><br /></td></tr>
 <tr class="separator:a3b060dbd3eaf2555dec29e4f3c7ef025"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,9 +230,9 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ad7531b86fc11f00d40471c4b54b99158"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#ad7531b86fc11f00d40471c4b54b99158">dct_flag</a></td></tr>
 <tr class="separator:ad7531b86fc11f00d40471c4b54b99158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b4d63e278847d24c896f47e6146fdeb"><td class="memItemLeft" align="right" valign="top">std::valarray&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a1b4d63e278847d24c896f47e6146fdeb">v</a></td></tr>
-<tr class="memdesc:a1b4d63e278847d24c896f47e6146fdeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a flag to denote if function is in Cheb-space or physical space.  <a href="#a1b4d63e278847d24c896f47e6146fdeb">More...</a><br /></td></tr>
-<tr class="separator:a1b4d63e278847d24c896f47e6146fdeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fa04bbf1167480e04917a990bf0a98b"><td class="memItemLeft" align="right" valign="top">std::valarray&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1Chebfun.html#a4fa04bbf1167480e04917a990bf0a98b">v</a></td></tr>
+<tr class="memdesc:a4fa04bbf1167480e04917a990bf0a98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a flag to denote if function is in Cheb-space or physical space.  <a href="#a4fa04bbf1167480e04917a990bf0a98b">More...</a><br /></td></tr>
+<tr class="separator:a4fa04bbf1167480e04917a990bf0a98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
@@ -182,10 +240,10 @@ class sis::Chebfun&lt; T &gt;</h3>
 
 <p>This is a chebfun analogue. <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> will represent both values in physical space or an array of Chebyshev-coefficients. Values can be in either space for calculations. To convert between physical values or Chebyshev coefficients, one can call <a class="el" href="classsis_1_1Chebfun.html#adb6e0ddafa553a928dda66c0ad063cbe" title="Converts a Chebfun from Chebyshev coefficients to values in physical space. ">Chebfun.c2p()</a> and <a class="el" href="classsis_1_1Chebfun.html#a824dda59fc78ce162abfe117b93d29cf" title="Converts a Chebfun from values in physical-space to coefficients of Chebyshev polynomials. ">Chebfun.p2c()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01150">1150</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01150">1150</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3b060dbd3eaf2555dec29e4f3c7ef025"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b060dbd3eaf2555dec29e4f3c7ef025">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b060dbd3eaf2555dec29e4f3c7ef025">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[1/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,14 +270,14 @@ template&lt;class T&gt; </div>
 <p>Null constructor. </p>
 <p>By default the function is f(y) =y, with values in physical space. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01160">1160</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01160">1160</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l00464">PI</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00464">PI</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a761d4d0425f1bbddf830d576b220ceea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a761d4d0425f1bbddf830d576b220ceea">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a761d4d0425f1bbddf830d576b220ceea">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,14 +304,14 @@ template&lt;class T&gt; </div>
 
 <p>constructor by an input valarray </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01167">1167</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01167">1167</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a0a0ade22b8dfae30bc60a69bd7c5a37f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a0ade22b8dfae30bc60a69bd7c5a37f">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a0ade22b8dfae30bc60a69bd7c5a37f">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[3/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -280,14 +338,14 @@ template&lt;class T&gt; </div>
 
 <p>constructor by an input Eigen::Array&lt;T,Eigen::Dynamic,1&gt; </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01178">1178</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01178">1178</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a4774ab41e7bd4adf376d32f30a68273a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4774ab41e7bd4adf376d32f30a68273a">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4774ab41e7bd4adf376d32f30a68273a">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[4/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,15 +372,151 @@ template&lt;class T&gt; </div>
 
 <p>Copy conststructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01210">1210</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01210">1210</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a3b060dbd3eaf2555dec29e4f3c7ef025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b060dbd3eaf2555dec29e4f3c7ef025">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::<a class="el" href="classsis_1_1Chebfun.html">Chebfun</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Null constructor. </p>
+<p>By default the function is f(y) =y, with values in physical space. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01160">1160</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00464">PI</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a761d4d0425f1bbddf830d576b220ceea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a761d4d0425f1bbddf830d576b220ceea">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::<a class="el" href="classsis_1_1Chebfun.html">Chebfun</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::valarray&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructor by an input valarray </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01167">1167</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a0a0ade22b8dfae30bc60a69bd7c5a37f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a0ade22b8dfae30bc60a69bd7c5a37f">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::<a class="el" href="classsis_1_1Chebfun.html">Chebfun</a> </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Array&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructor by an input Eigen::Array&lt;T,Eigen::Dynamic,1&gt; </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01178">1178</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a4774ab41e7bd4adf376d32f30a68273a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4774ab41e7bd4adf376d32f30a68273a">&#9670;&nbsp;</a></span>Chebfun() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::<a class="el" href="classsis_1_1Chebfun.html">Chebfun</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1Chebfun.html">Chebfun</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy conststructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01210">1210</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="adb6e0ddafa553a928dda66c0ad063cbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb6e0ddafa553a928dda66c0ad063cbe">&#9670;&nbsp;</a></span>c2p()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adb6e0ddafa553a928dda66c0ad063cbe">&#9670;&nbsp;</a></span>c2p() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -348,16 +542,49 @@ template&lt;class T&gt; </div>
 
 <p>Converts a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> from Chebyshev coefficients to values in physical space. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01257">1257</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01257">1257</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="namespacesis.html#a1cdfef36bb1f5df5f162fdf8eb4446bd">sis::rev_half_shift()</a>, <a class="el" href="sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="namespacesis.html#a1dc1df1fcdb634d6ee9eedafd8a26e5f">sis::rev_half_shift()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l01427">sis::Chebfun&lt; T &gt;::cumsum()</a>, <a class="el" href="sis_8hpp_source.html#l01914">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::cumsum()</a>, <a class="el" href="sis_8hpp_source.html#l01963">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l01444">sis::Chebfun&lt; T &gt;::L2norm()</a>, <a class="el" href="sis_8hpp_source.html#l01930">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::L2norm()</a>, <a class="el" href="sis_8hpp_source.html#l01402">sis::Chebfun&lt; T &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l01879">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l12867">sis::operator*()</a>, <a class="el" href="sis_8hpp_source.html#l13015">sis::operator+()</a>, <a class="el" href="sis_8hpp_source.html#l01382">sis::Chebfun&lt; T &gt;::operator+=()</a>, <a class="el" href="sis_8hpp_source.html#l01844">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator+=()</a>, <a class="el" href="sis_8hpp_source.html#l02708">sis::Linop&lt; T &gt;::operator=()</a>, and <a class="el" href="sis_8hpp_source.html#l02926">sis::Linop&lt; std::complex&lt; T &gt; &gt;::operator=()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l01427">sis::Chebfun&lt; T &gt;::cumsum()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01914">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::cumsum()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01963">sis::diff()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01444">sis::Chebfun&lt; T &gt;::L2norm()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01930">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::L2norm()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01402">sis::Chebfun&lt; T &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01879">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l12867">sis::operator*()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l13015">sis::operator+()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01382">sis::Chebfun&lt; T &gt;::operator+=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01844">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator+=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l02708">sis::Linop&lt; T &gt;::operator=()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l02926">sis::Linop&lt; std::complex&lt; T &gt; &gt;::operator=()</a>.</p>
+
+</div>
+</div>
+<a id="adb6e0ddafa553a928dda66c0ad063cbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb6e0ddafa553a928dda66c0ad063cbe">&#9670;&nbsp;</a></span>c2p() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::c2p </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> from Chebyshev coefficients to values in physical space. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01257">1257</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="namespacesis.html#a1dc1df1fcdb634d6ee9eedafd8a26e5f">sis::rev_half_shift()</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="abb7bfb1940e5d3c3636ba676310320b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb7bfb1940e5d3c3636ba676310320b5">&#9670;&nbsp;</a></span>cumsum()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7bfb1940e5d3c3636ba676310320b5">&#9670;&nbsp;</a></span>cumsum() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -383,14 +610,47 @@ template&lt;class T&gt; </div>
 
 <p>Returns a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> that represents the indefinite integral of the <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01427">1427</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01427">1427</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l01031">sis::integ()</a>, <a class="el" href="sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01031">sis::integ()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="abb7bfb1940e5d3c3636ba676310320b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7bfb1940e5d3c3636ba676310320b5">&#9670;&nbsp;</a></span>cumsum() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsis_1_1Chebfun.html">Chebfun</a>&lt;T&gt; <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::cumsum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> that represents the indefinite integral of the <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01427">1427</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01031">sis::integ()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="afeba4d023f9a433cc822e67db99499bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afeba4d023f9a433cc822e67db99499bf">&#9670;&nbsp;</a></span>ev()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afeba4d023f9a433cc822e67db99499bf">&#9670;&nbsp;</a></span>ev() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -416,14 +676,47 @@ template&lt;class T&gt; </div>
 
 <p>Returns property v in terms of Eigen::Array. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01297">1297</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01297">1297</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="afeba4d023f9a433cc822e67db99499bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeba4d023f9a433cc822e67db99499bf">&#9670;&nbsp;</a></span>ev() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Array&lt;T, Eigen::Dynamic, 1&gt; <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::ev </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns property v in terms of Eigen::Array. </p>
+
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01297">1297</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a4699b4c4e01794c1017def229a2d2c2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4699b4c4e01794c1017def229a2d2c2b">&#9670;&nbsp;</a></span>isMachinePrecision()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4699b4c4e01794c1017def229a2d2c2b">&#9670;&nbsp;</a></span>isMachinePrecision() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,14 +740,45 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01461">1461</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01461">1461</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a4699b4c4e01794c1017def229a2d2c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4699b4c4e01794c1017def229a2d2c2b">&#9670;&nbsp;</a></span>isMachinePrecision() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::isMachinePrecision </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01461">1461</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a117792e0e2e311436fd3fcddf5156f69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a117792e0e2e311436fd3fcddf5156f69">&#9670;&nbsp;</a></span>isMachinePrecisionHalf()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a117792e0e2e311436fd3fcddf5156f69">&#9670;&nbsp;</a></span>isMachinePrecisionHalf() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -478,14 +802,45 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01468">1468</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01468">1468</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a117792e0e2e311436fd3fcddf5156f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a117792e0e2e311436fd3fcddf5156f69">&#9670;&nbsp;</a></span>isMachinePrecisionHalf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::isMachinePrecisionHalf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01468">1468</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a47a9362a03907b615ad1f4029f8f5d64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47a9362a03907b615ad1f4029f8f5d64">&#9670;&nbsp;</a></span>L2norm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a47a9362a03907b615ad1f4029f8f5d64">&#9670;&nbsp;</a></span>L2norm() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -511,16 +866,49 @@ template&lt;class T&gt; </div>
 
 <p>Returns the L2norm of the function. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01444">1444</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01444">1444</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l01031">sis::integ()</a>, <a class="el" href="sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01031">sis::integ()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l03148">sis::EigenSorter&lt; T &gt;::compute()</a>.</p>
+</div>
+</div>
+<a id="a47a9362a03907b615ad1f4029f8f5d64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47a9362a03907b615ad1f4029f8f5d64">&#9670;&nbsp;</a></span>L2norm() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::L2norm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the L2norm of the function. </p>
+
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01444">1444</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01031">sis::integ()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l03148">sis::EigenSorter&lt; T &gt;::compute()</a>.</p>
 
 </div>
 </div>
 <a id="a480348b76f2284b5b37d1e64c0e405c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a480348b76f2284b5b37d1e64c0e405c4">&#9670;&nbsp;</a></span>MultMat()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a480348b76f2284b5b37d1e64c0e405c4">&#9670;&nbsp;</a></span>MultMat() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -547,14 +935,48 @@ template&lt;class T&gt; </div>
 <p>This function returns the Toeplitz + almost Hankel matrix needed to express multiplication of two Chebyshev series. This is used in solving for nonconstant coefficients. </p>
 <p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> to a constant </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01309">1309</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01309">1309</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="jemdoc_8py_source.html#l00375">jemdoc::out()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a480348b76f2284b5b37d1e64c0e405c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a480348b76f2284b5b37d1e64c0e405c4">&#9670;&nbsp;</a></span>MultMat() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt;T, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::MultMat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function returns the Toeplitz + almost Hankel matrix needed to express multiplication of two Chebyshev series. This is used in solving for nonconstant coefficients. </p>
+<p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> to a constant </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01309">1309</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="jemdoc_8py_source.html#l00375">jemdoc::out()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a6b718b8a9362b77c3003d1fbedd59df2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b718b8a9362b77c3003d1fbedd59df2">&#9670;&nbsp;</a></span>operator()()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b718b8a9362b77c3003d1fbedd59df2">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -582,14 +1004,49 @@ template&lt;class T&gt; </div>
 <p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through a Array. </p>
 <p>Evaluate the <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> at a point in the domain, i.e., -1 to 1. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01402">1402</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01402">1402</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a6b718b8a9362b77c3003d1fbedd59df2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b718b8a9362b77c3003d1fbedd59df2">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through a Array. </p>
+<p>Evaluate the <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> at a point in the domain, i.e., -1 to 1. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01402">1402</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a72c8c266c8eb8d8425e63ab59fc9bd28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72c8c266c8eb8d8425e63ab59fc9bd28">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c8c266c8eb8d8425e63ab59fc9bd28">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -616,14 +1073,48 @@ template&lt;class T&gt; </div>
 
 <p>Adding constant to itself. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01372">1372</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01372">1372</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a72c8c266c8eb8d8425e63ab59fc9bd28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c8c266c8eb8d8425e63ab59fc9bd28">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>right</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adding constant to itself. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01372">1372</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="ae944ec53ea275fb03991529a53d4f04a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae944ec53ea275fb03991529a53d4f04a">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae944ec53ea275fb03991529a53d4f04a">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -650,14 +1141,48 @@ template&lt;class T&gt; </div>
 
 <p>Add a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> to itself. If both are in same space, return will be in same space, else the lhs will retain space. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01382">1382</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01382">1382</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="ae944ec53ea275fb03991529a53d4f04a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae944ec53ea275fb03991529a53d4f04a">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsis_1_1Chebfun.html">Chebfun</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>right</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> to itself. If both are in same space, return will be in same space, else the lhs will retain space. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01382">1382</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="ac580d738eb27ac8d0e1b69aa550ed6e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac580d738eb27ac8d0e1b69aa550ed6e6">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac580d738eb27ac8d0e1b69aa550ed6e6">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -684,14 +1209,48 @@ template&lt;class T&gt; </div>
 
 <p>Equating the <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> to a constant. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01345">1345</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01345">1345</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="ac580d738eb27ac8d0e1b69aa550ed6e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac580d738eb27ac8d0e1b69aa550ed6e6">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>right</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Equating the <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> to a constant. </p>
+
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01345">1345</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a8dd34f19def79abd4a34d7f3667d04de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dd34f19def79abd4a34d7f3667d04de">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dd34f19def79abd4a34d7f3667d04de">&#9670;&nbsp;</a></span>operator=() <span class="overload">[3/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -718,14 +1277,48 @@ template&lt;class T&gt; </div>
 
 <p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through another <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01355">1355</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01355">1355</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a8dd34f19def79abd4a34d7f3667d04de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dd34f19def79abd4a34d7f3667d04de">&#9670;&nbsp;</a></span>operator=() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1Chebfun.html">Chebfun</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>right</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through another <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01355">1355</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="ab52c8ee6c590a89656e0dec3f92632f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab52c8ee6c590a89656e0dec3f92632f5">&#9670;&nbsp;</a></span>operator=() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab52c8ee6c590a89656e0dec3f92632f5">&#9670;&nbsp;</a></span>operator=() <span class="overload">[5/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -752,14 +1345,48 @@ template&lt;class T&gt; </div>
 
 <p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through a vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01361">1361</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01361">1361</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="ab52c8ee6c590a89656e0dec3f92632f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab52c8ee6c590a89656e0dec3f92632f5">&#9670;&nbsp;</a></span>operator=() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, Eigen::Dynamic, 1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>right</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through a vector. </p>
+
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01361">1361</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="aede45676b1896173c93ffcfa4f56ff4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aede45676b1896173c93ffcfa4f56ff4f">&#9670;&nbsp;</a></span>operator=() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aede45676b1896173c93ffcfa4f56ff4f">&#9670;&nbsp;</a></span>operator=() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -786,14 +1413,48 @@ template&lt;class T&gt; </div>
 
 <p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through a valarray. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01368">1368</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01368">1368</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="aede45676b1896173c93ffcfa4f56ff4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aede45676b1896173c93ffcfa4f56ff4f">&#9670;&nbsp;</a></span>operator=() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const std::valarray&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>right</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To assign a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> through a valarray. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01368">1368</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
 <a id="a824dda59fc78ce162abfe117b93d29cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a824dda59fc78ce162abfe117b93d29cf">&#9670;&nbsp;</a></span>p2c()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a824dda59fc78ce162abfe117b93d29cf">&#9670;&nbsp;</a></span>p2c() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -819,16 +1480,49 @@ template&lt;class T&gt; </div>
 
 <p>Converts a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> from values in physical-space to coefficients of Chebyshev polynomials. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01217">1217</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01217">1217</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l11976">sis::conj()</a>, <a class="el" href="sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="sis_8hpp_source.html#l00544">sis::fft()</a>, <a class="el" href="namespacesis.html#a06185483ba2178a2719d4f9674d57329">sis::half_shift()</a>, <a class="el" href="sis_8hpp_source.html#l00280">std::real()</a>, <a class="el" href="sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, <a class="el" href="sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>, and <a class="el" href="namespacesis.html#a55b489afa593b0e9c014a92c5bfeabce">sis::y()</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l11976">sis::conj()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00544">sis::fft()</a>, <a class="el" href="namespacesis.html#a08926c98cb67e68fd8eb8972b1f197e3">sis::half_shift()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00280">std::real()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>, and <a class="el" href="namespacesis.html#ac206f262ce8dc86ad0e10d1f3837bae8">sis::y()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l10067">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::ChebDiff()</a>, <a class="el" href="sis_8hpp_source.html#l01427">sis::Chebfun&lt; T &gt;::cumsum()</a>, <a class="el" href="sis_8hpp_source.html#l01914">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::cumsum()</a>, <a class="el" href="sis_8hpp_source.html#l01963">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l01444">sis::Chebfun&lt; T &gt;::L2norm()</a>, <a class="el" href="sis_8hpp_source.html#l01930">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::L2norm()</a>, <a class="el" href="sis_8hpp_source.html#l01309">sis::Chebfun&lt; T &gt;::MultMat()</a>, <a class="el" href="sis_8hpp_source.html#l01742">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::MultMat()</a>, <a class="el" href="sis_8hpp_source.html#l01402">sis::Chebfun&lt; T &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l01879">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l12867">sis::operator*()</a>, <a class="el" href="sis_8hpp_source.html#l13015">sis::operator+()</a>, <a class="el" href="sis_8hpp_source.html#l01382">sis::Chebfun&lt; T &gt;::operator+=()</a>, <a class="el" href="sis_8hpp_source.html#l01844">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator+=()</a>, <a class="el" href="sis_8hpp_source.html#l02708">sis::Linop&lt; T &gt;::operator=()</a>, and <a class="el" href="sis_8hpp_source.html#l02926">sis::Linop&lt; std::complex&lt; T &gt; &gt;::operator=()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l10067">sis::Discretize&lt; std::complex&lt; T &gt; &gt;::ChebDiff()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01427">sis::Chebfun&lt; T &gt;::cumsum()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01914">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::cumsum()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01963">sis::diff()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01444">sis::Chebfun&lt; T &gt;::L2norm()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01930">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::L2norm()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01309">sis::Chebfun&lt; T &gt;::MultMat()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01742">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::MultMat()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01402">sis::Chebfun&lt; T &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01879">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l12867">sis::operator*()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l13015">sis::operator+()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01382">sis::Chebfun&lt; T &gt;::operator+=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01844">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator+=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l02708">sis::Linop&lt; T &gt;::operator=()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l02926">sis::Linop&lt; std::complex&lt; T &gt; &gt;::operator=()</a>.</p>
+
+</div>
+</div>
+<a id="a824dda59fc78ce162abfe117b93d29cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a824dda59fc78ce162abfe117b93d29cf">&#9670;&nbsp;</a></span>p2c() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::p2c </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a <a class="el" href="classsis_1_1Chebfun.html" title="This is a chebfun analogue. Chebfun will represent both values in physical space or an array of Cheby...">Chebfun</a> from values in physical-space to coefficients of Chebyshev polynomials. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01217">1217</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l11976">sis::conj()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01153">sis::Chebfun&lt; T &gt;::dct_flag</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00544">sis::fft()</a>, <a class="el" href="namespacesis.html#a08926c98cb67e68fd8eb8972b1f197e3">sis::half_shift()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00280">std::real()</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00471">SIS_CHEB_SPACE</a>, <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l00470">SIS_PHYS_SPACE</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>, and <a class="el" href="namespacesis.html#ac206f262ce8dc86ad0e10d1f3837bae8">sis::y()</a>.</p>
 
 </div>
 </div>
 <a id="a142e8e9dcc8c61ad3d9f289f2d1cab94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a142e8e9dcc8c61ad3d9f289f2d1cab94">&#9670;&nbsp;</a></span>trunc()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a142e8e9dcc8c61ad3d9f289f2d1cab94">&#9670;&nbsp;</a></span>trunc() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -854,9 +1548,42 @@ template&lt;class T&gt; </div>
 
 <p>Provides the truncation defined in terms of the abs(last + last_but_one)/2.0. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01478">1478</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l01478">1478</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
+
+</div>
+</div>
+<a id="a142e8e9dcc8c61ad3d9f289f2d1cab94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a142e8e9dcc8c61ad3d9f289f2d1cab94">&#9670;&nbsp;</a></span>trunc() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::trunc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Provides the truncation defined in terms of the abs(last + last_but_one)/2.0. </p>
+
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01478">1478</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01156">sis::Chebfun&lt; T &gt;::v</a>.</p>
 
 </div>
 </div>
@@ -875,14 +1602,14 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01153">1153</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01153">1153</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="sis_8hpp_source.html#l01615">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::c2p()</a>, <a class="el" href="sis_8hpp_source.html#l01160">sis::Chebfun&lt; T &gt;::Chebfun()</a>, <a class="el" href="sis_8hpp_source.html#l01499">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::Chebfun()</a>, <a class="el" href="sis_8hpp_source.html#l03148">sis::EigenSorter&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l01427">sis::Chebfun&lt; T &gt;::cumsum()</a>, <a class="el" href="sis_8hpp_source.html#l01914">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::cumsum()</a>, <a class="el" href="sis_8hpp_source.html#l01963">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l01907">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::imag()</a>, <a class="el" href="sis_8hpp_source.html#l01444">sis::Chebfun&lt; T &gt;::L2norm()</a>, <a class="el" href="sis_8hpp_source.html#l01930">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::L2norm()</a>, <a class="el" href="sis_8hpp_source.html#l01309">sis::Chebfun&lt; T &gt;::MultMat()</a>, <a class="el" href="sis_8hpp_source.html#l01742">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::MultMat()</a>, <a class="el" href="sis_8hpp_source.html#l01402">sis::Chebfun&lt; T &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l01879">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l12747">sis::operator*()</a>, <a class="el" href="sis_8hpp_source.html#l13015">sis::operator+()</a>, <a class="el" href="sis_8hpp_source.html#l01382">sis::Chebfun&lt; T &gt;::operator+=()</a>, <a class="el" href="sis_8hpp_source.html#l01828">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator+=()</a>, <a class="el" href="sis_8hpp_source.html#l01345">sis::Chebfun&lt; T &gt;::operator=()</a>, <a class="el" href="sis_8hpp_source.html#l01788">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator=()</a>, <a class="el" href="sis_8hpp_source.html#l02708">sis::Linop&lt; T &gt;::operator=()</a>, <a class="el" href="sis_8hpp_source.html#l02926">sis::Linop&lt; std::complex&lt; T &gt; &gt;::operator=()</a>, <a class="el" href="sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="sis_8hpp_source.html#l01555">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::p2c()</a>, and <a class="el" href="sis_8hpp_source.html#l01901">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::real()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01615">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01160">sis::Chebfun&lt; T &gt;::Chebfun()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01499">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::Chebfun()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03148">sis::EigenSorter&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01427">sis::Chebfun&lt; T &gt;::cumsum()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01914">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::cumsum()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01963">sis::diff()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01907">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::imag()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01444">sis::Chebfun&lt; T &gt;::L2norm()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01930">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::L2norm()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01309">sis::Chebfun&lt; T &gt;::MultMat()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01742">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::MultMat()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01402">sis::Chebfun&lt; T &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01879">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l12747">sis::operator*()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l13015">sis::operator+()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01382">sis::Chebfun&lt; T &gt;::operator+=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01828">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator+=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01345">sis::Chebfun&lt; T &gt;::operator=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01788">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l02708">sis::Linop&lt; T &gt;::operator=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l02926">sis::Linop&lt; std::complex&lt; T &gt; &gt;::operator=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01555">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::p2c()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01901">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::real()</a>.</p>
 
 </div>
 </div>
-<a id="a1b4d63e278847d24c896f47e6146fdeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b4d63e278847d24c896f47e6146fdeb">&#9670;&nbsp;</a></span>v</h2>
+<a id="a4fa04bbf1167480e04917a990bf0a98b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fa04bbf1167480e04917a990bf0a98b">&#9670;&nbsp;</a></span>v</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -890,21 +1617,21 @@ template&lt;class T&gt; </div>
 template&lt;class T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::valarray&lt;T&gt; <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::v</td>
+          <td class="memname">std::valarray&lt; T &gt; <a class="el" href="classsis_1_1Chebfun.html">sis::Chebfun</a>&lt; T &gt;::v</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Stores a flag to denote if function is in Cheb-space or physical space. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l01156">1156</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l01156">1156</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="sis_8hpp_source.html#l01615">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::c2p()</a>, <a class="el" href="sis_8hpp_source.html#l01160">sis::Chebfun&lt; T &gt;::Chebfun()</a>, <a class="el" href="sis_8hpp_source.html#l01499">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::Chebfun()</a>, <a class="el" href="sis_8hpp_source.html#l01427">sis::Chebfun&lt; T &gt;::cumsum()</a>, <a class="el" href="sis_8hpp_source.html#l01914">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::cumsum()</a>, <a class="el" href="sis_8hpp_source.html#l01963">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l01297">sis::Chebfun&lt; T &gt;::ev()</a>, <a class="el" href="sis_8hpp_source.html#l01731">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::evc()</a>, <a class="el" href="sis_8hpp_source.html#l01721">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::evi()</a>, <a class="el" href="sis_8hpp_source.html#l01711">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::evr()</a>, <a class="el" href="sis_8hpp_source.html#l01907">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::imag()</a>, <a class="el" href="sis_8hpp_source.html#l01461">sis::Chebfun&lt; T &gt;::isMachinePrecision()</a>, <a class="el" href="sis_8hpp_source.html#l01468">sis::Chebfun&lt; T &gt;::isMachinePrecisionHalf()</a>, <a class="el" href="sis_8hpp_source.html#l01444">sis::Chebfun&lt; T &gt;::L2norm()</a>, <a class="el" href="sis_8hpp_source.html#l01930">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::L2norm()</a>, <a class="el" href="sis_8hpp_source.html#l01309">sis::Chebfun&lt; T &gt;::MultMat()</a>, <a class="el" href="sis_8hpp_source.html#l01742">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::MultMat()</a>, <a class="el" href="sis_8hpp_source.html#l01402">sis::Chebfun&lt; T &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l01879">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l02663">sis::Linop&lt; T &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l02867">sis::Linop&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="sis_8hpp_source.html#l12747">sis::operator*()</a>, <a class="el" href="sis_8hpp_source.html#l13015">sis::operator+()</a>, <a class="el" href="sis_8hpp_source.html#l01372">sis::Chebfun&lt; T &gt;::operator+=()</a>, <a class="el" href="sis_8hpp_source.html#l01828">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator+=()</a>, <a class="el" href="sis_8hpp_source.html#l12069">sis::operator-()</a>, <a class="el" href="sis_8hpp_source.html#l01345">sis::Chebfun&lt; T &gt;::operator=()</a>, <a class="el" href="sis_8hpp_source.html#l01788">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator=()</a>, <a class="el" href="sis_8hpp_source.html#l02708">sis::Linop&lt; T &gt;::operator=()</a>, <a class="el" href="sis_8hpp_source.html#l02926">sis::Linop&lt; std::complex&lt; T &gt; &gt;::operator=()</a>, <a class="el" href="sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="sis_8hpp_source.html#l01555">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::p2c()</a>, <a class="el" href="sis_8hpp_source.html#l01901">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::real()</a>, <a class="el" href="sis_8hpp_source.html#l01478">sis::Chebfun&lt; T &gt;::trunc()</a>, and <a class="el" href="sis_8hpp_source.html#l01949">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::trunc()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l01257">sis::Chebfun&lt; T &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01615">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::c2p()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01160">sis::Chebfun&lt; T &gt;::Chebfun()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01499">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::Chebfun()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01427">sis::Chebfun&lt; T &gt;::cumsum()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01914">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::cumsum()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01963">sis::diff()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01297">sis::Chebfun&lt; T &gt;::ev()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01731">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::evc()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01721">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::evi()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01711">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::evr()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01907">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::imag()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01461">sis::Chebfun&lt; T &gt;::isMachinePrecision()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01468">sis::Chebfun&lt; T &gt;::isMachinePrecisionHalf()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01444">sis::Chebfun&lt; T &gt;::L2norm()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01930">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::L2norm()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01309">sis::Chebfun&lt; T &gt;::MultMat()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01742">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::MultMat()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01402">sis::Chebfun&lt; T &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01879">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator()()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l12747">sis::operator*()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l13015">sis::operator+()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01372">sis::Chebfun&lt; T &gt;::operator+=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01828">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator+=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01345">sis::Chebfun&lt; T &gt;::operator=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01788">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::operator=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l02708">sis::Linop&lt; T &gt;::operator=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l02926">sis::Linop&lt; std::complex&lt; T &gt; &gt;::operator=()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01217">sis::Chebfun&lt; T &gt;::p2c()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01555">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::p2c()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01901">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::real()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l01478">sis::Chebfun&lt; T &gt;::trunc()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l01949">sis::Chebfun&lt; std::complex&lt; T &gt; &gt;::trunc()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>includes/<a class="el" href="sis_8hpp_source.html">sis.hpp</a></li>
+<li>includes/<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

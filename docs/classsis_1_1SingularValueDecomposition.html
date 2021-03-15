@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('classsis_1_1SingularValueDecomposition
 <p>This class computes various SingularValues of a differential block matrix operator using using it's adjoint. Class has various utilities, like computing the adjoint, adjoint boundary conditions, and also computing singular values of the frequency response operator.  
  <a href="classsis_1_1SingularValueDecomposition.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for sis::SingularValueDecomposition&lt; T &gt;:</div>
 <div class="dyncontent">
@@ -145,7 +145,41 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aab581208a295338d8bd787f4eee13f83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1SingularValueDecomposition.html#aab581208a295338d8bd787f4eee13f83">AdjointBc_analytical</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Rbc_)</td></tr>
 <tr class="memdesc:aab581208a295338d8bd787f4eee13f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes adjoint boundary conditions analytically, needs boundary conditions all right boundary conditions in rbc, and all left boundary conditions in lbc. All dependent variables need not have boundary conditions specified, but it is essential that the number of boundary conditions be equal to the sum of derivatives of all independent variables, and all the boundary conditions be linearly independent. The adjoint boundary conditions will be returned in the output, as a <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a>, will all boundary conditions for left and right in it, in the orders left followed by right.  <a href="#aab581208a295338d8bd787f4eee13f83">More...</a><br /></td></tr>
 <tr class="separator:aab581208a295338d8bd787f4eee13f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5e96111ad3ff7fca68fcad508652ab3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1SingularValueDecomposition.html#ab5e96111ad3ff7fca68fcad508652ab3">compute</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;A_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Rbc_, int num_vals)</td></tr>
+<tr class="memdesc:ab5e96111ad3ff7fca68fcad508652ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the singular values/functions of a Linear block matrix operator.  <a href="#ab5e96111ad3ff7fca68fcad508652ab3">More...</a><br /></td></tr>
+<tr class="separator:ab5e96111ad3ff7fca68fcad508652ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e44df044ca927065d016c98352e4444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1SingularValueDecomposition.html#a4e44df044ca927065d016c98352e4444">compute</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;A_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;B_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;C_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Rbc_, int num_vals)</td></tr>
+<tr class="memdesc:a4e44df044ca927065d016c98352e4444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Singular value(s) of a system in the input-output form, </p><p class="formulaDsp">
+\begin{align} [\mathcal{A}\,\psi(\cdot)](y) \;&amp;=\; [\mathcal{B}\,\boldmath{d}(\cdot)](y) \\ \phi(y) \;&amp;=\; \mathcal{C}\,\psi(y), \end{align}
+</p>
+<p> This is used to the find the frequency response of block matrix operators.  <a href="#a4e44df044ca927065d016c98352e4444">More...</a><br /></td></tr>
+<tr class="separator:a4e44df044ca927065d016c98352e4444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd1d316f1d9f1bfb535159929405976"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1SingularValueDecomposition.html#a5fd1d316f1d9f1bfb535159929405976">compute</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;A_, const <a class="el" href="classsis_1_1ChebfunMat.html">ChebfunMat</a>&lt; T &gt; &amp;B_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;C_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Rbc_, int num_vals)</td></tr>
+<tr class="memdesc:a5fd1d316f1d9f1bfb535159929405976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Singular value(s) of a system in the input-output form, </p><p class="formulaDsp">
+\begin{align} [\mathcal{A}\,\psi(\cdot)](y) \;&amp;=\; B(y)\,d \phi(y) \;&amp;=\; \mathcal{C}\,\psi(y), \end{align}
+</p>
+<p> here, B(y) is a function and not an operator.  <a href="#a5fd1d316f1d9f1bfb535159929405976">More...</a><br /></td></tr>
+<tr class="separator:a5fd1d316f1d9f1bfb535159929405976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62d78336c653c5d1b42347aa2bf20c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1SingularValueDecomposition.html#ad62d78336c653c5d1b42347aa2bf20c4">Adjoint</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_)</td></tr>
+<tr class="memdesc:ad62d78336c653c5d1b42347aa2bf20c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the adjoint of a linear operator. This is a differential adjoint, and not the conjugate transpose of the operators in the <a class="el" href="classsis_1_1LinopMat.html" title="This class represents a block matrix operator. It is a matrix of operators. ">LinopMat</a>. To get the latter, use cTranspose(); Adjoints are for generic discriptor systems, like \(M\partial_{t}\phi(y) = L\phi(y)\).  <a href="#ad62d78336c653c5d1b42347aa2bf20c4">More...</a><br /></td></tr>
+<tr class="separator:ad62d78336c653c5d1b42347aa2bf20c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab581208a295338d8bd787f4eee13f83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1SingularValueDecomposition.html#aab581208a295338d8bd787f4eee13f83">AdjointBc_analytical</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Rbc_)</td></tr>
+<tr class="memdesc:aab581208a295338d8bd787f4eee13f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes adjoint boundary conditions analytically, needs boundary conditions all right boundary conditions in rbc, and all left boundary conditions in lbc. All dependent variables need not have boundary conditions specified, but it is essential that the number of boundary conditions be equal to the sum of derivatives of all independent variables, and all the boundary conditions be linearly independent. The adjoint boundary conditions will be returned in the output, as a <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a>, will all boundary conditions for left and right in it, in the orders left followed by right.  <a href="#aab581208a295338d8bd787f4eee13f83">More...</a><br /></td></tr>
+<tr class="separator:aab581208a295338d8bd787f4eee13f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classsis_1_1GeneralizedEigenSolver"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsis_1_1GeneralizedEigenSolver')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver&lt; T &gt;</a></td></tr>
+<tr class="memitem:a18ff3d27f0ff3f1aa832ad4052836c77 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a18ff3d27f0ff3f1aa832ad4052836c77">GeneralizedEigenSolver</a> ()</td></tr>
+<tr class="memdesc:a18ff3d27f0ff3f1aa832ad4052836c77 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null constructor.  <a href="classsis_1_1GeneralizedEigenSolver.html#a18ff3d27f0ff3f1aa832ad4052836c77">More...</a><br /></td></tr>
+<tr class="separator:a18ff3d27f0ff3f1aa832ad4052836c77 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada0de2621ddccf738bcb3498caf21e80 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#ada0de2621ddccf738bcb3498caf21e80">compute</a> (<a class="el" href="classsis_1_1Linop.html">Linop</a>&lt; T &gt; L, <a class="el" href="classsis_1_1Linop.html">Linop</a>&lt; T &gt; M, int num_vals)</td></tr>
+<tr class="memdesc:ada0de2621ddccf738bcb3498caf21e80 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen values/vectors is num_vals, num_vals has to be less than N.  <a href="classsis_1_1GeneralizedEigenSolver.html#ada0de2621ddccf738bcb3498caf21e80">More...</a><br /></td></tr>
+<tr class="separator:ada0de2621ddccf738bcb3498caf21e80 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d6b37f39a3a4d2de873524a4d177f3a inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a2d6b37f39a3a4d2de873524a4d177f3a">compute</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Mmat_, int num_vals, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_)</td></tr>
+<tr class="memdesc:a2d6b37f39a3a4d2de873524a4d177f3a inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">This will use do the same work as <a class="el" href="classsis_1_1GeneralizedEigenSolver.html#ada0de2621ddccf738bcb3498caf21e80" title="Call this with an input Linear operator to solve for eigenvalues and vectors. The number of Eigen val...">compute()</a>, but will overide all boundary conditions specified through BcVec and use the input <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> instead. Read about class <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a> to see how this works, also see examples example/Ex_16.cpp and test/Visco_3D_pipe.cpp of how this is applied. This function is useful when boundary conditions are mixed between variables. Also, if you have boundary conditions that have an associated eigenvalue, see compute_with_constraints.  <a href="classsis_1_1GeneralizedEigenSolver.html#a2d6b37f39a3a4d2de873524a4d177f3a">More...</a><br /></td></tr>
+<tr class="separator:a2d6b37f39a3a4d2de873524a4d177f3a inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8b31909c2aeecf0b87a1589236f1d59 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#ae8b31909c2aeecf0b87a1589236f1d59">compute_with_constraints</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Mmat_, int num_vals, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Mbc_)</td></tr>
+<tr class="separator:ae8b31909c2aeecf0b87a1589236f1d59 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca1c7c56b5c06b1c4f1d3775d461d407 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#aca1c7c56b5c06b1c4f1d3775d461d407">compute_with_constraints</a> (const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Lmat_, const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;Mmat_, int num_vals, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_embed_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Lbc_append_, const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;Mbc_append_)</td></tr>
+<tr class="separator:aca1c7c56b5c06b1c4f1d3775d461d407 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18ff3d27f0ff3f1aa832ad4052836c77 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a18ff3d27f0ff3f1aa832ad4052836c77">GeneralizedEigenSolver</a> ()</td></tr>
 <tr class="memdesc:a18ff3d27f0ff3f1aa832ad4052836c77 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null constructor.  <a href="classsis_1_1GeneralizedEigenSolver.html#a18ff3d27f0ff3f1aa832ad4052836c77">More...</a><br /></td></tr>
 <tr class="separator:a18ff3d27f0ff3f1aa832ad4052836c77 inherit pub_methods_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,10 +197,10 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_classsis_1_1GeneralizedEigenSolver"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classsis_1_1GeneralizedEigenSolver')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classsis_1_1GeneralizedEigenSolver.html">sis::GeneralizedEigenSolver&lt; T &gt;</a></td></tr>
-<tr class="memitem:a25ae795bca412e76544c6142fff8f826 inherit pub_attribs_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsis_1_1ChebfunMat.html">ChebfunMat</a>&lt; std::complex&lt; T &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a25ae795bca412e76544c6142fff8f826">eigenvectorsMat</a></td></tr>
-<tr class="separator:a25ae795bca412e76544c6142fff8f826 inherit pub_attribs_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25e086f867356932852436fcc7d9c201 inherit pub_attribs_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a25e086f867356932852436fcc7d9c201">eigenvalues</a></td></tr>
-<tr class="separator:a25e086f867356932852436fcc7d9c201 inherit pub_attribs_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff772037e76153ff257ad440601ed89b inherit pub_attribs_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsis_1_1ChebfunMat.html">ChebfunMat</a>&lt; std::complex&lt; T &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#aff772037e76153ff257ad440601ed89b">eigenvectorsMat</a></td></tr>
+<tr class="separator:aff772037e76153ff257ad440601ed89b inherit pub_attribs_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50110f41d45339fc8386af689d32e0b0 inherit pub_attribs_classsis_1_1GeneralizedEigenSolver"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1GeneralizedEigenSolver.html#a50110f41d45339fc8386af689d32e0b0">eigenvalues</a></td></tr>
+<tr class="separator:a50110f41d45339fc8386af689d32e0b0 inherit pub_attribs_classsis_1_1GeneralizedEigenSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
@@ -174,10 +208,10 @@ class sis::SingularValueDecomposition&lt; T &gt;</h3>
 
 <p>This class computes various SingularValues of a differential block matrix operator using using it's adjoint. Class has various utilities, like computing the adjoint, adjoint boundary conditions, and also computing singular values of the frequency response operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l00531">531</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l00531">531</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad62d78336c653c5d1b42347aa2bf20c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad62d78336c653c5d1b42347aa2bf20c4">&#9670;&nbsp;</a></span>Adjoint()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad62d78336c653c5d1b42347aa2bf20c4">&#9670;&nbsp;</a></span>Adjoint() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,16 +238,50 @@ template&lt;class T&gt; </div>
 
 <p>Computes the adjoint of a linear operator. This is a differential adjoint, and not the conjugate transpose of the operators in the <a class="el" href="classsis_1_1LinopMat.html" title="This class represents a block matrix operator. It is a matrix of operators. ">LinopMat</a>. To get the latter, use cTranspose(); Adjoints are for generic discriptor systems, like \(M\partial_{t}\phi(y) = L\phi(y)\). </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l09269">9269</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l09269">9269</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00987">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l00256">ind</a>, <a class="el" href="sis_8hpp_source.html#l13052">sis::pow()</a>, and <a class="el" href="sis_8hpp_source.html#l08214">sis::LinopMat&lt; T &gt;::resize()</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00987">sis::diff()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00256">ind</a>, <a class="el" href="includes_2sis_8hpp_source.html#l13052">sis::pow()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08214">sis::LinopMat&lt; T &gt;::resize()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l09139">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l10295">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l10580">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::PowerSpectralDensity()</a>, and <a class="el" href="sis_8hpp_source.html#l10781">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::PowerSpectralDensityIndividual()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l09139">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l10295">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l10580">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::PowerSpectralDensity()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l10781">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::PowerSpectralDensityIndividual()</a>.</p>
+
+</div>
+</div>
+<a id="ad62d78336c653c5d1b42347aa2bf20c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad62d78336c653c5d1b42347aa2bf20c4">&#9670;&nbsp;</a></span>Adjoint() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt;T&gt; <a class="el" href="classsis_1_1SingularValueDecomposition.html">sis::SingularValueDecomposition</a>&lt; T &gt;::Adjoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Lmat_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the adjoint of a linear operator. This is a differential adjoint, and not the conjugate transpose of the operators in the <a class="el" href="classsis_1_1LinopMat.html" title="This class represents a block matrix operator. It is a matrix of operators. ">LinopMat</a>. To get the latter, use cTranspose(); Adjoints are for generic discriptor systems, like \(M\partial_{t}\phi(y) = L\phi(y)\). </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l09269">9269</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00987">sis::diff()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00256">ind</a>, <a class="el" href="includes_2sis_8hpp_source.html#l13052">sis::pow()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08214">sis::LinopMat&lt; T &gt;::resize()</a>.</p>
 
 </div>
 </div>
 <a id="aab581208a295338d8bd787f4eee13f83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab581208a295338d8bd787f4eee13f83">&#9670;&nbsp;</a></span>AdjointBc_analytical()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aab581208a295338d8bd787f4eee13f83">&#9670;&nbsp;</a></span>AdjointBc_analytical() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,16 +324,66 @@ template&lt;class T&gt; </div>
 
 <p>Computes adjoint boundary conditions analytically, needs boundary conditions all right boundary conditions in rbc, and all left boundary conditions in lbc. All dependent variables need not have boundary conditions specified, but it is essential that the number of boundary conditions be equal to the sum of derivatives of all independent variables, and all the boundary conditions be linearly independent. The adjoint boundary conditions will be returned in the output, as a <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a>, will all boundary conditions for left and right in it, in the orders left followed by right. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l09408">9408</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l09408">9408</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l00987">sis::diff()</a>, <a class="el" href="sis_8hpp_source.html#l09076">sis::feval2D()</a>, and <a class="el" href="sis_8hpp_source.html#l13052">sis::pow()</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00987">sis::diff()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l09076">sis::feval2D()</a>, <a class="el" href="jemdoc_8py_source.html#l00375">jemdoc::out()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l13052">sis::pow()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l09139">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l10295">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l10580">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::PowerSpectralDensity()</a>, and <a class="el" href="sis_8hpp_source.html#l10781">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::PowerSpectralDensityIndividual()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l09139">sis::SingularValueDecomposition&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l10295">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l10580">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::PowerSpectralDensity()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l10781">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::PowerSpectralDensityIndividual()</a>.</p>
+
+</div>
+</div>
+<a id="aab581208a295338d8bd787f4eee13f83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab581208a295338d8bd787f4eee13f83">&#9670;&nbsp;</a></span>AdjointBc_analytical() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt;T&gt; <a class="el" href="classsis_1_1SingularValueDecomposition.html">sis::SingularValueDecomposition</a>&lt; T &gt;::AdjointBc_analytical </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Lmat_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Lbc_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Rbc_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes adjoint boundary conditions analytically, needs boundary conditions all right boundary conditions in rbc, and all left boundary conditions in lbc. All dependent variables need not have boundary conditions specified, but it is essential that the number of boundary conditions be equal to the sum of derivatives of all independent variables, and all the boundary conditions be linearly independent. The adjoint boundary conditions will be returned in the output, as a <a class="el" href="classsis_1_1BcMat.html" title="BcMat will hold general Boundary conditions as LinopMats at evealuation points, as given by operator ...">BcMat</a>, will all boundary conditions for left and right in it, in the orders left followed by right. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l09408">9408</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l00987">sis::diff()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l09076">sis::feval2D()</a>, <a class="el" href="jemdoc_8py_source.html#l00375">jemdoc::out()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l13052">sis::pow()</a>.</p>
 
 </div>
 </div>
 <a id="ab5e96111ad3ff7fca68fcad508652ab3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5e96111ad3ff7fca68fcad508652ab3">&#9670;&nbsp;</a></span>compute() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5e96111ad3ff7fca68fcad508652ab3">&#9670;&nbsp;</a></span>compute() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,16 +432,72 @@ template&lt;class T&gt; </div>
 
 <p>Computes the singular values/functions of a Linear block matrix operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l09139">9139</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l09139">9139</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l09269">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, <a class="el" href="sis_8hpp_source.html#l09408">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>, <a class="el" href="sis_8hpp_source.html#l03267">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, and <a class="el" href="sis_8hpp_source.html#l00256">ind</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l09269">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l09408">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03267">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l00256">ind</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="sis_8hpp_source.html#l10295">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::compute()</a>, and <a class="el" href="Ex__10_8cpp_source.html#l00023">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="includes_2sis_8hpp_source.html#l10295">sis::SingularValueDecomposition&lt; std::complex&lt; T &gt; &gt;::compute()</a>, and <a class="el" href="examples_2FrequencyResponses_2Ex__10_8cpp_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a id="ab5e96111ad3ff7fca68fcad508652ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5e96111ad3ff7fca68fcad508652ab3">&#9670;&nbsp;</a></span>compute() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1SingularValueDecomposition.html">sis::SingularValueDecomposition</a>&lt; T &gt;::compute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>A_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Lbc_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Rbc_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_vals</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the singular values/functions of a Linear block matrix operator. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l09139">9139</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l09269">sis::SingularValueDecomposition&lt; T &gt;::Adjoint()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l09408">sis::SingularValueDecomposition&lt; T &gt;::AdjointBc_analytical()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l03267">sis::GeneralizedEigenSolver&lt; T &gt;::compute()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l00256">ind</a>.</p>
 
 </div>
 </div>
 <a id="a4e44df044ca927065d016c98352e4444"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e44df044ca927065d016c98352e4444">&#9670;&nbsp;</a></span>compute() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e44df044ca927065d016c98352e4444">&#9670;&nbsp;</a></span>compute() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -387,12 +561,81 @@ template&lt;class T&gt; </div>
 </p>
 <p> This is used to the find the frequency response of block matrix operators. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l09245">9245</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l09245">9245</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4e44df044ca927065d016c98352e4444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e44df044ca927065d016c98352e4444">&#9670;&nbsp;</a></span>compute() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1SingularValueDecomposition.html">sis::SingularValueDecomposition</a>&lt; T &gt;::compute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>A_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>B_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>C_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Lbc_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Rbc_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_vals</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the Singular value(s) of a system in the input-output form, </p><p class="formulaDsp">
+\begin{align} [\mathcal{A}\,\psi(\cdot)](y) \;&amp;=\; [\mathcal{B}\,\boldmath{d}(\cdot)](y) \\ \phi(y) \;&amp;=\; \mathcal{C}\,\psi(y), \end{align}
+</p>
+<p> This is used to the find the frequency response of block matrix operators. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l09245">9245</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a5fd1d316f1d9f1bfb535159929405976"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fd1d316f1d9f1bfb535159929405976">&#9670;&nbsp;</a></span>compute() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd1d316f1d9f1bfb535159929405976">&#9670;&nbsp;</a></span>compute() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -456,12 +699,81 @@ template&lt;class T&gt; </div>
 </p>
 <p> here, B(y) is a function and not an operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l09258">9258</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l09258">9258</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5fd1d316f1d9f1bfb535159929405976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd1d316f1d9f1bfb535159929405976">&#9670;&nbsp;</a></span>compute() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1SingularValueDecomposition.html">sis::SingularValueDecomposition</a>&lt; T &gt;::compute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>A_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1ChebfunMat.html">ChebfunMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>B_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>C_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Lbc_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Rbc_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_vals</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the Singular value(s) of a system in the input-output form, </p><p class="formulaDsp">
+\begin{align} [\mathcal{A}\,\psi(\cdot)](y) \;&amp;=\; B(y)\,d \phi(y) \;&amp;=\; \mathcal{C}\,\psi(y), \end{align}
+</p>
+<p> here, B(y) is a function and not an operator. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l09258">9258</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>includes/<a class="el" href="sis_8hpp_source.html">sis.hpp</a></li>
+<li>includes/<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

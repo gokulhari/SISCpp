@@ -3,7 +3,7 @@
 # jemdoc: addcss{bibover.css}
 #include{masterFile_2.jeminc}
 #include{mj-complete-bib_3.jeminc}
-= Eigenvalue example
+= Eigenvalues of the reaction-diffusion system
 
 === Problem
 Find the eigenvalues of

@@ -105,12 +105,12 @@ $(document).ready(function(){initNavTree('Ex__01_8cpp.html','');});
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This simulates a simple 2nd order ODE with mixed boundary conditions. </p>
 <p>Solves: </p><p class="formulaDsp">
-\[ \partial_{yy}u(y)\,-\,4\, u(y)\;=\; 1 \; - \; y^2, \]
+\[ \mathrm D u(y)\,-\,4\, u(y)\;=\; 1 \; - \; y^2, \]
 </p>
 <p> with boundary conditions: </p><p class="formulaDsp">
-\begin{align*} u(-1) \,+\, 4\,u&#39;(-1)\;&amp;=\; 2,\\ u(1) \,-\, 5\,u&#39;(1)\;&amp;=\; 3. \end{align*}
+\begin{align*} u(-1) \,+\, 4\,[\mathrm D u(\cdot)](-1)\;&amp;=\; 2,\\ u(+1) \,-\, 5\,[\mathrm D u(\cdot)](+1)\;&amp;=\; 3. \end{align*}
 </p>
-<p> Solving by entering the forcing in physical-space, so solution is returned in physical space.</p>
+<p> where \( \mathrm D = \mathrm d/\mathrm d y \). Solving by entering the forcing in physical-space, so solution is returned in physical space.</p>
 <div class="image">
 <object type="image/svg+xml" data="Ex_01.svg" width="500cm" height="500cm">Ex_01.svg</object>
 </div>

@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('classsis_1_1BcMat_3_01std_1_1complex_3
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for sis::BcMat&lt; std::complex&lt; T &gt; &gt;:</div>
 <div class="dyncontent">
@@ -129,25 +129,40 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a280f89291dbe766e1e0510fe32002034"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a280f89291dbe766e1e0510fe32002034">operator()</a> (int i, int j, int ord)</td></tr>
 <tr class="memdesc:a280f89291dbe766e1e0510fe32002034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calling BcMat(i,j, ord) will produce row vector representing [---&mdash;][a0 a1 ... an C0 C1]^T, assuming ord = 2. i and j refers to an element in the <a class="el" href="classsis_1_1LinopMat.html" title="This class represents a block matrix operator. It is a matrix of operators. ">LinopMat</a> L. Suppose L(1,1) is Dyy, and eval(1,1) = -1, then the row matrix will represent the evaluation of that condition in the basis of a0 to C1.  <a href="#a280f89291dbe766e1e0510fe32002034">More...</a><br /></td></tr>
 <tr class="separator:a280f89291dbe766e1e0510fe32002034"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a0d9b8c32b04721f30bd73903381e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#af7a0d9b8c32b04721f30bd73903381e5">BcMat</a> ()</td></tr>
+<tr class="separator:af7a0d9b8c32b04721f30bd73903381e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0586c1a52ad805ccae9eabee3c1fab61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a0586c1a52ad805ccae9eabee3c1fab61">BcMat</a> (int m_, int n_)</td></tr>
+<tr class="separator:a0586c1a52ad805ccae9eabee3c1fab61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15eaba5ecb8460a955473135e1599c6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a15eaba5ecb8460a955473135e1599c6e">resize</a> (int m_, int n_)</td></tr>
+<tr class="separator:a15eaba5ecb8460a955473135e1599c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72c6489968d268fbcb2f481a781589bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a72c6489968d268fbcb2f481a781589bd">operator=</a> (const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; std::complex&lt; T &gt; &gt; &amp;in)</td></tr>
+<tr class="separator:a72c6489968d268fbcb2f481a781589bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb1a8394ac5c387e81faf95331ca510"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a1fb1a8394ac5c387e81faf95331ca510">rows</a> ()</td></tr>
+<tr class="separator:a1fb1a8394ac5c387e81faf95331ca510"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad743b75752cedb7022cd7168b6a4df57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#ad743b75752cedb7022cd7168b6a4df57">cols</a> ()</td></tr>
+<tr class="separator:ad743b75752cedb7022cd7168b6a4df57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a280f89291dbe766e1e0510fe32002034"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a280f89291dbe766e1e0510fe32002034">operator()</a> (int i, int j, int ord)</td></tr>
+<tr class="memdesc:a280f89291dbe766e1e0510fe32002034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calling BcMat(i,j, ord) will produce row vector representing [---&mdash;][a0 a1 ... an C0 C1]^T, assuming ord = 2. i and j refers to an element in the <a class="el" href="classsis_1_1LinopMat.html" title="This class represents a block matrix operator. It is a matrix of operators. ">LinopMat</a> L. Suppose L(1,1) is Dyy, and eval(1,1) = -1, then the row matrix will represent the evaluation of that condition in the basis of a0 to C1.  <a href="#a280f89291dbe766e1e0510fe32002034">More...</a><br /></td></tr>
+<tr class="separator:a280f89291dbe766e1e0510fe32002034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ad9512b6f1ecc6df2bb73689ef928aad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; std::complex&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#ad9512b6f1ecc6df2bb73689ef928aad2">L</a></td></tr>
-<tr class="separator:ad9512b6f1ecc6df2bb73689ef928aad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23e054c71725df217e79a9862c17cb51"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a23e054c71725df217e79a9862c17cb51">eval</a></td></tr>
-<tr class="separator:a23e054c71725df217e79a9862c17cb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dd2470079cd744ba02ef41b878325cb"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a4dd2470079cd744ba02ef41b878325cb">vals</a></td></tr>
-<tr class="separator:a4dd2470079cd744ba02ef41b878325cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbee2c30a2f29cee9883e67cf244bf55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; std::complex&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#acbee2c30a2f29cee9883e67cf244bf55">L</a></td></tr>
+<tr class="separator:acbee2c30a2f29cee9883e67cf244bf55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a9fc33daaa7c533bbf4ad8db14bf4e6"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a4a9fc33daaa7c533bbf4ad8db14bf4e6">eval</a></td></tr>
+<tr class="separator:a4a9fc33daaa7c533bbf4ad8db14bf4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6985eb081eaaecb009e547581ba0b86c"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsis_1_1BcMat_3_01std_1_1complex_3_01T_01_4_01_4.html#a6985eb081eaaecb009e547581ba0b86c">vals</a></td></tr>
+<tr class="separator:a6985eb081eaaecb009e547581ba0b86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
 class sis::BcMat&lt; std::complex&lt; T &gt; &gt;</h3>
 
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08918">8918</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08918">8918</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af7a0d9b8c32b04721f30bd73903381e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7a0d9b8c32b04721f30bd73903381e5">&#9670;&nbsp;</a></span>BcMat() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a0d9b8c32b04721f30bd73903381e5">&#9670;&nbsp;</a></span>BcMat() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,12 +186,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08935">8935</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08935">8935</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a0586c1a52ad805ccae9eabee3c1fab61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0586c1a52ad805ccae9eabee3c1fab61">&#9670;&nbsp;</a></span>BcMat() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0586c1a52ad805ccae9eabee3c1fab61">&#9670;&nbsp;</a></span>BcMat() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -211,15 +226,86 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08939">8939</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08939">8939</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, and <a class="el" href="sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
+
+</div>
+</div>
+<a id="af7a0d9b8c32b04721f30bd73903381e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a0d9b8c32b04721f30bd73903381e5">&#9670;&nbsp;</a></span>BcMat() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::<a class="el" href="classsis_1_1BcMat.html">BcMat</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l08935">8935</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0586c1a52ad805ccae9eabee3c1fab61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0586c1a52ad805ccae9eabee3c1fab61">&#9670;&nbsp;</a></span>BcMat() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::<a class="el" href="classsis_1_1BcMat.html">BcMat</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>m_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l08939">8939</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad743b75752cedb7022cd7168b6a4df57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad743b75752cedb7022cd7168b6a4df57">&#9670;&nbsp;</a></span>cols()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad743b75752cedb7022cd7168b6a4df57">&#9670;&nbsp;</a></span>cols() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,12 +329,41 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08969">8969</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08969">8969</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad743b75752cedb7022cd7168b6a4df57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad743b75752cedb7022cd7168b6a4df57">&#9670;&nbsp;</a></span>cols() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::cols </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l08969">8969</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a280f89291dbe766e1e0510fe32002034"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a280f89291dbe766e1e0510fe32002034">&#9670;&nbsp;</a></span>operator()()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a280f89291dbe766e1e0510fe32002034">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -291,14 +406,64 @@ template&lt;class T &gt; </div>
 
 <p>Calling BcMat(i,j, ord) will produce row vector representing [---&mdash;][a0 a1 ... an C0 C1]^T, assuming ord = 2. i and j refers to an element in the <a class="el" href="classsis_1_1LinopMat.html" title="This class represents a block matrix operator. It is a matrix of operators. ">LinopMat</a> L. Suppose L(1,1) is Dyy, and eval(1,1) = -1, then the row matrix will represent the evaluation of that condition in the basis of a0 to C1. </p>
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08979">8979</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08979">8979</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, <a class="el" href="sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="sis_8hpp_source.html#l00472">sis::N</a>, and <a class="el" href="sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l07971">sis::MatGen&lt; T &gt;::compute()</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07963">sis::MatGen&lt; T &gt;::con_mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, <a class="el" href="includes_2sis_8hpp_source.html#l07959">sis::MatGen&lt; T &gt;::mats</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="jemdoc_8py_source.html#l00375">jemdoc::out()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
+
+</div>
+</div>
+<a id="a280f89291dbe766e1e0510fe32002034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a280f89291dbe766e1e0510fe32002034">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt;std::complex&lt;T&gt;, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calling BcMat(i,j, ord) will produce row vector representing [---&mdash;][a0 a1 ... an C0 C1]^T, assuming ord = 2. i and j refers to an element in the <a class="el" href="classsis_1_1LinopMat.html" title="This class represents a block matrix operator. It is a matrix of operators. ">LinopMat</a> L. Suppose L(1,1) is Dyy, and eval(1,1) = -1, then the row matrix will represent the evaluation of that condition in the basis of a0 to C1. </p>
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l08979">8979</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, <a class="el" href="includes_2sis_8hpp_source.html#l00472">sis::N</a>, <a class="el" href="jemdoc_8py_source.html#l00375">jemdoc::out()</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
 
 </div>
 </div>
 <a id="a72c6489968d268fbcb2f481a781589bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72c6489968d268fbcb2f481a781589bd">&#9670;&nbsp;</a></span>operator=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c6489968d268fbcb2f481a781589bd">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -323,14 +488,46 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08957">8957</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08957">8957</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, and <a class="el" href="sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
+
+</div>
+</div>
+<a id="a72c6489968d268fbcb2f481a781589bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c6489968d268fbcb2f481a781589bd">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsis_1_1BcMat.html">BcMat</a>&lt; std::complex&lt; T &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l08957">8957</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
 
 </div>
 </div>
 <a id="a15eaba5ecb8460a955473135e1599c6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15eaba5ecb8460a955473135e1599c6e">&#9670;&nbsp;</a></span>resize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a15eaba5ecb8460a955473135e1599c6e">&#9670;&nbsp;</a></span>resize() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,14 +562,56 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08948">8948</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08948">8948</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, and <a class="el" href="sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
+
+</div>
+</div>
+<a id="a15eaba5ecb8460a955473135e1599c6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15eaba5ecb8460a955473135e1599c6e">&#9670;&nbsp;</a></span>resize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>m_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l08948">8948</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="includes_2sis_8hpp_source.html#l08832">sis::BcMat&lt; T &gt;::eval</a>, <a class="el" href="includes_2sis_8hpp_source.html#l08831">sis::BcMat&lt; T &gt;::L</a>, and <a class="el" href="includes_2sis_8hpp_source.html#l08833">sis::BcMat&lt; T &gt;::vals</a>.</p>
 
 </div>
 </div>
 <a id="a1fb1a8394ac5c387e81faf95331ca510"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fb1a8394ac5c387e81faf95331ca510">&#9670;&nbsp;</a></span>rows()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb1a8394ac5c387e81faf95331ca510">&#9670;&nbsp;</a></span>rows() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -396,13 +635,42 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08965">8965</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08965">8965</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a1fb1a8394ac5c387e81faf95331ca510"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb1a8394ac5c387e81faf95331ca510">&#9670;&nbsp;</a></span>rows() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::rows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html#l08965">8965</a> of file <a class="el" href="SISCpp_2includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a23e054c71725df217e79a9862c17cb51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23e054c71725df217e79a9862c17cb51">&#9670;&nbsp;</a></span>eval</h2>
+<a id="a4a9fc33daaa7c533bbf4ad8db14bf4e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a9fc33daaa7c533bbf4ad8db14bf4e6">&#9670;&nbsp;</a></span>eval</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -410,17 +678,17 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;T, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::eval</td>
+          <td class="memname">Eigen::Matrix&lt; T, Eigen::Dynamic, Eigen::Dynamic &gt; <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::eval</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08933">8933</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08933">8933</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ad9512b6f1ecc6df2bb73689ef928aad2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9512b6f1ecc6df2bb73689ef928aad2">&#9670;&nbsp;</a></span>L</h2>
+<a id="acbee2c30a2f29cee9883e67cf244bf55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbee2c30a2f29cee9883e67cf244bf55">&#9670;&nbsp;</a></span>L</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,17 +696,17 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt;std::complex&lt;T&gt; &gt; <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::L</td>
+          <td class="memname"><a class="el" href="classsis_1_1LinopMat.html">LinopMat</a>&lt; std::complex&lt; T &gt; &gt; <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::L</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08932">8932</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08932">8932</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a4dd2470079cd744ba02ef41b878325cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dd2470079cd744ba02ef41b878325cb">&#9670;&nbsp;</a></span>vals</h2>
+<a id="a6985eb081eaaecb009e547581ba0b86c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6985eb081eaaecb009e547581ba0b86c">&#9670;&nbsp;</a></span>vals</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -446,17 +714,17 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;std::complex&lt;T&gt;, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::vals</td>
+          <td class="memname">Eigen::Matrix&lt; std::complex&lt; T &gt;, Eigen::Dynamic, Eigen::Dynamic &gt; <a class="el" href="classsis_1_1BcMat.html">sis::BcMat</a>&lt; std::complex&lt; T &gt; &gt;::vals</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sis_8hpp_source.html#l08934">8934</a> of file <a class="el" href="sis_8hpp_source.html">sis.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="includes_2sis_8hpp_source.html#l08934">8934</a> of file <a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>includes/<a class="el" href="sis_8hpp_source.html">sis.hpp</a></li>
+<li>includes/<a class="el" href="includes_2sis_8hpp_source.html">sis.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -3,7 +3,7 @@
 # jemdoc: addcss{bibover.css}
 #include{masterFile_2.jeminc}
 #include{mj-complete-bib_3.jeminc}
-= Eigenvalue example
+= Generalized eigenvalue problem 1
 
 === Problem
 Find the eigenvalues of

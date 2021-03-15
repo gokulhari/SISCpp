@@ -1,0 +1,287 @@
+# jemdoc: menu{MENU}{ex12.html},addpackage{amsmath},addpackage{amssymb}
+# jemdoc: addcss{jemdoc.css}
+# jemdoc: addcss{bibover.css}
+#include{masterFile_2.jeminc}
+#include{mj-complete-bib_3.jeminc}
+
+= Channel flow of a Newtonian fluid
+~~~
+{}{raw}
+<figure>
+  <img src="pics/ChannelFlow.svg" alt="3dflow" style="width:50%">
+  <p>Fig. 1 Channel flow geometry with base velocity profiles.</p>
+</figure>
+~~~
+
+The evolution of infinitesimal velocity $[\,u\;\;v\;\;w\,]^T$ and pressure $p$ fluctuations around a base flow $[\,U(y) \;\; 0 \;\; 0\,]^T$ is governed by the linearized Navier-Stokes (NS) equations,
+\(
+	\begin{equation}
+    \begin{array}{rclcrcrcr}
+    \partial_{t} u 
+    & = &
+    (
+    (1/Re) \, \Delta 
+    \, - \, 
+    {\mathrm i} k_x U (y)
+    )
+    \,
+    u
+    & - &
+    U' (y) \, v
+    & - & 
+    {\mathrm i} k_x \, p 
+    & + &  
+    d_u
+    \\[.15cm]
+    \partial_{t} {v} 
+    & = &
+    (
+    (1/Re) \, \Delta 
+    \, - \, 
+    {\mathrm i} k_x U (y)
+    )
+    \,
+    v
+    & & 
+    & - &
+    {\mathrm D} \, p  
+    & + & 
+    d_v
+    \\[.15cm]
+    \partial_{t} {w} 
+    & = &
+    (
+    (1/Re) \, \Delta 
+    \, - \, 
+    {\mathrm i} k_x U (y)
+    )
+    \,
+    w
+    & &
+    & - &
+    {\mathrm i} k_z \, p 
+    & + &
+    d_w
+    \\[.15cm]
+    0
+    & = &
+    {\mathrm i} k_x u 
+    \; + \; 
+    {\mathrm D} \, v 
+    \; + \; 
+    {\mathrm i} k_z w.
+    & & & & & &
+    \end{array}
+    \label{eq:1}
+    \end{equation}
+\)
+Here, $U' (y) = {\mathrm d} U (y)/ {\mathrm d} y$, ${\mathbf d} = [\,d_u\,\;d_v\,\;d_w\,]^T$ is the body forcing fluctuation vector, $u$, $v$, and $w$ are velocity fluctuations in the streamwise, $x$, wall-normal, $y$, and spanwise, $z$, directions, $k_x$ and $k_z$ are wall-parallel wavenumbers, $Re$ is the Reynolds number, ${\mathrm D}$ is the differential operator in $y$, $\Delta = {\mathrm D}^2 - (k_x^2 + k_z^2) I$ is the Laplacian, and $\mathrm i$ is the imaginary unit. The base velocity is determined by $U(y) = 1 - y^2$ in pressure-driven (Poiseuille) and $U(y) = y$ in shear-driven (Couette) flow. Equivalently, Eq.~$\eqref{eq:1}$ along with the boundary conditions can be represented as,
+\(
+	\begin{alignat}{3}
+  \partial_{t} [\mathcal{E} \, \boldsymbol \phi( \cdot , t)](y) \;&=\; [\mathcal{F}\, \boldsymbol \phi(\cdot , t)](y) \,+\, [\mathcal{B}\,{\mathbf d}(\cdot,t)](y),&&\notag
+  \\[0.1cm]
+    \boldsymbol \xi (y,t) \;&=\; [\mathcal {C}\,\boldsymbol\phi(\cdot,t)](y),&\label{eq:2}
+    \\[0.1cm]
+   [\mathcal {L}_{ \pm 1} \, \boldsymbol \phi(\cdot,t)]( \pm 1)  
+   \;&=\; 
+   0,&\notag
+\end{alignat}
+	\)	
+where $\boldsymbol{\phi} = [\,u \;\; v \;\; w \;\; p\,]^T$, $\boldsymbol{\xi} = [\,u \;\; v \;\; w\,]^T$, and 
+\(
+	\begin{array}{rclrcl}
+	\mathcal{E} 
+	& \!\! = \!\! & 
+	\left[\begin{array}{cccc}
+	I & 0 & 0 & 0\\
+	0 & I & 0 & 0\\
+	0 & 0 & I & 0\\
+	0 & 0 & 0 & 0
+	\end{array}
+	\right], 
+	& 
+	\mathcal{F}
+	& \!\! = \!\! & 
+	\left[\begin{array}{cccc}
+ 	(1/Re) \Delta - {\mathrm i} k_x U(y) & -U'(y) & 0 & -{\mathrm i} k_x\\
+	0 & (1/Re) \Delta - {\mathrm i} k_x U(y) & 0 & - {\mathrm D} \\
+	0 & 0 & (1/Re) \Delta - {\mathrm i} k_x U(y) & - {\mathrm i} k_z\\
+	{\mathrm i} k_x & {\mathrm D} & {\mathrm i} k_z & 0\\
+	\end{array}
+	\right],
+	\\
+	\mathcal{B} 
+	& \!\! = \!\! &  
+	\left[\begin{array}{ccc}
+	I & 0 & 0 \\
+	0 & I & 0 \\
+	0 & 0 & I \\
+	0 & 0 & 0
+	\end{array}
+	\right], 
+	& 
+	\mathcal{C}
+	& \!\! = \!\! & 
+	\left[\begin{array}{cccc}
+	I & 0 & 0 & 0 \\
+	0 & I & 0 & 0 \\
+	0 & 0 & I & 0
+	\end{array}
+	\right], \qquad \mathcal{L}_{\pm 1} 
+	\;=\;  
+	\left[\begin{array}{cc}
+		I & 0 & 0 & 0 \\
+		0 & I & 0 & 0 \\
+		0 & 0 & I & 0 \\
+		0 & {\mathrm D} & 0 & 0
+	\end{array}\right].
+	\end{array}
+	\)
+
+=== Solution
+~~~
+{}{cpp}
+#define EIGEN_USE_BLAS
+#define SIS_USE_LAPACK
+#include <fstream>
+#include <iostream>
+#include <sis.hpp>
+#include <string>
+
+using namespace std;
+typedef complex<double> Cd_t;
+typedef valarray<complex<double> > Vcd_t;
+complex<double> ii(0.0, 1.0);
+
+int main()
+{
+    using namespace sis;
+    int bre;
+    // Number of Chebyshev polynomials
+    N = 31;
+    sis_setup();
+
+    // Length of domain:
+    double kz = 1;
+    double kx = 1;
+    Eigen::VectorXd omval(20);
+    Eigen::MatrixXd data(20,3); 
+    Eigen::MatrixXd data2(20,2); 
+    omval = Eigen::VectorXd::LinSpaced(20, -2, 0);
+
+    valarray<double> y, Uy, U, Uyy(N + 1);
+    // Set in cheb-point
+    setChebPts(y);
+
+    // Velocity and derivative of PP flow
+    U = 1.0 - pow(y, 2.0);
+    Uy = -2.0 * y;
+    Uyy = -2.0;
+    double Re = 2000.0;
+
+    Linop<double> Dy(1);
+    Dy.coef << 1.0, 0.0;
+
+    LinopMat<std::complex<double> > A, B(2, 3), C(3, 2);
+    BcMat<std::complex<double> > Lbc(4, 4), Rbc(4, 4), bc(8, 4);
+
+    Lbc.resize(4, 4);
+    Rbc.resize(4, 4);
+    Lbc.L << 1.0, 0.0, 0.0, 0.0, //
+        0.0, 1.0, 0.0, 0.0,      //
+        0.0, 0.0, 1.0, 0.0,      //
+        0.0, Dy, 0.0, 0.0;
+    Rbc.L << 1.0, 0.0, 0.0, 0.0, //
+        0.0, 1.0, 0.0, 0.0,      //
+        0.0, 0.0, 1.0, 0.0,      //
+        0.0, Dy, 0.0, 0.0;
+    Lbc.eval.setConstant(-1.0);
+    Rbc.eval.setConstant(1.0);
+    bc.L << Lbc.L, //
+        Rbc.L;
+    bc.eval << Lbc.eval, //
+        Rbc.eval;
+
+    SingularValueDecomposition<std::complex<double> > svd;
+
+    B.resize(4, 3);
+    C.resize(3, 4);
+    B << 1.0, 0.0, 0.0, //
+        0.0, 1.0, 0.0,  //
+        0.0, 0.0, 1.0,  //
+        0.0, 0.0, 0.0;
+    C << 1.0, 0.0, 0.0, 0.0, //
+        0.0, 1.0, 0.0, 0.0,  //
+        0.0, 0.0, 1.0, 0.0;  //
+
+    for (int k = 0; k < 20; k++)
+    {
+        complex<double> iiomega = ii * omval(k);
+        double k2 = kx * kx + kz * kz;
+        double k4 = k2 * k2;
+        Linop<double> Delta(2), Delta2(4);
+        LinopMat<complex<double> > Lmat(4, 4), Mmat(4, 4);
+
+        Delta.coef << 1.0, 0.0, -k2;
+        Delta2.coef << 1.0, 0.0, -2 * k2, 0.0, k4;
+
+        Mmat << 1.0, 0.0, 0.0, 0.0, //
+            0.0, 1.0, 0.0, 0.0,     //
+            0.0, 0.0, 1.0, 0.0,     //
+            0.0, 0.0, 0.0, 0.0 * Delta;
+
+        Lmat << (-ii * kx * U) + (Delta / Re), -Uy, 0.0, -ii * kx, //
+            0.0, (-ii * kx * U) + (Delta / Re), 0.0, -Dy,             //
+            0.0, 0.0, (-ii * kx * U) + (Delta / Re), -ii * kz,     //
+            ii * kx, Dy, ii * kz, 0.0;
+
+        A.resize(4, 4);
+        A = ((iiomega * Mmat) - Lmat);
+
+        svd.compute(A, B, C, Lbc, Rbc, Lbc, Rbc, 15 * (N + 1));
+
+        // Store first two eigenvalues.
+        cout << "First two singular values: " << svd.eigenvalues[0] << " "
+             << svd.eigenvalues[1] << "\n";
+
+        data(k,0) = omval(k); 
+        data(k,1) = svd.eigenvalues[0].real();
+        data(k,2) = svd.eigenvalues[1].real();
+
+        // Compute power spectral density:
+        data2(k,0) = omval(k);
+        Cd_t psd;
+        psd = sqrt(svd.PowerSpectralDensity(A, B, C, Lbc, Rbc, Lbc, Rbc));
+        cout << "Power spectral density for omega = " << omval(k) << " is " << real(psd) << endl;
+        data2(k,1) = real(psd);
+    }
+    // Export to a file:
+    ofstream outfile("data/Ex12.txt");
+    outfile << data;
+    outfile.close();
+
+    outfile.open("data/Ex_12_2.txt");
+    outfile << data2;
+    outfile.close();
+
+    return 0;
+}
+~~~
+
+~~~
+{}{raw}
+<figure>
+  <img src="../pics/Ex_12.svg" alt="3dflow" style="width:60%">
+  <figcaption>Fig.\(1\) 
+</figcaption>
+</figure>
+~~~
+
+~~~
+{}{raw}
+<figure>
+  <img src="../pics/Ex_12_2.svg" alt="3dflow" style="width:60%">
+  <figcaption>Fig.\(2\)  
+</figcaption>
+</figure>
+~~~                           

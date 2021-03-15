@@ -106,12 +106,13 @@ $(document).ready(function(){initNavTree('Ex__04_8cpp.html','');});
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This solves the problem for a block matrix operator system. </p>
 <p>The eigenvalue problem is given by: </p><p class="formulaDsp">
-\[ \left[ \begin{array}{cc} \partial_{yy}/4 + 2y &amp; 1.0 \\ \sin (2y) &amp; \partial_{yy}/4 \end{array} \right] \left[ \begin{array}{c} u \\ v \end{array} \right] \;=\; \lambda \left[ \begin{array}{c} u \\ v \end{array} \right], \]
+\[ \left[ \begin{array}{cc} \frac{1}{4} \mathrm D^2 + 2y &amp; 1.0 \\ \sin (2y) &amp; \frac{1}{4}\mathrm D^2 \end{array} \right] \left[ \begin{array}{c} u \\ v \end{array} \right] \;=\; \lambda \left[ \begin{array}{c} u \\ v \end{array} \right], \]
 </p>
 <p> with boundary conditions: </p><p class="formulaDsp">
 \[ u(\pm 1) \;=\; v(\pm 1) \;=\; 0. \]
 </p>
- 
+<p> where \( \mathrm D = \mathrm d/\mathrm d y \). </p>
+
 <p class="definition">Definition in file <a class="el" href="Ex__04_8cpp_source.html">Ex_04.cpp</a>.</p>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Ex_04.cpp:</div>

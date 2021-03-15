@@ -106,12 +106,13 @@ $(document).ready(function(){initNavTree('Ex__07_8cpp.html','');});
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This solves the generalized eigenvalue problem for a block matrix operator system. </p>
 <p>The eigenvalue problem is given by: </p><p class="formulaDsp">
-\[ \left[ \begin{array}{cc} \partial_{yyyy}/16 + 2y &amp; 1.0 \\ \sin (2y) &amp; \partial_{yy}/4 \end{array} \right] \left[ \begin{array}{c} u \\ v \end{array} \right] \;=\; \lambda \left[ \begin{array}{cc} \partial_{yy}/4 &amp; 0\\ 0 &amp; 1 \end{array} \right] \left[ \begin{array}{c} u \\ v \end{array} \right], \]
+\[ \left[ \begin{array}{cc} \tfrac{1}{16}\mathrm D^4 + 2y &amp; 1.0 \\ \sin (2y) &amp; \tfrac{1}{4}\mathrm D^2 \end{array} \right] \left[ \begin{array}{c} u \\ v \end{array} \right] \;=\; \lambda \left[ \begin{array}{cc} \tfrac{1}{4}\mathrm D^2 &amp; 0\\ 0 &amp; 1 \end{array} \right] \left[ \begin{array}{c} u \\ v \end{array} \right], \]
 </p>
 <p> with boundary conditions: </p><p class="formulaDsp">
-\[ u&#39;(\pm 1) \;=\; u(\pm 1) \;=\; v(\pm 1) \;=\; 0. \]
+\[ [\mathrm D u(\cdot)](\pm 1) \;=\; u(\pm 1) \;=\; v(\pm 1) \;=\; 0. \]
 </p>
- 
+<p> Here, \( \mathrm D = \mathrm d/\mathrm d y \). </p>
+
 <p class="definition">Definition in file <a class="el" href="Ex__07_8cpp_source.html">Ex_07.cpp</a>.</p>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Ex_07.cpp:</div>
